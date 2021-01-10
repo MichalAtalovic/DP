@@ -6,3 +6,11 @@ Project for automatic searching author's publications and publications that cite
 ### 1. Prerequisites
 
 * Python 3.9.x or greater
+* Opera 73.0.x.x or greater
+* Node.js v12.20.0 or greater
+* Angular 9 or greater
+* .NET Core Desktop Runtime 3.1.x or greater
+
+### 2. Installation
+
+### 3. Usage
