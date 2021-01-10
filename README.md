@@ -10,6 +10,7 @@ Project for automatic searching author's publications and publications that cite
 * Node.js v12.20.0 or greater
 * Angular 9 or greater
 * .NET Core Desktop Runtime 3.1.x or greater
+* PostgreSQL Server & pgAdmin 4 v4
 
 ### 2. Installation
 
