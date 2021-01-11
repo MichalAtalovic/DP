@@ -1,0 +1,19 @@
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft": "Warning",
+      "Microsoft.Hosting.Lifetime": "Information"
+    }
+  },
+  "AppSettings": {
+    "ConnectionString": "Server=localhost; Port=5432; Database=distribution; Username=postgres; Password=postgres",
+    "BaseIndex": 1,
+    "RemoteUrls": [
+      "172.165.214.72",
+      "48.63.251.199"
+    ],
+    "Distributed": true 
+  },
+  "AllowedHosts": "*"
+}
