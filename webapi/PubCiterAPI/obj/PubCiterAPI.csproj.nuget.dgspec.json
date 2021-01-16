@@ -48,21 +48,25 @@
               "target": "Package",
               "version": "[5.5.1, )"
             },
+            "IronPython": {
+              "target": "Package",
+              "version": "[2.7.11, )"
+            },
             "Microsoft.AspNetCore.Hosting.WindowsServices": {
               "target": "Package",
-              "version": "[3.1.9, )"
+              "version": "[3.1.8, )"
             },
             "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
               "target": "Package",
-              "version": "[3.1.9, )"
+              "version": "[3.1.8, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.0.1, )"
+              "version": "[3.1.8, )"
             },
             "Microsoft.Extensions.Hosting.WindowsServices": {
               "target": "Package",
-              "version": "[5.0.1, )"
+              "version": "[3.1.8, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",
@@ -70,7 +74,7 @@
             },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
-              "version": "[5.0.1, )"
+              "version": "[3.1.4, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

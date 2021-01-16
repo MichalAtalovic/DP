@@ -29,15 +29,13 @@
         /// from Semantics Scholar
         /// </summary>
         /// <param name="context">Application DB context</param>
-        /// <param name="name">Author's name</param>
-        public void SyncFromSemantics(ApplicationDbContext context, string name);
+        public void SyncFromSemantics(ApplicationDbContext context);
 
         /// <summary>
         /// Synchronizes database of publications and their citations
         /// from opencitations.net
         /// </summary>
         /// <param name="context">Application DB context</param>
-        /// <param name="name">Author's name</param>
-        public void SyncFromOpenCitations(ApplicationDbContext context, string name);
+        public void SyncFromOpenCitations(ApplicationDbContext context);
     }
 }

@@ -37,6 +37,12 @@
         public string PublicationYear { get; set; }
 
         /// <summary>
+        /// Citating Publication's URL
+        /// </summary>
+        [Column(@"pub_url")]
+        public string PublicationUrl { get; set; }
+
+        /// <summary>
         /// Medium of publication where the citing publication was published
         /// </summary>
         [Column(@"venue")]

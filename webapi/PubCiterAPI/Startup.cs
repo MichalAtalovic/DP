@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using PubCiterAPI.Model;
+using PubCiterAPI.Repositories;
 using PubCiterAPI.Repositories.Interfaces;
 
 namespace PubCiterAPI
@@ -48,6 +49,9 @@ namespace PubCiterAPI
 
             AppSettings.ConnectionString = this.Configuration.GetSection(@"AppSettings").GetChildren().FirstOrDefault(x => x.Key == @"ConnectionString")?.Value;
             AppSettings.Author = this.Configuration.GetSection(@"AppSettings").GetChildren().FirstOrDefault(x => x.Key == @"Author")?.Value;
+            AppSettings.SemanticsScriptPath = this.Configuration.GetSection(@"Scraper").GetChildren().FirstOrDefault(x => x.Key == @"SemanticsScriptPath")?.Value;
+            AppSettings.ScholarScriptPath = this.Configuration.GetSection(@"Scraper").GetChildren().FirstOrDefault(x => x.Key == @"ScholarScriptPath")?.Value;
+            AppSettings.OutputFolder = this.Configuration.GetSection(@"Scraper").GetChildren().FirstOrDefault(x => x.Key == @"OutputFolder")?.Value;
 
             services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(AppSettings.ConnectionString));
             this.AddRepositoriesToContainer(services);
@@ -82,8 +86,8 @@ namespace PubCiterAPI
 
         private void AddRepositoriesToContainer(IServiceCollection services)
         {
-            services.AddScoped<IAuthorRepository>();
-            services.AddScoped<IPublicationRepository>();
+            services.AddScoped<AuthorRepository>();
+            services.AddScoped<PublicationRepository>();
         }
     }
 }

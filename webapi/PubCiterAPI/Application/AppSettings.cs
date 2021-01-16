@@ -11,5 +11,20 @@
         /// Author (The user searching for publications citing their work)
         /// </summary>
         public static string Author { get; set; }
+
+        /// <summary>
+        /// Path to semantics sync script
+        /// </summary>
+        public static string SemanticsScriptPath { get; set; }
+
+        /// <summary>
+        /// Path to Google Scholar sync script
+        /// </summary>
+        public static string ScholarScriptPath { get; set; }
+
+        /// <summary>
+        /// Folder containing API outputs
+        /// </summary>
+        public static string OutputFolder { get; set; }
     }
 }

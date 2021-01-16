@@ -7,7 +7,14 @@
     }
   },
   "AppSettings": {
-    "ConnectionString": "Server=localhost; Port=5432; Database=pubciter; Username=postgres; Password=postgres" 
+    "ConnectionString": "Server=localhost; Port=5432; Database=pubciter; Username=postgres; Password=postgres",
+    "Author": "Martin Misut"
+  },
+  "Scraper": {
+    "SemanticsScriptPath": "Scraper/semantics_sync.py",
+    "ScholarScriptPath": "Scraper/scholar_sync.py",
+    "OperaProfileDir": "C:/Users/michal.atalovic/AppData/Local/Opera Software/Opera Stable",
+    "OutputFolder": "Scraper/output"
   },
   "AllowedHosts": "*"
 }

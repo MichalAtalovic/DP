@@ -8,14 +8,14 @@ CREATE TABLE author_setting (
 );
 
 CREATE TABLE author (
-	author_id 	SERIAL 	NOT NULL,
-	scholar_id 	VARCHAR(20),
-	name        VARCHAR(100),
-	diplay_name VARCHAR(100),
-	url_picture VARCHAR(500),
-	affiliation VARCHAR(500),
-	total_cites NUMERIC(20),
-	setting_id INT,
+	author_id 	 SERIAL 	NOT NULL,
+	scholar_id 	 VARCHAR(20),
+	name         VARCHAR(100),
+	display_name VARCHAR(100),
+	url_picture  VARCHAR(500),
+	affiliation  VARCHAR(500),
+	total_cites  NUMERIC(20),
+	setting_id   INT,
 	CONSTRAINT PKEY_AUTHOR PRIMARY KEY (author_id),
 	FOREIGN KEY(setting_id) REFERENCES author_setting(setting_id)
 );
@@ -41,6 +41,7 @@ CREATE TABLE citation (
 	title     		VARCHAR(255),
 	author      	VARCHAR(255),
 	pub_year 		VARCHAR(255),
+	pub_url 		VARCHAR(255),
 	venue 			VARCHAR(255),
 	doi				VARCHAR(50),
 	abstract 		TEXT,

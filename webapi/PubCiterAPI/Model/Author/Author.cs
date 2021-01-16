@@ -20,42 +20,36 @@
         /// <summary>
         /// Author's name
         /// </summary>
-        [Key]
         [Column(@"name")]
         public string Name { get; set; }
 
         /// <summary>
         /// Author's name
         /// </summary>
-        [Key]
         [Column(@"display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
         /// Author's scholar ID
         /// </summary>
-        [Key]
         [Column(@"scholar_id")]
         public string ScholarId { get; set; }
 
         /// <summary>
         /// URL to author's photo from google scholar
         /// </summary>
-        [Key]
         [Column(@"url_picture")]
         public string UrlPicture { get; set; }
 
         /// <summary>
         /// Author's affiliation
         /// </summary>
-        [Key]
         [Column(@"affiliation")]
         public string Affiliation { get; set; }
 
         /// <summary>
         /// Total cites of author's publications
         /// </summary>
-        [Key]
         [Column(@"total_cites")]
         public long TotalCites { get; set; }
 

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using PubCiterAPI.Model;
+using PubCiterAPI.Repositories;
 using PubCiterAPI.Repositories.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -34,8 +35,8 @@ namespace PubCiterAPI.Controllers
         private readonly ApplicationDbContext context;
 
         public PublicationController(
-            IAuthorRepository authorRepository,
-            IPublicationRepository publicationRepository,
+            AuthorRepository authorRepository,
+            PublicationRepository publicationRepository,
             ApplicationDbContext context,
             ILogger<PublicationController> logger)
         {
@@ -46,11 +47,11 @@ namespace PubCiterAPI.Controllers
         }
 
         [HttpPost]
-        [Route(@"sync")]
+        [Route(@"citations/sync")]
         public void Sync()
         {
-            Task.Run(() =>
-            {
+            //Task.Run(() =>
+            //{
                 var author = this.authorRepository.GetAuthorInstanceByName(context, AppSettings.Author);
 
                 // if author does not exist, create initial record
@@ -59,7 +60,11 @@ namespace PubCiterAPI.Controllers
                     author = this.authorRepository.InitAuthor(context, AppSettings.Author);
                 }
 
-                if (author != null && author.Settings != null)
+            // DEBUG
+            //this.publicationRepository.SyncFromSemantics(context, "10.1016/j.sbspro.2015.02.347");
+            this.publicationRepository.SyncFromScholar(context, AppSettings.Author);
+
+            if (author != null && author.Settings != null)
                 {
                     // synchronize from Google Scholar
                     if (author.Settings.Scholar)
@@ -70,16 +75,16 @@ namespace PubCiterAPI.Controllers
                     // synchronize from Semantics Scholar
                     if (author.Settings.Semantics)
                     {
-                        this.publicationRepository.SyncFromSemantics(context, author.Name);
+                        this.publicationRepository.SyncFromSemantics(context);
                     }
 
                     // synchronize from opencitations.net
                     if (author.Settings.OpenCitations)
                     {
-                        this.publicationRepository.SyncFromOpenCitations(context, author.Name);
+                        this.publicationRepository.SyncFromOpenCitations(context);
                     }
                 }
-            });
+            //});
         }
 
         [HttpGet]
