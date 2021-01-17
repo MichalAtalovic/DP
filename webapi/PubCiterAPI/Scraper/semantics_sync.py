@@ -1,6 +1,9 @@
 import semanticscholar as sch
 import sys
 import getopt
+import codecs
+import json
+import os
 
 # Synchronization method
 def sync(doi) -> object:
@@ -17,7 +20,11 @@ def sync(doi) -> object:
             'doi': citation['doi'] if citation['doi'] != None else ''
         })
 
-    print(citations)
+    # export json to file
+    with codecs.open(os.path.dirname(__file__) + '/output/semantics_output.data', 'w', 'utf-8') as f:
+      json.dump(citations, f, ensure_ascii = False)
+
+    sys.exit()
 
 # main method
 def main(argv):

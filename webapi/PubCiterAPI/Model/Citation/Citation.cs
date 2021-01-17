@@ -45,8 +45,14 @@
         /// <summary>
         /// Medium of publication where the citing publication was published
         /// </summary>
-        [Column(@"venue")]
+        [Column(@"journal")]
         public string Journal { get; set; }
+
+        /// <summary>
+        /// Volume of the journal in which the publication was published
+        /// </summary>
+        [Column(@"volume")]
+        public string JournalVolume { get; set; }
 
         /// <summary>
         /// Citation's abstract

@@ -12,9 +12,8 @@
         /// Gets publications of author by their name
         /// </summary>
         /// <param name="context">Application DB context</param>
-        /// <param name="name">Author's name</param>
         /// <returns>Collection of publications</returns>
-        public IEnumerable<Publication> GetPublications(ApplicationDbContext context, string name);
+        public IEnumerable<Publication> GetPublications(ApplicationDbContext context);
 
         /// <summary>
         /// Synchronizes database of publications and their citations
@@ -37,5 +36,27 @@
         /// </summary>
         /// <param name="context">Application DB context</param>
         public void SyncFromOpenCitations(ApplicationDbContext context);
+
+        /// <summary>
+        /// Updates publication's DOI by publication ID
+        /// </summary>
+        /// <param name="context">Application DB context</param>
+        /// <param name="publicationId">Publication ID</param>
+        /// <param name="doi">DOI string value</param>
+        public void UpdatePublicationDoi(ApplicationDbContext context, long publicationId, string doi);
+
+        /// <summary>
+        /// Inserts publication to the library
+        /// </summary>
+        /// <param name="context">Application DB context</param>
+        /// <param name="publication">Publication object</param>
+        void InsertPublication(ApplicationDbContext context, Publication publication);
+
+        /// <summary>
+        /// Updates or inserts publication in/to the library
+        /// </summary>
+        /// <param name="context">Application DB context</param>
+        /// <param name="publication">Publication object</param>
+        void UpdateInsertPublication(ApplicationDbContext context, Publication publication);
     }
 }

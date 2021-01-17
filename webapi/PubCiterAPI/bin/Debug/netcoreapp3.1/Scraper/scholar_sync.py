@@ -20,7 +20,6 @@ def sync(author):
       }
 
       publications.append(pub_struct)
-      break
 
    data = {
       'author': {

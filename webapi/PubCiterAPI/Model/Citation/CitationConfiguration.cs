@@ -31,6 +31,9 @@
             builder.Property(prop => prop.Journal)
                 .HasMaxLength(255);
 
+            builder.Property(prop => prop.JournalVolume)
+                .HasMaxLength(20);
+
             builder.Property(prop => prop.Doi)
                 .HasMaxLength(50);
         }

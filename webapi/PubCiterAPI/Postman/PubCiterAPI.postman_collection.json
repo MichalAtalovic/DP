@@ -1,0 +1,305 @@
+{
+	"info": {
+		"_postman_id": "f1d46762-b335-4396-b5a5-e8e267743c16",
+		"name": "PubCiterAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Publication",
+			"item": [
+				{
+					"name": "Get list of publications",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/publication",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"publication"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Synchronize citations",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/publication/citations/sync",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"publication",
+								"citations",
+								"sync"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add new publication",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"authorId\": 1,\r\n    \"title\": \"Testovanie PubCiterAPI\",\r\n    \"publicationYear\": \"2021\",\r\n    \"authors\": \"Martin Misut\",\r\n    \"journal\": \"Testovaci zurnal\",\r\n    \"journalVolume\": \"\",\r\n    \"pages\": \"12-15\",\r\n    \"publisher\": \"Test\",\r\n    \"abstract\": \"Toto je testovacia publikacia\",\r\n    \"doi\": null,\r\n    \"publicationCitationList\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/publication",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"publication"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update publication",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"publicationId\": 41,\r\n    \"authorId\": 1,\r\n    \"title\": \"Testovanie PubCiterAPI v1\",\r\n    \"publicationYear\": \"2021\",\r\n    \"authors\": \"Martin Misut\",\r\n    \"journal\": \"Testovaci zurnal 2021\",\r\n    \"journalVolume\": \"\",\r\n    \"pages\": \"12-15\",\r\n    \"publisher\": \"Test\",\r\n    \"abstract\": \"Toto je testovacia publikacia\",\r\n    \"doi\": null,\r\n    \"publicationCitationList\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/publication",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"publication"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get sync status",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/publication/sync/status",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"publication",
+								"sync",
+								"status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update publication's DOI",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/publication/1?doi=10.1016/j.sbspro.2015.02.347",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"publication",
+								"1"
+							],
+							"query": [
+								{
+									"key": "doi",
+									"value": "10.1016/j.sbspro.2015.02.347"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Author",
+			"item": [
+				{
+					"name": "Get list of authors",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/author",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"author"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get author by ID",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/author?authorId=1",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"author"
+							],
+							"query": [
+								{
+									"key": "authorId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get author by name",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/author?name=Martin Misut",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"author"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Martin Misut"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Settings",
+			"item": [
+				{
+					"name": "Update author's settings",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"scholar\": true,\r\n    \"semantics\": true,\r\n    \"openCitations\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/settings/1",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"settings",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

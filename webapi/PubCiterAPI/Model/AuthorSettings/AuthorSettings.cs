@@ -34,11 +34,5 @@
         /// </summary>
         [Column(@"open_citations")]
         public bool OpenCitations { get; set; }
-
-        /// <summary>
-        /// Status of running synchronization [ true = running, false = idle ]
-        /// </summary>
-        [Column(@"sync_status")]
-        public bool SyncStatus { get; set; }
     }
 }

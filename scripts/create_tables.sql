@@ -3,7 +3,6 @@ CREATE TABLE author_setting (
    scholar     		BOOLEAN default true,
    open_citations 	BOOLEAN default false,
    semantics 		BOOLEAN default false,
-   sync_status		BOOLEAN default false,
    CONSTRAINT PKEY_SETTING PRIMARY KEY (setting_id)
 );
 
@@ -42,7 +41,8 @@ CREATE TABLE citation (
 	author      	VARCHAR(255),
 	pub_year 		VARCHAR(255),
 	pub_url 		VARCHAR(255),
-	venue 			VARCHAR(255),
+	journal 		VARCHAR(255),
+	volume 			VARCHAR(20),
 	doi				VARCHAR(50),
 	abstract 		TEXT,
 	CONSTRAINT PKEY_CITATION PRIMARY KEY (citation_id)

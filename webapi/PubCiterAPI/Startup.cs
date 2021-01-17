@@ -1,14 +1,14 @@
 using System.Linq;
-
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using PubCiterAPI.Model;
+using PubCiterAPI.Model.SyncState;
 using PubCiterAPI.Repositories;
-using PubCiterAPI.Repositories.Interfaces;
 
 namespace PubCiterAPI
 {
@@ -38,28 +38,43 @@ namespace PubCiterAPI
             });
 
             services.AddControllers().AddNewtonsoftJson(options =>
-                     options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+            {
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+                options.SerializerSettings.Converters.Add(new Newtonsoft.Json.Converters.StringEnumConverter());
+            });
+
 
 
             services.AddSwaggerGen(c =>
                 {
-                    c.SwaggerDoc(@"v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = @"PubCiter API documentation" });
+                    c.SwaggerDoc(@"v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = @"PubCiterAPI V1 docs" });
+                    c.EnableAnnotations();
                 }
             );
 
+            services.AddSwaggerGenNewtonsoftSupport();
+
+            // Load application settings from webconfig
             AppSettings.ConnectionString = this.Configuration.GetSection(@"AppSettings").GetChildren().FirstOrDefault(x => x.Key == @"ConnectionString")?.Value;
             AppSettings.Author = this.Configuration.GetSection(@"AppSettings").GetChildren().FirstOrDefault(x => x.Key == @"Author")?.Value;
             AppSettings.SemanticsScriptPath = this.Configuration.GetSection(@"Scraper").GetChildren().FirstOrDefault(x => x.Key == @"SemanticsScriptPath")?.Value;
             AppSettings.ScholarScriptPath = this.Configuration.GetSection(@"Scraper").GetChildren().FirstOrDefault(x => x.Key == @"ScholarScriptPath")?.Value;
             AppSettings.OutputFolder = this.Configuration.GetSection(@"Scraper").GetChildren().FirstOrDefault(x => x.Key == @"OutputFolder")?.Value;
 
+            // Reset states of synchronization
+            CurrentSyncState.GoogleScholar = SyncStateEnum.Idle;
+            CurrentSyncState.GoogleScholar = SyncStateEnum.Idle;
+            CurrentSyncState.GoogleScholar = SyncStateEnum.Idle;
+
             services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(AppSettings.ConnectionString));
             this.AddRepositoriesToContainer(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
         {
+            loggerFactory.AddFile("Logs\\Log.txt");
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -67,9 +82,10 @@ namespace PubCiterAPI
 
             app.UseSwagger();
 
-            app.UseSwaggerUI(c => {
-                c.SwaggerEndpoint(@"/swagger/v1/swagger.json", @"API v1");
-                c.RoutePrefix = string.Empty;
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint(@"/swagger/v1/swagger.json", @"PubCiterAPI V1");
+                c.RoutePrefix = @"swagger";
             });
 
             app.UseRouting();
@@ -88,6 +104,7 @@ namespace PubCiterAPI
         {
             services.AddScoped<AuthorRepository>();
             services.AddScoped<PublicationRepository>();
+            services.AddScoped<SettingsRepository>();
         }
     }
 }

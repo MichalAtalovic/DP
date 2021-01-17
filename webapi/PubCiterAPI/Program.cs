@@ -13,9 +13,10 @@ namespace PubCiterAPI
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
+
              Host.CreateDefaultBuilder(args)
                 .UseWindowsService()
-                .ConfigureLogging(logging =>
+                .ConfigureLogging((hostingContext, logging) =>
                 {
                     logging.ClearProviders();
                     logging.AddConsole();
