@@ -35,6 +35,22 @@ CREATE TABLE publication (
    FOREIGN KEY(author_id) REFERENCES author(author_id)
 );
 
+CREATE TABLE quarantine (
+   pub_id 			SERIAL       	NOT NULL,
+   author_id    	INT				NOT NULL,
+   title     		VARCHAR(255),
+   pub_year 		VARCHAR(255),
+   author      		VARCHAR(255),
+   journal          VARCHAR(255),
+   volume 			VARCHAR(20),
+   pages			VARCHAR(20),
+   publisher 		VARCHAR(255),
+   abstract 		TEXT,
+   doi				VARCHAR(50),
+   CONSTRAINT PKEY_QUARANTINE PRIMARY KEY (pub_id),
+   FOREIGN KEY(author_id) REFERENCES author(author_id)
+);
+
 CREATE TABLE citation (
 	citation_id 	SERIAL 			NOT NULL,
 	title     		VARCHAR(255),
@@ -52,5 +68,12 @@ CREATE TABLE publication_citation (
 	pub_id 				    	INT NOT NULL,
 	citation_id					INT NOT NULL,
 	FOREIGN KEY(pub_id) 		REFERENCES publication(pub_id),
+	FOREIGN KEY(citation_id) 	REFERENCES citation(citation_id)
+);
+
+CREATE TABLE quarantine_citation (
+	quarantine_id 				INT NOT NULL,
+	citation_id					INT NOT NULL,
+	FOREIGN KEY(quarantine_id) 		REFERENCES quarantine(pub_id),
 	FOREIGN KEY(citation_id) 	REFERENCES citation(citation_id)
 );

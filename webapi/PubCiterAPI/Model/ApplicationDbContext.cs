@@ -20,9 +20,9 @@
         public DbSet<Publication> Publications { get; set; }
 
         /// <summary>
-        /// Citations collection
+        /// Quarantined publications collection
         /// </summary>
-        public DbSet<Citation> Citations { get; set; }
+        public DbSet<QuarantinedPublication> QuarantinedPublications { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ApplicationDbContext"/> class.
@@ -44,6 +44,7 @@
             modelBuilder.ApplyConfiguration(new AuthorConfiguration());
             modelBuilder.ApplyConfiguration(new PublicationConfiguration());
             modelBuilder.ApplyConfiguration(new CitationConfiguration());
+            modelBuilder.ApplyConfiguration(new QuarantinedPublicationConfiguration());
 
             modelBuilder.Entity<PublicationCitation>()
                 .HasKey(a => new { a.PublicationId, a.CitationId });
@@ -51,6 +52,13 @@
             modelBuilder.Entity<PublicationCitation>()
                 .HasOne(e => e.Publication)
                 .WithMany(p => p.PublicationCitationList);
+
+            modelBuilder.Entity<QuarantinedPublicationCitation>()
+                .HasKey(a => new { a.QuarantinedPublicationId, a.CitationId });
+
+            modelBuilder.Entity<QuarantinedPublicationCitation>()
+                .HasOne(e => e.QuarantinedPublication)
+                .WithMany(p => p.QuarantinedPublicationCitationList);
         }
     }
 }

@@ -16,7 +16,7 @@ namespace PubCiterAPI.Controllers
         /// <summary>
         /// The logger.
         /// </summary>
-        private readonly ILogger<PublicationController> logger;
+        private readonly ILogger<SettingsController> logger;
 
         /// <summary>
         /// Settings Repository instance
@@ -37,7 +37,7 @@ namespace PubCiterAPI.Controllers
         public SettingsController(
             SettingsRepository settingsRepository,
             ApplicationDbContext context,
-            ILogger<PublicationController> logger)
+            ILogger<SettingsController> logger)
         {
             this.context = context;
             this.settingsRepository = settingsRepository;

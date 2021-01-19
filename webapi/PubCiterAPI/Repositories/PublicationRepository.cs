@@ -213,6 +213,13 @@
                 }
                 else // INSERT PULICATION
                 {
+                    var quarantinedPublications = context.QuarantinedPublications.ToList().FirstOrDefault(x => string.Equals(x.Title.Trim().ToLower(), (bib[@"title"]?.ToString() ?? string.Empty).Trim().ToLower()));
+                    if (quarantinedPublications != null)
+                    {
+                        // if in quarantine, skip
+                        continue;
+                    }
+
                     publication = new Publication
                     {
                         AuthorId = author.AuthorId,
@@ -403,6 +410,13 @@
             var pub = context.Publications.ToList().FirstOrDefault(x => x.Title == publication.Title);
             if (pub == null)
             {
+                var quarantinedPublications = context.QuarantinedPublications.ToList().FirstOrDefault(x => string.Equals(x.Title.Trim().ToLower(), (publication?.Title ?? string.Empty).Trim().ToLower()));
+                if (quarantinedPublications != null)
+                {
+                    // if in quarantine, skip
+                    return;
+                }
+
                 context.Publications.Add(publication);
                 context.SaveChanges();
             }

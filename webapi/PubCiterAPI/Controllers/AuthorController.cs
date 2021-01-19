@@ -17,7 +17,7 @@ namespace PubCiterAPI.Controllers
         /// <summary>
         /// The logger.
         /// </summary>
-        private readonly ILogger<PublicationController> logger;
+        private readonly ILogger<AuthorController> logger;
 
         /// <summary>
         /// Author Repository instance
@@ -38,7 +38,7 @@ namespace PubCiterAPI.Controllers
         public AuthorController(
             AuthorRepository authorRepository,
             ApplicationDbContext context,
-            ILogger<PublicationController> logger)
+            ILogger<AuthorController> logger)
         {
             this.context = context;
             this.authorRepository = authorRepository;

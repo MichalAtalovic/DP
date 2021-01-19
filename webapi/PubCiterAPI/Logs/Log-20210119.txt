@@ -1,0 +1,1202 @@
+2021-01-19T18:45:03.1731811+01:00  [INF] Now listening on: "http://[::]:7051" (d826f4b8)
+2021-01-19T18:45:03.1766982+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-01-19T18:45:03.1767855+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-01-19T18:45:03.1768055+01:00  [INF] Content root path: "C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI" (b5d60022)
+2021-01-19T18:45:33.8660474+01:00 0HM5SK82PSK7B:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:7051/swagger/index.html   (ca22a1cb)
+2021-01-19T18:45:33.9419131+01:00 0HM5SK82PSK7B:00000001 [INF] Request finished in 77.8761ms 200 text/html;charset=utf-8 (791a596a)
+2021-01-19T18:45:34.1917991+01:00 0HM5SK82PSK7B:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:7051/swagger/v1/swagger.json   (ca22a1cb)
+2021-01-19T18:45:34.5352448+01:00 0HM5SK82PSK7B:00000002 [INF] Request finished in 342.7475ms 200 application/json;charset=utf-8 (791a596a)
+2021-01-19T18:46:18.6989387+01:00 0HM5SK82PSK7B:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:7051/Quarantine   (ca22a1cb)
+2021-01-19T18:46:18.7304836+01:00 0HM5SK82PSK7B:00000003 [INF] Executing endpoint '"PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)"' (500cc934)
+2021-01-19T18:46:18.7485329+01:00 0HM5SK82PSK7B:00000003 [INF] Route matched with "{action = \"GetQuarantineList\", controller = \"Quarantine\"}". Executing controller action with signature "System.Collections.Generic.IEnumerable`1[PubCiterAPI.Model.QuarantinedPublication] GetQuarantineList()" on controller "PubCiterAPI.Controllers.QuarantineController" ("PubCiterAPI"). (122b2fdf)
+2021-01-19T18:46:19.1005015+01:00 0HM5SK82PSK7B:00000003 [INF] Executing action method "PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-01-19T18:46:19.7039022+01:00 0HM5SK82PSK7B:00000003 [INF] Entity Framework Core "3.1.8" initialized '"ApplicationDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL"' with options: "None" (9958f5bb)
+2021-01-19T18:46:20.2281516+01:00 0HM5SK82PSK7B:00000003 [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT q.pub_id, q.abstract, q.author_id, q.author, q.doi, q.journal, q.volume, q.pages, q.pub_year, q.publisher, q.title
+FROM quarantine AS q" (0723d8ff)
+2021-01-19T18:46:20.2401347+01:00 0HM5SK82PSK7B:00000003 [INF] Executed action method "PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 1134.9697ms. (50a9e262)
+2021-01-19T18:46:20.2434994+01:00 0HM5SK82PSK7B:00000003 [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[PubCiterAPI.Model.QuarantinedPublication, PubCiterAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2021-01-19T18:46:20.3028799+01:00 0HM5SK82PSK7B:00000003 [INF] Executed action "PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)" in 1549.6788ms (afa2e885)
+2021-01-19T18:46:20.3030481+01:00 0HM5SK82PSK7B:00000003 [INF] Executed endpoint '"PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)"' (99874f2b)
+2021-01-19T18:46:20.3063347+01:00 0HM5SK82PSK7B:00000003 [INF] Request finished in 1607.9513ms 200 application/json; charset=utf-8 (791a596a)
+2021-01-19T18:46:29.6151016+01:00 0HM5SK82PSK7B:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:7051/swagger/index.html   (ca22a1cb)
+2021-01-19T18:46:29.6173792+01:00 0HM5SK82PSK7B:00000004 [INF] Request finished in 2.2609ms 200 text/html;charset=utf-8 (791a596a)
+2021-01-19T18:46:29.8264013+01:00 0HM5SK82PSK7B:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:7051/swagger/v1/swagger.json   (ca22a1cb)
+2021-01-19T18:46:29.8368017+01:00 0HM5SK82PSK7B:00000005 [INF] Request finished in 10.5272ms 200 application/json;charset=utf-8 (791a596a)
+2021-01-19T18:47:39.8053405+01:00 0HM5SK82PSK7E:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:7051/quarantine   (ca22a1cb)
+2021-01-19T18:47:39.8145746+01:00 0HM5SK82PSK7E:00000001 [INF] Executing endpoint '"PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)"' (500cc934)
+2021-01-19T18:47:39.8149464+01:00 0HM5SK82PSK7E:00000001 [INF] Route matched with "{action = \"GetQuarantineList\", controller = \"Quarantine\"}". Executing controller action with signature "System.Collections.Generic.IEnumerable`1[PubCiterAPI.Model.QuarantinedPublication] GetQuarantineList()" on controller "PubCiterAPI.Controllers.QuarantineController" ("PubCiterAPI"). (122b2fdf)
+2021-01-19T18:47:39.8501836+01:00 0HM5SK82PSK7E:00000001 [INF] Executing action method "PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-01-19T18:47:39.8730777+01:00 0HM5SK82PSK7E:00000001 [INF] Entity Framework Core "3.1.8" initialized '"ApplicationDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL"' with options: "None" (9958f5bb)
+2021-01-19T18:47:39.8755249+01:00 0HM5SK82PSK7E:00000001 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT q.pub_id, q.abstract, q.author_id, q.author, q.doi, q.journal, q.volume, q.pages, q.pub_year, q.publisher, q.title
+FROM quarantine AS q" (0723d8ff)
+2021-01-19T18:47:39.8757683+01:00 0HM5SK82PSK7E:00000001 [INF] Executed action method "PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 25.4746ms. (50a9e262)
+2021-01-19T18:47:39.8762918+01:00 0HM5SK82PSK7E:00000001 [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[PubCiterAPI.Model.QuarantinedPublication, PubCiterAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2021-01-19T18:47:39.8768844+01:00 0HM5SK82PSK7E:00000001 [INF] Executed action "PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)" in 61.8557ms (afa2e885)
+2021-01-19T18:47:39.8769317+01:00 0HM5SK82PSK7E:00000001 [INF] Executed endpoint '"PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)"' (99874f2b)
+2021-01-19T18:47:39.8771048+01:00 0HM5SK82PSK7E:00000001 [INF] Request finished in 71.949ms 200 application/json; charset=utf-8 (791a596a)
+2021-01-19T18:49:23.7845717+01:00 0HM5SK82PSK7E:00000002 [INF] Request starting HTTP/1.1 POST http://localhost:7051/quarantine/add/40  0 (ca22a1cb)
+2021-01-19T18:49:23.7939509+01:00 0HM5SK82PSK7E:00000002 [INF] Executing endpoint '"PubCiterAPI.Controllers.QuarantineController.MovePublicationToQuarantine (PubCiterAPI)"' (500cc934)
+2021-01-19T18:49:23.8046352+01:00 0HM5SK82PSK7E:00000002 [INF] Route matched with "{action = \"MovePublicationToQuarantine\", controller = \"Quarantine\"}". Executing controller action with signature "Void MovePublicationToQuarantine(Int64)" on controller "PubCiterAPI.Controllers.QuarantineController" ("PubCiterAPI"). (122b2fdf)
+2021-01-19T18:49:23.8362668+01:00 0HM5SK82PSK7E:00000002 [INF] Executing action method "PubCiterAPI.Controllers.QuarantineController.MovePublicationToQuarantine (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-01-19T18:49:23.8666299+01:00 0HM5SK82PSK7E:00000002 [INF] Entity Framework Core "3.1.8" initialized '"ApplicationDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL"' with options: "None" (9958f5bb)
+2021-01-19T18:49:23.8732438+01:00 0HM5SK82PSK7E:00000002 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT p.pub_id, p.abstract, p.author_id, p.author, p.doi, p.journal, p.volume, p.pages, p.pub_year, p.publisher, p.title
+FROM publication AS p" (0723d8ff)
+2021-01-19T18:50:16.5003882+01:00  [INF] Now listening on: "http://[::]:7051" (d826f4b8)
+2021-01-19T18:50:16.5041398+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-01-19T18:50:16.5042794+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-01-19T18:50:16.5043045+01:00  [INF] Content root path: "C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI" (b5d60022)
+2021-01-19T18:50:45.3187741+01:00 0HM5SKAVK3K86:00000001 [INF] Request starting HTTP/1.1 POST http://localhost:7051/quarantine/add/40  0 (ca22a1cb)
+2021-01-19T18:50:45.3612241+01:00 0HM5SKAVK3K86:00000001 [INF] Executing endpoint '"PubCiterAPI.Controllers.QuarantineController.MovePublicationToQuarantine (PubCiterAPI)"' (500cc934)
+2021-01-19T18:50:45.3843398+01:00 0HM5SKAVK3K86:00000001 [INF] Route matched with "{action = \"MovePublicationToQuarantine\", controller = \"Quarantine\"}". Executing controller action with signature "Void MovePublicationToQuarantine(Int64)" on controller "PubCiterAPI.Controllers.QuarantineController" ("PubCiterAPI"). (122b2fdf)
+2021-01-19T18:50:45.6395702+01:00 0HM5SKAVK3K86:00000001 [INF] Executing action method "PubCiterAPI.Controllers.QuarantineController.MovePublicationToQuarantine (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-01-19T18:50:46.2316116+01:00 0HM5SKAVK3K86:00000001 [INF] Entity Framework Core "3.1.8" initialized '"ApplicationDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL"' with options: "None" (9958f5bb)
+2021-01-19T18:50:46.8351665+01:00 0HM5SKAVK3K86:00000001 [INF] Executed DbCommand ("6"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT p.pub_id, p.abstract, p.author_id, p.author, p.doi, p.journal, p.volume, p.pages, p.pub_year, p.publisher, p.title, p0.pub_id, p0.citation_id
+FROM publication AS p
+LEFT JOIN publication_citation AS p0 ON p.pub_id = p0.pub_id
+ORDER BY p.pub_id, p0.pub_id, p0.citation_id" (0723d8ff)
+2021-01-19T18:50:47.0368886+01:00 0HM5SKAVK3K86:00000001 [INF] Executed DbCommand ("10"ms) [Parameters=["@p0='?' (DbType = Int64), @p1='?', @p2='?' (DbType = Int64), @p3='?', @p4='?', @p5='?', @p6='?', @p7='?', @p8='?', @p9='?', @p10='?'"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM publication
+WHERE pub_id = @p0;
+INSERT INTO quarantine (abstract, author_id, author, doi, journal, volume, pages, pub_year, publisher, title)
+VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10)
+RETURNING pub_id;" (0723d8ff)
+2021-01-19T18:50:47.0710974+01:00 0HM5SKAVK3K86:00000001 [INF] Executed action method "PubCiterAPI.Controllers.QuarantineController.MovePublicationToQuarantine (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.EmptyResult" in 1426.7435ms. (50a9e262)
+2021-01-19T18:50:47.0768685+01:00 0HM5SKAVK3K86:00000001 [INF] Executed action "PubCiterAPI.Controllers.QuarantineController.MovePublicationToQuarantine (PubCiterAPI)" in 1687.8231ms (afa2e885)
+2021-01-19T18:50:47.0770543+01:00 0HM5SKAVK3K86:00000001 [INF] Executed endpoint '"PubCiterAPI.Controllers.QuarantineController.MovePublicationToQuarantine (PubCiterAPI)"' (99874f2b)
+2021-01-19T18:50:47.0825294+01:00 0HM5SKAVK3K86:00000001 [INF] Request finished in 1766.1942ms 200  (791a596a)
+2021-01-19T18:51:57.7412970+01:00 0HM5SKAVK3K86:00000002 [INF] Request starting HTTP/1.1 POST http://localhost:7051/quarantine/remove/1  0 (ca22a1cb)
+2021-01-19T18:51:57.7532832+01:00 0HM5SKAVK3K86:00000002 [INF] Executing endpoint '"PubCiterAPI.Controllers.QuarantineController.RemovePublicationFromQuarantine (PubCiterAPI)"' (500cc934)
+2021-01-19T18:51:57.7556463+01:00 0HM5SKAVK3K86:00000002 [INF] Route matched with "{action = \"RemovePublicationFromQuarantine\", controller = \"Quarantine\"}". Executing controller action with signature "Void RemovePublicationFromQuarantine(Int64)" on controller "PubCiterAPI.Controllers.QuarantineController" ("PubCiterAPI"). (122b2fdf)
+2021-01-19T18:51:57.7953722+01:00 0HM5SKAVK3K86:00000002 [INF] Executing action method "PubCiterAPI.Controllers.QuarantineController.RemovePublicationFromQuarantine (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-01-19T18:51:57.8191390+01:00 0HM5SKAVK3K86:00000002 [INF] Entity Framework Core "3.1.8" initialized '"ApplicationDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL"' with options: "None" (9958f5bb)
+2021-01-19T18:51:57.8311238+01:00 0HM5SKAVK3K86:00000002 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT q.pub_id, q.abstract, q.author_id, q.author, q.doi, q.journal, q.volume, q.pages, q.pub_year, q.publisher, q.title, q0.quarantine_id, q0.citation_id
+FROM quarantine AS q
+LEFT JOIN quarantine_citation AS q0 ON q.pub_id = q0.quarantine_id
+ORDER BY q.pub_id, q0.quarantine_id, q0.citation_id" (0723d8ff)
+2021-01-19T18:51:57.8381197+01:00 0HM5SKAVK3K86:00000002 [INF] Executed DbCommand ("3"ms) [Parameters=["@p0='?', @p1='?' (DbType = Int64), @p2='?', @p3='?', @p4='?', @p5='?', @p6='?', @p7='?', @p8='?', @p9='?', @p10='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO publication (abstract, author_id, author, doi, journal, volume, pages, pub_year, publisher, title)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9)
+RETURNING pub_id;
+DELETE FROM quarantine
+WHERE pub_id = @p10;" (0723d8ff)
+2021-01-19T18:51:57.8424020+01:00 0HM5SKAVK3K86:00000002 [INF] Executed action method "PubCiterAPI.Controllers.QuarantineController.RemovePublicationFromQuarantine (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.EmptyResult" in 46.8932ms. (50a9e262)
+2021-01-19T18:51:57.8425599+01:00 0HM5SKAVK3K86:00000002 [INF] Executed action "PubCiterAPI.Controllers.QuarantineController.RemovePublicationFromQuarantine (PubCiterAPI)" in 86.8388ms (afa2e885)
+2021-01-19T18:51:57.8426046+01:00 0HM5SKAVK3K86:00000002 [INF] Executed endpoint '"PubCiterAPI.Controllers.QuarantineController.RemovePublicationFromQuarantine (PubCiterAPI)"' (99874f2b)
+2021-01-19T18:51:57.8428402+01:00 0HM5SKAVK3K86:00000002 [INF] Request finished in 101.8143ms 200  (791a596a)
+2021-01-19T18:52:21.5198612+01:00 0HM5SKAVK3K86:00000003 [INF] Request starting HTTP/1.1 POST http://localhost:7051/quarantine/remove/1  0 (ca22a1cb)
+2021-01-19T18:52:21.5213570+01:00 0HM5SKAVK3K86:00000003 [INF] Executing endpoint '"PubCiterAPI.Controllers.QuarantineController.RemovePublicationFromQuarantine (PubCiterAPI)"' (500cc934)
+2021-01-19T18:52:21.5220063+01:00 0HM5SKAVK3K86:00000003 [INF] Route matched with "{action = \"RemovePublicationFromQuarantine\", controller = \"Quarantine\"}". Executing controller action with signature "Void RemovePublicationFromQuarantine(Int64)" on controller "PubCiterAPI.Controllers.QuarantineController" ("PubCiterAPI"). (122b2fdf)
+2021-01-19T18:52:21.5405692+01:00 0HM5SKAVK3K86:00000003 [INF] Executing action method "PubCiterAPI.Controllers.QuarantineController.RemovePublicationFromQuarantine (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-01-19T18:52:21.5463291+01:00 0HM5SKAVK3K86:00000003 [INF] Entity Framework Core "3.1.8" initialized '"ApplicationDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL"' with options: "None" (9958f5bb)
+2021-01-19T18:52:21.5513539+01:00 0HM5SKAVK3K86:00000003 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT q.pub_id, q.abstract, q.author_id, q.author, q.doi, q.journal, q.volume, q.pages, q.pub_year, q.publisher, q.title, q0.quarantine_id, q0.citation_id
+FROM quarantine AS q
+LEFT JOIN quarantine_citation AS q0 ON q.pub_id = q0.quarantine_id
+ORDER BY q.pub_id, q0.quarantine_id, q0.citation_id" (0723d8ff)
+2021-01-19T18:52:21.5515566+01:00 0HM5SKAVK3K86:00000003 [INF] Executed action method "PubCiterAPI.Controllers.QuarantineController.RemovePublicationFromQuarantine (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.EmptyResult" in 10.8881ms. (50a9e262)
+2021-01-19T18:52:21.5516908+01:00 0HM5SKAVK3K86:00000003 [INF] Executed action "PubCiterAPI.Controllers.QuarantineController.RemovePublicationFromQuarantine (PubCiterAPI)" in 29.5534ms (afa2e885)
+2021-01-19T18:52:21.5517483+01:00 0HM5SKAVK3K86:00000003 [INF] Executed endpoint '"PubCiterAPI.Controllers.QuarantineController.RemovePublicationFromQuarantine (PubCiterAPI)"' (99874f2b)
+2021-01-19T18:52:21.5520245+01:00 0HM5SKAVK3K86:00000003 [INF] Request finished in 32.5305ms 200  (791a596a)
+2021-01-19T18:52:22.3749254+01:00 0HM5SKAVK3K86:00000004 [INF] Request starting HTTP/1.1 POST http://localhost:7051/quarantine/remove/1  0 (ca22a1cb)
+2021-01-19T18:52:22.3755056+01:00 0HM5SKAVK3K86:00000004 [INF] Executing endpoint '"PubCiterAPI.Controllers.QuarantineController.RemovePublicationFromQuarantine (PubCiterAPI)"' (500cc934)
+2021-01-19T18:52:22.3757967+01:00 0HM5SKAVK3K86:00000004 [INF] Route matched with "{action = \"RemovePublicationFromQuarantine\", controller = \"Quarantine\"}". Executing controller action with signature "Void RemovePublicationFromQuarantine(Int64)" on controller "PubCiterAPI.Controllers.QuarantineController" ("PubCiterAPI"). (122b2fdf)
+2021-01-19T18:52:22.3922072+01:00 0HM5SKAVK3K86:00000004 [INF] Executing action method "PubCiterAPI.Controllers.QuarantineController.RemovePublicationFromQuarantine (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-01-19T18:52:22.3929379+01:00 0HM5SKAVK3K86:00000004 [INF] Entity Framework Core "3.1.8" initialized '"ApplicationDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL"' with options: "None" (9958f5bb)
+2021-01-19T18:52:22.3954893+01:00 0HM5SKAVK3K86:00000004 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT q.pub_id, q.abstract, q.author_id, q.author, q.doi, q.journal, q.volume, q.pages, q.pub_year, q.publisher, q.title, q0.quarantine_id, q0.citation_id
+FROM quarantine AS q
+LEFT JOIN quarantine_citation AS q0 ON q.pub_id = q0.quarantine_id
+ORDER BY q.pub_id, q0.quarantine_id, q0.citation_id" (0723d8ff)
+2021-01-19T18:52:22.3958848+01:00 0HM5SKAVK3K86:00000004 [INF] Executed action method "PubCiterAPI.Controllers.QuarantineController.RemovePublicationFromQuarantine (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.EmptyResult" in 3.5445ms. (50a9e262)
+2021-01-19T18:52:22.3960210+01:00 0HM5SKAVK3K86:00000004 [INF] Executed action "PubCiterAPI.Controllers.QuarantineController.RemovePublicationFromQuarantine (PubCiterAPI)" in 20.148ms (afa2e885)
+2021-01-19T18:52:22.3960578+01:00 0HM5SKAVK3K86:00000004 [INF] Executed endpoint '"PubCiterAPI.Controllers.QuarantineController.RemovePublicationFromQuarantine (PubCiterAPI)"' (99874f2b)
+2021-01-19T18:52:22.3963345+01:00 0HM5SKAVK3K86:00000004 [INF] Request finished in 21.6706ms 200  (791a596a)
+2021-01-19T18:52:23.1722724+01:00 0HM5SKAVK3K86:00000005 [INF] Request starting HTTP/1.1 POST http://localhost:7051/quarantine/remove/1  0 (ca22a1cb)
+2021-01-19T18:52:23.1728887+01:00 0HM5SKAVK3K86:00000005 [INF] Executing endpoint '"PubCiterAPI.Controllers.QuarantineController.RemovePublicationFromQuarantine (PubCiterAPI)"' (500cc934)
+2021-01-19T18:52:23.1733850+01:00 0HM5SKAVK3K86:00000005 [INF] Route matched with "{action = \"RemovePublicationFromQuarantine\", controller = \"Quarantine\"}". Executing controller action with signature "Void RemovePublicationFromQuarantine(Int64)" on controller "PubCiterAPI.Controllers.QuarantineController" ("PubCiterAPI"). (122b2fdf)
+2021-01-19T18:52:23.1888365+01:00 0HM5SKAVK3K86:00000005 [INF] Executing action method "PubCiterAPI.Controllers.QuarantineController.RemovePublicationFromQuarantine (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-01-19T18:52:23.1894417+01:00 0HM5SKAVK3K86:00000005 [INF] Entity Framework Core "3.1.8" initialized '"ApplicationDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL"' with options: "None" (9958f5bb)
+2021-01-19T18:52:23.1916243+01:00 0HM5SKAVK3K86:00000005 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT q.pub_id, q.abstract, q.author_id, q.author, q.doi, q.journal, q.volume, q.pages, q.pub_year, q.publisher, q.title, q0.quarantine_id, q0.citation_id
+FROM quarantine AS q
+LEFT JOIN quarantine_citation AS q0 ON q.pub_id = q0.quarantine_id
+ORDER BY q.pub_id, q0.quarantine_id, q0.citation_id" (0723d8ff)
+2021-01-19T18:52:23.1918524+01:00 0HM5SKAVK3K86:00000005 [INF] Executed action method "PubCiterAPI.Controllers.QuarantineController.RemovePublicationFromQuarantine (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.EmptyResult" in 2.9129ms. (50a9e262)
+2021-01-19T18:52:23.1919814+01:00 0HM5SKAVK3K86:00000005 [INF] Executed action "PubCiterAPI.Controllers.QuarantineController.RemovePublicationFromQuarantine (PubCiterAPI)" in 18.5052ms (afa2e885)
+2021-01-19T18:52:23.1920291+01:00 0HM5SKAVK3K86:00000005 [INF] Executed endpoint '"PubCiterAPI.Controllers.QuarantineController.RemovePublicationFromQuarantine (PubCiterAPI)"' (99874f2b)
+2021-01-19T18:52:23.1922948+01:00 0HM5SKAVK3K86:00000005 [INF] Request finished in 20.1897ms 200  (791a596a)
+2021-01-19T18:52:23.9586309+01:00 0HM5SKAVK3K86:00000006 [INF] Request starting HTTP/1.1 POST http://localhost:7051/quarantine/remove/1  0 (ca22a1cb)
+2021-01-19T18:52:23.9594153+01:00 0HM5SKAVK3K86:00000006 [INF] Executing endpoint '"PubCiterAPI.Controllers.QuarantineController.RemovePublicationFromQuarantine (PubCiterAPI)"' (500cc934)
+2021-01-19T18:52:23.9598910+01:00 0HM5SKAVK3K86:00000006 [INF] Route matched with "{action = \"RemovePublicationFromQuarantine\", controller = \"Quarantine\"}". Executing controller action with signature "Void RemovePublicationFromQuarantine(Int64)" on controller "PubCiterAPI.Controllers.QuarantineController" ("PubCiterAPI"). (122b2fdf)
+2021-01-19T18:52:23.9762406+01:00 0HM5SKAVK3K86:00000006 [INF] Executing action method "PubCiterAPI.Controllers.QuarantineController.RemovePublicationFromQuarantine (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-01-19T18:52:23.9774256+01:00 0HM5SKAVK3K86:00000006 [INF] Entity Framework Core "3.1.8" initialized '"ApplicationDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL"' with options: "None" (9958f5bb)
+2021-01-19T18:52:23.9806645+01:00 0HM5SKAVK3K86:00000006 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT q.pub_id, q.abstract, q.author_id, q.author, q.doi, q.journal, q.volume, q.pages, q.pub_year, q.publisher, q.title, q0.quarantine_id, q0.citation_id
+FROM quarantine AS q
+LEFT JOIN quarantine_citation AS q0 ON q.pub_id = q0.quarantine_id
+ORDER BY q.pub_id, q0.quarantine_id, q0.citation_id" (0723d8ff)
+2021-01-19T18:52:23.9811281+01:00 0HM5SKAVK3K86:00000006 [INF] Executed action method "PubCiterAPI.Controllers.QuarantineController.RemovePublicationFromQuarantine (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.EmptyResult" in 4.6582ms. (50a9e262)
+2021-01-19T18:52:23.9812862+01:00 0HM5SKAVK3K86:00000006 [INF] Executed action "PubCiterAPI.Controllers.QuarantineController.RemovePublicationFromQuarantine (PubCiterAPI)" in 21.271ms (afa2e885)
+2021-01-19T18:52:23.9813427+01:00 0HM5SKAVK3K86:00000006 [INF] Executed endpoint '"PubCiterAPI.Controllers.QuarantineController.RemovePublicationFromQuarantine (PubCiterAPI)"' (99874f2b)
+2021-01-19T18:52:23.9817048+01:00 0HM5SKAVK3K86:00000006 [INF] Request finished in 23.1826ms 200  (791a596a)
+2021-01-19T18:52:30.6912609+01:00 0HM5SKAVK3K86:00000007 [INF] Request starting HTTP/1.1 POST http://localhost:7051/quarantine/add/1  0 (ca22a1cb)
+2021-01-19T18:52:30.6917282+01:00 0HM5SKAVK3K86:00000007 [INF] Executing endpoint '"PubCiterAPI.Controllers.QuarantineController.MovePublicationToQuarantine (PubCiterAPI)"' (500cc934)
+2021-01-19T18:52:30.6920839+01:00 0HM5SKAVK3K86:00000007 [INF] Route matched with "{action = \"MovePublicationToQuarantine\", controller = \"Quarantine\"}". Executing controller action with signature "Void MovePublicationToQuarantine(Int64)" on controller "PubCiterAPI.Controllers.QuarantineController" ("PubCiterAPI"). (122b2fdf)
+2021-01-19T18:52:30.7094732+01:00 0HM5SKAVK3K86:00000007 [INF] Executing action method "PubCiterAPI.Controllers.QuarantineController.MovePublicationToQuarantine (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-01-19T18:52:30.7106484+01:00 0HM5SKAVK3K86:00000007 [INF] Entity Framework Core "3.1.8" initialized '"ApplicationDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL"' with options: "None" (9958f5bb)
+2021-01-19T18:52:30.7144701+01:00 0HM5SKAVK3K86:00000007 [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT p.pub_id, p.abstract, p.author_id, p.author, p.doi, p.journal, p.volume, p.pages, p.pub_year, p.publisher, p.title, p0.pub_id, p0.citation_id
+FROM publication AS p
+LEFT JOIN publication_citation AS p0 ON p.pub_id = p0.pub_id
+ORDER BY p.pub_id, p0.pub_id, p0.citation_id" (0723d8ff)
+2021-01-19T18:53:19.6589917+01:00  [INF] Now listening on: "http://[::]:7051" (d826f4b8)
+2021-01-19T18:53:19.6630757+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-01-19T18:53:19.6632975+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-01-19T18:53:19.6633249+01:00  [INF] Content root path: "C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI" (b5d60022)
+2021-01-19T18:53:46.0774379+01:00 0HM5SKCLFVNRN:00000001 [INF] Request starting HTTP/1.1 POST http://localhost:7051/quarantine/add/1  0 (ca22a1cb)
+2021-01-19T18:53:46.1192550+01:00 0HM5SKCLFVNRN:00000001 [INF] Executing endpoint '"PubCiterAPI.Controllers.QuarantineController.MovePublicationToQuarantine (PubCiterAPI)"' (500cc934)
+2021-01-19T18:53:46.1522008+01:00 0HM5SKCLFVNRN:00000001 [INF] Route matched with "{action = \"MovePublicationToQuarantine\", controller = \"Quarantine\"}". Executing controller action with signature "Void MovePublicationToQuarantine(Int64)" on controller "PubCiterAPI.Controllers.QuarantineController" ("PubCiterAPI"). (122b2fdf)
+2021-01-19T18:53:46.4002028+01:00 0HM5SKCLFVNRN:00000001 [INF] Executing action method "PubCiterAPI.Controllers.QuarantineController.MovePublicationToQuarantine (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-01-19T18:53:46.9958262+01:00 0HM5SKCLFVNRN:00000001 [INF] Entity Framework Core "3.1.8" initialized '"ApplicationDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL"' with options: "None" (9958f5bb)
+2021-01-19T18:53:47.6385864+01:00 0HM5SKCLFVNRN:00000001 [INF] Executed DbCommand ("25"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT p.pub_id, p.abstract, p.author_id, p.author, p.doi, p.journal, p.volume, p.pages, p.pub_year, p.publisher, p.title, t.pub_id, t.citation_id, t.citation_id0, t.abstract, t.author, t.doi, t.journal, t.volume, t.pub_url, t.pub_year, t.title
+FROM publication AS p
+LEFT JOIN (
+    SELECT p0.pub_id, p0.citation_id, c.citation_id AS citation_id0, c.abstract, c.author, c.doi, c.journal, c.volume, c.pub_url, c.pub_year, c.title
+    FROM publication_citation AS p0
+    INNER JOIN citation AS c ON p0.citation_id = c.citation_id
+) AS t ON p.pub_id = t.pub_id
+ORDER BY p.pub_id, t.pub_id, t.citation_id, t.citation_id0" (0723d8ff)
+2021-01-19T18:53:48.0158778+01:00 0HM5SKCLFVNRN:00000001 [ERR] System.InvalidOperationException: The instance of entity type 'QuarantinedPublicationCitation' cannot be tracked because another instance with the same key value for {'QuarantinedPublicationId', 'CitationId'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.ThrowIdentityConflict(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry, Boolean updateDuplicate)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NullableKeyIdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.UpdateIdentityMap(InternalEntityEntry entry, IKey key)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NavigationFixer.KeyPropertyChanged(InternalEntityEntry entry, IProperty property, IReadOnlyList`1 containingPrincipalKeys, IReadOnlyList`1 containingForeignKeys, Object oldValue, Object newValue)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntryNotifier.KeyPropertyChanged(InternalEntityEntry entry, IProperty property, IReadOnlyList`1 keys, IReadOnlyList`1 foreignKeys, Object oldValue, Object newValue)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.ChangeDetector.DetectKeyChange(InternalEntityEntry entry, IProperty property)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.ChangeDetector.PropertyChanged(InternalEntityEntry entry, IPropertyBase propertyBase, Boolean setModified)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntryNotifier.PropertyChanged(InternalEntityEntry entry, IPropertyBase property, Boolean setModified)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetProperty(IPropertyBase propertyBase, Object value, Boolean isMaterialization, Boolean setModified, Boolean isCascadeDelete, CurrentValueType valueType)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetProperty(IPropertyBase propertyBase, Object value, Boolean isMaterialization, Boolean setModified, Boolean isCascadeDelete)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NavigationFixer.SetForeignKeyProperties(InternalEntityEntry dependentEntry, InternalEntityEntry principalEntry, IForeignKey foreignKey, Boolean setModified, Boolean fromQuery)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NavigationFixer.InitialFixup(InternalEntityEntry entry, Boolean fromQuery)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NavigationFixer.StateChanged(InternalEntityEntry entry, EntityState oldState, Boolean fromQuery)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntryNotifier.StateChanged(InternalEntityEntry entry, EntityState oldState, Boolean fromQuery)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.FireStateChanged(EntityState oldState)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode`1 node)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph[TState](EntityEntryGraphNode`1 node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph[TState](EntityEntryGraphNode`1 node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraph(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.DbContext.SetEntityState(InternalEntityEntry entry, EntityState entityState)
+   at Microsoft.EntityFrameworkCore.DbContext.SetEntityState[TEntity](TEntity entity, EntityState entityState)
+   at Microsoft.EntityFrameworkCore.DbContext.Add[TEntity](TEntity entity)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Add(TEntity entity)
+   at PubCiterAPI.Repositories.QuarantineRepository.MoveToQuarantine(ApplicationDbContext context, Int64 publicationId) in C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\Repositories\QuarantineRepository.cs:line 61
+   at PubCiterAPI.Controllers.QuarantineController.MovePublicationToQuarantine(Int64 publicationId) in C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\Controllers\QuarantineController.cs:line 67 (713f9236)
+2021-01-19T18:53:48.0209521+01:00 0HM5SKCLFVNRN:00000001 [INF] Executed action method "PubCiterAPI.Controllers.QuarantineController.MovePublicationToQuarantine (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.EmptyResult" in 1615.745ms. (50a9e262)
+2021-01-19T18:53:48.0270875+01:00 0HM5SKCLFVNRN:00000001 [INF] Executed action "PubCiterAPI.Controllers.QuarantineController.MovePublicationToQuarantine (PubCiterAPI)" in 1869.8484ms (afa2e885)
+2021-01-19T18:53:48.0273274+01:00 0HM5SKCLFVNRN:00000001 [INF] Executed endpoint '"PubCiterAPI.Controllers.QuarantineController.MovePublicationToQuarantine (PubCiterAPI)"' (99874f2b)
+2021-01-19T18:53:48.0326370+01:00 0HM5SKCLFVNRN:00000001 [INF] Request finished in 1957.9883ms 200  (791a596a)
+2021-01-19T18:54:46.5408105+01:00  [INF] Now listening on: "http://[::]:7051" (d826f4b8)
+2021-01-19T18:54:46.5448412+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-01-19T18:54:46.5449280+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-01-19T18:54:46.5449591+01:00  [INF] Content root path: "C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI" (b5d60022)
+2021-01-19T18:54:51.8842851+01:00 0HM5SKD93JEA0:00000001 [INF] Request starting HTTP/1.1 POST http://localhost:7051/quarantine/add/1  0 (ca22a1cb)
+2021-01-19T18:54:51.9298178+01:00 0HM5SKD93JEA0:00000001 [INF] Executing endpoint '"PubCiterAPI.Controllers.QuarantineController.MovePublicationToQuarantine (PubCiterAPI)"' (500cc934)
+2021-01-19T18:54:51.9547818+01:00 0HM5SKD93JEA0:00000001 [INF] Route matched with "{action = \"MovePublicationToQuarantine\", controller = \"Quarantine\"}". Executing controller action with signature "Void MovePublicationToQuarantine(Int64)" on controller "PubCiterAPI.Controllers.QuarantineController" ("PubCiterAPI"). (122b2fdf)
+2021-01-19T18:54:52.2317075+01:00 0HM5SKD93JEA0:00000001 [INF] Executing action method "PubCiterAPI.Controllers.QuarantineController.MovePublicationToQuarantine (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-01-19T18:54:52.8792097+01:00 0HM5SKD93JEA0:00000001 [INF] Entity Framework Core "3.1.8" initialized '"ApplicationDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL"' with options: "None" (9958f5bb)
+2021-01-19T18:54:53.5570917+01:00 0HM5SKD93JEA0:00000001 [INF] Executed DbCommand ("6"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT p.pub_id, p.abstract, p.author_id, p.author, p.doi, p.journal, p.volume, p.pages, p.pub_year, p.publisher, p.title, t.pub_id, t.citation_id, t.citation_id0, t.abstract, t.author, t.doi, t.journal, t.volume, t.pub_url, t.pub_year, t.title
+FROM publication AS p
+LEFT JOIN (
+    SELECT p0.pub_id, p0.citation_id, c.citation_id AS citation_id0, c.abstract, c.author, c.doi, c.journal, c.volume, c.pub_url, c.pub_year, c.title
+    FROM publication_citation AS p0
+    INNER JOIN citation AS c ON p0.citation_id = c.citation_id
+) AS t ON p.pub_id = t.pub_id
+ORDER BY p.pub_id, t.pub_id, t.citation_id, t.citation_id0" (0723d8ff)
+2021-01-19T18:54:53.8636257+01:00 0HM5SKD93JEA0:00000001 [ERR] System.InvalidOperationException: The instance of entity type 'QuarantinedPublicationCitation' cannot be tracked because another instance with the same key value for {'QuarantinedPublicationId', 'CitationId'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.ThrowIdentityConflict(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry, Boolean updateDuplicate)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NullableKeyIdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.UpdateIdentityMap(InternalEntityEntry entry, IKey key)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NavigationFixer.KeyPropertyChanged(InternalEntityEntry entry, IProperty property, IReadOnlyList`1 containingPrincipalKeys, IReadOnlyList`1 containingForeignKeys, Object oldValue, Object newValue)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntryNotifier.KeyPropertyChanged(InternalEntityEntry entry, IProperty property, IReadOnlyList`1 keys, IReadOnlyList`1 foreignKeys, Object oldValue, Object newValue)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.ChangeDetector.DetectKeyChange(InternalEntityEntry entry, IProperty property)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.ChangeDetector.PropertyChanged(InternalEntityEntry entry, IPropertyBase propertyBase, Boolean setModified)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntryNotifier.PropertyChanged(InternalEntityEntry entry, IPropertyBase property, Boolean setModified)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetProperty(IPropertyBase propertyBase, Object value, Boolean isMaterialization, Boolean setModified, Boolean isCascadeDelete, CurrentValueType valueType)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetProperty(IPropertyBase propertyBase, Object value, Boolean isMaterialization, Boolean setModified, Boolean isCascadeDelete)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NavigationFixer.SetForeignKeyProperties(InternalEntityEntry dependentEntry, InternalEntityEntry principalEntry, IForeignKey foreignKey, Boolean setModified, Boolean fromQuery)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NavigationFixer.InitialFixup(InternalEntityEntry entry, Boolean fromQuery)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NavigationFixer.StateChanged(InternalEntityEntry entry, EntityState oldState, Boolean fromQuery)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntryNotifier.StateChanged(InternalEntityEntry entry, EntityState oldState, Boolean fromQuery)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.FireStateChanged(EntityState oldState)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode`1 node)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph[TState](EntityEntryGraphNode`1 node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph[TState](EntityEntryGraphNode`1 node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraph(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.DbContext.SetEntityState(InternalEntityEntry entry, EntityState entityState)
+   at Microsoft.EntityFrameworkCore.DbContext.SetEntityState[TEntity](TEntity entity, EntityState entityState)
+   at Microsoft.EntityFrameworkCore.DbContext.Add[TEntity](TEntity entity)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Add(TEntity entity)
+   at PubCiterAPI.Repositories.QuarantineRepository.MoveToQuarantine(ApplicationDbContext context, Int64 publicationId) in C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\Repositories\QuarantineRepository.cs:line 61
+   at PubCiterAPI.Controllers.QuarantineController.MovePublicationToQuarantine(Int64 publicationId) in C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\Controllers\QuarantineController.cs:line 67 (713f9236)
+2021-01-19T18:54:53.8699675+01:00 0HM5SKD93JEA0:00000001 [INF] Executed action method "PubCiterAPI.Controllers.QuarantineController.MovePublicationToQuarantine (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.EmptyResult" in 1632.0211ms. (50a9e262)
+2021-01-19T18:54:53.8758339+01:00 0HM5SKD93JEA0:00000001 [INF] Executed action "PubCiterAPI.Controllers.QuarantineController.MovePublicationToQuarantine (PubCiterAPI)" in 1916.3743ms (afa2e885)
+2021-01-19T18:54:53.8760593+01:00 0HM5SKD93JEA0:00000001 [INF] Executed endpoint '"PubCiterAPI.Controllers.QuarantineController.MovePublicationToQuarantine (PubCiterAPI)"' (99874f2b)
+2021-01-19T18:54:53.8825926+01:00 0HM5SKD93JEA0:00000001 [INF] Request finished in 2000.5278ms 200  (791a596a)
+2021-01-19T19:00:00.6202035+01:00  [INF] Now listening on: "http://[::]:7051" (d826f4b8)
+2021-01-19T19:00:00.6240273+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-01-19T19:00:00.6241262+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-01-19T19:00:00.6241464+01:00  [INF] Content root path: "C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI" (b5d60022)
+2021-01-19T19:00:16.7952858+01:00 0HM5SKG9U0KAJ:00000001 [INF] Request starting HTTP/1.1 POST http://localhost:7051/quarantine/add/1  0 (ca22a1cb)
+2021-01-19T19:00:16.8395762+01:00 0HM5SKG9U0KAJ:00000001 [INF] Executing endpoint '"PubCiterAPI.Controllers.QuarantineController.MovePublicationToQuarantine (PubCiterAPI)"' (500cc934)
+2021-01-19T19:00:16.8642973+01:00 0HM5SKG9U0KAJ:00000001 [INF] Route matched with "{action = \"MovePublicationToQuarantine\", controller = \"Quarantine\"}". Executing controller action with signature "Void MovePublicationToQuarantine(Int64)" on controller "PubCiterAPI.Controllers.QuarantineController" ("PubCiterAPI"). (122b2fdf)
+2021-01-19T19:00:17.1439968+01:00 0HM5SKG9U0KAJ:00000001 [INF] Executing action method "PubCiterAPI.Controllers.QuarantineController.MovePublicationToQuarantine (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-01-19T19:00:17.8027099+01:00 0HM5SKG9U0KAJ:00000001 [INF] Entity Framework Core "3.1.8" initialized '"ApplicationDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL"' with options: "None" (9958f5bb)
+2021-01-19T19:00:18.4638057+01:00 0HM5SKG9U0KAJ:00000001 [INF] Executed DbCommand ("6"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT p.pub_id, p.abstract, p.author_id, p.author, p.doi, p.journal, p.volume, p.pages, p.pub_year, p.publisher, p.title, t.pub_id, t.citation_id, t.citation_id0, t.abstract, t.author, t.doi, t.journal, t.volume, t.pub_url, t.pub_year, t.title
+FROM publication AS p
+LEFT JOIN (
+    SELECT p0.pub_id, p0.citation_id, c.citation_id AS citation_id0, c.abstract, c.author, c.doi, c.journal, c.volume, c.pub_url, c.pub_year, c.title
+    FROM publication_citation AS p0
+    INNER JOIN citation AS c ON p0.citation_id = c.citation_id
+) AS t ON p.pub_id = t.pub_id
+ORDER BY p.pub_id, t.pub_id, t.citation_id, t.citation_id0" (0723d8ff)
+2021-01-19T19:00:18.7552964+01:00 0HM5SKG9U0KAJ:00000001 [INF] Executed DbCommand ("34"ms) [Parameters=["@p0='?', @p1='?', @p2='?', @p3='?', @p4='?', @p5='?', @p6='?', @p7='?', @p8='?', @p9='?', @p10='?', @p11='?', @p12='?', @p13='?', @p14='?', @p15='?', @p16='?', @p17='?', @p18='?', @p19='?', @p20='?', @p21='?', @p22='?', @p23='?', @p24='?', @p25='?', @p26='?', @p27='?', @p28='?', @p29='?', @p30='?', @p31='?', @p32='?', @p33='?', @p34='?', @p35='?', @p36='?', @p37='?', @p38='?', @p39='?', @p40='?', @p41='?', @p42='?', @p43='?', @p44='?', @p45='?', @p46='?', @p47='?', @p48='?', @p49='?', @p50='?', @p51='?', @p52='?', @p53='?', @p54='?', @p55='?', @p56='?', @p57='?', @p58='?', @p59='?', @p60='?', @p61='?', @p62='?', @p63='?', @p64='?', @p65='?', @p66='?', @p67='?', @p68='?', @p69='?', @p70='?', @p71='?', @p72='?', @p73='?', @p74='?', @p75='?', @p76='?', @p77='?', @p78='?', @p79='?', @p80='?', @p81='?', @p82='?', @p83='?', @p84='?', @p85='?', @p86='?', @p87='?', @p88='?', @p89='?', @p90='?', @p91='?', @p92='?', @p93='?', @p94='?', @p95='?', @p96='?', @p97='?', @p98='?', @p99='?', @p100='?', @p101='?', @p102='?', @p103='?', @p104='?', @p105='?', @p106='?', @p107='?', @p108='?', @p109='?', @p110='?', @p111='?', @p112='?', @p113='?', @p114='?', @p115='?', @p116='?', @p117='?', @p118='?', @p119='?', @p120='?', @p121='?', @p122='?', @p123='?', @p124='?', @p125='?', @p126='?', @p127='?', @p128='?', @p129='?', @p130='?', @p131='?', @p132='?', @p133='?', @p134='?', @p135='?', @p136='?', @p137='?', @p138='?', @p139='?', @p140='?', @p141='?', @p142='?', @p143='?', @p144='?', @p145='?', @p146='?', @p147='?', @p148='?', @p149='?', @p150='?', @p151='?', @p152='?', @p153='?', @p154='?', @p155='?', @p156='?', @p157='?', @p158='?', @p159='?', @p160='?', @p161='?', @p162='?', @p163='?', @p164='?', @p165='?', @p166='?', @p167='?', @p168='?', @p169='?', @p170='?', @p171='?', @p172='?', @p173='?', @p174='?', @p175='?', @p176='?', @p177='?', @p178='?', @p179='?', @p180='?', @p181='?', @p182='?', @p183='?', @p184='?', @p185='?', @p186='?', @p187='?', @p188='?', @p189='?', @p190='?', @p191='?', @p192='?', @p193='?', @p194='?', @p195='?', @p196='?', @p197='?', @p198='?', @p199='?', @p200='?', @p201='?', @p202='?', @p203='?', @p204='?', @p205='?', @p206='?', @p207='?', @p208='?', @p209='?', @p210='?', @p211='?', @p212='?', @p213='?', @p214='?', @p215='?', @p216='?', @p217='?', @p218='?', @p219='?', @p220='?', @p221='?', @p222='?', @p223='?', @p224='?', @p225='?', @p226='?', @p227='?', @p228='?', @p229='?', @p230='?', @p231='?', @p232='?', @p233='?', @p234='?', @p235='?', @p236='?', @p237='?', @p238='?', @p239='?', @p240='?', @p241='?', @p242='?', @p243='?', @p244='?', @p245='?', @p246='?', @p247='?', @p248='?', @p249='?', @p250='?', @p251='?', @p252='?', @p253='?', @p254='?', @p255='?', @p256='?', @p257='?', @p258='?', @p259='?', @p260='?', @p261='?', @p262='?', @p263='?', @p264='?', @p265='?', @p266='?', @p267='?', @p268='?', @p269='?', @p270='?', @p271='?', @p272='?', @p273='?', @p274='?', @p275='?', @p276='?', @p277='?', @p278='?', @p279='?', @p280='?', @p281='?', @p282='?', @p283='?', @p284='?', @p285='?', @p286='?', @p287='?', @p288='?', @p289='?', @p290='?', @p291='?', @p292='?', @p293='?', @p294='?', @p295='?', @p296='?', @p297='?', @p298='?', @p299='?', @p300='?', @p301='?', @p302='?', @p303='?', @p304='?', @p305='?', @p306='?', @p307='?', @p308='?', @p309='?', @p310='?', @p311='?', @p312='?', @p313='?', @p314='?', @p315='?', @p316='?', @p317='?', @p318='?', @p319='?', @p320='?', @p321='?', @p322='?', @p323='?', @p324='?', @p325='?', @p326='?', @p327='?', @p328='?', @p329='?', @p330='?', @p331='?', @p332='?', @p333='?', @p334='?', @p335='?', @p336='?', @p337='?', @p338='?', @p339='?', @p340='?', @p341='?', @p342='?', @p343='?', @p344='?' (DbType = Int64), @p345='?' (DbType = Int64), @p346='?' (DbType = Int64), @p347='?' (DbType = Int64), @p348='?' (DbType = Int64), @p349='?' (DbType = Int64), @p350='?' (DbType = Int64), @p351='?' (DbType = Int64), @p352='?' (DbType = Int64), @p353='?' (DbType = Int64), @p354='?' (DbType = Int64), @p355='?' (DbType = Int64), @p356='?' (DbType = Int64), @p357='?' (DbType = Int64), @p358='?' (DbType = Int64), @p359='?' (DbType = Int64), @p360='?' (DbType = Int64), @p361='?' (DbType = Int64), @p362='?' (DbType = Int64), @p363='?' (DbType = Int64), @p364='?' (DbType = Int64), @p365='?' (DbType = Int64), @p366='?' (DbType = Int64), @p367='?' (DbType = Int64), @p368='?' (DbType = Int64), @p369='?' (DbType = Int64), @p370='?' (DbType = Int64), @p371='?' (DbType = Int64), @p372='?' (DbType = Int64), @p373='?' (DbType = Int64), @p374='?' (DbType = Int64), @p375='?' (DbType = Int64), @p376='?' (DbType = Int64), @p377='?' (DbType = Int64), @p378='?' (DbType = Int64), @p379='?' (DbType = Int64), @p380='?' (DbType = Int64), @p381='?' (DbType = Int64), @p382='?' (DbType = Int64), @p383='?' (DbType = Int64), @p384='?' (DbType = Int64), @p385='?' (DbType = Int64), @p386='?' (DbType = Int64), @p387='?' (DbType = Int64), @p388='?' (DbType = Int64), @p389='?' (DbType = Int64), @p390='?' (DbType = Int64), @p391='?' (DbType = Int64), @p392='?' (DbType = Int64), @p393='?' (DbType = Int64), @p394='?' (DbType = Int64), @p395='?' (DbType = Int64), @p396='?' (DbType = Int64), @p397='?' (DbType = Int64), @p398='?' (DbType = Int64), @p399='?' (DbType = Int64), @p400='?' (DbType = Int64), @p401='?' (DbType = Int64), @p402='?' (DbType = Int64), @p403='?' (DbType = Int64), @p404='?' (DbType = Int64), @p405='?' (DbType = Int64), @p406='?' (DbType = Int64), @p407='?' (DbType = Int64), @p408='?' (DbType = Int64), @p409='?' (DbType = Int64), @p410='?' (DbType = Int64), @p411='?' (DbType = Int64), @p412='?' (DbType = Int64), @p413='?' (DbType = Int64), @p414='?' (DbType = Int64), @p415='?' (DbType = Int64), @p416='?' (DbType = Int64), @p417='?' (DbType = Int64), @p418='?' (DbType = Int64), @p419='?' (DbType = Int64), @p420='?' (DbType = Int64), @p421='?' (DbType = Int64), @p422='?' (DbType = Int64), @p423='?' (DbType = Int64), @p424='?' (DbType = Int64), @p425='?' (DbType = Int64), @p426='?' (DbType = Int64), @p427='?' (DbType = Int64), @p428='?' (DbType = Int64), @p429='?' (DbType = Int64), @p430='?', @p431='?' (DbType = Int64), @p432='?', @p433='?', @p434='?', @p435='?', @p436='?', @p437='?', @p438='?', @p439='?'"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p16, @p17, @p18, @p19, @p20, @p21, @p22, @p23)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p24, @p25, @p26, @p27, @p28, @p29, @p30, @p31)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p32, @p33, @p34, @p35, @p36, @p37, @p38, @p39)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p40, @p41, @p42, @p43, @p44, @p45, @p46, @p47)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p48, @p49, @p50, @p51, @p52, @p53, @p54, @p55)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p56, @p57, @p58, @p59, @p60, @p61, @p62, @p63)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p64, @p65, @p66, @p67, @p68, @p69, @p70, @p71)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p72, @p73, @p74, @p75, @p76, @p77, @p78, @p79)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p80, @p81, @p82, @p83, @p84, @p85, @p86, @p87)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p88, @p89, @p90, @p91, @p92, @p93, @p94, @p95)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p96, @p97, @p98, @p99, @p100, @p101, @p102, @p103)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p104, @p105, @p106, @p107, @p108, @p109, @p110, @p111)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p112, @p113, @p114, @p115, @p116, @p117, @p118, @p119)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p120, @p121, @p122, @p123, @p124, @p125, @p126, @p127)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p128, @p129, @p130, @p131, @p132, @p133, @p134, @p135)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p136, @p137, @p138, @p139, @p140, @p141, @p142, @p143)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p144, @p145, @p146, @p147, @p148, @p149, @p150, @p151)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p152, @p153, @p154, @p155, @p156, @p157, @p158, @p159)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p160, @p161, @p162, @p163, @p164, @p165, @p166, @p167)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p168, @p169, @p170, @p171, @p172, @p173, @p174, @p175)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p176, @p177, @p178, @p179, @p180, @p181, @p182, @p183)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p184, @p185, @p186, @p187, @p188, @p189, @p190, @p191)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p192, @p193, @p194, @p195, @p196, @p197, @p198, @p199)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p200, @p201, @p202, @p203, @p204, @p205, @p206, @p207)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p208, @p209, @p210, @p211, @p212, @p213, @p214, @p215)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p216, @p217, @p218, @p219, @p220, @p221, @p222, @p223)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p224, @p225, @p226, @p227, @p228, @p229, @p230, @p231)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p232, @p233, @p234, @p235, @p236, @p237, @p238, @p239)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p240, @p241, @p242, @p243, @p244, @p245, @p246, @p247)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p248, @p249, @p250, @p251, @p252, @p253, @p254, @p255)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p256, @p257, @p258, @p259, @p260, @p261, @p262, @p263)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p264, @p265, @p266, @p267, @p268, @p269, @p270, @p271)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p272, @p273, @p274, @p275, @p276, @p277, @p278, @p279)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p280, @p281, @p282, @p283, @p284, @p285, @p286, @p287)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p288, @p289, @p290, @p291, @p292, @p293, @p294, @p295)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p296, @p297, @p298, @p299, @p300, @p301, @p302, @p303)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p304, @p305, @p306, @p307, @p308, @p309, @p310, @p311)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p312, @p313, @p314, @p315, @p316, @p317, @p318, @p319)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p320, @p321, @p322, @p323, @p324, @p325, @p326, @p327)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p328, @p329, @p330, @p331, @p332, @p333, @p334, @p335)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p336, @p337, @p338, @p339, @p340, @p341, @p342, @p343)
+RETURNING citation_id;
+DELETE FROM publication_citation
+WHERE pub_id = @p344 AND citation_id = @p345;
+DELETE FROM publication_citation
+WHERE pub_id = @p346 AND citation_id = @p347;
+DELETE FROM publication_citation
+WHERE pub_id = @p348 AND citation_id = @p349;
+DELETE FROM publication_citation
+WHERE pub_id = @p350 AND citation_id = @p351;
+DELETE FROM publication_citation
+WHERE pub_id = @p352 AND citation_id = @p353;
+DELETE FROM publication_citation
+WHERE pub_id = @p354 AND citation_id = @p355;
+DELETE FROM publication_citation
+WHERE pub_id = @p356 AND citation_id = @p357;
+DELETE FROM publication_citation
+WHERE pub_id = @p358 AND citation_id = @p359;
+DELETE FROM publication_citation
+WHERE pub_id = @p360 AND citation_id = @p361;
+DELETE FROM publication_citation
+WHERE pub_id = @p362 AND citation_id = @p363;
+DELETE FROM publication_citation
+WHERE pub_id = @p364 AND citation_id = @p365;
+DELETE FROM publication_citation
+WHERE pub_id = @p366 AND citation_id = @p367;
+DELETE FROM publication_citation
+WHERE pub_id = @p368 AND citation_id = @p369;
+DELETE FROM publication_citation
+WHERE pub_id = @p370 AND citation_id = @p371;
+DELETE FROM publication_citation
+WHERE pub_id = @p372 AND citation_id = @p373;
+DELETE FROM publication_citation
+WHERE pub_id = @p374 AND citation_id = @p375;
+DELETE FROM publication_citation
+WHERE pub_id = @p376 AND citation_id = @p377;
+DELETE FROM publication_citation
+WHERE pub_id = @p378 AND citation_id = @p379;
+DELETE FROM publication_citation
+WHERE pub_id = @p380 AND citation_id = @p381;
+DELETE FROM publication_citation
+WHERE pub_id = @p382 AND citation_id = @p383;
+DELETE FROM publication_citation
+WHERE pub_id = @p384 AND citation_id = @p385;
+DELETE FROM publication_citation
+WHERE pub_id = @p386 AND citation_id = @p387;
+DELETE FROM publication_citation
+WHERE pub_id = @p388 AND citation_id = @p389;
+DELETE FROM publication_citation
+WHERE pub_id = @p390 AND citation_id = @p391;
+DELETE FROM publication_citation
+WHERE pub_id = @p392 AND citation_id = @p393;
+DELETE FROM publication_citation
+WHERE pub_id = @p394 AND citation_id = @p395;
+DELETE FROM publication_citation
+WHERE pub_id = @p396 AND citation_id = @p397;
+DELETE FROM publication_citation
+WHERE pub_id = @p398 AND citation_id = @p399;
+DELETE FROM publication_citation
+WHERE pub_id = @p400 AND citation_id = @p401;
+DELETE FROM publication_citation
+WHERE pub_id = @p402 AND citation_id = @p403;
+DELETE FROM publication_citation
+WHERE pub_id = @p404 AND citation_id = @p405;
+DELETE FROM publication_citation
+WHERE pub_id = @p406 AND citation_id = @p407;
+DELETE FROM publication_citation
+WHERE pub_id = @p408 AND citation_id = @p409;
+DELETE FROM publication_citation
+WHERE pub_id = @p410 AND citation_id = @p411;
+DELETE FROM publication_citation
+WHERE pub_id = @p412 AND citation_id = @p413;
+DELETE FROM publication_citation
+WHERE pub_id = @p414 AND citation_id = @p415;
+DELETE FROM publication_citation
+WHERE pub_id = @p416 AND citation_id = @p417;
+DELETE FROM publication_citation
+WHERE pub_id = @p418 AND citation_id = @p419;
+DELETE FROM publication_citation
+WHERE pub_id = @p420 AND citation_id = @p421;
+DELETE FROM publication_citation
+WHERE pub_id = @p422 AND citation_id = @p423;
+DELETE FROM publication_citation
+WHERE pub_id = @p424 AND citation_id = @p425;
+DELETE FROM publication_citation
+WHERE pub_id = @p426 AND citation_id = @p427;
+DELETE FROM publication_citation
+WHERE pub_id = @p428 AND citation_id = @p429;
+INSERT INTO quarantine (abstract, author_id, author, doi, journal, volume, pages, pub_year, publisher, title)
+VALUES (@p430, @p431, @p432, @p433, @p434, @p435, @p436, @p437, @p438, @p439)
+RETURNING pub_id;" (0723d8ff)
+2021-01-19T19:00:18.7803474+01:00 0HM5SKG9U0KAJ:00000001 [INF] Executed DbCommand ("5"ms) [Parameters=["@p440='?' (DbType = Int64), @p441='?' (DbType = Int64), @p442='?' (DbType = Int64), @p443='?' (DbType = Int64), @p444='?' (DbType = Int64), @p445='?' (DbType = Int64), @p446='?' (DbType = Int64), @p447='?' (DbType = Int64), @p448='?' (DbType = Int64), @p449='?' (DbType = Int64), @p450='?' (DbType = Int64), @p451='?' (DbType = Int64), @p452='?' (DbType = Int64), @p453='?' (DbType = Int64), @p454='?' (DbType = Int64), @p455='?' (DbType = Int64), @p456='?' (DbType = Int64), @p457='?' (DbType = Int64), @p458='?' (DbType = Int64), @p459='?' (DbType = Int64), @p460='?' (DbType = Int64), @p461='?' (DbType = Int64), @p462='?' (DbType = Int64), @p463='?' (DbType = Int64), @p464='?' (DbType = Int64), @p465='?' (DbType = Int64), @p466='?' (DbType = Int64), @p467='?' (DbType = Int64), @p468='?' (DbType = Int64), @p469='?' (DbType = Int64), @p470='?' (DbType = Int64), @p471='?' (DbType = Int64), @p472='?' (DbType = Int64), @p473='?' (DbType = Int64), @p474='?' (DbType = Int64), @p475='?' (DbType = Int64), @p476='?' (DbType = Int64), @p477='?' (DbType = Int64), @p478='?' (DbType = Int64), @p479='?' (DbType = Int64), @p480='?' (DbType = Int64), @p481='?' (DbType = Int64), @p482='?' (DbType = Int64), @p483='?' (DbType = Int64), @p484='?' (DbType = Int64), @p485='?' (DbType = Int64), @p486='?' (DbType = Int64), @p487='?' (DbType = Int64), @p488='?' (DbType = Int64), @p489='?' (DbType = Int64), @p490='?' (DbType = Int64), @p491='?' (DbType = Int64), @p492='?' (DbType = Int64), @p493='?' (DbType = Int64), @p494='?' (DbType = Int64), @p495='?' (DbType = Int64), @p496='?' (DbType = Int64), @p497='?' (DbType = Int64), @p498='?' (DbType = Int64), @p499='?' (DbType = Int64), @p500='?' (DbType = Int64), @p501='?' (DbType = Int64), @p502='?' (DbType = Int64), @p503='?' (DbType = Int64), @p504='?' (DbType = Int64), @p505='?' (DbType = Int64), @p506='?' (DbType = Int64), @p507='?' (DbType = Int64), @p508='?' (DbType = Int64), @p509='?' (DbType = Int64), @p510='?' (DbType = Int64), @p511='?' (DbType = Int64), @p512='?' (DbType = Int64), @p513='?' (DbType = Int64), @p514='?' (DbType = Int64), @p515='?' (DbType = Int64), @p516='?' (DbType = Int64), @p517='?' (DbType = Int64), @p518='?' (DbType = Int64), @p519='?' (DbType = Int64), @p520='?' (DbType = Int64), @p521='?' (DbType = Int64), @p522='?' (DbType = Int64), @p523='?' (DbType = Int64), @p524='?' (DbType = Int64), @p525='?' (DbType = Int64), @p526='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM publication
+WHERE pub_id = @p440;
+INSERT INTO quarantine_citation (quarantine_id, citation_id)
+VALUES (@p441, @p442);
+INSERT INTO quarantine_citation (quarantine_id, citation_id)
+VALUES (@p443, @p444);
+INSERT INTO quarantine_citation (quarantine_id, citation_id)
+VALUES (@p445, @p446);
+INSERT INTO quarantine_citation (quarantine_id, citation_id)
+VALUES (@p447, @p448);
+INSERT INTO quarantine_citation (quarantine_id, citation_id)
+VALUES (@p449, @p450);
+INSERT INTO quarantine_citation (quarantine_id, citation_id)
+VALUES (@p451, @p452);
+INSERT INTO quarantine_citation (quarantine_id, citation_id)
+VALUES (@p453, @p454);
+INSERT INTO quarantine_citation (quarantine_id, citation_id)
+VALUES (@p455, @p456);
+INSERT INTO quarantine_citation (quarantine_id, citation_id)
+VALUES (@p457, @p458);
+INSERT INTO quarantine_citation (quarantine_id, citation_id)
+VALUES (@p459, @p460);
+INSERT INTO quarantine_citation (quarantine_id, citation_id)
+VALUES (@p461, @p462);
+INSERT INTO quarantine_citation (quarantine_id, citation_id)
+VALUES (@p463, @p464);
+INSERT INTO quarantine_citation (quarantine_id, citation_id)
+VALUES (@p465, @p466);
+INSERT INTO quarantine_citation (quarantine_id, citation_id)
+VALUES (@p467, @p468);
+INSERT INTO quarantine_citation (quarantine_id, citation_id)
+VALUES (@p469, @p470);
+INSERT INTO quarantine_citation (quarantine_id, citation_id)
+VALUES (@p471, @p472);
+INSERT INTO quarantine_citation (quarantine_id, citation_id)
+VALUES (@p473, @p474);
+INSERT INTO quarantine_citation (quarantine_id, citation_id)
+VALUES (@p475, @p476);
+INSERT INTO quarantine_citation (quarantine_id, citation_id)
+VALUES (@p477, @p478);
+INSERT INTO quarantine_citation (quarantine_id, citation_id)
+VALUES (@p479, @p480);
+INSERT INTO quarantine_citation (quarantine_id, citation_id)
+VALUES (@p481, @p482);
+INSERT INTO quarantine_citation (quarantine_id, citation_id)
+VALUES (@p483, @p484);
+INSERT INTO quarantine_citation (quarantine_id, citation_id)
+VALUES (@p485, @p486);
+INSERT INTO quarantine_citation (quarantine_id, citation_id)
+VALUES (@p487, @p488);
+INSERT INTO quarantine_citation (quarantine_id, citation_id)
+VALUES (@p489, @p490);
+INSERT INTO quarantine_citation (quarantine_id, citation_id)
+VALUES (@p491, @p492);
+INSERT INTO quarantine_citation (quarantine_id, citation_id)
+VALUES (@p493, @p494);
+INSERT INTO quarantine_citation (quarantine_id, citation_id)
+VALUES (@p495, @p496);
+INSERT INTO quarantine_citation (quarantine_id, citation_id)
+VALUES (@p497, @p498);
+INSERT INTO quarantine_citation (quarantine_id, citation_id)
+VALUES (@p499, @p500);
+INSERT INTO quarantine_citation (quarantine_id, citation_id)
+VALUES (@p501, @p502);
+INSERT INTO quarantine_citation (quarantine_id, citation_id)
+VALUES (@p503, @p504);
+INSERT INTO quarantine_citation (quarantine_id, citation_id)
+VALUES (@p505, @p506);
+INSERT INTO quarantine_citation (quarantine_id, citation_id)
+VALUES (@p507, @p508);
+INSERT INTO quarantine_citation (quarantine_id, citation_id)
+VALUES (@p509, @p510);
+INSERT INTO quarantine_citation (quarantine_id, citation_id)
+VALUES (@p511, @p512);
+INSERT INTO quarantine_citation (quarantine_id, citation_id)
+VALUES (@p513, @p514);
+INSERT INTO quarantine_citation (quarantine_id, citation_id)
+VALUES (@p515, @p516);
+INSERT INTO quarantine_citation (quarantine_id, citation_id)
+VALUES (@p517, @p518);
+INSERT INTO quarantine_citation (quarantine_id, citation_id)
+VALUES (@p519, @p520);
+INSERT INTO quarantine_citation (quarantine_id, citation_id)
+VALUES (@p521, @p522);
+INSERT INTO quarantine_citation (quarantine_id, citation_id)
+VALUES (@p523, @p524);
+INSERT INTO quarantine_citation (quarantine_id, citation_id)
+VALUES (@p525, @p526);" (0723d8ff)
+2021-01-19T19:00:18.8042535+01:00 0HM5SKG9U0KAJ:00000001 [INF] Executed action method "PubCiterAPI.Controllers.QuarantineController.MovePublicationToQuarantine (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.EmptyResult" in 1655.1411ms. (50a9e262)
+2021-01-19T19:00:18.8104847+01:00 0HM5SKG9U0KAJ:00000001 [INF] Executed action "PubCiterAPI.Controllers.QuarantineController.MovePublicationToQuarantine (PubCiterAPI)" in 1940.8831ms (afa2e885)
+2021-01-19T19:00:18.8107849+01:00 0HM5SKG9U0KAJ:00000001 [INF] Executed endpoint '"PubCiterAPI.Controllers.QuarantineController.MovePublicationToQuarantine (PubCiterAPI)"' (99874f2b)
+2021-01-19T19:00:18.8169489+01:00 0HM5SKG9U0KAJ:00000001 [INF] Request finished in 2024.4083ms 200  (791a596a)
+2021-01-19T19:01:30.3669830+01:00 0HM5SKG9U0KAJ:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:7051/quarantine   (ca22a1cb)
+2021-01-19T19:01:30.3989524+01:00 0HM5SKG9U0KAJ:00000002 [INF] Executing endpoint '"PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)"' (500cc934)
+2021-01-19T19:01:30.4012253+01:00 0HM5SKG9U0KAJ:00000002 [INF] Route matched with "{action = \"GetQuarantineList\", controller = \"Quarantine\"}". Executing controller action with signature "System.Collections.Generic.IEnumerable`1[PubCiterAPI.Model.QuarantinedPublication] GetQuarantineList()" on controller "PubCiterAPI.Controllers.QuarantineController" ("PubCiterAPI"). (122b2fdf)
+2021-01-19T19:01:30.4362337+01:00 0HM5SKG9U0KAJ:00000002 [INF] Executing action method "PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-01-19T19:01:30.4601228+01:00 0HM5SKG9U0KAJ:00000002 [INF] Entity Framework Core "3.1.8" initialized '"ApplicationDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL"' with options: "None" (9958f5bb)
+2021-01-19T19:01:30.4674816+01:00 0HM5SKG9U0KAJ:00000002 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT q.pub_id, q.abstract, q.author_id, q.author, q.doi, q.journal, q.volume, q.pages, q.pub_year, q.publisher, q.title
+FROM quarantine AS q" (0723d8ff)
+2021-01-19T19:01:30.4681228+01:00 0HM5SKG9U0KAJ:00000002 [INF] Executed action method "PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 31.7353ms. (50a9e262)
+2021-01-19T19:01:30.4711423+01:00 0HM5SKG9U0KAJ:00000002 [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[PubCiterAPI.Model.QuarantinedPublication, PubCiterAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2021-01-19T19:01:30.6106055+01:00 0HM5SKG9U0KAJ:00000002 [INF] Executed action "PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)" in 209.2451ms (afa2e885)
+2021-01-19T19:01:30.6107122+01:00 0HM5SKG9U0KAJ:00000002 [INF] Executed endpoint '"PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)"' (99874f2b)
+2021-01-19T19:01:30.6109556+01:00 0HM5SKG9U0KAJ:00000002 [INF] Request finished in 244.201ms 200 application/json; charset=utf-8 (791a596a)
+2021-01-19T19:01:45.9638853+01:00  [INF] Application is shutting down... (90f52c38)
+2021-01-19T19:02:26.1407362+01:00  [INF] Now listening on: "http://[::]:7051" (d826f4b8)
+2021-01-19T19:02:26.1447822+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-01-19T19:02:26.1449581+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-01-19T19:02:26.1449798+01:00  [INF] Content root path: "C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI" (b5d60022)
+2021-01-19T19:02:37.7801880+01:00 0HM5SKHJUO9PB:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:7051/quarantine   (ca22a1cb)
+2021-01-19T19:02:37.8302978+01:00 0HM5SKHJUO9PB:00000001 [INF] Executing endpoint '"PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)"' (500cc934)
+2021-01-19T19:02:37.8525228+01:00 0HM5SKHJUO9PB:00000001 [INF] Route matched with "{action = \"GetQuarantineList\", controller = \"Quarantine\"}". Executing controller action with signature "System.Collections.Generic.IEnumerable`1[PubCiterAPI.Model.QuarantinedPublication] GetQuarantineList()" on controller "PubCiterAPI.Controllers.QuarantineController" ("PubCiterAPI"). (122b2fdf)
+2021-01-19T19:02:38.1135109+01:00 0HM5SKHJUO9PB:00000001 [INF] Executing action method "PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-01-19T19:02:38.7497271+01:00 0HM5SKHJUO9PB:00000001 [INF] Entity Framework Core "3.1.8" initialized '"ApplicationDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL"' with options: "None" (9958f5bb)
+2021-01-19T19:02:39.3926416+01:00 0HM5SKHJUO9PB:00000001 [INF] Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT q.pub_id, q.abstract, q.author_id, q.author, q.doi, q.journal, q.volume, q.pages, q.pub_year, q.publisher, q.title, t.quarantine_id, t.citation_id, t.citation_id0, t.abstract, t.author, t.doi, t.journal, t.volume, t.pub_url, t.pub_year, t.title
+FROM quarantine AS q
+LEFT JOIN (
+    SELECT q0.quarantine_id, q0.citation_id, c.citation_id AS citation_id0, c.abstract, c.author, c.doi, c.journal, c.volume, c.pub_url, c.pub_year, c.title
+    FROM quarantine_citation AS q0
+    INNER JOIN citation AS c ON q0.citation_id = c.citation_id
+) AS t ON q.pub_id = t.quarantine_id
+ORDER BY q.pub_id, t.quarantine_id, t.citation_id, t.citation_id0" (0723d8ff)
+2021-01-19T19:02:39.4878411+01:00 0HM5SKHJUO9PB:00000001 [INF] Executed action method "PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 1369.1623ms. (50a9e262)
+2021-01-19T19:02:39.4922617+01:00 0HM5SKHJUO9PB:00000001 [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[PubCiterAPI.Model.QuarantinedPublication, PubCiterAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2021-01-19T19:02:39.6652219+01:00 0HM5SKHJUO9PB:00000001 [INF] Executed action "PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)" in 1807.4231ms (afa2e885)
+2021-01-19T19:02:39.6654095+01:00 0HM5SKHJUO9PB:00000001 [INF] Executed endpoint '"PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)"' (99874f2b)
+2021-01-19T19:02:39.6710061+01:00 0HM5SKHJUO9PB:00000001 [INF] Request finished in 1892.9016ms 200 application/json; charset=utf-8 (791a596a)
+2021-01-19T19:07:14.8103468+01:00  [INF] Now listening on: "http://[::]:7051" (d826f4b8)
+2021-01-19T19:07:14.8138896+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-01-19T19:07:14.8140089+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-01-19T19:07:14.8140304+01:00  [INF] Content root path: "C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI" (b5d60022)
+2021-01-19T19:07:17.1576031+01:00 0HM5SKK772RHQ:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:7051/quarantine   (ca22a1cb)
+2021-01-19T19:07:17.2043647+01:00 0HM5SKK772RHQ:00000001 [INF] Executing endpoint '"PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)"' (500cc934)
+2021-01-19T19:07:17.2299758+01:00 0HM5SKK772RHQ:00000001 [INF] Route matched with "{action = \"GetQuarantineList\", controller = \"Quarantine\"}". Executing controller action with signature "System.Collections.Generic.IEnumerable`1[PubCiterAPI.Model.QuarantinedPublication] GetQuarantineList(Boolean)" on controller "PubCiterAPI.Controllers.QuarantineController" ("PubCiterAPI"). (122b2fdf)
+2021-01-19T19:07:17.5017296+01:00 0HM5SKK772RHQ:00000001 [INF] Executing action method "PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-01-19T19:07:18.1631585+01:00 0HM5SKK772RHQ:00000001 [INF] Entity Framework Core "3.1.8" initialized '"ApplicationDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL"' with options: "None" (9958f5bb)
+2021-01-19T19:07:18.7286019+01:00 0HM5SKK772RHQ:00000001 [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT q.pub_id, q.abstract, q.author_id, q.author, q.doi, q.journal, q.volume, q.pages, q.pub_year, q.publisher, q.title
+FROM quarantine AS q" (0723d8ff)
+2021-01-19T19:07:18.7929628+01:00 0HM5SKK772RHQ:00000001 [INF] Executed action method "PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 1284.1ms. (50a9e262)
+2021-01-19T19:07:18.7973487+01:00 0HM5SKK772RHQ:00000001 [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[PubCiterAPI.Model.QuarantinedPublication, PubCiterAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2021-01-19T19:07:18.9417236+01:00 0HM5SKK772RHQ:00000001 [INF] Executed action "PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)" in 1706.1344ms (afa2e885)
+2021-01-19T19:07:18.9421032+01:00 0HM5SKK772RHQ:00000001 [INF] Executed endpoint '"PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)"' (99874f2b)
+2021-01-19T19:07:18.9462263+01:00 0HM5SKK772RHQ:00000001 [INF] Request finished in 1794.0801ms 200 application/json; charset=utf-8 (791a596a)
+2021-01-19T19:07:32.2129684+01:00 0HM5SKK772RHQ:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:7051/quarantine?citations=true   (ca22a1cb)
+2021-01-19T19:07:32.2146223+01:00 0HM5SKK772RHQ:00000002 [INF] Executing endpoint '"PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)"' (500cc934)
+2021-01-19T19:07:32.2149795+01:00 0HM5SKK772RHQ:00000002 [INF] Route matched with "{action = \"GetQuarantineList\", controller = \"Quarantine\"}". Executing controller action with signature "System.Collections.Generic.IEnumerable`1[PubCiterAPI.Model.QuarantinedPublication] GetQuarantineList(Boolean)" on controller "PubCiterAPI.Controllers.QuarantineController" ("PubCiterAPI"). (122b2fdf)
+2021-01-19T19:07:32.2530239+01:00 0HM5SKK772RHQ:00000002 [INF] Executing action method "PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-01-19T19:07:32.2879791+01:00 0HM5SKK772RHQ:00000002 [INF] Entity Framework Core "3.1.8" initialized '"ApplicationDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL"' with options: "None" (9958f5bb)
+2021-01-19T19:07:32.2947828+01:00 0HM5SKK772RHQ:00000002 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT q.pub_id, q.abstract, q.author_id, q.author, q.doi, q.journal, q.volume, q.pages, q.pub_year, q.publisher, q.title
+FROM quarantine AS q" (0723d8ff)
+2021-01-19T19:07:32.2954369+01:00 0HM5SKK772RHQ:00000002 [INF] Executed action method "PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 42.3002ms. (50a9e262)
+2021-01-19T19:07:32.2957538+01:00 0HM5SKK772RHQ:00000002 [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[PubCiterAPI.Model.QuarantinedPublication, PubCiterAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2021-01-19T19:07:32.2964545+01:00 0HM5SKK772RHQ:00000002 [INF] Executed action "PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)" in 81.3874ms (afa2e885)
+2021-01-19T19:07:32.2965002+01:00 0HM5SKK772RHQ:00000002 [INF] Executed endpoint '"PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)"' (99874f2b)
+2021-01-19T19:07:32.2966523+01:00 0HM5SKK772RHQ:00000002 [INF] Request finished in 83.919ms 200 application/json; charset=utf-8 (791a596a)
+2021-01-19T19:07:35.5858302+01:00 0HM5SKK772RHQ:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:7051/quarantine?citations=true   (ca22a1cb)
+2021-01-19T19:07:35.5878270+01:00 0HM5SKK772RHQ:00000003 [INF] Executing endpoint '"PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)"' (500cc934)
+2021-01-19T19:07:35.5896695+01:00 0HM5SKK772RHQ:00000003 [INF] Route matched with "{action = \"GetQuarantineList\", controller = \"Quarantine\"}". Executing controller action with signature "System.Collections.Generic.IEnumerable`1[PubCiterAPI.Model.QuarantinedPublication] GetQuarantineList(Boolean)" on controller "PubCiterAPI.Controllers.QuarantineController" ("PubCiterAPI"). (122b2fdf)
+2021-01-19T19:07:35.6118850+01:00 0HM5SKK772RHQ:00000003 [INF] Executing action method "PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-01-19T19:07:35.6183847+01:00 0HM5SKK772RHQ:00000003 [INF] Entity Framework Core "3.1.8" initialized '"ApplicationDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL"' with options: "None" (9958f5bb)
+2021-01-19T19:07:35.6214105+01:00 0HM5SKK772RHQ:00000003 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT q.pub_id, q.abstract, q.author_id, q.author, q.doi, q.journal, q.volume, q.pages, q.pub_year, q.publisher, q.title
+FROM quarantine AS q" (0723d8ff)
+2021-01-19T19:07:35.6221279+01:00 0HM5SKK772RHQ:00000003 [INF] Executed action method "PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 9.878ms. (50a9e262)
+2021-01-19T19:07:35.6224257+01:00 0HM5SKK772RHQ:00000003 [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[PubCiterAPI.Model.QuarantinedPublication, PubCiterAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2021-01-19T19:07:35.6230676+01:00 0HM5SKK772RHQ:00000003 [INF] Executed action "PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)" in 32.9824ms (afa2e885)
+2021-01-19T19:07:35.6231391+01:00 0HM5SKK772RHQ:00000003 [INF] Executed endpoint '"PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)"' (99874f2b)
+2021-01-19T19:07:35.6234311+01:00 0HM5SKK772RHQ:00000003 [INF] Request finished in 38.1344ms 200 application/json; charset=utf-8 (791a596a)
+2021-01-19T19:07:42.0548906+01:00 0HM5SKK772RHQ:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:7051/quarantine?citations=true   (ca22a1cb)
+2021-01-19T19:07:42.0556977+01:00 0HM5SKK772RHQ:00000004 [INF] Executing endpoint '"PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)"' (500cc934)
+2021-01-19T19:07:42.0562651+01:00 0HM5SKK772RHQ:00000004 [INF] Route matched with "{action = \"GetQuarantineList\", controller = \"Quarantine\"}". Executing controller action with signature "System.Collections.Generic.IEnumerable`1[PubCiterAPI.Model.QuarantinedPublication] GetQuarantineList(Boolean)" on controller "PubCiterAPI.Controllers.QuarantineController" ("PubCiterAPI"). (122b2fdf)
+2021-01-19T19:07:42.0761226+01:00 0HM5SKK772RHQ:00000004 [INF] Executing action method "PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-01-19T19:07:58.2860956+01:00 0HM5SKK772RHQ:00000004 [INF] Entity Framework Core "3.1.8" initialized '"ApplicationDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL"' with options: "None" (9958f5bb)
+2021-01-19T19:08:00.5069553+01:00 0HM5SKK772RHQ:00000004 [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT q.pub_id, q.abstract, q.author_id, q.author, q.doi, q.journal, q.volume, q.pages, q.pub_year, q.publisher, q.title
+FROM quarantine AS q" (0723d8ff)
+2021-01-19T19:08:01.8895073+01:00 0HM5SKK772RHQ:00000004 [INF] Executed action method "PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 19813.0212ms. (50a9e262)
+2021-01-19T19:08:01.8903363+01:00 0HM5SKK772RHQ:00000004 [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[PubCiterAPI.Model.QuarantinedPublication, PubCiterAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2021-01-19T19:08:01.8914557+01:00 0HM5SKK772RHQ:00000004 [INF] Executed action "PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)" in 19834.8113ms (afa2e885)
+2021-01-19T19:08:01.8915470+01:00 0HM5SKK772RHQ:00000004 [INF] Executed endpoint '"PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)"' (99874f2b)
+2021-01-19T19:08:01.8918323+01:00 0HM5SKK772RHQ:00000004 [INF] Request finished in 19836.9949ms 200 application/json; charset=utf-8 (791a596a)
+2021-01-19T19:09:25.4850398+01:00  [INF] Now listening on: "http://[::]:7051" (d826f4b8)
+2021-01-19T19:09:25.4886191+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-01-19T19:09:25.4887038+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-01-19T19:09:25.4887256+01:00  [INF] Content root path: "C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI" (b5d60022)
+2021-01-19T19:09:28.1321399+01:00 0HM5SKLE85K19:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:7051/quarantine?citations=true   (ca22a1cb)
+2021-01-19T19:09:28.1858829+01:00 0HM5SKLE85K19:00000001 [INF] Executing endpoint '"PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)"' (500cc934)
+2021-01-19T19:09:28.2125570+01:00 0HM5SKLE85K19:00000001 [INF] Route matched with "{action = \"GetQuarantineList\", controller = \"Quarantine\"}". Executing controller action with signature "System.Collections.Generic.IEnumerable`1[PubCiterAPI.Model.QuarantinedPublication] GetQuarantineList(Boolean)" on controller "PubCiterAPI.Controllers.QuarantineController" ("PubCiterAPI"). (122b2fdf)
+2021-01-19T19:09:28.4948679+01:00 0HM5SKLE85K19:00000001 [INF] Executing action method "PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-01-19T19:09:33.3704358+01:00 0HM5SKLE85K19:00000001 [INF] Entity Framework Core "3.1.8" initialized '"ApplicationDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL"' with options: "None" (9958f5bb)
+2021-01-19T19:09:34.0740898+01:00 0HM5SKLE85K19:00000001 [INF] Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT q.pub_id, q.abstract, q.author_id, q.author, q.doi, q.journal, q.volume, q.pages, q.pub_year, q.publisher, q.title, t.quarantine_id, t.citation_id, t.citation_id0, t.abstract, t.author, t.doi, t.journal, t.volume, t.pub_url, t.pub_year, t.title
+FROM quarantine AS q
+LEFT JOIN (
+    SELECT q0.quarantine_id, q0.citation_id, c.citation_id AS citation_id0, c.abstract, c.author, c.doi, c.journal, c.volume, c.pub_url, c.pub_year, c.title
+    FROM quarantine_citation AS q0
+    INNER JOIN citation AS c ON q0.citation_id = c.citation_id
+) AS t ON q.pub_id = t.quarantine_id
+ORDER BY q.pub_id, t.quarantine_id, t.citation_id, t.citation_id0" (0723d8ff)
+2021-01-19T19:09:34.1658408+01:00 0HM5SKLE85K19:00000001 [INF] Executed action method "PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 5665.7536ms. (50a9e262)
+2021-01-19T19:09:34.1706679+01:00 0HM5SKLE85K19:00000001 [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[PubCiterAPI.Model.QuarantinedPublication, PubCiterAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2021-01-19T19:09:34.3384032+01:00 0HM5SKLE85K19:00000001 [INF] Executed action "PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)" in 6118.9415ms (afa2e885)
+2021-01-19T19:09:34.3386872+01:00 0HM5SKLE85K19:00000001 [INF] Executed endpoint '"PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)"' (99874f2b)
+2021-01-19T19:09:34.3440376+01:00 0HM5SKLE85K19:00000001 [INF] Request finished in 6213.8022ms 200 application/json; charset=utf-8 (791a596a)
+2021-01-19T19:09:42.5183072+01:00 0HM5SKLE85K19:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:7051/quarantine?citations=false   (ca22a1cb)
+2021-01-19T19:09:42.5203379+01:00 0HM5SKLE85K19:00000002 [INF] Executing endpoint '"PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)"' (500cc934)
+2021-01-19T19:09:42.5206665+01:00 0HM5SKLE85K19:00000002 [INF] Route matched with "{action = \"GetQuarantineList\", controller = \"Quarantine\"}". Executing controller action with signature "System.Collections.Generic.IEnumerable`1[PubCiterAPI.Model.QuarantinedPublication] GetQuarantineList(Boolean)" on controller "PubCiterAPI.Controllers.QuarantineController" ("PubCiterAPI"). (122b2fdf)
+2021-01-19T19:09:42.5421486+01:00 0HM5SKLE85K19:00000002 [INF] Executing action method "PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-01-19T19:09:42.5671237+01:00 0HM5SKLE85K19:00000002 [INF] Entity Framework Core "3.1.8" initialized '"ApplicationDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL"' with options: "None" (9958f5bb)
+2021-01-19T19:09:42.5734425+01:00 0HM5SKLE85K19:00000002 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT q.pub_id, q.abstract, q.author_id, q.author, q.doi, q.journal, q.volume, q.pages, q.pub_year, q.publisher, q.title
+FROM quarantine AS q" (0723d8ff)
+2021-01-19T19:09:42.5741224+01:00 0HM5SKLE85K19:00000002 [INF] Executed action method "PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 31.8425ms. (50a9e262)
+2021-01-19T19:09:42.5745181+01:00 0HM5SKLE85K19:00000002 [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[PubCiterAPI.Model.QuarantinedPublication, PubCiterAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2021-01-19T19:09:42.5754348+01:00 0HM5SKLE85K19:00000002 [INF] Executed action "PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)" in 54.6535ms (afa2e885)
+2021-01-19T19:09:42.5754956+01:00 0HM5SKLE85K19:00000002 [INF] Executed endpoint '"PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)"' (99874f2b)
+2021-01-19T19:09:42.5756789+01:00 0HM5SKLE85K19:00000002 [INF] Request finished in 57.6032ms 200 application/json; charset=utf-8 (791a596a)
+2021-01-19T19:09:46.8436996+01:00 0HM5SKLE85K19:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:7051/quarantine   (ca22a1cb)
+2021-01-19T19:09:46.8452632+01:00 0HM5SKLE85K19:00000003 [INF] Executing endpoint '"PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)"' (500cc934)
+2021-01-19T19:09:46.8458550+01:00 0HM5SKLE85K19:00000003 [INF] Route matched with "{action = \"GetQuarantineList\", controller = \"Quarantine\"}". Executing controller action with signature "System.Collections.Generic.IEnumerable`1[PubCiterAPI.Model.QuarantinedPublication] GetQuarantineList(Boolean)" on controller "PubCiterAPI.Controllers.QuarantineController" ("PubCiterAPI"). (122b2fdf)
+2021-01-19T19:09:46.8653367+01:00 0HM5SKLE85K19:00000003 [INF] Executing action method "PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-01-19T19:09:46.8710427+01:00 0HM5SKLE85K19:00000003 [INF] Entity Framework Core "3.1.8" initialized '"ApplicationDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL"' with options: "None" (9958f5bb)
+2021-01-19T19:09:46.8758072+01:00 0HM5SKLE85K19:00000003 [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT q.pub_id, q.abstract, q.author_id, q.author, q.doi, q.journal, q.volume, q.pages, q.pub_year, q.publisher, q.title
+FROM quarantine AS q" (0723d8ff)
+2021-01-19T19:09:46.8770095+01:00 0HM5SKLE85K19:00000003 [INF] Executed action method "PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 11.4059ms. (50a9e262)
+2021-01-19T19:09:46.8774888+01:00 0HM5SKLE85K19:00000003 [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[PubCiterAPI.Model.QuarantinedPublication, PubCiterAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2021-01-19T19:09:46.8784760+01:00 0HM5SKLE85K19:00000003 [INF] Executed action "PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)" in 32.3568ms (afa2e885)
+2021-01-19T19:09:46.8786470+01:00 0HM5SKLE85K19:00000003 [INF] Executed endpoint '"PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)"' (99874f2b)
+2021-01-19T19:09:46.8789841+01:00 0HM5SKLE85K19:00000003 [INF] Request finished in 35.632ms 200 application/json; charset=utf-8 (791a596a)
+2021-01-19T19:15:24.1345918+01:00  [INF] Now listening on: "http://[::]:7051" (d826f4b8)
+2021-01-19T19:15:24.1382691+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-01-19T19:15:24.1383601+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-01-19T19:15:24.1383833+01:00  [INF] Content root path: "C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI" (b5d60022)
+2021-01-19T19:15:36.5769562+01:00 0HM5SKOS1T15T:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:7051/quarantine?citations=true   (ca22a1cb)
+2021-01-19T19:15:36.6290698+01:00 0HM5SKOS1T15T:00000001 [INF] Executing endpoint '"PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)"' (500cc934)
+2021-01-19T19:15:36.6553323+01:00 0HM5SKOS1T15T:00000001 [INF] Route matched with "{action = \"GetQuarantineList\", controller = \"Quarantine\"}". Executing controller action with signature "System.Collections.Generic.IEnumerable`1[PubCiterAPI.Model.QuarantinedPublication] GetQuarantineList(Boolean)" on controller "PubCiterAPI.Controllers.QuarantineController" ("PubCiterAPI"). (122b2fdf)
+2021-01-19T19:15:36.9511512+01:00 0HM5SKOS1T15T:00000001 [INF] Executing action method "PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-01-19T19:15:37.6151096+01:00 0HM5SKOS1T15T:00000001 [INF] Entity Framework Core "3.1.8" initialized '"ApplicationDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL"' with options: "None" (9958f5bb)
+2021-01-19T19:15:38.3090704+01:00 0HM5SKOS1T15T:00000001 [INF] Executed DbCommand ("6"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT q.pub_id, q.abstract, q.author_id, q.author, q.doi, q.journal, q.volume, q.pages, q.pub_year, q.publisher, q.title, t.quarantine_id, t.citation_id, t.citation_id0, t.abstract, t.author, t.doi, t.journal, t.volume, t.pub_url, t.pub_year, t.title
+FROM quarantine AS q
+LEFT JOIN (
+    SELECT q0.quarantine_id, q0.citation_id, c.citation_id AS citation_id0, c.abstract, c.author, c.doi, c.journal, c.volume, c.pub_url, c.pub_year, c.title
+    FROM quarantine_citation AS q0
+    INNER JOIN citation AS c ON q0.citation_id = c.citation_id
+) AS t ON q.pub_id = t.quarantine_id
+ORDER BY q.pub_id, t.quarantine_id, t.citation_id, t.citation_id0" (0723d8ff)
+2021-01-19T19:15:38.4165291+01:00 0HM5SKOS1T15T:00000001 [INF] Executed action method "PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 1459.9605ms. (50a9e262)
+2021-01-19T19:15:38.4211136+01:00 0HM5SKOS1T15T:00000001 [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[PubCiterAPI.Model.QuarantinedPublication, PubCiterAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2021-01-19T19:15:38.6024628+01:00 0HM5SKOS1T15T:00000001 [INF] Executed action "PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)" in 1940.8806ms (afa2e885)
+2021-01-19T19:15:38.6027675+01:00 0HM5SKOS1T15T:00000001 [INF] Executed endpoint '"PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)"' (99874f2b)
+2021-01-19T19:15:38.6075815+01:00 0HM5SKOS1T15T:00000001 [INF] Request finished in 2033.4448ms 200 application/json; charset=utf-8 (791a596a)
+2021-01-19T19:15:50.8710569+01:00 0HM5SKOS1T15T:00000002 [INF] Request starting HTTP/1.1 POST http://localhost:7051/quarantine/remove/2  0 (ca22a1cb)
+2021-01-19T19:15:50.8729373+01:00 0HM5SKOS1T15T:00000002 [INF] Executing endpoint '"PubCiterAPI.Controllers.QuarantineController.RemovePublicationFromQuarantine (PubCiterAPI)"' (500cc934)
+2021-01-19T19:15:50.8760890+01:00 0HM5SKOS1T15T:00000002 [INF] Route matched with "{action = \"RemovePublicationFromQuarantine\", controller = \"Quarantine\"}". Executing controller action with signature "Void RemovePublicationFromQuarantine(Int64)" on controller "PubCiterAPI.Controllers.QuarantineController" ("PubCiterAPI"). (122b2fdf)
+2021-01-19T19:15:50.9186546+01:00 0HM5SKOS1T15T:00000002 [INF] Executing action method "PubCiterAPI.Controllers.QuarantineController.RemovePublicationFromQuarantine (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-01-19T19:15:50.9479670+01:00 0HM5SKOS1T15T:00000002 [INF] Entity Framework Core "3.1.8" initialized '"ApplicationDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL"' with options: "None" (9958f5bb)
+2021-01-19T19:15:50.9535163+01:00 0HM5SKOS1T15T:00000002 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT q.pub_id, q.abstract, q.author_id, q.author, q.doi, q.journal, q.volume, q.pages, q.pub_year, q.publisher, q.title, t.quarantine_id, t.citation_id, t.citation_id0, t.abstract, t.author, t.doi, t.journal, t.volume, t.pub_url, t.pub_year, t.title
+FROM quarantine AS q
+LEFT JOIN (
+    SELECT q0.quarantine_id, q0.citation_id, c.citation_id AS citation_id0, c.abstract, c.author, c.doi, c.journal, c.volume, c.pub_url, c.pub_year, c.title
+    FROM quarantine_citation AS q0
+    INNER JOIN citation AS c ON q0.citation_id = c.citation_id
+) AS t ON q.pub_id = t.quarantine_id
+ORDER BY q.pub_id, t.quarantine_id, t.citation_id, t.citation_id0" (0723d8ff)
+2021-01-19T19:15:51.1747450+01:00 0HM5SKOS1T15T:00000002 [ERR] System.InvalidOperationException: The property 'CitationId' on entity type 'Citation' is part of a key and so cannot be modified or marked as modified. To change the principal of an existing entity with an identifying foreign key first delete the dependent and invoke 'SaveChanges' then associate the dependent with the new principal.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetPropertyModified(IProperty property, Boolean changeState, Boolean isModified, Boolean isConceptualNull, Boolean acceptChanges)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.ChangeDetector.LocalDetectChanges(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.ChangeDetector.DetectChanges(IStateManager stateManager)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker.DetectChanges()
+   at Microsoft.EntityFrameworkCore.DbContext.TryDetectChanges()
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges()
+   at PubCiterAPI.Repositories.QuarantineRepository.RemoveFromQuarantine(ApplicationDbContext context, Int64 quarantinedPublicationId) in C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\Repositories\QuarantineRepository.cs:line 137
+   at PubCiterAPI.Controllers.QuarantineController.RemovePublicationFromQuarantine(Int64 quarantinedPublicationId) in C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\Controllers\QuarantineController.cs:line 86 (2dbf649e)
+2021-01-19T19:15:51.1749299+01:00 0HM5SKOS1T15T:00000002 [INF] Executed action method "PubCiterAPI.Controllers.QuarantineController.RemovePublicationFromQuarantine (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.EmptyResult" in 256.074ms. (50a9e262)
+2021-01-19T19:15:51.1751162+01:00 0HM5SKOS1T15T:00000002 [INF] Executed action "PubCiterAPI.Controllers.QuarantineController.RemovePublicationFromQuarantine (PubCiterAPI)" in 298.9484ms (afa2e885)
+2021-01-19T19:15:51.1751658+01:00 0HM5SKOS1T15T:00000002 [INF] Executed endpoint '"PubCiterAPI.Controllers.QuarantineController.RemovePublicationFromQuarantine (PubCiterAPI)"' (99874f2b)
+2021-01-19T19:15:51.1755855+01:00 0HM5SKOS1T15T:00000002 [INF] Request finished in 304.6417ms 200  (791a596a)
+2021-01-19T19:16:51.6026202+01:00  [INF] Application is shutting down... (90f52c38)
+2021-01-19T19:18:55.1229223+01:00  [INF] Now listening on: "http://[::]:7051" (d826f4b8)
+2021-01-19T19:18:55.1265846+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-01-19T19:18:55.1266747+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-01-19T19:18:55.1267038+01:00  [INF] Content root path: "C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI" (b5d60022)
+2021-01-19T19:19:01.7105674+01:00 0HM5SKQP6725R:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:7051/quarantine   (ca22a1cb)
+2021-01-19T19:19:01.7617150+01:00 0HM5SKQP6725R:00000001 [INF] Executing endpoint '"PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)"' (500cc934)
+2021-01-19T19:19:01.7858021+01:00 0HM5SKQP6725R:00000001 [INF] Route matched with "{action = \"GetQuarantineList\", controller = \"Quarantine\"}". Executing controller action with signature "System.Collections.Generic.IEnumerable`1[PubCiterAPI.Model.QuarantinedPublication] GetQuarantineList(Boolean)" on controller "PubCiterAPI.Controllers.QuarantineController" ("PubCiterAPI"). (122b2fdf)
+2021-01-19T19:19:02.0571699+01:00 0HM5SKQP6725R:00000001 [INF] Executing action method "PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-01-19T19:19:02.6912530+01:00 0HM5SKQP6725R:00000001 [INF] Entity Framework Core "3.1.8" initialized '"ApplicationDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL"' with options: "None" (9958f5bb)
+2021-01-19T19:19:03.2630864+01:00 0HM5SKQP6725R:00000001 [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT q.pub_id, q.abstract, q.author_id, q.author, q.doi, q.journal, q.volume, q.pages, q.pub_year, q.publisher, q.title
+FROM quarantine AS q" (0723d8ff)
+2021-01-19T19:19:03.3195883+01:00 0HM5SKQP6725R:00000001 [INF] Executed action method "PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 1256.8045ms. (50a9e262)
+2021-01-19T19:19:03.3233356+01:00 0HM5SKQP6725R:00000001 [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[PubCiterAPI.Model.QuarantinedPublication, PubCiterAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2021-01-19T19:19:03.4735511+01:00 0HM5SKQP6725R:00000001 [INF] Executed action "PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)" in 1681.8217ms (afa2e885)
+2021-01-19T19:19:03.4737545+01:00 0HM5SKQP6725R:00000001 [INF] Executed endpoint '"PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)"' (99874f2b)
+2021-01-19T19:19:03.4780459+01:00 0HM5SKQP6725R:00000001 [INF] Request finished in 1770.6259ms 200 application/json; charset=utf-8 (791a596a)
+2021-01-19T19:19:08.8063098+01:00 0HM5SKQP6725R:00000002 [INF] Request starting HTTP/1.1 POST http://localhost:7051/quarantine/remove/2  0 (ca22a1cb)
+2021-01-19T19:19:08.8082396+01:00 0HM5SKQP6725R:00000002 [INF] Executing endpoint '"PubCiterAPI.Controllers.QuarantineController.RemovePublicationFromQuarantine (PubCiterAPI)"' (500cc934)
+2021-01-19T19:19:08.8115974+01:00 0HM5SKQP6725R:00000002 [INF] Route matched with "{action = \"RemovePublicationFromQuarantine\", controller = \"Quarantine\"}". Executing controller action with signature "Void RemovePublicationFromQuarantine(Int64)" on controller "PubCiterAPI.Controllers.QuarantineController" ("PubCiterAPI"). (122b2fdf)
+2021-01-19T19:19:08.8623621+01:00 0HM5SKQP6725R:00000002 [INF] Executing action method "PubCiterAPI.Controllers.QuarantineController.RemovePublicationFromQuarantine (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-01-19T19:19:08.9008502+01:00 0HM5SKQP6725R:00000002 [INF] Entity Framework Core "3.1.8" initialized '"ApplicationDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL"' with options: "None" (9958f5bb)
+2021-01-19T19:19:09.0405042+01:00 0HM5SKQP6725R:00000002 [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT q.pub_id, q.abstract, q.author_id, q.author, q.doi, q.journal, q.volume, q.pages, q.pub_year, q.publisher, q.title, t.quarantine_id, t.citation_id, t.citation_id0, t.abstract, t.author, t.doi, t.journal, t.volume, t.pub_url, t.pub_year, t.title
+FROM quarantine AS q
+LEFT JOIN (
+    SELECT q0.quarantine_id, q0.citation_id, c.citation_id AS citation_id0, c.abstract, c.author, c.doi, c.journal, c.volume, c.pub_url, c.pub_year, c.title
+    FROM quarantine_citation AS q0
+    INNER JOIN citation AS c ON q0.citation_id = c.citation_id
+) AS t ON q.pub_id = t.quarantine_id
+ORDER BY q.pub_id, t.quarantine_id, t.citation_id, t.citation_id0" (0723d8ff)
+2021-01-19T19:19:09.2964375+01:00 0HM5SKQP6725R:00000002 [ERR] System.InvalidOperationException: The property 'CitationId' on entity type 'Citation' is part of a key and so cannot be modified or marked as modified. To change the principal of an existing entity with an identifying foreign key first delete the dependent and invoke 'SaveChanges' then associate the dependent with the new principal.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetPropertyModified(IProperty property, Boolean changeState, Boolean isModified, Boolean isConceptualNull, Boolean acceptChanges)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.ChangeDetector.LocalDetectChanges(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.ChangeDetector.DetectChanges(IStateManager stateManager)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker.DetectChanges()
+   at Microsoft.EntityFrameworkCore.DbContext.TryDetectChanges()
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges()
+   at PubCiterAPI.Repositories.QuarantineRepository.RemoveFromQuarantine(ApplicationDbContext context, Int64 quarantinedPublicationId) in C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\Repositories\QuarantineRepository.cs:line 137
+   at PubCiterAPI.Controllers.QuarantineController.RemovePublicationFromQuarantine(Int64 quarantinedPublicationId) in C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\Controllers\QuarantineController.cs:line 86 (2dbf649e)
+2021-01-19T19:19:09.2966115+01:00 0HM5SKQP6725R:00000002 [INF] Executed action method "PubCiterAPI.Controllers.QuarantineController.RemovePublicationFromQuarantine (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.EmptyResult" in 434.0102ms. (50a9e262)
+2021-01-19T19:19:09.2968590+01:00 0HM5SKQP6725R:00000002 [INF] Executed action "PubCiterAPI.Controllers.QuarantineController.RemovePublicationFromQuarantine (PubCiterAPI)" in 485.1727ms (afa2e885)
+2021-01-19T19:19:09.2969170+01:00 0HM5SKQP6725R:00000002 [INF] Executed endpoint '"PubCiterAPI.Controllers.QuarantineController.RemovePublicationFromQuarantine (PubCiterAPI)"' (99874f2b)
+2021-01-19T19:19:09.2981363+01:00 0HM5SKQP6725R:00000002 [INF] Request finished in 492.051ms 200  (791a596a)
+2021-01-19T19:19:45.9151699+01:00  [INF] Now listening on: "http://[::]:7051" (d826f4b8)
+2021-01-19T19:19:45.9188669+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-01-19T19:19:45.9189501+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-01-19T19:19:45.9189696+01:00  [INF] Content root path: "C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI" (b5d60022)
+2021-01-19T19:19:54.2738376+01:00 0HM5SKR8RD0ML:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:7051/quarantine?citations=true   (ca22a1cb)
+2021-01-19T19:19:54.3226198+01:00 0HM5SKR8RD0ML:00000001 [INF] Executing endpoint '"PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)"' (500cc934)
+2021-01-19T19:19:54.3490716+01:00 0HM5SKR8RD0ML:00000001 [INF] Route matched with "{action = \"GetQuarantineList\", controller = \"Quarantine\"}". Executing controller action with signature "System.Collections.Generic.IEnumerable`1[PubCiterAPI.Model.QuarantinedPublication] GetQuarantineList(Boolean)" on controller "PubCiterAPI.Controllers.QuarantineController" ("PubCiterAPI"). (122b2fdf)
+2021-01-19T19:19:54.6213893+01:00 0HM5SKR8RD0ML:00000001 [INF] Executing action method "PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-01-19T19:19:55.2512321+01:00 0HM5SKR8RD0ML:00000001 [INF] Entity Framework Core "3.1.8" initialized '"ApplicationDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL"' with options: "None" (9958f5bb)
+2021-01-19T19:19:55.9275089+01:00 0HM5SKR8RD0ML:00000001 [INF] Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT q.pub_id, q.abstract, q.author_id, q.author, q.doi, q.journal, q.volume, q.pages, q.pub_year, q.publisher, q.title, t.quarantine_id, t.citation_id, t.citation_id0, t.abstract, t.author, t.doi, t.journal, t.volume, t.pub_url, t.pub_year, t.title
+FROM quarantine AS q
+LEFT JOIN (
+    SELECT q0.quarantine_id, q0.citation_id, c.citation_id AS citation_id0, c.abstract, c.author, c.doi, c.journal, c.volume, c.pub_url, c.pub_year, c.title
+    FROM quarantine_citation AS q0
+    INNER JOIN citation AS c ON q0.citation_id = c.citation_id
+) AS t ON q.pub_id = t.quarantine_id
+ORDER BY q.pub_id, t.quarantine_id, t.citation_id, t.citation_id0" (0723d8ff)
+2021-01-19T19:19:56.0173205+01:00 0HM5SKR8RD0ML:00000001 [INF] Executed action method "PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 1390.3285ms. (50a9e262)
+2021-01-19T19:19:56.0210409+01:00 0HM5SKR8RD0ML:00000001 [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[PubCiterAPI.Model.QuarantinedPublication, PubCiterAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2021-01-19T19:19:56.1764230+01:00 0HM5SKR8RD0ML:00000001 [INF] Executed action "PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)" in 1821.7763ms (afa2e885)
+2021-01-19T19:19:56.1766856+01:00 0HM5SKR8RD0ML:00000001 [INF] Executed endpoint '"PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)"' (99874f2b)
+2021-01-19T19:19:56.1835352+01:00 0HM5SKR8RD0ML:00000001 [INF] Request finished in 1912.0542ms 200 application/json; charset=utf-8 (791a596a)
+2021-01-19T19:20:00.2140804+01:00 0HM5SKR8RD0ML:00000002 [INF] Request starting HTTP/1.1 POST http://localhost:7051/quarantine/remove/2  0 (ca22a1cb)
+2021-01-19T19:20:00.2185188+01:00 0HM5SKR8RD0ML:00000002 [INF] Executing endpoint '"PubCiterAPI.Controllers.QuarantineController.RemovePublicationFromQuarantine (PubCiterAPI)"' (500cc934)
+2021-01-19T19:20:00.2269999+01:00 0HM5SKR8RD0ML:00000002 [INF] Route matched with "{action = \"RemovePublicationFromQuarantine\", controller = \"Quarantine\"}". Executing controller action with signature "Void RemovePublicationFromQuarantine(Int64)" on controller "PubCiterAPI.Controllers.QuarantineController" ("PubCiterAPI"). (122b2fdf)
+2021-01-19T19:20:00.2876377+01:00 0HM5SKR8RD0ML:00000002 [INF] Executing action method "PubCiterAPI.Controllers.QuarantineController.RemovePublicationFromQuarantine (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-01-19T19:20:00.3120753+01:00 0HM5SKR8RD0ML:00000002 [INF] Entity Framework Core "3.1.8" initialized '"ApplicationDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL"' with options: "None" (9958f5bb)
+2021-01-19T19:20:00.3194141+01:00 0HM5SKR8RD0ML:00000002 [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT q.pub_id, q.abstract, q.author_id, q.author, q.doi, q.journal, q.volume, q.pages, q.pub_year, q.publisher, q.title, t.quarantine_id, t.citation_id, t.citation_id0, t.abstract, t.author, t.doi, t.journal, t.volume, t.pub_url, t.pub_year, t.title
+FROM quarantine AS q
+LEFT JOIN (
+    SELECT q0.quarantine_id, q0.citation_id, c.citation_id AS citation_id0, c.abstract, c.author, c.doi, c.journal, c.volume, c.pub_url, c.pub_year, c.title
+    FROM quarantine_citation AS q0
+    INNER JOIN citation AS c ON q0.citation_id = c.citation_id
+) AS t ON q.pub_id = t.quarantine_id
+ORDER BY q.pub_id, t.quarantine_id, t.citation_id, t.citation_id0" (0723d8ff)
+2021-01-19T19:20:00.4978519+01:00 0HM5SKR8RD0ML:00000002 [INF] Executed DbCommand ("12"ms) [Parameters=["@p0='?', @p1='?', @p2='?', @p3='?', @p4='?', @p5='?', @p6='?', @p7='?', @p8='?', @p9='?', @p10='?', @p11='?', @p12='?', @p13='?', @p14='?', @p15='?', @p16='?', @p17='?', @p18='?', @p19='?', @p20='?', @p21='?', @p22='?', @p23='?', @p24='?', @p25='?', @p26='?', @p27='?', @p28='?', @p29='?', @p30='?', @p31='?', @p32='?', @p33='?', @p34='?', @p35='?', @p36='?', @p37='?', @p38='?', @p39='?', @p40='?', @p41='?', @p42='?', @p43='?', @p44='?', @p45='?', @p46='?', @p47='?', @p48='?', @p49='?', @p50='?', @p51='?', @p52='?', @p53='?', @p54='?', @p55='?', @p56='?', @p57='?', @p58='?', @p59='?', @p60='?', @p61='?', @p62='?', @p63='?', @p64='?', @p65='?', @p66='?', @p67='?', @p68='?', @p69='?', @p70='?', @p71='?', @p72='?', @p73='?', @p74='?', @p75='?', @p76='?', @p77='?', @p78='?', @p79='?', @p80='?', @p81='?', @p82='?', @p83='?', @p84='?', @p85='?', @p86='?', @p87='?', @p88='?', @p89='?', @p90='?', @p91='?', @p92='?', @p93='?', @p94='?', @p95='?', @p96='?', @p97='?', @p98='?', @p99='?', @p100='?', @p101='?', @p102='?', @p103='?', @p104='?', @p105='?', @p106='?', @p107='?', @p108='?', @p109='?', @p110='?', @p111='?', @p112='?', @p113='?', @p114='?', @p115='?', @p116='?', @p117='?', @p118='?', @p119='?', @p120='?', @p121='?', @p122='?', @p123='?', @p124='?', @p125='?', @p126='?', @p127='?', @p128='?', @p129='?', @p130='?', @p131='?', @p132='?', @p133='?', @p134='?', @p135='?', @p136='?', @p137='?', @p138='?', @p139='?', @p140='?', @p141='?', @p142='?', @p143='?', @p144='?', @p145='?', @p146='?', @p147='?', @p148='?', @p149='?', @p150='?', @p151='?', @p152='?', @p153='?', @p154='?', @p155='?', @p156='?', @p157='?', @p158='?', @p159='?', @p160='?', @p161='?', @p162='?', @p163='?', @p164='?', @p165='?', @p166='?', @p167='?', @p168='?', @p169='?', @p170='?', @p171='?', @p172='?', @p173='?', @p174='?', @p175='?', @p176='?', @p177='?', @p178='?', @p179='?', @p180='?', @p181='?', @p182='?', @p183='?', @p184='?', @p185='?', @p186='?', @p187='?', @p188='?', @p189='?', @p190='?', @p191='?', @p192='?', @p193='?', @p194='?', @p195='?', @p196='?', @p197='?', @p198='?', @p199='?', @p200='?', @p201='?', @p202='?', @p203='?', @p204='?', @p205='?', @p206='?', @p207='?', @p208='?', @p209='?', @p210='?', @p211='?', @p212='?', @p213='?', @p214='?', @p215='?', @p216='?', @p217='?', @p218='?', @p219='?', @p220='?', @p221='?', @p222='?', @p223='?', @p224='?', @p225='?', @p226='?', @p227='?', @p228='?', @p229='?', @p230='?', @p231='?', @p232='?', @p233='?', @p234='?', @p235='?', @p236='?', @p237='?', @p238='?', @p239='?', @p240='?', @p241='?', @p242='?', @p243='?', @p244='?', @p245='?', @p246='?', @p247='?', @p248='?', @p249='?', @p250='?', @p251='?', @p252='?', @p253='?', @p254='?', @p255='?', @p256='?', @p257='?', @p258='?', @p259='?', @p260='?', @p261='?', @p262='?', @p263='?', @p264='?', @p265='?', @p266='?', @p267='?', @p268='?', @p269='?', @p270='?', @p271='?', @p272='?', @p273='?', @p274='?', @p275='?', @p276='?', @p277='?', @p278='?', @p279='?', @p280='?', @p281='?', @p282='?', @p283='?', @p284='?', @p285='?', @p286='?', @p287='?', @p288='?', @p289='?', @p290='?', @p291='?', @p292='?', @p293='?', @p294='?', @p295='?', @p296='?', @p297='?', @p298='?', @p299='?', @p300='?', @p301='?', @p302='?', @p303='?', @p304='?', @p305='?', @p306='?', @p307='?', @p308='?', @p309='?', @p310='?', @p311='?', @p312='?', @p313='?', @p314='?', @p315='?', @p316='?', @p317='?', @p318='?', @p319='?', @p320='?', @p321='?', @p322='?', @p323='?', @p324='?', @p325='?', @p326='?', @p327='?', @p328='?', @p329='?', @p330='?', @p331='?', @p332='?', @p333='?', @p334='?', @p335='?', @p336='?', @p337='?', @p338='?', @p339='?', @p340='?', @p341='?', @p342='?', @p343='?', @p344='?', @p345='?' (DbType = Int64), @p346='?', @p347='?', @p348='?', @p349='?', @p350='?', @p351='?', @p352='?', @p353='?', @p354='?' (DbType = Int64), @p355='?' (DbType = Int64), @p356='?' (DbType = Int64), @p357='?' (DbType = Int64), @p358='?' (DbType = Int64), @p359='?' (DbType = Int64), @p360='?' (DbType = Int64), @p361='?' (DbType = Int64), @p362='?' (DbType = Int64), @p363='?' (DbType = Int64), @p364='?' (DbType = Int64), @p365='?' (DbType = Int64), @p366='?' (DbType = Int64), @p367='?' (DbType = Int64), @p368='?' (DbType = Int64), @p369='?' (DbType = Int64), @p370='?' (DbType = Int64), @p371='?' (DbType = Int64), @p372='?' (DbType = Int64), @p373='?' (DbType = Int64), @p374='?' (DbType = Int64), @p375='?' (DbType = Int64), @p376='?' (DbType = Int64), @p377='?' (DbType = Int64), @p378='?' (DbType = Int64), @p379='?' (DbType = Int64), @p380='?' (DbType = Int64), @p381='?' (DbType = Int64), @p382='?' (DbType = Int64), @p383='?' (DbType = Int64), @p384='?' (DbType = Int64), @p385='?' (DbType = Int64), @p386='?' (DbType = Int64), @p387='?' (DbType = Int64), @p388='?' (DbType = Int64), @p389='?' (DbType = Int64), @p390='?' (DbType = Int64), @p391='?' (DbType = Int64), @p392='?' (DbType = Int64), @p393='?' (DbType = Int64), @p394='?' (DbType = Int64), @p395='?' (DbType = Int64), @p396='?' (DbType = Int64), @p397='?' (DbType = Int64), @p398='?' (DbType = Int64), @p399='?' (DbType = Int64), @p400='?' (DbType = Int64), @p401='?' (DbType = Int64), @p402='?' (DbType = Int64), @p403='?' (DbType = Int64), @p404='?' (DbType = Int64), @p405='?' (DbType = Int64), @p406='?' (DbType = Int64), @p407='?' (DbType = Int64), @p408='?' (DbType = Int64), @p409='?' (DbType = Int64), @p410='?' (DbType = Int64), @p411='?' (DbType = Int64), @p412='?' (DbType = Int64), @p413='?' (DbType = Int64), @p414='?' (DbType = Int64), @p415='?' (DbType = Int64), @p416='?' (DbType = Int64), @p417='?' (DbType = Int64), @p418='?' (DbType = Int64), @p419='?' (DbType = Int64), @p420='?' (DbType = Int64), @p421='?' (DbType = Int64), @p422='?' (DbType = Int64), @p423='?' (DbType = Int64), @p424='?' (DbType = Int64), @p425='?' (DbType = Int64), @p426='?' (DbType = Int64), @p427='?' (DbType = Int64), @p428='?' (DbType = Int64), @p429='?' (DbType = Int64), @p430='?' (DbType = Int64), @p431='?' (DbType = Int64), @p432='?' (DbType = Int64), @p433='?' (DbType = Int64), @p434='?' (DbType = Int64), @p435='?' (DbType = Int64), @p436='?' (DbType = Int64), @p437='?' (DbType = Int64), @p438='?' (DbType = Int64), @p439='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p16, @p17, @p18, @p19, @p20, @p21, @p22, @p23)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p24, @p25, @p26, @p27, @p28, @p29, @p30, @p31)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p32, @p33, @p34, @p35, @p36, @p37, @p38, @p39)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p40, @p41, @p42, @p43, @p44, @p45, @p46, @p47)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p48, @p49, @p50, @p51, @p52, @p53, @p54, @p55)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p56, @p57, @p58, @p59, @p60, @p61, @p62, @p63)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p64, @p65, @p66, @p67, @p68, @p69, @p70, @p71)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p72, @p73, @p74, @p75, @p76, @p77, @p78, @p79)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p80, @p81, @p82, @p83, @p84, @p85, @p86, @p87)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p88, @p89, @p90, @p91, @p92, @p93, @p94, @p95)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p96, @p97, @p98, @p99, @p100, @p101, @p102, @p103)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p104, @p105, @p106, @p107, @p108, @p109, @p110, @p111)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p112, @p113, @p114, @p115, @p116, @p117, @p118, @p119)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p120, @p121, @p122, @p123, @p124, @p125, @p126, @p127)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p128, @p129, @p130, @p131, @p132, @p133, @p134, @p135)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p136, @p137, @p138, @p139, @p140, @p141, @p142, @p143)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p144, @p145, @p146, @p147, @p148, @p149, @p150, @p151)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p152, @p153, @p154, @p155, @p156, @p157, @p158, @p159)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p160, @p161, @p162, @p163, @p164, @p165, @p166, @p167)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p168, @p169, @p170, @p171, @p172, @p173, @p174, @p175)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p176, @p177, @p178, @p179, @p180, @p181, @p182, @p183)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p184, @p185, @p186, @p187, @p188, @p189, @p190, @p191)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p192, @p193, @p194, @p195, @p196, @p197, @p198, @p199)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p200, @p201, @p202, @p203, @p204, @p205, @p206, @p207)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p208, @p209, @p210, @p211, @p212, @p213, @p214, @p215)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p216, @p217, @p218, @p219, @p220, @p221, @p222, @p223)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p224, @p225, @p226, @p227, @p228, @p229, @p230, @p231)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p232, @p233, @p234, @p235, @p236, @p237, @p238, @p239)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p240, @p241, @p242, @p243, @p244, @p245, @p246, @p247)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p248, @p249, @p250, @p251, @p252, @p253, @p254, @p255)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p256, @p257, @p258, @p259, @p260, @p261, @p262, @p263)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p264, @p265, @p266, @p267, @p268, @p269, @p270, @p271)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p272, @p273, @p274, @p275, @p276, @p277, @p278, @p279)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p280, @p281, @p282, @p283, @p284, @p285, @p286, @p287)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p288, @p289, @p290, @p291, @p292, @p293, @p294, @p295)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p296, @p297, @p298, @p299, @p300, @p301, @p302, @p303)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p304, @p305, @p306, @p307, @p308, @p309, @p310, @p311)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p312, @p313, @p314, @p315, @p316, @p317, @p318, @p319)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p320, @p321, @p322, @p323, @p324, @p325, @p326, @p327)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p328, @p329, @p330, @p331, @p332, @p333, @p334, @p335)
+RETURNING citation_id;
+INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p336, @p337, @p338, @p339, @p340, @p341, @p342, @p343)
+RETURNING citation_id;
+INSERT INTO publication (abstract, author_id, author, doi, journal, volume, pages, pub_year, publisher, title)
+VALUES (@p344, @p345, @p346, @p347, @p348, @p349, @p350, @p351, @p352, @p353)
+RETURNING pub_id;
+DELETE FROM quarantine_citation
+WHERE quarantine_id = @p354 AND citation_id = @p355;
+DELETE FROM quarantine_citation
+WHERE quarantine_id = @p356 AND citation_id = @p357;
+DELETE FROM quarantine_citation
+WHERE quarantine_id = @p358 AND citation_id = @p359;
+DELETE FROM quarantine_citation
+WHERE quarantine_id = @p360 AND citation_id = @p361;
+DELETE FROM quarantine_citation
+WHERE quarantine_id = @p362 AND citation_id = @p363;
+DELETE FROM quarantine_citation
+WHERE quarantine_id = @p364 AND citation_id = @p365;
+DELETE FROM quarantine_citation
+WHERE quarantine_id = @p366 AND citation_id = @p367;
+DELETE FROM quarantine_citation
+WHERE quarantine_id = @p368 AND citation_id = @p369;
+DELETE FROM quarantine_citation
+WHERE quarantine_id = @p370 AND citation_id = @p371;
+DELETE FROM quarantine_citation
+WHERE quarantine_id = @p372 AND citation_id = @p373;
+DELETE FROM quarantine_citation
+WHERE quarantine_id = @p374 AND citation_id = @p375;
+DELETE FROM quarantine_citation
+WHERE quarantine_id = @p376 AND citation_id = @p377;
+DELETE FROM quarantine_citation
+WHERE quarantine_id = @p378 AND citation_id = @p379;
+DELETE FROM quarantine_citation
+WHERE quarantine_id = @p380 AND citation_id = @p381;
+DELETE FROM quarantine_citation
+WHERE quarantine_id = @p382 AND citation_id = @p383;
+DELETE FROM quarantine_citation
+WHERE quarantine_id = @p384 AND citation_id = @p385;
+DELETE FROM quarantine_citation
+WHERE quarantine_id = @p386 AND citation_id = @p387;
+DELETE FROM quarantine_citation
+WHERE quarantine_id = @p388 AND citation_id = @p389;
+DELETE FROM quarantine_citation
+WHERE quarantine_id = @p390 AND citation_id = @p391;
+DELETE FROM quarantine_citation
+WHERE quarantine_id = @p392 AND citation_id = @p393;
+DELETE FROM quarantine_citation
+WHERE quarantine_id = @p394 AND citation_id = @p395;
+DELETE FROM quarantine_citation
+WHERE quarantine_id = @p396 AND citation_id = @p397;
+DELETE FROM quarantine_citation
+WHERE quarantine_id = @p398 AND citation_id = @p399;
+DELETE FROM quarantine_citation
+WHERE quarantine_id = @p400 AND citation_id = @p401;
+DELETE FROM quarantine_citation
+WHERE quarantine_id = @p402 AND citation_id = @p403;
+DELETE FROM quarantine_citation
+WHERE quarantine_id = @p404 AND citation_id = @p405;
+DELETE FROM quarantine_citation
+WHERE quarantine_id = @p406 AND citation_id = @p407;
+DELETE FROM quarantine_citation
+WHERE quarantine_id = @p408 AND citation_id = @p409;
+DELETE FROM quarantine_citation
+WHERE quarantine_id = @p410 AND citation_id = @p411;
+DELETE FROM quarantine_citation
+WHERE quarantine_id = @p412 AND citation_id = @p413;
+DELETE FROM quarantine_citation
+WHERE quarantine_id = @p414 AND citation_id = @p415;
+DELETE FROM quarantine_citation
+WHERE quarantine_id = @p416 AND citation_id = @p417;
+DELETE FROM quarantine_citation
+WHERE quarantine_id = @p418 AND citation_id = @p419;
+DELETE FROM quarantine_citation
+WHERE quarantine_id = @p420 AND citation_id = @p421;
+DELETE FROM quarantine_citation
+WHERE quarantine_id = @p422 AND citation_id = @p423;
+DELETE FROM quarantine_citation
+WHERE quarantine_id = @p424 AND citation_id = @p425;
+DELETE FROM quarantine_citation
+WHERE quarantine_id = @p426 AND citation_id = @p427;
+DELETE FROM quarantine_citation
+WHERE quarantine_id = @p428 AND citation_id = @p429;
+DELETE FROM quarantine_citation
+WHERE quarantine_id = @p430 AND citation_id = @p431;
+DELETE FROM quarantine_citation
+WHERE quarantine_id = @p432 AND citation_id = @p433;
+DELETE FROM quarantine_citation
+WHERE quarantine_id = @p434 AND citation_id = @p435;
+DELETE FROM quarantine_citation
+WHERE quarantine_id = @p436 AND citation_id = @p437;
+DELETE FROM quarantine_citation
+WHERE quarantine_id = @p438 AND citation_id = @p439;" (0723d8ff)
+2021-01-19T19:20:00.5356130+01:00 0HM5SKR8RD0ML:00000002 [INF] Executed DbCommand ("17"ms) [Parameters=["@p440='?' (DbType = Int64), @p441='?' (DbType = Int64), @p442='?' (DbType = Int64), @p443='?' (DbType = Int64), @p444='?' (DbType = Int64), @p445='?' (DbType = Int64), @p446='?' (DbType = Int64), @p447='?' (DbType = Int64), @p448='?' (DbType = Int64), @p449='?' (DbType = Int64), @p450='?' (DbType = Int64), @p451='?' (DbType = Int64), @p452='?' (DbType = Int64), @p453='?' (DbType = Int64), @p454='?' (DbType = Int64), @p455='?' (DbType = Int64), @p456='?' (DbType = Int64), @p457='?' (DbType = Int64), @p458='?' (DbType = Int64), @p459='?' (DbType = Int64), @p460='?' (DbType = Int64), @p461='?' (DbType = Int64), @p462='?' (DbType = Int64), @p463='?' (DbType = Int64), @p464='?' (DbType = Int64), @p465='?' (DbType = Int64), @p466='?' (DbType = Int64), @p467='?' (DbType = Int64), @p468='?' (DbType = Int64), @p469='?' (DbType = Int64), @p470='?' (DbType = Int64), @p471='?' (DbType = Int64), @p472='?' (DbType = Int64), @p473='?' (DbType = Int64), @p474='?' (DbType = Int64), @p475='?' (DbType = Int64), @p476='?' (DbType = Int64), @p477='?' (DbType = Int64), @p478='?' (DbType = Int64), @p479='?' (DbType = Int64), @p480='?' (DbType = Int64), @p481='?' (DbType = Int64), @p482='?' (DbType = Int64), @p483='?' (DbType = Int64), @p484='?' (DbType = Int64), @p485='?' (DbType = Int64), @p486='?' (DbType = Int64), @p487='?' (DbType = Int64), @p488='?' (DbType = Int64), @p489='?' (DbType = Int64), @p490='?' (DbType = Int64), @p491='?' (DbType = Int64), @p492='?' (DbType = Int64), @p493='?' (DbType = Int64), @p494='?' (DbType = Int64), @p495='?' (DbType = Int64), @p496='?' (DbType = Int64), @p497='?' (DbType = Int64), @p498='?' (DbType = Int64), @p499='?' (DbType = Int64), @p500='?' (DbType = Int64), @p501='?' (DbType = Int64), @p502='?' (DbType = Int64), @p503='?' (DbType = Int64), @p504='?' (DbType = Int64), @p505='?' (DbType = Int64), @p506='?' (DbType = Int64), @p507='?' (DbType = Int64), @p508='?' (DbType = Int64), @p509='?' (DbType = Int64), @p510='?' (DbType = Int64), @p511='?' (DbType = Int64), @p512='?' (DbType = Int64), @p513='?' (DbType = Int64), @p514='?' (DbType = Int64), @p515='?' (DbType = Int64), @p516='?' (DbType = Int64), @p517='?' (DbType = Int64), @p518='?' (DbType = Int64), @p519='?' (DbType = Int64), @p520='?' (DbType = Int64), @p521='?' (DbType = Int64), @p522='?' (DbType = Int64), @p523='?' (DbType = Int64), @p524='?' (DbType = Int64), @p525='?' (DbType = Int64), @p526='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO publication_citation (pub_id, citation_id)
+VALUES (@p440, @p441);
+INSERT INTO publication_citation (pub_id, citation_id)
+VALUES (@p442, @p443);
+INSERT INTO publication_citation (pub_id, citation_id)
+VALUES (@p444, @p445);
+INSERT INTO publication_citation (pub_id, citation_id)
+VALUES (@p446, @p447);
+INSERT INTO publication_citation (pub_id, citation_id)
+VALUES (@p448, @p449);
+INSERT INTO publication_citation (pub_id, citation_id)
+VALUES (@p450, @p451);
+INSERT INTO publication_citation (pub_id, citation_id)
+VALUES (@p452, @p453);
+INSERT INTO publication_citation (pub_id, citation_id)
+VALUES (@p454, @p455);
+INSERT INTO publication_citation (pub_id, citation_id)
+VALUES (@p456, @p457);
+INSERT INTO publication_citation (pub_id, citation_id)
+VALUES (@p458, @p459);
+INSERT INTO publication_citation (pub_id, citation_id)
+VALUES (@p460, @p461);
+INSERT INTO publication_citation (pub_id, citation_id)
+VALUES (@p462, @p463);
+INSERT INTO publication_citation (pub_id, citation_id)
+VALUES (@p464, @p465);
+INSERT INTO publication_citation (pub_id, citation_id)
+VALUES (@p466, @p467);
+INSERT INTO publication_citation (pub_id, citation_id)
+VALUES (@p468, @p469);
+INSERT INTO publication_citation (pub_id, citation_id)
+VALUES (@p470, @p471);
+INSERT INTO publication_citation (pub_id, citation_id)
+VALUES (@p472, @p473);
+INSERT INTO publication_citation (pub_id, citation_id)
+VALUES (@p474, @p475);
+INSERT INTO publication_citation (pub_id, citation_id)
+VALUES (@p476, @p477);
+INSERT INTO publication_citation (pub_id, citation_id)
+VALUES (@p478, @p479);
+INSERT INTO publication_citation (pub_id, citation_id)
+VALUES (@p480, @p481);
+INSERT INTO publication_citation (pub_id, citation_id)
+VALUES (@p482, @p483);
+INSERT INTO publication_citation (pub_id, citation_id)
+VALUES (@p484, @p485);
+INSERT INTO publication_citation (pub_id, citation_id)
+VALUES (@p486, @p487);
+INSERT INTO publication_citation (pub_id, citation_id)
+VALUES (@p488, @p489);
+INSERT INTO publication_citation (pub_id, citation_id)
+VALUES (@p490, @p491);
+INSERT INTO publication_citation (pub_id, citation_id)
+VALUES (@p492, @p493);
+INSERT INTO publication_citation (pub_id, citation_id)
+VALUES (@p494, @p495);
+INSERT INTO publication_citation (pub_id, citation_id)
+VALUES (@p496, @p497);
+INSERT INTO publication_citation (pub_id, citation_id)
+VALUES (@p498, @p499);
+INSERT INTO publication_citation (pub_id, citation_id)
+VALUES (@p500, @p501);
+INSERT INTO publication_citation (pub_id, citation_id)
+VALUES (@p502, @p503);
+INSERT INTO publication_citation (pub_id, citation_id)
+VALUES (@p504, @p505);
+INSERT INTO publication_citation (pub_id, citation_id)
+VALUES (@p506, @p507);
+INSERT INTO publication_citation (pub_id, citation_id)
+VALUES (@p508, @p509);
+INSERT INTO publication_citation (pub_id, citation_id)
+VALUES (@p510, @p511);
+INSERT INTO publication_citation (pub_id, citation_id)
+VALUES (@p512, @p513);
+INSERT INTO publication_citation (pub_id, citation_id)
+VALUES (@p514, @p515);
+INSERT INTO publication_citation (pub_id, citation_id)
+VALUES (@p516, @p517);
+INSERT INTO publication_citation (pub_id, citation_id)
+VALUES (@p518, @p519);
+INSERT INTO publication_citation (pub_id, citation_id)
+VALUES (@p520, @p521);
+INSERT INTO publication_citation (pub_id, citation_id)
+VALUES (@p522, @p523);
+INSERT INTO publication_citation (pub_id, citation_id)
+VALUES (@p524, @p525);
+DELETE FROM quarantine
+WHERE pub_id = @p526;" (0723d8ff)
+2021-01-19T19:20:00.5571759+01:00 0HM5SKR8RD0ML:00000002 [INF] Executed action method "PubCiterAPI.Controllers.QuarantineController.RemovePublicationFromQuarantine (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.EmptyResult" in 269.3593ms. (50a9e262)
+2021-01-19T19:20:00.5573729+01:00 0HM5SKR8RD0ML:00000002 [INF] Executed action "PubCiterAPI.Controllers.QuarantineController.RemovePublicationFromQuarantine (PubCiterAPI)" in 330.247ms (afa2e885)
+2021-01-19T19:20:00.5574414+01:00 0HM5SKR8RD0ML:00000002 [INF] Executed endpoint '"PubCiterAPI.Controllers.QuarantineController.RemovePublicationFromQuarantine (PubCiterAPI)"' (99874f2b)
+2021-01-19T19:20:00.5578059+01:00 0HM5SKR8RD0ML:00000002 [INF] Request finished in 344.2403ms 200  (791a596a)
+2021-01-19T19:20:07.6212754+01:00 0HM5SKR8RD0ML:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:7051/quarantine?citations=true   (ca22a1cb)
+2021-01-19T19:20:07.6228470+01:00 0HM5SKR8RD0ML:00000003 [INF] Executing endpoint '"PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)"' (500cc934)
+2021-01-19T19:20:07.6236257+01:00 0HM5SKR8RD0ML:00000003 [INF] Route matched with "{action = \"GetQuarantineList\", controller = \"Quarantine\"}". Executing controller action with signature "System.Collections.Generic.IEnumerable`1[PubCiterAPI.Model.QuarantinedPublication] GetQuarantineList(Boolean)" on controller "PubCiterAPI.Controllers.QuarantineController" ("PubCiterAPI"). (122b2fdf)
+2021-01-19T19:20:07.6425091+01:00 0HM5SKR8RD0ML:00000003 [INF] Executing action method "PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-01-19T19:20:07.6490046+01:00 0HM5SKR8RD0ML:00000003 [INF] Entity Framework Core "3.1.8" initialized '"ApplicationDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL"' with options: "None" (9958f5bb)
+2021-01-19T19:20:07.6531796+01:00 0HM5SKR8RD0ML:00000003 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT q.pub_id, q.abstract, q.author_id, q.author, q.doi, q.journal, q.volume, q.pages, q.pub_year, q.publisher, q.title, t.quarantine_id, t.citation_id, t.citation_id0, t.abstract, t.author, t.doi, t.journal, t.volume, t.pub_url, t.pub_year, t.title
+FROM quarantine AS q
+LEFT JOIN (
+    SELECT q0.quarantine_id, q0.citation_id, c.citation_id AS citation_id0, c.abstract, c.author, c.doi, c.journal, c.volume, c.pub_url, c.pub_year, c.title
+    FROM quarantine_citation AS q0
+    INNER JOIN citation AS c ON q0.citation_id = c.citation_id
+) AS t ON q.pub_id = t.quarantine_id
+ORDER BY q.pub_id, t.quarantine_id, t.citation_id, t.citation_id0" (0723d8ff)
+2021-01-19T19:20:07.6535136+01:00 0HM5SKR8RD0ML:00000003 [INF] Executed action method "PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 10.887ms. (50a9e262)
+2021-01-19T19:20:07.6538570+01:00 0HM5SKR8RD0ML:00000003 [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[PubCiterAPI.Model.QuarantinedPublication, PubCiterAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2021-01-19T19:20:07.6544504+01:00 0HM5SKR8RD0ML:00000003 [INF] Executed action "PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)" in 30.6885ms (afa2e885)
+2021-01-19T19:20:07.6544958+01:00 0HM5SKR8RD0ML:00000003 [INF] Executed endpoint '"PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)"' (99874f2b)
+2021-01-19T19:20:07.6547059+01:00 0HM5SKR8RD0ML:00000003 [INF] Request finished in 33.8292ms 200 application/json; charset=utf-8 (791a596a)
+2021-01-19T19:20:30.1962725+01:00 0HM5SKR8RD0MM:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:7051/swagger/index.html   (ca22a1cb)
+2021-01-19T19:20:30.2198461+01:00 0HM5SKR8RD0MM:00000001 [INF] Request finished in 23.7089ms 200 text/html;charset=utf-8 (791a596a)
+2021-01-19T19:20:30.4069410+01:00 0HM5SKR8RD0MM:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:7051/swagger/v1/swagger.json   (ca22a1cb)
+2021-01-19T19:20:30.5046380+01:00 0HM5SKR8RD0MM:00000002 [INF] Request finished in 97.698ms 200 application/json;charset=utf-8 (791a596a)
+2021-01-19T19:21:05.2198629+01:00  [INF] Application is shutting down... (90f52c38)

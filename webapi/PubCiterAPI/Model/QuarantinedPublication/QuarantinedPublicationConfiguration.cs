@@ -4,19 +4,19 @@
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
     /// <summary>
-    /// PublicationConfiguration class
+    /// QuarantineConfiguration class
     /// </summary>
-    public class PublicationConfiguration : IEntityTypeConfiguration<Publication>
+    public class QuarantinedPublicationConfiguration : IEntityTypeConfiguration<QuarantinedPublication>
     {
         /// <summary>
         /// Configures model
         /// </summary>
         /// <param name="builder">EntityTypeBuilder instance</param>
-        public void Configure(EntityTypeBuilder<Publication> builder)
+        public void Configure(EntityTypeBuilder<QuarantinedPublication> builder)
         {
-            builder.HasKey(prop => prop.PublicationId);
+            builder.HasKey(prop => prop.QuarantinedPublicationId);
 
-            builder.Property(prop => prop.PublicationId)
+            builder.Property(prop => prop.QuarantinedPublicationId)
                 .IsRequired();
 
             builder.Property(prop => prop.AuthorId)

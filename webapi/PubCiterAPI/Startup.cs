@@ -105,6 +105,7 @@ namespace PubCiterAPI
             services.AddScoped<AuthorRepository>();
             services.AddScoped<PublicationRepository>();
             services.AddScoped<SettingsRepository>();
+            services.AddScoped<QuarantineRepository>();
         }
     }
 }
