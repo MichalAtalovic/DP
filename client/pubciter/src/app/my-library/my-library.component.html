@@ -1,0 +1,6 @@
+<div>
+  <app-side-bar [header]="'My library'" [iconPath]="'assets/library_fade.png'" (widthEmitter)="this.panelResized($event)"></app-side-bar>
+  <div [ngStyle]="{ 'margin-left.px': this.margin }">
+    <p>my-library works!</p>
+  </div>
+</div>

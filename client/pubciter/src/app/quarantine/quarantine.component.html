@@ -1,0 +1,6 @@
+<div>
+  <app-side-bar [header]="'Quarantine'" [iconPath]="'assets/quarantine_fade.png'" (widthEmitter)="this.panelResized($event)"></app-side-bar>
+  <div [ngStyle]="{ 'margin-left.px': this.margin }">
+    <p>quarantine works!</p>
+  </div>
+</div>

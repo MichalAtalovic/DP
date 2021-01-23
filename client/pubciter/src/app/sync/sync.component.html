@@ -1,0 +1,6 @@
+<div>
+  <app-side-bar [header]="'Sync'" [iconPath]="'assets/sync_fade.png'" (widthEmitter)="this.panelResized($event)"></app-side-bar>
+  <div [ngStyle]="{ 'margin-left.px': this.margin }">
+    <p>sync works!</p>
+  </div>
+</div>

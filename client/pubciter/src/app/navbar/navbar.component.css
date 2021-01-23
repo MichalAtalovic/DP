@@ -1,0 +1,27 @@
+.nav-item {
+  background-color: #183646;
+  color: white;
+}
+
+.custom-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(235,0,120, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.custom-toggler .navbar-toggler {
+  border-color: rgb(255, 255, 255);
+}
+
+.app-header {
+  float: left;
+  font-size: 35px;
+  padding: 0px;
+  margin: 0px;
+  vertical-align: middle;
+  height: 55px;
+  font-family: 'Russo One', sans-serif;
+}
+
+.menu-item:hover {
+  background-color:  #265874;
+  border-radius: 3px;
+}

@@ -300,6 +300,90 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Quarantine",
+			"item": [
+				{
+					"name": "Get list of quarantined publications",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/quarantine?citations=true",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"quarantine"
+							],
+							"query": [
+								{
+									"key": "citations",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Move publication to quarantine",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/quarantine/add/1",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"quarantine",
+								"add",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove publication from quarantine",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/quarantine/remove/2",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"quarantine",
+								"remove",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }

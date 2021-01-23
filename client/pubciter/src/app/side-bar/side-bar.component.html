@@ -1,0 +1,33 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat+Subrayada&display=swap');
+</style>
+
+<ng-container *ngIf="this.collapsed">
+  <div class="container-fluid"
+    style="width: 90px !important; height: 90% !important; background-color: #f0f0f0; float: left; position: absolute; color: #688490; padding-top: 10px">
+    <div style="width: 60px; height: 60px; border-radius: 20px; border: 3px solid #688490; float: left;">
+      <img src="{{ this.iconPath }}" style="display: block; margin: 5px; height: 40px;"
+        (click)="this.collapse(false)" />
+    </div>
+    <button
+      style="position: absolute; right: 15px; bottom: 25px; height: 60px; width: 60px; border-radius: 30px; background-color: #688490; border: 1px solid white;"
+      (click)="this.collapse(false)">
+      <img src="assets/arrows_right.png"
+        style="display: block; height: 60px; margin-left: -4px; margin-top: -2px; float: left;" /></button>
+  </div>
+</ng-container>
+<ng-container *ngIf="!this.collapsed">
+  <div class="container-fluid"
+    style="width: 300px !important; height: 90% !important; background-color: #f0f0f0; float: left; position: absolute; color: #688490; padding-top: 10px;">
+    <img src="{{ this.iconPath }}" style="display: block; margin-left: 90px; height: 70px; width: 80px;" />
+    <div
+      style="margin: auto; font-size: 35px; text-align: center !important; font-family: 'Montserrat Subrayada', sans-serif;">
+      {{ this.header }}</div>
+    <button
+      style="position: absolute; right: 15px; bottom: 25px; height: 60px; width: 60px; border-radius: 30px; background-color: #688490; border: 1px solid white;"
+      (click)="this.collapse(true)">
+      <img src="assets/arrows_left.png"
+        style="display: block; height: 60px; margin-left: -8px; margin-top: -2px; float: left;" />
+    </button>
+  </div>
+</ng-container>

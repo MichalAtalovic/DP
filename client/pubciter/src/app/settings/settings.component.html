@@ -1,0 +1,6 @@
+<div>
+  <app-side-bar [header]="'Settings'" [iconPath]="'assets/settings_fade.png'" (widthEmitter)="this.panelResized($event)"></app-side-bar>
+  <div [ngStyle]="{ 'margin-left.px': this.margin }">
+    <p>settings works!</p>
+  </div>
+</div>
