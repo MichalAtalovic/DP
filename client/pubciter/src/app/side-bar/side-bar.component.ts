@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-side-bar',
@@ -9,24 +10,21 @@ export class SideBarComponent implements OnInit {
 
   @Input() public header: any;
   @Input() public iconPath: any;
+  @Input() public collapsed = true;
 
   @Output() public widthEmitter = new EventEmitter<any>();
 
-  public collapsed = false;
-
-  constructor() { }
+  constructor(
+    private dataService: DataService
+  ) { }
 
   ngOnInit(): void {
   }
 
   collapse(value: boolean) {
     this.collapsed = value;
-    if (value) {
-      this.widthEmitter.emit(90);
-    }
-    else {
-      this.widthEmitter.emit(300);
-    }
+    this.widthEmitter.emit(value);
+    this.dataService.sendData(value);
   }
 
 }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { PublicationService } from '../services/publication.service';
 
 @Component({
   selector: 'app-my-library',
@@ -7,16 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyLibraryComponent implements OnInit {
 
-  public margin: any;
+  public publications: any;
+  public panelData = { header: 'My library', iconPath: 'assets/library_fade.png'}
 
-  constructor() { }
+  constructor(
+    public publicationService: PublicationService
+  ) { }
 
   ngOnInit(): void {
   }
 
-  panelResized(widthInPx: any) {
-    console.log(widthInPx);
-    this.margin = widthInPx;
+  ngAfterViewInit() {
+    this.publicationService.getPublications().then(response => {
+      this.publications = response as any;
+    });
   }
 
 }

@@ -1,6 +1,11 @@
-<div>
-  <app-side-bar [header]="'My library'" [iconPath]="'assets/library_fade.png'" (widthEmitter)="this.panelResized($event)"></app-side-bar>
-  <div [ngStyle]="{ 'margin-left.px': this.margin }">
-    <p>my-library works!</p>
+<div class="container-fluid" style="padding: 0px;">
+  <div class="row">
+    <div class="column" style="width: 100% !important">
+      <div class="card-deck" style="display: flex; flex-flow: column; padding: 20px !important;">
+        <div *ngFor="let publication of this.publications">
+          <app-publication-card [publication]="publication"></app-publication-card>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

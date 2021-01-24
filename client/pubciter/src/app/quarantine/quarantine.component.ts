@@ -7,16 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuarantineComponent implements OnInit {
 
-  public margin: any;
+  public panelData = { header: 'Quarantine', iconPath: 'assets/quarantine_fade.png'}
 
   constructor() { }
 
   ngOnInit(): void {
-  }
-
-  panelResized(widthInPx: any) {
-    console.log(widthInPx);
-    this.margin = widthInPx;
   }
 
 }

@@ -19,6 +19,9 @@ import { QuarantineComponent } from './quarantine/quarantine.component';
 import { SettingsComponent } from './settings/settings.component';
 import { SyncComponent } from './sync/sync.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
+import { PublicationCardComponent } from './my-library/publication-card/publication-card.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { DataService } from './services/data.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,9 @@ import { SideBarComponent } from './side-bar/side-bar.component';
     QuarantineComponent,
     SettingsComponent,
     SyncComponent,
-    SideBarComponent
+    SideBarComponent,
+    PublicationCardComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -42,8 +47,11 @@ import { SideBarComponent } from './side-bar/side-bar.component';
     MatSelectModule,
     NgpImagePickerModule,
   ],
-  providers: [DateFormatPipe,
-    { provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher }],
+  providers: [
+    DateFormatPipe,
+    { provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher },
+    DataService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

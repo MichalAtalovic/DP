@@ -3,7 +3,7 @@
   @import url('https://fonts.googleapis.com/css2?family=Rajdhani&family=Russo+One&display=swap');
 </style>
 
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #183646 !important">
+<nav id="navbar" class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: #183646 !important;">
   <a href="#" style="margin-right: 30px;">
     <img src="assets/logo.png" style="display: block; margin: 0px; height: 50px; float: left;" />
     <div class="navbar-brand app-header" style="color: white;" href="#">Pub</div>
@@ -24,6 +24,10 @@
       <ng-container *ngIf="!this.showDelimitor">
         <div aria-controls="navbarNavAltMarkup" style="height: 2px; background-color: white; margin-top: 10px; margin-bottom: 10px;"></div>
       </ng-container>
+      <a class="nav-item nav-link active menu-item" href="/dashboard">
+        <img src="assets/dashboard.png" style="display: block; margin: 0px; height: 22px; float: left;" />
+        <div style="color: white; float: left; font-size: 22px; margin-left: 10px; margin-top: -5px;">Dashboard</div>
+      </a>
       <a class="nav-item nav-link active menu-item" href="/library">
         <img src="assets/library.png" style="display: block; margin: 0px; height: 22px; float: left;" />
         <div style="color: white; float: left; font-size: 22px; margin-left: 10px; margin-top: -5px;">My library</div>

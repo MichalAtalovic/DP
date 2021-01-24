@@ -1,7 +1,8 @@
 <app-navbar></app-navbar>
-<div>
-  <div style="align-self: stretch;">
-    <router-outlet></router-outlet>
+<app-side-bar [header]="this.header" [iconPath]="this.iconPath" [collapsed]="this.collapsed" (widthEmitter)="this.panelResized($event)"></app-side-bar>
+<div class="container-fluid" style="padding: 0px; margin-top: 70px; overflow-x: hidden;">
+  <div class="row" [style.margin-left.px]="this.offset">
+    <router-outlet (activate)="this.activated($event)"></router-outlet>
   </div>
 </div>
 <div class="navbar fixed-bottom" style="height: 40px; background-color: #231f20; color: #688490">© 2021 FHI EUBA. All Rights Reserved.</div>
