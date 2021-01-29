@@ -1,8 +1,11 @@
-<div class="container-fluid" style="padding: 0px;">
+<div class="container-fluid" style="padding: 0px; margin-bottom: 30px;">
   <div class="row">
-    <div class="column" style="width: 100% !important">
-
+    <div class="column" style="width: 98% !important">
+      <div class="card-deck" style="display: flex; flex-flow: column; padding: 20px !important;">
+        <div *ngFor="let publication of this.publications">
+          <app-publication-card [template]="'quarantine'" [publication]="publication"></app-publication-card>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-

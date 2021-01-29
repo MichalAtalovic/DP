@@ -6,7 +6,7 @@
   <div class="container" style="height: 100% !important; background-color: #f0f0f0; color: #688490; padding-top: 10px; max-width: 90px; left: 0px; position: fixed;">
     <div
       style="width: 60px; height: 60px; border-radius: 20px; border: 3px solid #688490; float: left; justify-content: center; display: flex; align-items: center; margin: 0px; padding: 0px;">
-      <img src="{{ this.iconPath }}" style="height: 40px; width: 40px; margin: 0px; padding: 0px;"
+      <img src="{{ this.iconPath }}" style="height: 40px; width: 40px; margin: 0px; padding: 0px; cursor: pointer"
         (click)="this.collapse(false)" />
     </div>
     <button
@@ -31,5 +31,6 @@
       <img src="assets/arrows_left.png"
         style="display: block; height: 60px; margin-left: -8px; margin-top: -2px; float: left;" />
     </button>
+    <div class="row" style="display: flex; justify-content: center; height: 2px; margin-left: 5px; margin-right: 5px; border: 2px dashed #688490"></div>
   </div>
 </ng-container>

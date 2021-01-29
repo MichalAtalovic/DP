@@ -21,6 +21,8 @@ export class MyLibraryComponent implements OnInit {
   ngAfterViewInit() {
     this.publicationService.getPublications().then(response => {
       this.publications = response as any;
+      console.log('PUBLICATIONS');
+      console.log(this.publications);
     });
   }
 

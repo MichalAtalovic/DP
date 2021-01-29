@@ -22,7 +22,8 @@ import { SideBarComponent } from './side-bar/side-bar.component';
 import { PublicationCardComponent } from './my-library/publication-card/publication-card.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DataService } from './services/data.service';
-
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,6 +47,8 @@ import { DataService } from './services/data.service';
     MatDialogModule,
     MatSelectModule,
     NgpImagePickerModule,
+    MatTableModule,
+    MatPaginatorModule
   ],
   providers: [
     DateFormatPipe,
