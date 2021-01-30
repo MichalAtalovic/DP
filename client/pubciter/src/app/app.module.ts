@@ -26,6 +26,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { QuarantineDialogComponent } from './dialogs/quarantine-dialog/quarantine-dialog.component';
 import { QuarantineActionPanelComponent } from './quarantine/quarantine-action-panel/quarantine-action-panel.component';
+import { MatRadioModule } from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { QuarantineActionPanelComponent } from './quarantine/quarantine-action-p
     MatSelectModule,
     NgpImagePickerModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatRadioModule
   ],
   providers: [
     DateFormatPipe,

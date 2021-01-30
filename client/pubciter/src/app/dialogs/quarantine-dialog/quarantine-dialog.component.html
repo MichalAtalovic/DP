@@ -11,6 +11,9 @@
   <ng-container *ngIf="data.args.operation === 'remove'">
     <p>This publication will be removed from quarantine and returned to library. Do you wish to continue?</p>
   </ng-container>
+  <ng-container *ngIf="data.args.operation === 'remove all'">
+    <p>Do you wish to move all quarantined publications to library?</p>
+  </ng-container>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-button [mat-dialog-close]="true" cdkFocusInitial>No</button>

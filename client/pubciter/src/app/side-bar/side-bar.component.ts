@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { QuarantineDialogComponent } from '../dialogs/quarantine-dialog/quarantine-dialog.component';
 import { DataService } from '../services/data.service';
 import { QuarantineService } from '../services/quarantine.service';
 
@@ -18,7 +20,8 @@ export class SideBarComponent implements OnInit {
 
   constructor(
     private dataService: DataService,
-    private quarantineService: QuarantineService
+    private quarantineService: QuarantineService,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -33,10 +36,26 @@ export class SideBarComponent implements OnInit {
   panelActionExecute(args: any) {
     switch (args?.action) {
       case 'CLEAR QUARANTINE':
-        this.quarantineService.clearQuarantine();
-        this.action.emit(args);
+        this.openQuarantineDialog({ operation: 'remove all' });
         break;
     }
+  }
+
+  openQuarantineDialog(args: any): void {
+    const dialogRef = this.dialog.open(QuarantineDialogComponent, {
+      data: { args }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      switch (result?.operation) {
+        case 'remove all':
+          this.quarantineService.clearQuarantine();
+          this.action.emit({ action: 'CLEAR QUARANTINE' });
+          break;
+        default:
+          break;
+      }
+    });
   }
 
 }

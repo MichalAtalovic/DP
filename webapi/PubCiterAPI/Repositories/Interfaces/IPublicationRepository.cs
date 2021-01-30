@@ -12,8 +12,9 @@
         /// Gets publications of author by their name
         /// </summary>
         /// <param name="context">Application DB context</param>
+        /// <param name="searchText">Searched string</param>
         /// <returns>Collection of publications</returns>
-        public IEnumerable<Publication> GetPublications(ApplicationDbContext context);
+        public IEnumerable<Publication> GetPublications(ApplicationDbContext context, string searchText);
 
         /// <summary>
         /// Synchronizes database of publications and their citations

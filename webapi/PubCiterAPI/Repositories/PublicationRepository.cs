@@ -1,8 +1,6 @@
 ﻿namespace PubCiterAPI.Repositories
 {
-    using IronPython.Hosting;
     using Microsoft.EntityFrameworkCore;
-    using Microsoft.Scripting.Hosting;
     using Newtonsoft.Json.Linq;
     using PubCiterAPI.Model;
     using PubCiterAPI.Repositories.Interfaces;
@@ -23,14 +21,114 @@
         /// </summary>
         /// <param name="name">Author's name</param>
         /// <returns>Collection of publications</returns>
-        public IEnumerable<Publication> GetPublications(ApplicationDbContext context)
+        public IEnumerable<Publication> GetPublications(ApplicationDbContext context, string searchedText)
         {
             var author = context.Authors.ToList().FirstOrDefault(x => x.Name == AppSettings.Author);
             if (author != null)
             {
-                return context.Publications
-                .Include(x => x.PublicationCitationList)
-                .ThenInclude(x => x.Citation).ToList().Where(x => x.AuthorId == author.AuthorId);
+                var list = context.Publications
+                                .Include(x => x.PublicationCitationList)
+                                .ThenInclude(x => x.Citation).ToList().Where(x => x.AuthorId == author.AuthorId);
+
+                if (string.IsNullOrEmpty(searchedText))
+                {
+                    return list;
+                }
+                else
+                {
+                    var filteredList = new List<Publication>();
+                    foreach(var publication in list)
+                    {
+                        if (publication?.Journal != null)
+                        {
+                            if (publication.Journal.Trim().ToLower().Contains(searchedText.Trim().ToLower()))
+                            {
+                                filteredList.Add(publication);
+                                continue;
+                            }
+                        }
+
+                        if (publication?.PublicationYear != null)
+                        {
+                            if (publication.PublicationYear.Trim().ToLower().Contains(searchedText.Trim().ToLower()))
+                            {
+                                filteredList.Add(publication);
+                                continue;
+                            }
+                        }
+
+                        if (publication?.Publisher != null)
+                        {
+                            if (publication.Publisher.Trim().ToLower().Contains(searchedText.Trim().ToLower()))
+                            {
+                                filteredList.Add(publication);
+                                continue;
+                            }
+                        }
+
+                        if (publication?.Title != null)
+                        {
+                            if (publication.Title.Trim().ToLower().Contains(searchedText.Trim().ToLower()))
+                            {
+                                filteredList.Add(publication);
+                                continue;
+                            }
+                        }
+                        
+                        if (publication?.Abstract != null)
+                        {
+                            if (publication.Abstract.Trim().ToLower().Contains(searchedText.Trim().ToLower()))
+                            {
+                                filteredList.Add(publication);
+                                continue;
+                            }
+                        }
+
+                        if (publication?.Authors != null)
+                        {
+                            if (publication.Authors.Trim().ToLower().Contains(searchedText.Trim().ToLower()))
+                            {
+                                filteredList.Add(publication);
+                                continue;
+                            }
+                        }
+
+                        foreach(var publicationCitation in publication.PublicationCitationList)
+                        {
+                            if (publicationCitation?.Citation != null)
+                            {
+                                if (!string.IsNullOrEmpty(publicationCitation.Citation.Abstract))
+                                {
+                                    if (publicationCitation.Citation.Abstract.Trim().ToLower().Contains(searchedText.Trim().ToLower()))
+                                    {
+                                        filteredList.Add(publication);
+                                        break;
+                                    }
+                                }
+
+                                if (!string.IsNullOrEmpty(publicationCitation.Citation.Author))
+                                {
+                                    if (publicationCitation.Citation.Author.Trim().ToLower().Contains(searchedText.Trim().ToLower()))
+                                    {
+                                        filteredList.Add(publication);
+                                        break;
+                                    }
+                                }
+
+                                if (!string.IsNullOrEmpty(publicationCitation.Citation.Title))
+                                {
+                                    if (publicationCitation.Citation.Title.Trim().ToLower().Contains(searchedText.Trim().ToLower()))
+                                    {
+                                        filteredList.Add(publication);
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    return filteredList;
+                }
             }
 
             return null;

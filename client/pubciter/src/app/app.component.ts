@@ -15,7 +15,7 @@ export class AppComponent {
   public header: any;
   public iconPath: any;
   public subscription: Subscription;
-  public offset: number = 110;
+  public offset: number = 90;
   public refresh: any = true;
 
   constructor(
@@ -24,7 +24,7 @@ export class AppComponent {
   ) {
     this.subscription = this.ds.getData().subscribe(args => {
       if (args.action === 'ACTION PANEL RESIZE') {
-        this.offset = args.data ? 110 : 320;
+        this.offset = args.data ? 90 : 300;
       }
     });
   }

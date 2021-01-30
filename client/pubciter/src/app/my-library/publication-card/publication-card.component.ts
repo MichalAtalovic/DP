@@ -18,7 +18,7 @@ export class PublicationCardComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  displayedColumns: string[] = ['position', 'title', 'author', 'journal', 'publicationYear'];
+  public displayedColumns: string[] = ['position', 'title', 'author', 'journal', 'publicationYear'];
   public dataSource: MatTableDataSource<any> = new MatTableDataSource();
   public paginatedData: MatTableDataSource<any> = new MatTableDataSource();
   public showCitationsState = false;

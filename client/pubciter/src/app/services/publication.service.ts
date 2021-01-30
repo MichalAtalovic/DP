@@ -12,7 +12,7 @@ export class PublicationService extends BaseRestService {
     super(client);
   }
 
-  getPublications() {
-    return this.get('publication');
+  getPublications(searchText: string = '') {
+    return this.get(`publication?searchText=${searchText}`);
   }
 }

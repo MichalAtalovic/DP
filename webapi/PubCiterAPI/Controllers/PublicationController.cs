@@ -180,11 +180,11 @@ namespace PubCiterAPI.Controllers
         [HttpGet]
         [Route(@"")]
         [SwaggerOperation(Summary = "Gets list of publications by author's name defined in webconfig")]
-        public IEnumerable<Publication> GetPublications()
+        public IEnumerable<Publication> GetPublications([SwaggerParameter(Description = @"String input for fulltext search query")]string searchText = null)
         {
             try
             {
-                return this.publicationRepository.GetPublications(context);
+                return this.publicationRepository.GetPublications(context, searchText);
             }
             catch(Exception ex)
             {
