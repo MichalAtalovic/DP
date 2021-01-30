@@ -84,6 +84,18 @@
         public string Doi { get; set; }
 
         /// <summary>
+        /// Public link to document
+        /// </summary>
+        [Column(@"eprint_url")]
+        public string EprintUrl { get; set; }
+
+        /// <summary>
+        /// Cites per year
+        /// </summary>
+        [Column(@"cites_per_year")]
+        public string CitesPerYear { get; set; }
+
+        /// <summary>
         /// Table mapping
         /// </summary>
         public virtual ICollection<PublicationCitation> PublicationCitationList { get; set; }

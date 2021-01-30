@@ -24,6 +24,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { DataService } from './services/data.service';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { QuarantineDialogComponent } from './dialogs/quarantine-dialog/quarantine-dialog.component';
+import { QuarantineActionPanelComponent } from './quarantine/quarantine-action-panel/quarantine-action-panel.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +37,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     SyncComponent,
     SideBarComponent,
     PublicationCardComponent,
-    DashboardComponent
+    DashboardComponent,
+    QuarantineDialogComponent,
+    QuarantineActionPanelComponent
   ],
   imports: [
     BrowserModule,
@@ -54,6 +59,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     DateFormatPipe,
     { provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher },
     DataService
+  ],
+  entryComponents: [
+    QuarantineDialogComponent
   ],
   bootstrap: [AppComponent]
 })

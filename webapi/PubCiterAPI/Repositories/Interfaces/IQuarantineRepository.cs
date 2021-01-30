@@ -28,5 +28,11 @@
         /// <param name="context">Application DB context instance</param>
         /// <param name="appendCitations">Whether to append citations to response</param>
         public IEnumerable<QuarantinedPublication> GetQuarantineList(ApplicationDbContext context, bool appendCitations);
+
+        /// <summary>
+        /// Moves all quarantined publications to the library
+        /// </summary>
+        /// <param name="context">Application DB context instance</param>
+        public void ClearQuarantine(ApplicationDbContext context);
     }
 }

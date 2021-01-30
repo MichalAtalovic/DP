@@ -1,25 +1,9 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { QuarantineDialogComponent } from '../../dialogs//quarantine-dialog/quarantine-dialog.component';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { MatSort } from '@angular/material/sort';
-
-export interface UserData {
-  id: string;
-  name: string;
-  progress: string;
-  color: string;
-}
-
-/** Constants used to fill up our data base. */
-const COLORS: string[] = [
-  'maroon', 'red', 'orange', 'yellow', 'olive', 'green', 'purple', 'fuchsia', 'lime', 'teal',
-  'aqua', 'blue', 'navy', 'black', 'gray'
-];
-const NAMES: string[] = [
-  'Maia', 'Asher', 'Olivia', 'Atticus', 'Amelia', 'Jack', 'Charlotte', 'Theodore', 'Isla', 'Oliver',
-  'Isabella', 'Jasper', 'Cora', 'Levi', 'Violet', 'Arthur', 'Mia', 'Thomas', 'Elizabeth'
-];
-
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { QuarantineService } from 'src/app/services/quarantine.service';
 @Component({
   selector: 'app-publication-card',
   templateUrl: './publication-card.component.html',
@@ -30,48 +14,64 @@ export class PublicationCardComponent implements OnInit {
   @Input() public publication: any;
   @Input() public template: any;
 
-  //displayedColumns: string[] = ['id', 'name', 'progress', 'color'];
-  dataSource: MatTableDataSource<UserData>;
+  @Output() public publicationMoved: EventEmitter<any> = new EventEmitter<any>();
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  displayedColumns: string[] = ['position', 'title', 'author', 'journal', 'publicationYear'];
+  public dataSource: MatTableDataSource<any> = new MatTableDataSource();
+  public paginatedData: MatTableDataSource<any> = new MatTableDataSource();
+  public showCitationsState = false;
 
   constructor(
-    @ViewChild(MatPaginator) public paginator: MatPaginator,
-    @ViewChild(MatSort) public sort: MatSort
-  ) {
-    // Create 100 users
-    const users = Array.from({ length: 100 }, (_, k) => this.createNewUser(k + 1));
+    public dialog: MatDialog,
+    public quarantineService: QuarantineService
+  ) { }
 
-    // Assign the data to the data source for the table to render
-    this.dataSource = new MatTableDataSource(users);
+  openQuarantineDialog(args: any): void {
+    const dialogRef = this.dialog.open(QuarantineDialogComponent, {
+      data: { title: this.publication.title, args }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      switch (result?.operation) {
+        case 'add':
+          this.quarantineService.addToQuarantine(result?.publicationId);
+          this.publicationMoved.emit(result?.publicationId)
+          break;
+        case 'remove':
+          this.quarantineService.removeFromQuarantine(result?.publicationId);
+          this.publicationMoved.emit(result?.publicationId)
+          break;
+        default:
+          break;
+      }
+    });
   }
+
+  ngOnInit(): void { }
 
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    // append position
+    if (this.publication.publicationCitationList) {
+      this.publication.publicationCitationList.forEach((value: any, index: number) => {
+        value.citation.position = index + 1;
+      })
+    }
+    this.dataSource = new MatTableDataSource(this.publication.publicationCitationList);
   }
 
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
+  showCitations() {
+    this.showCitationsState = !this.showCitationsState;
+    if (this.showCitationsState) {
+      setTimeout(() => this.dataSource.paginator = this.paginator);
     }
   }
 
-  /** Builds and returns a new User. */
-  createNewUser(id: number): UserData {
-    const name = NAMES[Math.round(Math.random() * (NAMES.length - 1))] + ' ' +
-      NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) + '.';
-
-    return {
-      id: id.toString(),
-      name: name,
-      progress: Math.round(Math.random() * 100).toString(),
-      color: COLORS[Math.round(Math.random() * (COLORS.length - 1))]
-    };
-  }
-
-  ngOnInit(): void {
+  readDocument() {
+    if (this.publication.eprintUrl) {
+      window.open(this.publication.eprintUrl)
+    }
   }
 
 }

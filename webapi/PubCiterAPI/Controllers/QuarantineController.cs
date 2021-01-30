@@ -93,6 +93,25 @@ namespace PubCiterAPI.Controllers
         }
 
         /// <summary>
+        /// Moves all quarantined publications to library
+        /// </summary>
+        [HttpPost]
+        [Route(@"clear")]
+        [SwaggerOperation(Summary = "Moves all quarantined publications to library")]
+        public void ClearQuarantine()
+        {
+            try
+            {
+                this.quarantineRepository.ClearQuarantine(context);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                this.logger.LogError(ex.ToString());
+            }
+        }
+
+        /// <summary>
         /// Gets the list of publication in quarantine
         /// </summary>
         [HttpGet]

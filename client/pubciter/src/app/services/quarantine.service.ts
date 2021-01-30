@@ -11,7 +11,19 @@ export class QuarantineService extends BaseRestService {
     super(client);
   }
 
-  getQuarantinedPublications() {
+  async getQuarantinedPublications() {
     return this.get('quarantine?citations=true');
+  }
+
+  async addToQuarantine(publicationId: any) {
+    return this.post(`quarantine/add/${publicationId}`, null);
+  }
+
+  async removeFromQuarantine(publicationId: any) {
+    return this.post(`quarantine/remove/${publicationId}`, null);
+  }
+
+  async clearQuarantine() {
+    return this.post('quarantine/clear', null);
   }
 }

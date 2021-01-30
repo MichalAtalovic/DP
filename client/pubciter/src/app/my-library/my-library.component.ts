@@ -21,9 +21,11 @@ export class MyLibraryComponent implements OnInit {
   ngAfterViewInit() {
     this.publicationService.getPublications().then(response => {
       this.publications = response as any;
-      console.log('PUBLICATIONS');
-      console.log(this.publications);
     });
+  }
+
+  onPublicationMoved(publicationId: any) {
+    this.publications = this.publications.filter((x: any) => x.publicationId !== publicationId);
   }
 
 }

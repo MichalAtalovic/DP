@@ -42,6 +42,12 @@
 
             builder.Property(prop => prop.Doi)
                .HasMaxLength(50);
+
+            builder.Property(prop => prop.CitesPerYear)
+               .HasMaxLength(255);
+
+            builder.Property(prop => prop.EprintUrl)
+               .HasMaxLength(1000);
         }
     }
 }

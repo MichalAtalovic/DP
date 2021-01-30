@@ -31,6 +31,8 @@ CREATE TABLE publication (
    publisher 		VARCHAR(255),
    abstract 		TEXT,
    doi				VARCHAR(50),
+   cites_per_year   VARCHAR(255),
+   eprint_url       VARCHAR(1000),
    CONSTRAINT PKEY_PUBLICATION PRIMARY KEY (pub_id),
    FOREIGN KEY(author_id) REFERENCES author(author_id)
 );

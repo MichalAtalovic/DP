@@ -2,9 +2,7 @@
   <div class="row">
     <div class="column" style="width: 98% !important">
       <div class="card-deck" style="display: flex; flex-flow: column; padding: 20px !important;">
-        <div *ngFor="let publication of this.publications">
-          <app-publication-card [template]="'quarantine'" [publication]="publication"></app-publication-card>
-        </div>
+        <app-publication-card *ngFor="let publication of this.publications; trackBy: this.trackItem" [template]="'quarantine'" [publication]="publication" (publicationMoved)="this.onPublicationMoved($event)"></app-publication-card>
       </div>
     </div>
   </div>

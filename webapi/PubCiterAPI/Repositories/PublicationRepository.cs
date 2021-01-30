@@ -133,7 +133,7 @@
         /// <param name="name">Author's name</param>
         public void SyncFromScholar(ApplicationDbContext context, string name)
         {
-            System.Diagnostics.Process process = new System.Diagnostics.Process();
+            /*System.Diagnostics.Process process = new System.Diagnostics.Process();
             process.StartInfo = new System.Diagnostics.ProcessStartInfo()
             {
                 UseShellExecute = false,
@@ -147,7 +147,7 @@
 
             process.Start();
             var dump = process.StandardOutput.ReadToEnd();
-            process.WaitForExit();
+            process.WaitForExit();*/
             var json = JObject.Parse(File.ReadAllText($"{ AppSettings.OutputFolder }/scholar_output.data", Encoding.UTF8));
 
             var author = context.Authors.ToList().FirstOrDefault(x => x.Name == AppSettings.Author);
@@ -175,6 +175,8 @@
                     publication.Pages = bib[@"pages"]?.Value<string>();
                     publication.Publisher = bib[@"publisher"]?.Value<string>();
                     publication.Abstract = bib[@"abstract"]?.Value<string>();
+                    publication.EprintUrl = pub[@"eprint_url"]?.Value<string>() ?? (pub[@"pub_url"]?.Value<string>() ?? string.Empty);
+                    publication.CitesPerYear = pub[@"cites_per_year"]?.ToString() ?? string.Empty;
 
                     var citations = pub[@"citations"]?.ToString() ?? string.Empty;
                     if (!string.IsNullOrEmpty(citations))

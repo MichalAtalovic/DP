@@ -134,5 +134,17 @@
                 context.SaveChanges();
             }
         }
+
+        /// <summary>
+        /// Moves all quarantined publications to library
+        /// </summary>
+        /// <param name="context">Application DB context instance</param>
+        public void ClearQuarantine(ApplicationDbContext context)
+        {
+            foreach(var quarantinedPublication in context.QuarantinedPublications.ToList())
+            {
+                this.RemoveFromQuarantine(context, quarantinedPublication.QuarantinedPublicationId);
+            }
+        }
     }
 }
