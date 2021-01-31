@@ -1,0 +1,11 @@
+<div class="row" style="background-color: #1E88E5; border-radius: 3px;">
+  <img style="height: 40px; width: 40px; margin: 5px;" class="icon" src="assets/sync_white.png">
+  <div style="padding: 15px; font-size: 40px; color: white">Synchronization</div>
+</div>
+<mat-dialog-content class="mat-typography" style="padding-top: 10px; padding-bottom: 10px;">
+  <p>Do you want to synchronize your data?</p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>No</button>
+  <button mat-button (click)="this.onYesClick()">Yes</button>
+</mat-dialog-actions>

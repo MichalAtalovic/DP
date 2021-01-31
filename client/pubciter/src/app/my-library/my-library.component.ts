@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { AuthorService } from '../services/author.service';
 import { PublicationService } from '../services/publication.service';
 
 @Component({
@@ -19,15 +20,19 @@ export class MyLibraryComponent implements OnInit {
   public viewType = 'cards';
 
   constructor(
-    public publicationService: PublicationService
+    public publicationService: PublicationService,
+    public authorService: AuthorService
   ) { }
 
   ngOnInit(): void {
   }
 
   ngAfterViewInit() {
-    this.publicationService.getPublications().then(response => {
-      this.publications = response as any;
+    Promise.all([
+      this.publicationService.getPublications(),
+      this.authorService.getAuthors()
+    ]).then(values => {
+      this.publications = values[0] as any;
 
       // append position
       if (this.publications) {
@@ -37,6 +42,9 @@ export class MyLibraryComponent implements OnInit {
 
         this.dataSource = new MatTableDataSource(this.publications);
       }
+
+      const author = (values[1] as any[])[0];
+      this.viewType = author?.settings?.libraryTableView ? 'table' : 'cards';
     });
   }
 

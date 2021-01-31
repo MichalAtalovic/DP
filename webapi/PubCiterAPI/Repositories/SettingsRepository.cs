@@ -1,5 +1,7 @@
 ﻿namespace PubCiterAPI.Repositories
 {
+    using System;
+    using System.IO;
     using System.Linq;
     using Microsoft.EntityFrameworkCore;
     using PubCiterAPI.Model;
@@ -7,6 +9,27 @@
 
     public class SettingsRepository : ISettingsRepository
     {
+        /// <summary>
+        /// Drops and reinitializes database
+        /// </summary>
+        public void HardReset()
+        {
+            System.Diagnostics.Process process = new System.Diagnostics.Process();
+            process.StartInfo = new System.Diagnostics.ProcessStartInfo()
+            {
+                UseShellExecute = false,
+                CreateNoWindow = false,
+                WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden,
+                FileName = @"cmd.exe",
+                Arguments = @$"/c cd scripts && reinit_db.bat",
+                RedirectStandardError = false,
+                RedirectStandardOutput = false
+            };
+
+            process.Start();
+            process.WaitForExit();
+        }
+
         /// <summary>
         /// Updates settings of author defined in webconfig
         /// </summary>
@@ -21,6 +44,7 @@
                 author.Settings.Scholar = settings.Scholar;
                 author.Settings.Semantics = settings.Semantics;
                 author.Settings.OpenCitations = settings.OpenCitations;
+                author.Settings.LibraryTableView = settings.LibraryTableView;
 
                 context.SaveChanges();
             }

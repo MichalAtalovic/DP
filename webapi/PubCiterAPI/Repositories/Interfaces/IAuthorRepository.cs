@@ -17,12 +17,20 @@
         public Author GetAuthorByName(ApplicationDbContext context, string name);
 
         /// <summary>
-        /// Finds author by name
+        /// Finds author by ID
         /// </summary>
         /// <param name="context">Application context</param>
         /// <param name="authorId">Author's ID</param>
         /// <returns>Author instance</returns>
         public Author GetAuthorById(ApplicationDbContext context, long? authorId);
+
+        /// <summary>
+        /// Updates author by ID
+        /// </summary>
+        /// <param name="context">Application DB context</param>
+        /// <param name="author">Updated author instancce</param>
+        /// <returns>Author instance</returns>
+        public Author UpdateAuthor(ApplicationDbContext context, Author author);
 
         /// <summary>
         /// Lists authors

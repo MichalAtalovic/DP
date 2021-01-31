@@ -1,8 +1,80 @@
-<div class="container-fluid" style="padding: 0px;  margin-bottom: 30px;">
-  <div class="row">
-    <div class="column" style="width: 100% !important">
-
+<ng-container *ngIf="this.author">
+  <form #form name="form" style=" display: flex; flex-wrap: wrap; flex: content; padding: 20px;">
+    <div class="card mb-3 shadow block-status flex-fill" style="margin-left: 10px; margin-right: 10px;">
+      <div class="card-header row"
+        style="margin: 0px; padding: 7px 20px 7px 20px; background-color: rgb(1, 97, 97); border-width: 0px; justify-content: space-between !important;">
+        <div style="vertical-align: middle; align-items: center; color: white; font-size: 16px;">Profile</div>
+      </div>
+      <div class="card-body" style="display:flex; justify-content: space-between; align-items:center; margin: 5px; padding-bottom: 0px;">
+        <div class="d-flex flex-column">
+          <mat-form-field style="width: 700px;">
+            <mat-label>Display name</mat-label>
+            <input #displayName name="displayName" matInput placeholder="Display name" [(ngModel)]="this.author.displayName">
+          </mat-form-field>
+          <mat-form-field style="width: 700px;">
+            <mat-label>Affiliation</mat-label>
+            <input #affiliation name="affiliation" matInput placeholder="Affiliation" [(ngModel)]="this.author.affiliation">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="d-flex flex-row justify-content-end">
+        <button mat-button  style="width: 70px; background-color: #1E88E5; color: white; margin-right: 20px; margin-bottom: 20px;" (click)="this.save()">SAVE</button>
+      </div>
     </div>
-  </div>
-</div>
-
+    <div class="card mb-3 shadow block-status flex-fill" style="margin-left: 10px; margin-right: 10px;">
+      <div class="card-header row"
+        style="margin: 0px; padding: 7px 20px 7px 20px; background-color: darkorange; border-width: 0px; justify-content: space-between !important;">
+        <div style="vertical-align: middle; align-items: center; color: white; font-size: 16px;">Synchronization</div>
+      </div>
+      <div class="card-body" style="display:flex; justify-content: space-between; align-items:center; margin: 5px;">
+        <div class="d-flex flex-column">
+          <mat-checkbox #scholar name="scholar" [(ngModel)]="this.author.settings.scholar" [color]="'accent'">
+            Google scholar
+          </mat-checkbox>
+          <mat-checkbox #semantics name="semantics" [(ngModel)]="this.author.settings.semantics" [color]="'primary'">
+            Semantics scholar
+          </mat-checkbox>
+          <mat-checkbox #openCitations name="openCitations" [(ngModel)]="this.author.settings.openCitations" [color]="'warn'">
+            www.OpenCitations.net
+          </mat-checkbox>
+        </div>
+      </div>
+      <div class="d-flex flex-row justify-content-end">
+        <button mat-button  style="width: 70px; background-color: #1E88E5; color: white; margin-right: 20px; margin-bottom: 20px;" (click)="this.save()">SAVE</button>
+      </div>
+    </div>
+    <div class="card mb-3 shadow block-status flex-fill" style="margin-left: 10px; margin-right: 10px;">
+      <div class="card-header row"
+        style="margin: 0px; padding: 7px 20px 7px 20px; background-color: darkmagenta; border-width: 0px; justify-content: space-between !important;">
+        <div style="vertical-align: middle; align-items: center; color: white; font-size: 16px;">Application</div>
+      </div>
+      <div class="card-body" style="display:flex; justify-content: space-between; align-items:center; margin: 5px;">
+        <div class="d-flex flex-column">
+          <div style="color: dodgerblue; font-size: 18px; margin-bottom: 5px;">Library default view</div>
+          <mat-radio-group #libraryViewType name="libraryViewType" aria-label="Library default view" [(ngModel)]="this.author.settings.libraryTableView" (change)="this.changeLibraryViewType($event)">
+            <mat-radio-button style="margin-right: 10px;" [value]="false" checked>Card view</mat-radio-button>
+            <mat-radio-button [value]="true">Table view</mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+      <div class="d-flex flex-row justify-content-end">
+        <button mat-button  style="width: 70px; background-color: #1E88E5; color: white; margin-right: 20px; margin-bottom: 20px;" (click)="this.save()">SAVE</button>
+      </div>
+    </div>
+    <div class="card mb-3 shadow block-status flex-fill" style="margin-left: 10px; margin-right: 10px;">
+      <div class="card-header row"
+        style="margin: 0px; padding: 7px 20px 7px 20px; background-color: crimson; border-width: 0px; justify-content: space-between !important;">
+        <div style="vertical-align: middle; align-items: center; color: white; font-size: 16px;">Danger zone</div>
+      </div>
+      <div class="card-body row" style="display:flex; justify-content: space-between; align-items:center; margin: 5px;">
+        <div class="d-flex flex-column">
+          <div class="d-flex flex-row">
+            <img class="icon" src="assets/info.png" style="height: 20px; width: 20px; margin-right: 5px; margin-bottom: 20px;">
+            <div style="color: deepskyblue; font-size: 14px; margin-bottom: 5px;">Actions in this section are irreversible. Use them on your own responsibility.</div>
+          </div>
+          <button mat-button color="warn" style="border: 1px solid crimson;" (click)="this.openHardResetDialog()">HARD DATA RESET</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</ng-container>

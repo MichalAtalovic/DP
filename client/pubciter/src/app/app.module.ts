@@ -27,6 +27,11 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { QuarantineDialogComponent } from './dialogs/quarantine-dialog/quarantine-dialog.component';
 import { QuarantineActionPanelComponent } from './quarantine/quarantine-action-panel/quarantine-action-panel.component';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatInputModule } from '@angular/material/input';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { SyncDialogComponent } from './dialogs/sync-dialog/sync-dialog.component';
+import { HardResetDialogComponent } from './dialogs/hard-reset-dialog/hard-reset-dialog.component';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -40,7 +45,9 @@ import { MatRadioModule } from '@angular/material/radio';
     PublicationCardComponent,
     DashboardComponent,
     QuarantineDialogComponent,
-    QuarantineActionPanelComponent
+    QuarantineActionPanelComponent,
+    SyncDialogComponent,
+    HardResetDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +62,10 @@ import { MatRadioModule } from '@angular/material/radio';
     NgpImagePickerModule,
     MatTableModule,
     MatPaginatorModule,
-    MatRadioModule
+    MatRadioModule,
+    MatInputModule,
+    MatCheckboxModule,
+    ChartsModule
   ],
   providers: [
     DateFormatPipe,

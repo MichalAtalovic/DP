@@ -62,5 +62,24 @@ namespace PubCiterAPI.Controllers
                 this.logger.LogError(ex.ToString());
             }
         }
+
+        /// <summary>
+        /// Drops and reinitializes the database
+        /// </summary>
+        [HttpPost]
+        [Route(@"/hard-reset")]
+        [SwaggerOperation(Summary = "Drops and reinitializes the database")]
+        public void ReinitializeDatabase()
+        {
+            try
+            {
+                this.settingsRepository.HardReset();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                this.logger.LogError(ex.ToString());
+            }
+        }
     }
 }

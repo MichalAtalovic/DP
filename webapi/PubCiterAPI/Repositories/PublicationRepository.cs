@@ -231,7 +231,7 @@
         /// <param name="name">Author's name</param>
         public void SyncFromScholar(ApplicationDbContext context, string name)
         {
-            /*System.Diagnostics.Process process = new System.Diagnostics.Process();
+            System.Diagnostics.Process process = new System.Diagnostics.Process();
             process.StartInfo = new System.Diagnostics.ProcessStartInfo()
             {
                 UseShellExecute = false,
@@ -245,7 +245,7 @@
 
             process.Start();
             var dump = process.StandardOutput.ReadToEnd();
-            process.WaitForExit();*/
+            process.WaitForExit();
             var json = JObject.Parse(File.ReadAllText($"{ AppSettings.OutputFolder }/scholar_output.data", Encoding.UTF8));
 
             var author = context.Authors.ToList().FirstOrDefault(x => x.Name == AppSettings.Author);

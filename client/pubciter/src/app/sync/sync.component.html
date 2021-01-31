@@ -1,8 +1,59 @@
 <div class="container-fluid" style="padding: 0px;  margin-bottom: 30px;">
   <div class="row">
-    <div class="column" style="width: 100% !important">
-
+    <div class="column" style="width: 100% !important; margin: 30px;">
+      <ng-container *ngIf="!this.isIdle">
+        <div style="width: 700px; border: 1px solid darkmagenta; border-radius: 3px;">
+          <div style="background-color: darkmagenta; padding: 10px; color: white; font-size: 20px;">
+            Synchronization in progress . . .
+          </div>
+          <div style="padding: 20px;">
+            <div *ngFor="let status of this.syncStatus" class="row">
+              <ng-container *ngIf="status.status === 'Running'">
+                <img src="assets/running.gif" style="height: 30px; width: 30px;">
+                <div style="margin: 5px; color:  #1E88E5; font-weight: bold; font-size: 30px;">{{ status.name }}</div>
+              </ng-container>
+              <ng-container *ngIf="status.status === 'Pending'">
+                <img src="assets/pending.png" style="height: 30px; width: 30px;">
+                <div style="margin: 5px; font-size: 15px;">{{ status.name }}</div>
+              </ng-container>
+              <ng-container *ngIf="status.status === 'Done'">
+                <img src="assets/done.png" style="height: 30px; width: 30px;">
+                <div style="margin: 5px; font-size: 15px; color: #00cf6f">{{ status.name }}</div>
+              </ng-container>
+              <ng-container *ngIf="status.status === 'Skipped'">
+                <img src="assets/skipped.png" style="height: 30px; width: 30px;">
+                <div style="margin: 5px; font-size: 15px;">{{ status.name }}</div>
+              </ng-container>
+            </div>
+          </div>
+          <div class="d-flex flex-row" style="padding: 10px;">
+            <img class="icon" src="assets/info.png"
+              style="height: 20px; width: 20px; margin-right: 5px; margin-bottom: 20px;">
+            <div style="color: darkslateblue; font-size: 14px; margin-bottom: 5px;">During the synchronization you may
+              encounter screen glitches caused by cyclic opening and closing the Opera browser. In that case do not
+              neither close theese windows, nor interfere in any way.</div>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="this.isIdle">
+        <div style="border: 1px solid darkslateblue; border-radius: 3px; margin-right: 20px;">
+          <div style="background-color: darkslateblue; padding: 10px; color: white; font-size: 20px;">
+            Synchronization
+          </div>
+          <div style="padding: 20px;">
+            <div class="d-flex flex-row" style="margin-bottom: 10px;">
+              <img class="icon" src="assets/info.png"
+                style="height: 20px; width: 20px; margin-right: 5px; margin-bottom: 20px;">
+              <div style="color: darkslateblue; font-size: 14px; margin-bottom: 5px; font-size: 15px;">Synchronization process searches for
+                your publications on Google Scholar and retrieves its citations. Be aware that if you want to sychronize
+                citations from SEMANTICS SCHOLAR or WWW.OPENCITATIONS.NET, you need to provided your publications with
+                the DOI (Digital object identifier) manually, then re-synchronize your library. To review current synchronization settings, please visit the "Settings" section in the main menu.</div>
+            </div>
+            <button mat-button color="primary" style="border: 1px solid darkslateblue; width: 100%;"
+              (click)="this.openSyncDialog()">Synchronize</button>
+          </div>
+        </div>
+      </ng-container>
     </div>
   </div>
 </div>
-

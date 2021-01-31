@@ -52,7 +52,10 @@
             {
                 Name = author,
                 DisplayName = author,
-                Settings = new AuthorSettings()
+                Settings = new AuthorSettings
+                {
+                    Scholar = true
+                }
             };
 
             context.Authors.Add(newAuthor);
@@ -76,6 +79,31 @@
             }
 
             context.SaveChanges();
+        }
+
+        /// <summary>
+        /// Updates author by ID
+        /// </summary>
+        /// <param name="context">Application DB context</param>
+        /// <param name="updatedAuthor">Updated author instance</param>
+        /// <returns></returns>
+        public Author UpdateAuthor(ApplicationDbContext context, Author updatedAuthor)
+        {
+            var author = context.Authors.Include(x => x.Settings).FirstOrDefault(x => x.AuthorId == updatedAuthor.AuthorId);
+            if (author != null)
+            {
+                author.DisplayName = updatedAuthor.DisplayName;
+                author.Affiliation = updatedAuthor.Affiliation;
+
+                author.Settings.Scholar = updatedAuthor.Settings.Scholar;
+                author.Settings.Semantics = updatedAuthor.Settings.Semantics;
+                author.Settings.OpenCitations = updatedAuthor.Settings.OpenCitations;
+                author.Settings.LibraryTableView = updatedAuthor.Settings.LibraryTableView;
+
+                context.SaveChanges();
+            }
+
+            return author;
         }
     }
 }

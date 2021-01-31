@@ -12,7 +12,15 @@ export class PublicationService extends BaseRestService {
     super(client);
   }
 
-  getPublications(searchText: string = '') {
+  async getPublications(searchText: string = '') {
     return this.get(`publication?searchText=${searchText}`);
+  }
+
+  async sync() {
+    return this.post('publication/citations/sync', null);
+  }
+
+  async getSyncStatus() {
+    return this.get('publication/sync/status');
   }
 }

@@ -1,6 +1,5 @@
 ﻿namespace PubCiterAPI.Model
 {
-    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
@@ -34,5 +33,11 @@
         /// </summary>
         [Column(@"open_citations")]
         public bool OpenCitations { get; set; }
+
+        /// <summary>
+        /// Allow synchronization from OpenCitations
+        /// </summary>
+        [Column(@"library_table_view")]
+        public bool LibraryTableView { get; set; }
     }
 }

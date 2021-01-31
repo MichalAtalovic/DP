@@ -14,5 +14,10 @@
         /// <param name="settings">Author settings</param>
         /// <param name="authorId">Author's ID</param>
         public void UpdateSettings(ApplicationDbContext context, AuthorSettings settings, long authorId);
+
+        /// <summary>
+        /// Drops and reinitializes databse
+        /// </summary>
+        void HardReset();
     }
 }

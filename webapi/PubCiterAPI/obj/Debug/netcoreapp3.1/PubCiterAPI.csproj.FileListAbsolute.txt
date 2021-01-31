@@ -77,6 +77,7 @@ C:\Users\michal.atalovic\Pracovná plocha\DP\api\PubCiterAPI\obj\Debug\netcoreap
 C:\Users\michal.atalovic\Pracovná plocha\DP\api\PubCiterAPI\obj\Debug\netcoreapp3.1\PubCiterAPI.dll
 C:\Users\michal.atalovic\Pracovná plocha\DP\api\PubCiterAPI\obj\Debug\netcoreapp3.1\PubCiterAPI.pdb
 C:\Users\michal.atalovic\Pracovná plocha\DP\api\PubCiterAPI\obj\Debug\netcoreapp3.1\PubCiterAPI.genruntimeconfig.cache
+C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\bin\Debug\netcoreapp3.1\Postman\PubCiterAPI.postman_collection.json
 C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\bin\Debug\netcoreapp3.1\webconfig.json
 C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\bin\Debug\netcoreapp3.1\PubCiterAPI.exe
 C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\bin\Debug\netcoreapp3.1\Scraper\opera\operadriver.exe
@@ -121,6 +122,8 @@ C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\bin\Debug\netcor
 C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\bin\Debug\netcoreapp3.1\Scraper\scholarlylib\test_module.py
 C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\bin\Debug\netcoreapp3.1\Scraper\scholar_sync.py
 C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\bin\Debug\netcoreapp3.1\Scraper\semantics_sync.py
+C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\bin\Debug\netcoreapp3.1\scripts\create_tables.sql
+C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\bin\Debug\netcoreapp3.1\scripts\reinit_db.bat
 C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\bin\Debug\netcoreapp3.1\PubCiterAPI.deps.json
 C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\bin\Debug\netcoreapp3.1\PubCiterAPI.runtimeconfig.json
 C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\bin\Debug\netcoreapp3.1\PubCiterAPI.runtimeconfig.dev.json
@@ -197,5 +200,3 @@ C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\obj\Debug\netcor
 C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\obj\Debug\netcoreapp3.1\PubCiterAPI.dll
 C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\obj\Debug\netcoreapp3.1\PubCiterAPI.pdb
 C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\obj\Debug\netcoreapp3.1\PubCiterAPI.genruntimeconfig.cache
-C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\bin\Debug\netcoreapp3.1\Postman\PubCiterAPI.postman_collection.json
-C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\obj\Debug\netcoreapp3.1\PubCiterAPI.csprojAssemblyReference.cache

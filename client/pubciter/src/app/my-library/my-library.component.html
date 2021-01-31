@@ -12,7 +12,7 @@
     </div>
   </div>
   <div style="padding: 10px;">
-    <mat-radio-group aria-label="Select an option" (change)="this.changeViewType($event)">
+    <mat-radio-group #viewTypeRadioGroup name="viewTypeRadioGroup" aria-label="Select an option" [(ngModel)]="this.viewType" (change)="this.changeViewType($event)">
       <mat-radio-button style="margin-right: 10px;" [value]="'cards'" checked>Card view</mat-radio-button>
       <mat-radio-button [value]="'table'">Table view</mat-radio-button>
     </mat-radio-group>
@@ -35,7 +35,7 @@
 <ng-container *ngIf="this.viewType === 'table'">
   <div class="container-fluid" style="padding: 0px; margin-bottom: 30px; margin-left: 10px; padding-right: 10px;">
     <div class="row">
-      <div class="column" style="width: 98% !important">
+      <div class="column" *ngIf="this.dataSource.data.length > 0" style="width: 98% !important">
         <table mat-table [dataSource]="this.dataSource" class="mat-elevation-z8">
           <ng-container matColumnDef="position" style="width: 10%; margin-left: 10px; margin-right: 10px;">
             <th mat-header-cell *matHeaderCellDef></th>

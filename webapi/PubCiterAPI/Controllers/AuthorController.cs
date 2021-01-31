@@ -76,5 +76,31 @@ namespace PubCiterAPI.Controllers
                 return null;
             }
         }
+
+        /// <summary>
+        /// Updates author by ID
+        /// </summary>
+        [HttpPut]
+        [Route(@"")]
+        [SwaggerOperation(Summary = "Updates author by ID")]
+        public Author UpdateAuthor(Author author)
+        {
+            try
+            {
+                if (author != null)
+                {
+                    return this.authorRepository.UpdateAuthor(context, author);
+                }
+
+                return null;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                this.logger.LogError(ex.ToString());
+
+                return null;
+            }
+        }
     }
 }
