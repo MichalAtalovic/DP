@@ -32,6 +32,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { SyncDialogComponent } from './dialogs/sync-dialog/sync-dialog.component';
 import { HardResetDialogComponent } from './dialogs/hard-reset-dialog/hard-reset-dialog.component';
 import { ChartsModule } from 'ng2-charts';
+import { AngularResizedEventModule } from 'angular-resize-event';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { ChartsModule } from 'ng2-charts';
     MatRadioModule,
     MatInputModule,
     MatCheckboxModule,
-    ChartsModule
+    ChartsModule,
+    AngularResizedEventModule
   ],
   providers: [
     DateFormatPipe,

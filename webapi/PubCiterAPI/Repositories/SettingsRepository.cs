@@ -1,7 +1,5 @@
 ﻿namespace PubCiterAPI.Repositories
 {
-    using System;
-    using System.IO;
     using System.Linq;
     using Microsoft.EntityFrameworkCore;
     using PubCiterAPI.Model;
