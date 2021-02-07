@@ -1,0 +1,18 @@
+.action-item:hover {
+  background-color: #183646;
+  padding: 5px;
+  border-radius: 5px;
+  border: 0px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.action-item {
+  background-color: #265874;
+  border-radius: 5px;
+  width: 100%;
+  border: 0px;
+  padding: 5px;
+  margin-top: 10px;
+  align-items: center;
+}

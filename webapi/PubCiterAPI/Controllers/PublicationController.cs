@@ -232,5 +232,25 @@ namespace PubCiterAPI.Controllers
                 this.logger.LogError(ex.ToString());
             }
         }
+
+        /// <summary>
+        /// Adds citation to publication
+        /// </summary>
+        [HttpPost]
+        [Route(@"{publicationId}/citation")]
+        [SwaggerOperation(Summary = "Adds citation to publication")]
+        public void InsertCitation(Citation citation, long publicationId)
+        {
+            try
+            {
+                this.publicationRepository.InsertCitation(context, citation, publicationId);
+                this.authorRepository.RecountCitations(context);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                this.logger.LogError(ex.ToString());
+            }
+        }
     }
 }

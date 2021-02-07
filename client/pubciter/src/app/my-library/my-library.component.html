@@ -10,6 +10,7 @@
         style="font-size: 12px; width: 257px; margin: 0px; padding: 5px; height: 28px; border: none; background-color: palegoldenrod;"
         placeholder="Search" #searchInput (keyup.enter)="this.search(searchInput.value)">
     </div>
+    <div style="margin: 10px; color: #183646;">Results: {{ this.publications?.length !== null ? this.publications.length: 0 }}</div>
   </div>
   <div style="padding: 10px;">
     <mat-radio-group #viewTypeRadioGroup name="viewTypeRadioGroup" aria-label="Select an option" [(ngModel)]="this.viewType" (change)="this.changeViewType($event)">
@@ -23,7 +24,7 @@
     <div class="row">
       <div class="column" style="width: 98% !important">
         <div class="card-deck" style="display: flex; flex-flow: column; padding: 20px !important;">
-          <div *ngFor="let publication of this.publications">
+          <div *ngFor="let publication of this.publications; let i = index; trackBy: trackByFn">
             <app-publication-card [template]="'library'" [publication]="publication"
               (publicationMoved)="this.onPublicationMoved($event)"></app-publication-card>
           </div>

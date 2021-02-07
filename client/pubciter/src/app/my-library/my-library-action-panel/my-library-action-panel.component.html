@@ -1,0 +1,7 @@
+<div>
+  <button class="action-item" (click)="this.onClickImport()">
+    <img src="assets/import.png" style="display: block; height: 22px; float: left;" />
+    <div style="color: white; font-size: 18px;">Import publication</div>
+    <input id="fileInput" type="file" class="file" style="display:none" (change)="this.handleImportedFile($event)">
+  </button>
+</div>

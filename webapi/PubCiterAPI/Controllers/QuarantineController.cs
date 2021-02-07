@@ -26,9 +26,9 @@ namespace PubCiterAPI.Controllers
         private readonly IQuarantineRepository quarantineRepository;
 
         /// <summary>
-        /// Publication Repository instance
+        /// Author Repository instance
         /// </summary>
-        private readonly IPublicationRepository publicationRepository;
+        private readonly IAuthorRepository authorRepository;
 
         /// <summary>
         /// Current DB Context
@@ -44,13 +44,13 @@ namespace PubCiterAPI.Controllers
         /// <param name="logger">Logger instance</param>
         public QuarantineController(
             QuarantineRepository quarantineRepository,
-            PublicationRepository publicationRepository,
+            AuthorRepository authorRepository,
             ApplicationDbContext context,
             ILogger<QuarantineController> logger)
         {
             this.context = context;
             this.quarantineRepository = quarantineRepository;
-            this.publicationRepository = publicationRepository;
+            this.authorRepository = authorRepository;
             this.logger = logger;
         }
 
@@ -65,6 +65,7 @@ namespace PubCiterAPI.Controllers
             try
             {
                 this.quarantineRepository.MoveToQuarantine(context, publicationId);
+                this.authorRepository.RecountCitations(context);
             }
             catch (Exception ex)
             {
@@ -84,6 +85,7 @@ namespace PubCiterAPI.Controllers
             try
             {
                 this.quarantineRepository.RemoveFromQuarantine(context, quarantinedPublicationId);
+                this.authorRepository.RecountCitations(context);
             }
             catch (Exception ex)
             {
@@ -103,6 +105,7 @@ namespace PubCiterAPI.Controllers
             try
             {
                 this.quarantineRepository.ClearQuarantine(context);
+                this.authorRepository.RecountCitations(context);
             }
             catch (Exception ex)
             {

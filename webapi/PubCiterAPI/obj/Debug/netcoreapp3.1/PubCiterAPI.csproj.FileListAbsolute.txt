@@ -110,13 +110,6 @@ C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\bin\Debug\netcor
 C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\bin\Debug\netcoreapp3.1\Scraper\scholarlylib\scholarly\_proxy_generator.py
 C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\bin\Debug\netcoreapp3.1\Scraper\scholarlylib\scholarly\_scholarly.py
 C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\bin\Debug\netcoreapp3.1\Scraper\scholarlylib\scholarly\__init__.py
-C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\bin\Debug\netcoreapp3.1\Scraper\scholarlylib\scholarly\__pycache__\author_parser.cpython-39.pyc
-C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\bin\Debug\netcoreapp3.1\Scraper\scholarlylib\scholarly\__pycache__\data_types.cpython-39.pyc
-C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\bin\Debug\netcoreapp3.1\Scraper\scholarlylib\scholarly\__pycache__\publication_parser.cpython-39.pyc
-C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\bin\Debug\netcoreapp3.1\Scraper\scholarlylib\scholarly\__pycache__\_navigator.cpython-39.pyc
-C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\bin\Debug\netcoreapp3.1\Scraper\scholarlylib\scholarly\__pycache__\_proxy_generator.cpython-39.pyc
-C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\bin\Debug\netcoreapp3.1\Scraper\scholarlylib\scholarly\__pycache__\_scholarly.cpython-39.pyc
-C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\bin\Debug\netcoreapp3.1\Scraper\scholarlylib\scholarly\__pycache__\__init__.cpython-39.pyc
 C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\bin\Debug\netcoreapp3.1\Scraper\scholarlylib\setup.py
 C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\bin\Debug\netcoreapp3.1\Scraper\scholarlylib\setup_tor.sh
 C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\bin\Debug\netcoreapp3.1\Scraper\scholarlylib\test_module.py
@@ -200,3 +193,4 @@ C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\obj\Debug\netcor
 C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\obj\Debug\netcoreapp3.1\PubCiterAPI.dll
 C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\obj\Debug\netcoreapp3.1\PubCiterAPI.pdb
 C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\obj\Debug\netcoreapp3.1\PubCiterAPI.genruntimeconfig.cache
+C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\obj\Debug\netcoreapp3.1\PubCiterAPI.csprojAssemblyReference.cache

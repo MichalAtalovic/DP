@@ -59,5 +59,13 @@
         /// <param name="context">Application DB context</param>
         /// <param name="publication">Publication object</param>
         void UpdateInsertPublication(ApplicationDbContext context, Publication publication);
+
+        /// <summary>
+        /// Insert citation to publication
+        /// </summary>
+        /// <param name="context">Application DB context</param>
+        /// <param name="citation">Citation oject</param>
+        /// <param name="publicationId">Publication ID</param>
+        void InsertCitation(ApplicationDbContext context, Citation citation, long publicationId);
     }
 }

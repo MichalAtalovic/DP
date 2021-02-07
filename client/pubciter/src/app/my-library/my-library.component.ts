@@ -77,4 +77,8 @@ export class MyLibraryComponent implements OnInit {
     });
   }
 
+  trackByFn(index: any) {
+    return index;
+  }
+
 }

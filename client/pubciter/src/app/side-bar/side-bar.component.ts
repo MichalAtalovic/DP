@@ -1,8 +1,12 @@
+import { AuthorService } from './../services/author.service';
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { QuarantineDialogComponent } from '../dialogs/quarantine-dialog/quarantine-dialog.component';
 import { DataService } from '../services/data.service';
 import { QuarantineService } from '../services/quarantine.service';
+import * as astrocite from 'astrocite';
+import { PublicationService } from '../services/publication.service';
+import { BibliographyParser } from 'src/utils/bibliography-parser';
 
 @Component({
   selector: 'app-side-bar',
@@ -21,7 +25,9 @@ export class SideBarComponent implements OnInit {
   constructor(
     private dataService: DataService,
     private quarantineService: QuarantineService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private publicationService: PublicationService,
+    private authorService: AuthorService
   ) { }
 
   ngOnInit(): void {
@@ -30,13 +36,42 @@ export class SideBarComponent implements OnInit {
   collapse(value: boolean) {
     this.collapsed = value;
     this.widthEmitter.emit(value);
-    this.dataService.sendData({action: 'ACTION PANEL RESIZE', data: value});
+    this.dataService.sendData({ action: 'ACTION PANEL RESIZE', data: value });
   }
 
   panelActionExecute(args: any) {
     switch (args?.action) {
       case 'CLEAR QUARANTINE':
         this.openQuarantineDialog({ operation: 'remove all' });
+        break;
+      case 'IMPORT PUBLICATION':
+        switch (args.format?.toLowerCase()) {
+          case 'bib':
+            console.log('BIB file');
+            new BibliographyParser(this.authorService).preparePublications(astrocite.bibtex.parse(args.raw) as any).then(result => {
+              result.forEach(x => {
+                console.log('INSERTING');
+                console.log(x);
+                this.publicationService.insertPublication(x);
+              })
+            });
+
+            break;
+          case 'ris':
+            console.log('RIS file');
+            new BibliographyParser(this.authorService).preparePublications(astrocite.ris.parse(args.raw) as any).then(result => {
+              result.forEach(x => {
+                console.log('INSERTING');
+                console.log(x);
+                this.publicationService.insertPublication(x);
+              })
+            });
+
+            break;
+          default:
+            console.log('unsupported format');
+            break;
+        }
         break;
     }
   }
@@ -57,5 +92,4 @@ export class SideBarComponent implements OnInit {
       }
     });
   }
-
 }

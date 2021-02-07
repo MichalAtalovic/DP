@@ -23,4 +23,12 @@ export class PublicationService extends BaseRestService {
   async getSyncStatus() {
     return this.get('publication/sync/status');
   }
+
+  async insertPublication(publication: any) {
+    return this.post('publication', publication);
+  }
+
+  async insertCitation(citation: any, publicationId: number) {
+    return this.post(`publication/${publicationId}/citation`, citation);
+  }
 }

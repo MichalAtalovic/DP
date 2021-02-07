@@ -33,6 +33,7 @@ import { SyncDialogComponent } from './dialogs/sync-dialog/sync-dialog.component
 import { HardResetDialogComponent } from './dialogs/hard-reset-dialog/hard-reset-dialog.component';
 import { ChartsModule } from 'ng2-charts';
 import { AngularResizedEventModule } from 'angular-resize-event';
+import { MyLibraryActionPanelComponent } from './my-library/my-library-action-panel/my-library-action-panel.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { AngularResizedEventModule } from 'angular-resize-event';
     QuarantineDialogComponent,
     QuarantineActionPanelComponent,
     SyncDialogComponent,
-    HardResetDialogComponent
+    HardResetDialogComponent,
+    MyLibraryActionPanelComponent
   ],
   imports: [
     BrowserModule,

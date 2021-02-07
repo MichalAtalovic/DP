@@ -2,8 +2,13 @@ import { QuarantineDialogComponent } from '../../dialogs//quarantine-dialog/quar
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { QuarantineService } from 'src/app/services/quarantine.service';
+import { BibliographyParser } from 'src/utils/bibliography-parser';
+import * as astrocite from 'astrocite';
+import { AuthorService } from 'src/app/services/author.service';
+import { PublicationService } from 'src/app/services/publication.service';
+
 @Component({
   selector: 'app-publication-card',
   templateUrl: './publication-card.component.html',
@@ -22,10 +27,13 @@ export class PublicationCardComponent implements OnInit {
   public dataSource: MatTableDataSource<any> = new MatTableDataSource();
   public paginatedData: MatTableDataSource<any> = new MatTableDataSource();
   public showCitationsState = false;
+  public publicationId: any;
 
   constructor(
     public dialog: MatDialog,
-    public quarantineService: QuarantineService
+    public quarantineService: QuarantineService,
+    public authorService: AuthorService,
+    public publicationService: PublicationService
   ) { }
 
   openQuarantineDialog(args: any): void {
@@ -72,6 +80,56 @@ export class PublicationCardComponent implements OnInit {
     if (this.publication.eprintUrl) {
       window.open(this.publication.eprintUrl)
     }
+  }
+
+  onClickImport(event: any) {
+    document.getElementById('fileInput_' + this.publication.publicationId.toString())?.click();
+  }
+
+  handleImportedFile(data: any) {
+    let fileReader = new FileReader();
+    fileReader.onload = (e) => {
+      switch (data.target.files[0].name.split('.')[data.target.files[0].name.split('.').length - 1]?.toLowerCase()) {
+        case 'bib':
+          console.log('BIB file');
+          new BibliographyParser(this.authorService).preparePublications(astrocite.bibtex.parse(fileReader.result as string) as any).then(result => {
+            result.forEach(x => {
+              console.log('INSERTING CITATION');
+              console.log(x);
+              console.log('FOR PUBLICATION: ' + this.publicationId);
+              this.publicationService.insertCitation(x, this.publicationId);
+              this.publication.publicationCitationList.push({
+                citation: x
+              });
+            });
+
+            this.ngAfterViewInit();
+          });
+
+          break;
+        case 'ris':
+          console.log('RIS file');
+          new BibliographyParser(this.authorService).preparePublications(astrocite.ris.parse(fileReader.result as string) as any).then(result => {
+            result.forEach(x => {
+              console.log('INSERTING CITATION');
+              console.log(x);
+              this.publicationService.insertCitation(x, this.publication.publicationId);
+              this.publication.publicationCitationList.push({
+                citation: x
+              });
+            });
+
+            this.ngAfterViewInit();
+          });
+
+          break;
+        default:
+          console.log('unsupported format');
+          break;
+      }
+    }
+
+    fileReader.readAsText(data.target.files[0]);
   }
 
 }

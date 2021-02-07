@@ -37,7 +37,7 @@
                 else
                 {
                     var filteredList = new List<Publication>();
-                    foreach(var publication in list)
+                    foreach (var publication in list)
                     {
                         if (publication?.Journal != null)
                         {
@@ -74,7 +74,7 @@
                                 continue;
                             }
                         }
-                        
+
                         if (publication?.Abstract != null)
                         {
                             if (publication.Abstract.Trim().ToLower().Contains(searchedText.Trim().ToLower()))
@@ -93,7 +93,7 @@
                             }
                         }
 
-                        foreach(var publicationCitation in publication.PublicationCitationList)
+                        foreach (var publicationCitation in publication.PublicationCitationList)
                         {
                             if (publicationCitation?.Citation != null)
                             {
@@ -518,6 +518,28 @@
                 }
 
                 context.Publications.Add(publication);
+                context.SaveChanges();
+            }
+        }
+
+        /// <summary>
+        /// Insert citation to publication
+        /// </summary>
+        /// <param name="context">Application DB context</param>
+        /// <param name="citation">Citation oject</param>
+        /// <param name="publicationId">Publication ID</param>
+        public void InsertCitation(ApplicationDbContext context, Citation citation, long publicationId)
+        {
+            var publication = context.Publications.Include(x => x.PublicationCitationList).ToList().FirstOrDefault(x => x.PublicationId == publicationId);
+            if (publication != null)
+            {
+                publication.PublicationCitationList.Add(
+                    new PublicationCitation
+                    {
+                        Citation = citation
+                    }
+                );
+
                 context.SaveChanges();
             }
         }
