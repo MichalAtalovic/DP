@@ -9724,3 +9724,634 @@ ORDER BY p.pub_id, t.pub_id, t.citation_id, t.citation_id0" (0723d8ff)
 2021-02-13T14:04:39.4262010+01:00 0HM6G3MQVSHCR:0000002D [INF] Executed action "PubCiterAPI.Controllers.PublicationController.GetPublications (PubCiterAPI)" in 93.4612ms (afa2e885)
 2021-02-13T14:04:39.4263059+01:00 0HM6G3MQVSHCR:0000002D [INF] Executed endpoint '"PubCiterAPI.Controllers.PublicationController.GetPublications (PubCiterAPI)"' (99874f2b)
 2021-02-13T14:04:39.4265481+01:00 0HM6G3MQVSHCR:0000002D [INF] Request finished in 94.2255ms 200 application/json; charset=utf-8 (791a596a)
+2021-02-13T14:11:04.3161000+01:00 0HM6G3MQVSHCS:00000001 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:7051/quarantine?citations=true   (ca22a1cb)
+2021-02-13T14:11:04.3162107+01:00 0HM6G3MQVSHCS:00000001 [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:11:04.3162606+01:00 0HM6G3MQVSHCS:00000001 [INF] Request finished in 0.2054ms 204  (791a596a)
+2021-02-13T14:11:04.3320437+01:00 0HM6G3MQVSHCS:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:7051/quarantine?citations=true application/json  (ca22a1cb)
+2021-02-13T14:11:04.3322127+01:00 0HM6G3MQVSHCS:00000002 [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:11:04.3322592+01:00 0HM6G3MQVSHCS:00000002 [INF] Executing endpoint '"PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)"' (500cc934)
+2021-02-13T14:11:04.3356613+01:00 0HM6G3MQVSHCS:00000002 [INF] Route matched with "{action = \"GetQuarantineList\", controller = \"Quarantine\"}". Executing controller action with signature "System.Collections.Generic.IEnumerable`1[PubCiterAPI.Model.QuarantinedPublication] GetQuarantineList(Boolean)" on controller "PubCiterAPI.Controllers.QuarantineController" ("PubCiterAPI"). (122b2fdf)
+2021-02-13T14:11:04.3586284+01:00 0HM6G3MQVSHCS:00000002 [INF] Executing action method "PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-02-13T14:11:04.3598703+01:00 0HM6G3MQVSHCS:00000002 [INF] Entity Framework Core "3.1.8" initialized '"ApplicationDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL"' with options: "None" (9958f5bb)
+2021-02-13T14:11:04.3835248+01:00 0HM6G3MQVSHCS:00000002 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT q.pub_id, q.abstract, q.author_id, q.author, q.doi, q.journal, q.volume, q.pages, q.pub_year, q.publisher, q.title, t.quarantine_id, t.citation_id, t.citation_id0, t.abstract, t.author, t.doi, t.journal, t.volume, t.pub_url, t.pub_year, t.title
+FROM quarantine AS q
+LEFT JOIN (
+    SELECT q0.quarantine_id, q0.citation_id, c.citation_id AS citation_id0, c.abstract, c.author, c.doi, c.journal, c.volume, c.pub_url, c.pub_year, c.title
+    FROM quarantine_citation AS q0
+    INNER JOIN citation AS c ON q0.citation_id = c.citation_id
+) AS t ON q.pub_id = t.quarantine_id
+ORDER BY q.pub_id, t.quarantine_id, t.citation_id, t.citation_id0" (0723d8ff)
+2021-02-13T14:11:04.3837023+01:00 0HM6G3MQVSHCS:00000002 [INF] Executed action method "PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 24.9953ms. (50a9e262)
+2021-02-13T14:11:04.3838706+01:00 0HM6G3MQVSHCS:00000002 [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[PubCiterAPI.Model.QuarantinedPublication, PubCiterAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2021-02-13T14:11:04.3858828+01:00 0HM6G3MQVSHCS:00000002 [INF] Executed action "PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)" in 50.1283ms (afa2e885)
+2021-02-13T14:11:04.3861643+01:00 0HM6G3MQVSHCS:00000002 [INF] Executed endpoint '"PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)"' (99874f2b)
+2021-02-13T14:11:04.3862309+01:00 0HM6G3MQVSHCS:00000002 [INF] Request finished in 54.2573ms 200 application/json; charset=utf-8 (791a596a)
+2021-02-13T14:11:07.6563697+01:00 0HM6G3MQVSHCS:00000003 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:7051/author   (ca22a1cb)
+2021-02-13T14:11:07.6564740+01:00 0HM6G3MQVSHCS:00000003 [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:11:07.6565391+01:00 0HM6G3MQVSHCS:00000003 [INF] Request finished in 0.2105ms 204  (791a596a)
+2021-02-13T14:11:07.6578729+01:00 0HM6G3MQVSHCS:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:7051/author application/json  (ca22a1cb)
+2021-02-13T14:11:07.6579658+01:00 0HM6G3MQVSHCS:00000004 [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:11:07.6579984+01:00 0HM6G3MQVSHCS:00000004 [INF] Executing endpoint '"PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)"' (500cc934)
+2021-02-13T14:11:07.6580681+01:00 0HM6G3MQVSHCS:00000004 [INF] Route matched with "{action = \"ListAuthors\", controller = \"Author\"}". Executing controller action with signature "System.Collections.Generic.IEnumerable`1[PubCiterAPI.Model.Author] ListAuthors(System.String, System.Nullable`1[System.Int64])" on controller "PubCiterAPI.Controllers.AuthorController" ("PubCiterAPI"). (122b2fdf)
+2021-02-13T14:11:07.6927041+01:00 0HM6G3MQVSHCS:00000004 [INF] Executing action method "PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-02-13T14:11:07.6931751+01:00 0HM6G3MQVSHCS:00000004 [INF] Entity Framework Core "3.1.8" initialized '"ApplicationDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL"' with options: "None" (9958f5bb)
+2021-02-13T14:11:07.7005115+01:00 0HM6G3MQVSHCS:00000004 [INF] Executed DbCommand ("7"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT a.author_id, a.affiliation, a.display_name, a.name, a.scholar_id, a.setting_id, a.total_cites, a.url_picture, a0.setting_id, a0.graph_font_size, a0.library_table_view, a0.open_citations, a0.scholar, a0.semantics
+FROM author AS a
+INNER JOIN author_setting AS a0 ON a.setting_id = a0.setting_id" (0723d8ff)
+2021-02-13T14:11:07.7010220+01:00 0HM6G3MQVSHCS:00000004 [INF] Executed action method "PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 8.2107ms. (50a9e262)
+2021-02-13T14:11:07.7011150+01:00 0HM6G3MQVSHCS:00000004 [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[PubCiterAPI.Model.Author, PubCiterAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2021-02-13T14:11:07.7016849+01:00 0HM6G3MQVSHCS:00000004 [INF] Executed action "PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)" in 43.5072ms (afa2e885)
+2021-02-13T14:11:07.7017582+01:00 0HM6G3MQVSHCS:00000004 [INF] Executed endpoint '"PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)"' (99874f2b)
+2021-02-13T14:11:07.7018437+01:00 0HM6G3MQVSHCS:00000004 [INF] Request finished in 43.978ms 200 application/json; charset=utf-8 (791a596a)
+2021-02-13T14:11:10.2154849+01:00 0HM6G3MQVSHCS:00000005 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:7051/publication/sync/status   (ca22a1cb)
+2021-02-13T14:11:10.2158191+01:00 0HM6G3MQVSHCS:00000005 [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:11:10.2158628+01:00 0HM6G3MQVSHCS:00000005 [INF] Request finished in 0.399ms 204  (791a596a)
+2021-02-13T14:11:10.2182030+01:00 0HM6G3MQVSHCS:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:7051/publication/sync/status application/json  (ca22a1cb)
+2021-02-13T14:11:10.2188321+01:00 0HM6G3MQVSHCS:00000006 [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:11:10.2188698+01:00 0HM6G3MQVSHCS:00000006 [INF] Executing endpoint '"PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)"' (500cc934)
+2021-02-13T14:11:10.2209328+01:00 0HM6G3MQVSHCS:00000006 [INF] Route matched with "{action = \"GetSyncState\", controller = \"Publication\"}". Executing controller action with signature "PubCiterAPI.Model.SyncState.SyncState GetSyncState()" on controller "PubCiterAPI.Controllers.PublicationController" ("PubCiterAPI"). (122b2fdf)
+2021-02-13T14:11:10.2402614+01:00 0HM6G3MQVSHCS:00000006 [INF] Executing action method "PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-02-13T14:11:10.2410748+01:00 0HM6G3MQVSHCS:00000006 [INF] Executed action method "PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 0.7657ms. (50a9e262)
+2021-02-13T14:11:10.2411632+01:00 0HM6G3MQVSHCS:00000006 [INF] Executing ObjectResult, writing value of type '"PubCiterAPI.Model.SyncState.SyncState"'. (8a1b66c8)
+2021-02-13T14:11:10.2438589+01:00 0HM6G3MQVSHCS:00000006 [INF] Executed action "PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)" in 22.8842ms (afa2e885)
+2021-02-13T14:11:10.2438913+01:00 0HM6G3MQVSHCS:00000006 [INF] Executed endpoint '"PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)"' (99874f2b)
+2021-02-13T14:11:10.2439148+01:00 0HM6G3MQVSHCS:00000006 [INF] Request finished in 26.2111ms 200 application/json; charset=utf-8 (791a596a)
+2021-02-13T14:11:11.2451499+01:00 0HM6G3MQVSHCS:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:7051/author application/json  (ca22a1cb)
+2021-02-13T14:11:11.2452694+01:00 0HM6G3MQVSHCS:00000007 [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:11:11.2452980+01:00 0HM6G3MQVSHCS:00000007 [INF] Executing endpoint '"PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)"' (500cc934)
+2021-02-13T14:11:11.2453658+01:00 0HM6G3MQVSHCS:00000007 [INF] Route matched with "{action = \"ListAuthors\", controller = \"Author\"}". Executing controller action with signature "System.Collections.Generic.IEnumerable`1[PubCiterAPI.Model.Author] ListAuthors(System.String, System.Nullable`1[System.Int64])" on controller "PubCiterAPI.Controllers.AuthorController" ("PubCiterAPI"). (122b2fdf)
+2021-02-13T14:11:11.2702274+01:00 0HM6G3MQVSHCS:00000007 [INF] Executing action method "PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-02-13T14:11:11.2708110+01:00 0HM6G3MQVSHCS:00000007 [INF] Entity Framework Core "3.1.8" initialized '"ApplicationDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL"' with options: "None" (9958f5bb)
+2021-02-13T14:11:11.2752039+01:00 0HM6G3MQVSHCS:00000007 [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT a.author_id, a.affiliation, a.display_name, a.name, a.scholar_id, a.setting_id, a.total_cites, a.url_picture, a0.setting_id, a0.graph_font_size, a0.library_table_view, a0.open_citations, a0.scholar, a0.semantics
+FROM author AS a
+INNER JOIN author_setting AS a0 ON a.setting_id = a0.setting_id" (0723d8ff)
+2021-02-13T14:11:11.2760572+01:00 0HM6G3MQVSHCS:00000007 [INF] Executed action method "PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 5.696ms. (50a9e262)
+2021-02-13T14:11:11.2762028+01:00 0HM6G3MQVSHCS:00000007 [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[PubCiterAPI.Model.Author, PubCiterAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2021-02-13T14:11:11.2764185+01:00 0HM6G3MQVSHCS:00000007 [INF] Executed action "PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)" in 31.0066ms (afa2e885)
+2021-02-13T14:11:11.2764537+01:00 0HM6G3MQVSHCS:00000007 [INF] Executed endpoint '"PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)"' (99874f2b)
+2021-02-13T14:11:11.2765538+01:00 0HM6G3MQVSHCS:00000007 [INF] Request finished in 31.4677ms 200 application/json; charset=utf-8 (791a596a)
+2021-02-13T14:11:12.6477927+01:00 0HM6G3MQVSHCS:00000008 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:7051/publication?searchText=   (ca22a1cb)
+2021-02-13T14:11:12.6480206+01:00 0HM6G3MQVSHCS:00000008 [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:11:12.6490600+01:00 0HM6G3MQVSHCS:00000008 [INF] Request finished in 1.3108ms 204  (791a596a)
+2021-02-13T14:11:12.6652732+01:00 0HM6G3MQVSHCS:00000009 [INF] Request starting HTTP/1.1 GET http://localhost:7051/publication?searchText= application/json  (ca22a1cb)
+2021-02-13T14:11:12.6653913+01:00 0HM6G3MQVSHCS:00000009 [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:11:12.6655097+01:00 0HM6G3MQVSHCS:00000009 [INF] Executing endpoint '"PubCiterAPI.Controllers.PublicationController.GetPublications (PubCiterAPI)"' (500cc934)
+2021-02-13T14:11:12.6655861+01:00 0HM6G3MQVSHCT:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:7051/author application/json  (ca22a1cb)
+2021-02-13T14:11:12.6656157+01:00 0HM6G3MQVSHCS:00000009 [INF] Route matched with "{action = \"GetPublications\", controller = \"Publication\"}". Executing controller action with signature "System.Collections.Generic.IEnumerable`1[PubCiterAPI.Model.Publication] GetPublications(System.String)" on controller "PubCiterAPI.Controllers.PublicationController" ("PubCiterAPI"). (122b2fdf)
+2021-02-13T14:11:12.6656477+01:00 0HM6G3MQVSHCT:00000001 [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:11:12.6656788+01:00 0HM6G3MQVSHCT:00000001 [INF] Executing endpoint '"PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)"' (500cc934)
+2021-02-13T14:11:12.6657716+01:00 0HM6G3MQVSHCT:00000001 [INF] Route matched with "{action = \"ListAuthors\", controller = \"Author\"}". Executing controller action with signature "System.Collections.Generic.IEnumerable`1[PubCiterAPI.Model.Author] ListAuthors(System.String, System.Nullable`1[System.Int64])" on controller "PubCiterAPI.Controllers.AuthorController" ("PubCiterAPI"). (122b2fdf)
+2021-02-13T14:11:12.7066179+01:00 0HM6G3MQVSHCS:00000009 [INF] Executing action method "PubCiterAPI.Controllers.PublicationController.GetPublications (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-02-13T14:11:12.7386271+01:00 0HM6G3MQVSHCT:00000001 [INF] Executing action method "PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-02-13T14:11:12.7388093+01:00 0HM6G3MQVSHCS:00000009 [INF] Entity Framework Core "3.1.8" initialized '"ApplicationDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL"' with options: "None" (9958f5bb)
+2021-02-13T14:11:12.7388751+01:00 0HM6G3MQVSHCT:00000001 [INF] Entity Framework Core "3.1.8" initialized '"ApplicationDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL"' with options: "None" (9958f5bb)
+2021-02-13T14:11:12.7406390+01:00 0HM6G3MQVSHCS:00000009 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT a.author_id, a.affiliation, a.display_name, a.name, a.scholar_id, a.setting_id, a.total_cites, a.url_picture
+FROM author AS a" (0723d8ff)
+2021-02-13T14:11:12.7451740+01:00 0HM6G3MQVSHCS:00000009 [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT p.pub_id, p.abstract, p.author_id, p.author, p.cites_per_year, p.doi, p.eprint_url, p.journal, p.volume, p.pages, p.pub_year, p.publisher, p.title, t.pub_id, t.citation_id, t.citation_id0, t.abstract, t.author, t.doi, t.journal, t.volume, t.pub_url, t.pub_year, t.title
+FROM publication AS p
+LEFT JOIN (
+    SELECT p0.pub_id, p0.citation_id, c.citation_id AS citation_id0, c.abstract, c.author, c.doi, c.journal, c.volume, c.pub_url, c.pub_year, c.title
+    FROM publication_citation AS p0
+    INNER JOIN citation AS c ON p0.citation_id = c.citation_id
+) AS t ON p.pub_id = t.pub_id
+ORDER BY p.pub_id, t.pub_id, t.citation_id, t.citation_id0" (0723d8ff)
+2021-02-13T14:11:12.7554522+01:00 0HM6G3MQVSHCT:00000001 [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT a.author_id, a.affiliation, a.display_name, a.name, a.scholar_id, a.setting_id, a.total_cites, a.url_picture, a0.setting_id, a0.graph_font_size, a0.library_table_view, a0.open_citations, a0.scholar, a0.semantics
+FROM author AS a
+INNER JOIN author_setting AS a0 ON a.setting_id = a0.setting_id" (0723d8ff)
+2021-02-13T14:11:12.7557803+01:00 0HM6G3MQVSHCT:00000001 [INF] Executed action method "PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 17.063ms. (50a9e262)
+2021-02-13T14:11:12.7558769+01:00 0HM6G3MQVSHCT:00000001 [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[PubCiterAPI.Model.Author, PubCiterAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2021-02-13T14:11:12.7560579+01:00 0HM6G3MQVSHCT:00000001 [INF] Executed action "PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)" in 90.2348ms (afa2e885)
+2021-02-13T14:11:12.7561035+01:00 0HM6G3MQVSHCT:00000001 [INF] Executed endpoint '"PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)"' (99874f2b)
+2021-02-13T14:11:12.7561540+01:00 0HM6G3MQVSHCT:00000001 [INF] Request finished in 90.5629ms 200 application/json; charset=utf-8 (791a596a)
+2021-02-13T14:11:12.7570965+01:00 0HM6G3MQVSHCS:00000009 [INF] Executed action method "PubCiterAPI.Controllers.PublicationController.GetPublications (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 50.3724ms. (50a9e262)
+2021-02-13T14:11:12.7572551+01:00 0HM6G3MQVSHCS:00000009 [INF] Executing ObjectResult, writing value of type '"System.Linq.Enumerable+WhereListIterator`1[[PubCiterAPI.Model.Publication, PubCiterAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2021-02-13T14:11:12.7912869+01:00 0HM6G3MQVSHCS:00000009 [INF] Executed action "PubCiterAPI.Controllers.PublicationController.GetPublications (PubCiterAPI)" in 125.5715ms (afa2e885)
+2021-02-13T14:11:12.7913667+01:00 0HM6G3MQVSHCS:00000009 [INF] Executed endpoint '"PubCiterAPI.Controllers.PublicationController.GetPublications (PubCiterAPI)"' (99874f2b)
+2021-02-13T14:11:12.7914637+01:00 0HM6G3MQVSHCS:00000009 [INF] Request finished in 126.2397ms 200 application/json; charset=utf-8 (791a596a)
+2021-02-13T14:11:13.6750971+01:00 0HM6G3MQVSHCS:0000000A [INF] Request starting HTTP/1.1 GET http://localhost:7051/publication?searchText= application/json  (ca22a1cb)
+2021-02-13T14:11:13.6752364+01:00 0HM6G3MQVSHCS:0000000A [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:11:13.6752831+01:00 0HM6G3MQVSHCS:0000000A [INF] Executing endpoint '"PubCiterAPI.Controllers.PublicationController.GetPublications (PubCiterAPI)"' (500cc934)
+2021-02-13T14:11:13.6753842+01:00 0HM6G3MQVSHCS:0000000A [INF] Route matched with "{action = \"GetPublications\", controller = \"Publication\"}". Executing controller action with signature "System.Collections.Generic.IEnumerable`1[PubCiterAPI.Model.Publication] GetPublications(System.String)" on controller "PubCiterAPI.Controllers.PublicationController" ("PubCiterAPI"). (122b2fdf)
+2021-02-13T14:11:13.6773871+01:00 0HM6G3MQVSHCT:00000002 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:7051/author   (ca22a1cb)
+2021-02-13T14:11:13.7081345+01:00 0HM6G3MQVSHCT:00000002 [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:11:13.7083397+01:00 0HM6G3MQVSHCT:00000002 [INF] Request finished in 30.939ms 204  (791a596a)
+2021-02-13T14:11:13.7088062+01:00 0HM6G3MQVSHCS:0000000A [INF] Executing action method "PubCiterAPI.Controllers.PublicationController.GetPublications (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-02-13T14:11:13.7098487+01:00 0HM6G3MQVSHCS:0000000A [INF] Entity Framework Core "3.1.8" initialized '"ApplicationDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL"' with options: "None" (9958f5bb)
+2021-02-13T14:11:13.7120028+01:00 0HM6G3MQVSHCT:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:7051/author application/json  (ca22a1cb)
+2021-02-13T14:11:13.7121717+01:00 0HM6G3MQVSHCT:00000003 [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:11:13.7123443+01:00 0HM6G3MQVSHCT:00000003 [INF] Executing endpoint '"PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)"' (500cc934)
+2021-02-13T14:11:13.7124610+01:00 0HM6G3MQVSHCT:00000003 [INF] Route matched with "{action = \"ListAuthors\", controller = \"Author\"}". Executing controller action with signature "System.Collections.Generic.IEnumerable`1[PubCiterAPI.Model.Author] ListAuthors(System.String, System.Nullable`1[System.Int64])" on controller "PubCiterAPI.Controllers.AuthorController" ("PubCiterAPI"). (122b2fdf)
+2021-02-13T14:11:13.7168506+01:00 0HM6G3MQVSHCS:0000000A [INF] Executed DbCommand ("7"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT a.author_id, a.affiliation, a.display_name, a.name, a.scholar_id, a.setting_id, a.total_cites, a.url_picture
+FROM author AS a" (0723d8ff)
+2021-02-13T14:11:13.7436223+01:00 0HM6G3MQVSHCT:00000003 [INF] Executing action method "PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-02-13T14:11:13.7443966+01:00 0HM6G3MQVSHCT:00000003 [INF] Entity Framework Core "3.1.8" initialized '"ApplicationDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL"' with options: "None" (9958f5bb)
+2021-02-13T14:11:13.7472935+01:00 0HM6G3MQVSHCT:00000003 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT a.author_id, a.affiliation, a.display_name, a.name, a.scholar_id, a.setting_id, a.total_cites, a.url_picture, a0.setting_id, a0.graph_font_size, a0.library_table_view, a0.open_citations, a0.scholar, a0.semantics
+FROM author AS a
+INNER JOIN author_setting AS a0 ON a.setting_id = a0.setting_id" (0723d8ff)
+2021-02-13T14:11:13.7477738+01:00 0HM6G3MQVSHCT:00000003 [INF] Executed action method "PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 4.0554ms. (50a9e262)
+2021-02-13T14:11:13.7478890+01:00 0HM6G3MQVSHCT:00000003 [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[PubCiterAPI.Model.Author, PubCiterAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2021-02-13T14:11:13.7481783+01:00 0HM6G3MQVSHCT:00000003 [INF] Executed action "PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)" in 35.6624ms (afa2e885)
+2021-02-13T14:11:13.7482408+01:00 0HM6G3MQVSHCT:00000003 [INF] Executed endpoint '"PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)"' (99874f2b)
+2021-02-13T14:11:13.7483251+01:00 0HM6G3MQVSHCT:00000003 [INF] Request finished in 36.3632ms 200 application/json; charset=utf-8 (791a596a)
+2021-02-13T14:11:13.7508039+01:00 0HM6G3MQVSHCS:0000000A [INF] Executed DbCommand ("7"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT p.pub_id, p.abstract, p.author_id, p.author, p.cites_per_year, p.doi, p.eprint_url, p.journal, p.volume, p.pages, p.pub_year, p.publisher, p.title, t.pub_id, t.citation_id, t.citation_id0, t.abstract, t.author, t.doi, t.journal, t.volume, t.pub_url, t.pub_year, t.title
+FROM publication AS p
+LEFT JOIN (
+    SELECT p0.pub_id, p0.citation_id, c.citation_id AS citation_id0, c.abstract, c.author, c.doi, c.journal, c.volume, c.pub_url, c.pub_year, c.title
+    FROM publication_citation AS p0
+    INNER JOIN citation AS c ON p0.citation_id = c.citation_id
+) AS t ON p.pub_id = t.pub_id
+ORDER BY p.pub_id, t.pub_id, t.citation_id, t.citation_id0" (0723d8ff)
+2021-02-13T14:11:13.7654345+01:00 0HM6G3MQVSHCS:0000000A [INF] Executed action method "PubCiterAPI.Controllers.PublicationController.GetPublications (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 56.4829ms. (50a9e262)
+2021-02-13T14:11:13.7655351+01:00 0HM6G3MQVSHCS:0000000A [INF] Executing ObjectResult, writing value of type '"System.Linq.Enumerable+WhereListIterator`1[[PubCiterAPI.Model.Publication, PubCiterAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2021-02-13T14:11:13.7953910+01:00 0HM6G3MQVSHCS:0000000A [INF] Executed action "PubCiterAPI.Controllers.PublicationController.GetPublications (PubCiterAPI)" in 119.9309ms (afa2e885)
+2021-02-13T14:11:13.7954774+01:00 0HM6G3MQVSHCS:0000000A [INF] Executed endpoint '"PubCiterAPI.Controllers.PublicationController.GetPublications (PubCiterAPI)"' (99874f2b)
+2021-02-13T14:11:13.7955984+01:00 0HM6G3MQVSHCS:0000000A [INF] Request finished in 120.5382ms 200 application/json; charset=utf-8 (791a596a)
+2021-02-13T14:11:14.4459796+01:00 0HM6G3MQVSHCS:0000000B [INF] Request starting HTTP/1.1 OPTIONS http://localhost:7051/quarantine?citations=true   (ca22a1cb)
+2021-02-13T14:11:14.4460918+01:00 0HM6G3MQVSHCS:0000000B [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:11:14.4461506+01:00 0HM6G3MQVSHCS:0000000B [INF] Request finished in 0.2088ms 204  (791a596a)
+2021-02-13T14:11:14.4473488+01:00 0HM6G3MQVSHCS:0000000C [INF] Request starting HTTP/1.1 GET http://localhost:7051/quarantine?citations=true application/json  (ca22a1cb)
+2021-02-13T14:11:14.4474816+01:00 0HM6G3MQVSHCS:0000000C [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:11:14.4475254+01:00 0HM6G3MQVSHCS:0000000C [INF] Executing endpoint '"PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)"' (500cc934)
+2021-02-13T14:11:14.4476154+01:00 0HM6G3MQVSHCS:0000000C [INF] Route matched with "{action = \"GetQuarantineList\", controller = \"Quarantine\"}". Executing controller action with signature "System.Collections.Generic.IEnumerable`1[PubCiterAPI.Model.QuarantinedPublication] GetQuarantineList(Boolean)" on controller "PubCiterAPI.Controllers.QuarantineController" ("PubCiterAPI"). (122b2fdf)
+2021-02-13T14:11:14.4726017+01:00 0HM6G3MQVSHCS:0000000C [INF] Executing action method "PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-02-13T14:11:14.4734648+01:00 0HM6G3MQVSHCS:0000000C [INF] Entity Framework Core "3.1.8" initialized '"ApplicationDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL"' with options: "None" (9958f5bb)
+2021-02-13T14:11:14.4790373+01:00 0HM6G3MQVSHCS:0000000C [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT q.pub_id, q.abstract, q.author_id, q.author, q.doi, q.journal, q.volume, q.pages, q.pub_year, q.publisher, q.title, t.quarantine_id, t.citation_id, t.citation_id0, t.abstract, t.author, t.doi, t.journal, t.volume, t.pub_url, t.pub_year, t.title
+FROM quarantine AS q
+LEFT JOIN (
+    SELECT q0.quarantine_id, q0.citation_id, c.citation_id AS citation_id0, c.abstract, c.author, c.doi, c.journal, c.volume, c.pub_url, c.pub_year, c.title
+    FROM quarantine_citation AS q0
+    INNER JOIN citation AS c ON q0.citation_id = c.citation_id
+) AS t ON q.pub_id = t.quarantine_id
+ORDER BY q.pub_id, t.quarantine_id, t.citation_id, t.citation_id0" (0723d8ff)
+2021-02-13T14:11:14.4791435+01:00 0HM6G3MQVSHCS:0000000C [INF] Executed action method "PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 6.252ms. (50a9e262)
+2021-02-13T14:11:14.4792051+01:00 0HM6G3MQVSHCS:0000000C [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[PubCiterAPI.Model.QuarantinedPublication, PubCiterAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2021-02-13T14:11:14.4793264+01:00 0HM6G3MQVSHCS:0000000C [INF] Executed action "PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)" in 31.6763ms (afa2e885)
+2021-02-13T14:11:14.4793602+01:00 0HM6G3MQVSHCS:0000000C [INF] Executed endpoint '"PubCiterAPI.Controllers.QuarantineController.GetQuarantineList (PubCiterAPI)"' (99874f2b)
+2021-02-13T14:11:14.4794041+01:00 0HM6G3MQVSHCS:0000000C [INF] Request finished in 32.071ms 200 application/json; charset=utf-8 (791a596a)
+2021-02-13T14:11:17.0992061+01:00 0HM6G3MQVSHCS:0000000D [INF] Request starting HTTP/1.1 GET http://localhost:7051/author application/json  (ca22a1cb)
+2021-02-13T14:11:17.1005817+01:00 0HM6G3MQVSHCS:0000000D [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:11:17.1006413+01:00 0HM6G3MQVSHCS:0000000D [INF] Executing endpoint '"PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)"' (500cc934)
+2021-02-13T14:11:17.1007496+01:00 0HM6G3MQVSHCS:0000000D [INF] Route matched with "{action = \"ListAuthors\", controller = \"Author\"}". Executing controller action with signature "System.Collections.Generic.IEnumerable`1[PubCiterAPI.Model.Author] ListAuthors(System.String, System.Nullable`1[System.Int64])" on controller "PubCiterAPI.Controllers.AuthorController" ("PubCiterAPI"). (122b2fdf)
+2021-02-13T14:11:17.1376352+01:00 0HM6G3MQVSHCS:0000000D [INF] Executing action method "PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-02-13T14:11:17.1379830+01:00 0HM6G3MQVSHCS:0000000D [INF] Entity Framework Core "3.1.8" initialized '"ApplicationDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL"' with options: "None" (9958f5bb)
+2021-02-13T14:11:17.1408107+01:00 0HM6G3MQVSHCS:0000000D [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT a.author_id, a.affiliation, a.display_name, a.name, a.scholar_id, a.setting_id, a.total_cites, a.url_picture, a0.setting_id, a0.graph_font_size, a0.library_table_view, a0.open_citations, a0.scholar, a0.semantics
+FROM author AS a
+INNER JOIN author_setting AS a0 ON a.setting_id = a0.setting_id" (0723d8ff)
+2021-02-13T14:11:17.1411929+01:00 0HM6G3MQVSHCS:0000000D [INF] Executed action method "PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 3.4643ms. (50a9e262)
+2021-02-13T14:11:17.1412522+01:00 0HM6G3MQVSHCS:0000000D [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[PubCiterAPI.Model.Author, PubCiterAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2021-02-13T14:11:17.1413755+01:00 0HM6G3MQVSHCS:0000000D [INF] Executed action "PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)" in 40.5709ms (afa2e885)
+2021-02-13T14:11:17.1413974+01:00 0HM6G3MQVSHCS:0000000D [INF] Executed endpoint '"PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)"' (99874f2b)
+2021-02-13T14:11:17.1414474+01:00 0HM6G3MQVSHCS:0000000D [INF] Request finished in 42.2792ms 200 application/json; charset=utf-8 (791a596a)
+2021-02-13T14:11:19.7856821+01:00 0HM6G3MQVSHCS:0000000E [INF] Request starting HTTP/1.1 OPTIONS http://localhost:7051/publication/sync/status   (ca22a1cb)
+2021-02-13T14:11:19.7858385+01:00 0HM6G3MQVSHCS:0000000E [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:11:19.7859145+01:00 0HM6G3MQVSHCS:0000000E [INF] Request finished in 0.2643ms 204  (791a596a)
+2021-02-13T14:11:19.7873844+01:00 0HM6G3MQVSHCS:0000000F [INF] Request starting HTTP/1.1 GET http://localhost:7051/publication/sync/status application/json  (ca22a1cb)
+2021-02-13T14:11:19.7875046+01:00 0HM6G3MQVSHCS:0000000F [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:11:19.7875275+01:00 0HM6G3MQVSHCS:0000000F [INF] Executing endpoint '"PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)"' (500cc934)
+2021-02-13T14:11:19.7876479+01:00 0HM6G3MQVSHCS:0000000F [INF] Route matched with "{action = \"GetSyncState\", controller = \"Publication\"}". Executing controller action with signature "PubCiterAPI.Model.SyncState.SyncState GetSyncState()" on controller "PubCiterAPI.Controllers.PublicationController" ("PubCiterAPI"). (122b2fdf)
+2021-02-13T14:11:19.8037653+01:00 0HM6G3MQVSHCS:0000000F [INF] Executing action method "PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-02-13T14:11:19.8038617+01:00 0HM6G3MQVSHCS:0000000F [INF] Executed action method "PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 0.0033ms. (50a9e262)
+2021-02-13T14:11:19.8039765+01:00 0HM6G3MQVSHCS:0000000F [INF] Executing ObjectResult, writing value of type '"PubCiterAPI.Model.SyncState.SyncState"'. (8a1b66c8)
+2021-02-13T14:11:19.8041818+01:00 0HM6G3MQVSHCS:0000000F [INF] Executed action "PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)" in 16.4813ms (afa2e885)
+2021-02-13T14:11:19.8042044+01:00 0HM6G3MQVSHCS:0000000F [INF] Executed endpoint '"PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)"' (99874f2b)
+2021-02-13T14:11:19.8042487+01:00 0HM6G3MQVSHCS:0000000F [INF] Request finished in 16.8551ms 200 application/json; charset=utf-8 (791a596a)
+2021-02-13T14:11:20.7968497+01:00 0HM6G3MQVSHCS:00000010 [INF] Request starting HTTP/1.1 GET http://localhost:7051/publication/sync/status application/json  (ca22a1cb)
+2021-02-13T14:11:20.7969500+01:00 0HM6G3MQVSHCS:00000010 [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:11:20.7969792+01:00 0HM6G3MQVSHCS:00000010 [INF] Executing endpoint '"PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)"' (500cc934)
+2021-02-13T14:11:20.7970323+01:00 0HM6G3MQVSHCS:00000010 [INF] Route matched with "{action = \"GetSyncState\", controller = \"Publication\"}". Executing controller action with signature "PubCiterAPI.Model.SyncState.SyncState GetSyncState()" on controller "PubCiterAPI.Controllers.PublicationController" ("PubCiterAPI"). (122b2fdf)
+2021-02-13T14:11:20.8124479+01:00 0HM6G3MQVSHCS:00000010 [INF] Executing action method "PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-02-13T14:11:20.8125111+01:00 0HM6G3MQVSHCS:00000010 [INF] Executed action method "PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 0.0035ms. (50a9e262)
+2021-02-13T14:11:20.8125733+01:00 0HM6G3MQVSHCS:00000010 [INF] Executing ObjectResult, writing value of type '"PubCiterAPI.Model.SyncState.SyncState"'. (8a1b66c8)
+2021-02-13T14:11:20.8127286+01:00 0HM6G3MQVSHCS:00000010 [INF] Executed action "PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)" in 15.6752ms (afa2e885)
+2021-02-13T14:11:20.8127449+01:00 0HM6G3MQVSHCS:00000010 [INF] Executed endpoint '"PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)"' (99874f2b)
+2021-02-13T14:11:20.8127716+01:00 0HM6G3MQVSHCS:00000010 [INF] Request finished in 15.96ms 200 application/json; charset=utf-8 (791a596a)
+2021-02-13T14:11:21.7976292+01:00 0HM6G3MQVSHCS:00000011 [INF] Request starting HTTP/1.1 GET http://localhost:7051/publication/sync/status application/json  (ca22a1cb)
+2021-02-13T14:11:21.7977147+01:00 0HM6G3MQVSHCS:00000011 [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:11:21.7977398+01:00 0HM6G3MQVSHCS:00000011 [INF] Executing endpoint '"PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)"' (500cc934)
+2021-02-13T14:11:21.7978263+01:00 0HM6G3MQVSHCS:00000011 [INF] Route matched with "{action = \"GetSyncState\", controller = \"Publication\"}". Executing controller action with signature "PubCiterAPI.Model.SyncState.SyncState GetSyncState()" on controller "PubCiterAPI.Controllers.PublicationController" ("PubCiterAPI"). (122b2fdf)
+2021-02-13T14:11:21.8132463+01:00 0HM6G3MQVSHCS:00000011 [INF] Executing action method "PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-02-13T14:11:21.8132971+01:00 0HM6G3MQVSHCS:00000011 [INF] Executed action method "PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 0.0026ms. (50a9e262)
+2021-02-13T14:11:21.8133381+01:00 0HM6G3MQVSHCS:00000011 [INF] Executing ObjectResult, writing value of type '"PubCiterAPI.Model.SyncState.SyncState"'. (8a1b66c8)
+2021-02-13T14:11:21.8134676+01:00 0HM6G3MQVSHCS:00000011 [INF] Executed action "PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)" in 15.6161ms (afa2e885)
+2021-02-13T14:11:21.8135329+01:00 0HM6G3MQVSHCS:00000011 [INF] Executed endpoint '"PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)"' (99874f2b)
+2021-02-13T14:11:21.8135768+01:00 0HM6G3MQVSHCS:00000011 [INF] Request finished in 15.9913ms 200 application/json; charset=utf-8 (791a596a)
+2021-02-13T14:11:22.7994194+01:00 0HM6G3MQVSHCS:00000012 [INF] Request starting HTTP/1.1 GET http://localhost:7051/publication/sync/status application/json  (ca22a1cb)
+2021-02-13T14:11:22.7994990+01:00 0HM6G3MQVSHCS:00000012 [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:11:22.7995365+01:00 0HM6G3MQVSHCS:00000012 [INF] Executing endpoint '"PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)"' (500cc934)
+2021-02-13T14:11:22.7995859+01:00 0HM6G3MQVSHCS:00000012 [INF] Route matched with "{action = \"GetSyncState\", controller = \"Publication\"}". Executing controller action with signature "PubCiterAPI.Model.SyncState.SyncState GetSyncState()" on controller "PubCiterAPI.Controllers.PublicationController" ("PubCiterAPI"). (122b2fdf)
+2021-02-13T14:11:22.8134300+01:00 0HM6G3MQVSHCS:00000012 [INF] Executing action method "PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-02-13T14:11:22.8134874+01:00 0HM6G3MQVSHCS:00000012 [INF] Executed action method "PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 0.0033ms. (50a9e262)
+2021-02-13T14:11:22.8135614+01:00 0HM6G3MQVSHCS:00000012 [INF] Executing ObjectResult, writing value of type '"PubCiterAPI.Model.SyncState.SyncState"'. (8a1b66c8)
+2021-02-13T14:11:22.8137554+01:00 0HM6G3MQVSHCS:00000012 [INF] Executed action "PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)" in 14.1229ms (afa2e885)
+2021-02-13T14:11:22.8138261+01:00 0HM6G3MQVSHCS:00000012 [INF] Executed endpoint '"PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)"' (99874f2b)
+2021-02-13T14:11:22.8138936+01:00 0HM6G3MQVSHCS:00000012 [INF] Request finished in 14.4892ms 200 application/json; charset=utf-8 (791a596a)
+2021-02-13T14:11:23.7854359+01:00 0HM6G3MQVSHCS:00000013 [INF] Request starting HTTP/1.1 GET http://localhost:7051/publication/sync/status application/json  (ca22a1cb)
+2021-02-13T14:11:23.7855079+01:00 0HM6G3MQVSHCS:00000013 [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:11:23.7855300+01:00 0HM6G3MQVSHCS:00000013 [INF] Executing endpoint '"PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)"' (500cc934)
+2021-02-13T14:11:23.7855786+01:00 0HM6G3MQVSHCS:00000013 [INF] Route matched with "{action = \"GetSyncState\", controller = \"Publication\"}". Executing controller action with signature "PubCiterAPI.Model.SyncState.SyncState GetSyncState()" on controller "PubCiterAPI.Controllers.PublicationController" ("PubCiterAPI"). (122b2fdf)
+2021-02-13T14:11:23.8002870+01:00 0HM6G3MQVSHCS:00000013 [INF] Executing action method "PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-02-13T14:11:23.8003552+01:00 0HM6G3MQVSHCS:00000013 [INF] Executed action method "PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 0.003ms. (50a9e262)
+2021-02-13T14:11:23.8003973+01:00 0HM6G3MQVSHCS:00000013 [INF] Executing ObjectResult, writing value of type '"PubCiterAPI.Model.SyncState.SyncState"'. (8a1b66c8)
+2021-02-13T14:11:23.8005499+01:00 0HM6G3MQVSHCS:00000013 [INF] Executed action "PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)" in 14.9073ms (afa2e885)
+2021-02-13T14:11:23.8005880+01:00 0HM6G3MQVSHCS:00000013 [INF] Executed endpoint '"PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)"' (99874f2b)
+2021-02-13T14:11:23.8006332+01:00 0HM6G3MQVSHCS:00000013 [INF] Request finished in 15.2263ms 200 application/json; charset=utf-8 (791a596a)
+2021-02-13T14:11:24.7855157+01:00 0HM6G3MQVSHCS:00000014 [INF] Request starting HTTP/1.1 GET http://localhost:7051/publication/sync/status application/json  (ca22a1cb)
+2021-02-13T14:11:24.7855897+01:00 0HM6G3MQVSHCS:00000014 [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:11:24.7856101+01:00 0HM6G3MQVSHCS:00000014 [INF] Executing endpoint '"PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)"' (500cc934)
+2021-02-13T14:11:24.7856581+01:00 0HM6G3MQVSHCS:00000014 [INF] Route matched with "{action = \"GetSyncState\", controller = \"Publication\"}". Executing controller action with signature "PubCiterAPI.Model.SyncState.SyncState GetSyncState()" on controller "PubCiterAPI.Controllers.PublicationController" ("PubCiterAPI"). (122b2fdf)
+2021-02-13T14:11:24.8017195+01:00 0HM6G3MQVSHCS:00000014 [INF] Executing action method "PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-02-13T14:11:24.8017721+01:00 0HM6G3MQVSHCS:00000014 [INF] Executed action method "PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 0.0029ms. (50a9e262)
+2021-02-13T14:11:24.8018359+01:00 0HM6G3MQVSHCS:00000014 [INF] Executing ObjectResult, writing value of type '"PubCiterAPI.Model.SyncState.SyncState"'. (8a1b66c8)
+2021-02-13T14:11:24.8020743+01:00 0HM6G3MQVSHCS:00000014 [INF] Executed action "PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)" in 16.3658ms (afa2e885)
+2021-02-13T14:11:24.8021504+01:00 0HM6G3MQVSHCS:00000014 [INF] Executed endpoint '"PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)"' (99874f2b)
+2021-02-13T14:11:24.8021718+01:00 0HM6G3MQVSHCS:00000014 [INF] Request finished in 16.7279ms 200 application/json; charset=utf-8 (791a596a)
+2021-02-13T14:11:25.7856058+01:00 0HM6G3MQVSHCS:00000015 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:7051/publication/sync/status   (ca22a1cb)
+2021-02-13T14:11:25.7856706+01:00 0HM6G3MQVSHCS:00000015 [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:11:25.7857127+01:00 0HM6G3MQVSHCS:00000015 [INF] Request finished in 0.1372ms 204  (791a596a)
+2021-02-13T14:11:25.7874482+01:00 0HM6G3MQVSHCS:00000016 [INF] Request starting HTTP/1.1 GET http://localhost:7051/publication/sync/status application/json  (ca22a1cb)
+2021-02-13T14:11:25.7875691+01:00 0HM6G3MQVSHCS:00000016 [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:11:25.7875968+01:00 0HM6G3MQVSHCS:00000016 [INF] Executing endpoint '"PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)"' (500cc934)
+2021-02-13T14:11:25.7877378+01:00 0HM6G3MQVSHCS:00000016 [INF] Route matched with "{action = \"GetSyncState\", controller = \"Publication\"}". Executing controller action with signature "PubCiterAPI.Model.SyncState.SyncState GetSyncState()" on controller "PubCiterAPI.Controllers.PublicationController" ("PubCiterAPI"). (122b2fdf)
+2021-02-13T14:11:25.8023566+01:00 0HM6G3MQVSHCS:00000016 [INF] Executing action method "PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-02-13T14:11:25.8024115+01:00 0HM6G3MQVSHCS:00000016 [INF] Executed action method "PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 0.003ms. (50a9e262)
+2021-02-13T14:11:25.8025016+01:00 0HM6G3MQVSHCS:00000016 [INF] Executing ObjectResult, writing value of type '"PubCiterAPI.Model.SyncState.SyncState"'. (8a1b66c8)
+2021-02-13T14:11:25.8027662+01:00 0HM6G3MQVSHCS:00000016 [INF] Executed action "PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)" in 14.9778ms (afa2e885)
+2021-02-13T14:11:25.8028350+01:00 0HM6G3MQVSHCS:00000016 [INF] Executed endpoint '"PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)"' (99874f2b)
+2021-02-13T14:11:25.8028851+01:00 0HM6G3MQVSHCS:00000016 [INF] Request finished in 15.4664ms 200 application/json; charset=utf-8 (791a596a)
+2021-02-13T14:11:26.7847324+01:00 0HM6G3MQVSHCS:00000017 [INF] Request starting HTTP/1.1 GET http://localhost:7051/publication/sync/status application/json  (ca22a1cb)
+2021-02-13T14:11:26.7847984+01:00 0HM6G3MQVSHCS:00000017 [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:11:26.7848258+01:00 0HM6G3MQVSHCS:00000017 [INF] Executing endpoint '"PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)"' (500cc934)
+2021-02-13T14:11:26.7848764+01:00 0HM6G3MQVSHCS:00000017 [INF] Route matched with "{action = \"GetSyncState\", controller = \"Publication\"}". Executing controller action with signature "PubCiterAPI.Model.SyncState.SyncState GetSyncState()" on controller "PubCiterAPI.Controllers.PublicationController" ("PubCiterAPI"). (122b2fdf)
+2021-02-13T14:11:26.7991263+01:00 0HM6G3MQVSHCS:00000017 [INF] Executing action method "PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-02-13T14:11:26.7991706+01:00 0HM6G3MQVSHCS:00000017 [INF] Executed action method "PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 0.0025ms. (50a9e262)
+2021-02-13T14:11:26.7992088+01:00 0HM6G3MQVSHCS:00000017 [INF] Executing ObjectResult, writing value of type '"PubCiterAPI.Model.SyncState.SyncState"'. (8a1b66c8)
+2021-02-13T14:11:26.7993254+01:00 0HM6G3MQVSHCS:00000017 [INF] Executed action "PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)" in 14.4284ms (afa2e885)
+2021-02-13T14:11:26.7993469+01:00 0HM6G3MQVSHCS:00000017 [INF] Executed endpoint '"PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)"' (99874f2b)
+2021-02-13T14:11:26.7993671+01:00 0HM6G3MQVSHCS:00000017 [INF] Request finished in 14.6765ms 200 application/json; charset=utf-8 (791a596a)
+2021-02-13T14:11:28.6611589+01:00 0HM6G3MQVSHCS:00000018 [INF] Request starting HTTP/1.1 GET http://localhost:7051/publication/sync/status application/json  (ca22a1cb)
+2021-02-13T14:11:28.6612492+01:00 0HM6G3MQVSHCS:00000018 [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:11:28.6612855+01:00 0HM6G3MQVSHCS:00000018 [INF] Executing endpoint '"PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)"' (500cc934)
+2021-02-13T14:11:28.6613710+01:00 0HM6G3MQVSHCS:00000018 [INF] Route matched with "{action = \"GetSyncState\", controller = \"Publication\"}". Executing controller action with signature "PubCiterAPI.Model.SyncState.SyncState GetSyncState()" on controller "PubCiterAPI.Controllers.PublicationController" ("PubCiterAPI"). (122b2fdf)
+2021-02-13T14:11:28.6780054+01:00 0HM6G3MQVSHCS:00000018 [INF] Executing action method "PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-02-13T14:11:28.6780524+01:00 0HM6G3MQVSHCS:00000018 [INF] Executed action method "PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 0.0026ms. (50a9e262)
+2021-02-13T14:11:28.6780937+01:00 0HM6G3MQVSHCS:00000018 [INF] Executing ObjectResult, writing value of type '"PubCiterAPI.Model.SyncState.SyncState"'. (8a1b66c8)
+2021-02-13T14:11:28.6782674+01:00 0HM6G3MQVSHCS:00000018 [INF] Executed action "PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)" in 16.8484ms (afa2e885)
+2021-02-13T14:11:28.6783079+01:00 0HM6G3MQVSHCS:00000018 [INF] Executed endpoint '"PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)"' (99874f2b)
+2021-02-13T14:11:28.6783393+01:00 0HM6G3MQVSHCS:00000018 [INF] Request finished in 17.2213ms 200 application/json; charset=utf-8 (791a596a)
+2021-02-13T14:11:29.1831617+01:00 0HM6G3MQVSHCS:00000019 [INF] Request starting HTTP/1.1 GET http://localhost:7051/publication/sync/status application/json  (ca22a1cb)
+2021-02-13T14:11:29.1833172+01:00 0HM6G3MQVSHCS:00000019 [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:11:29.1833812+01:00 0HM6G3MQVSHCS:00000019 [INF] Executing endpoint '"PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)"' (500cc934)
+2021-02-13T14:11:29.1835035+01:00 0HM6G3MQVSHCS:00000019 [INF] Route matched with "{action = \"GetSyncState\", controller = \"Publication\"}". Executing controller action with signature "PubCiterAPI.Model.SyncState.SyncState GetSyncState()" on controller "PubCiterAPI.Controllers.PublicationController" ("PubCiterAPI"). (122b2fdf)
+2021-02-13T14:11:29.2117328+01:00 0HM6G3MQVSHCS:00000019 [INF] Executing action method "PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-02-13T14:11:29.2118384+01:00 0HM6G3MQVSHCS:00000019 [INF] Executed action method "PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 0.0052ms. (50a9e262)
+2021-02-13T14:11:29.2119421+01:00 0HM6G3MQVSHCS:00000019 [INF] Executing ObjectResult, writing value of type '"PubCiterAPI.Model.SyncState.SyncState"'. (8a1b66c8)
+2021-02-13T14:11:29.2121877+01:00 0HM6G3MQVSHCS:00000019 [INF] Executed action "PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)" in 28.6281ms (afa2e885)
+2021-02-13T14:11:29.2123014+01:00 0HM6G3MQVSHCS:00000019 [INF] Executed endpoint '"PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)"' (99874f2b)
+2021-02-13T14:11:29.2123753+01:00 0HM6G3MQVSHCS:00000019 [INF] Request finished in 29.2382ms 200 application/json; charset=utf-8 (791a596a)
+2021-02-13T14:11:29.7872163+01:00 0HM6G3MQVSHCS:0000001A [INF] Request starting HTTP/1.1 GET http://localhost:7051/publication/sync/status application/json  (ca22a1cb)
+2021-02-13T14:11:29.7872917+01:00 0HM6G3MQVSHCS:0000001A [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:11:29.7873172+01:00 0HM6G3MQVSHCS:0000001A [INF] Executing endpoint '"PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)"' (500cc934)
+2021-02-13T14:11:29.7873670+01:00 0HM6G3MQVSHCS:0000001A [INF] Route matched with "{action = \"GetSyncState\", controller = \"Publication\"}". Executing controller action with signature "PubCiterAPI.Model.SyncState.SyncState GetSyncState()" on controller "PubCiterAPI.Controllers.PublicationController" ("PubCiterAPI"). (122b2fdf)
+2021-02-13T14:11:29.8013004+01:00 0HM6G3MQVSHCS:0000001A [INF] Executing action method "PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-02-13T14:11:29.8013620+01:00 0HM6G3MQVSHCS:0000001A [INF] Executed action method "PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 0.0028ms. (50a9e262)
+2021-02-13T14:11:29.8014061+01:00 0HM6G3MQVSHCS:0000001A [INF] Executing ObjectResult, writing value of type '"PubCiterAPI.Model.SyncState.SyncState"'. (8a1b66c8)
+2021-02-13T14:11:29.8014826+01:00 0HM6G3MQVSHCS:0000001A [INF] Executed action "PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)" in 14.0901ms (afa2e885)
+2021-02-13T14:11:29.8014982+01:00 0HM6G3MQVSHCS:0000001A [INF] Executed endpoint '"PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)"' (99874f2b)
+2021-02-13T14:11:29.8015508+01:00 0HM6G3MQVSHCS:0000001A [INF] Request finished in 14.3523ms 200 application/json; charset=utf-8 (791a596a)
+2021-02-13T14:11:30.7844509+01:00 0HM6G3MQVSHCS:0000001B [INF] Request starting HTTP/1.1 GET http://localhost:7051/publication/sync/status application/json  (ca22a1cb)
+2021-02-13T14:11:30.7845163+01:00 0HM6G3MQVSHCS:0000001B [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:11:30.7845406+01:00 0HM6G3MQVSHCS:0000001B [INF] Executing endpoint '"PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)"' (500cc934)
+2021-02-13T14:11:30.7846038+01:00 0HM6G3MQVSHCS:0000001B [INF] Route matched with "{action = \"GetSyncState\", controller = \"Publication\"}". Executing controller action with signature "PubCiterAPI.Model.SyncState.SyncState GetSyncState()" on controller "PubCiterAPI.Controllers.PublicationController" ("PubCiterAPI"). (122b2fdf)
+2021-02-13T14:11:30.7994475+01:00 0HM6G3MQVSHCS:0000001B [INF] Executing action method "PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-02-13T14:11:30.7995017+01:00 0HM6G3MQVSHCS:0000001B [INF] Executed action method "PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 0.0033ms. (50a9e262)
+2021-02-13T14:11:30.7995467+01:00 0HM6G3MQVSHCS:0000001B [INF] Executing ObjectResult, writing value of type '"PubCiterAPI.Model.SyncState.SyncState"'. (8a1b66c8)
+2021-02-13T14:11:30.7996256+01:00 0HM6G3MQVSHCS:0000001B [INF] Executed action "PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)" in 14.996ms (afa2e885)
+2021-02-13T14:11:30.7996607+01:00 0HM6G3MQVSHCS:0000001B [INF] Executed endpoint '"PubCiterAPI.Controllers.PublicationController.GetSyncState (PubCiterAPI)"' (99874f2b)
+2021-02-13T14:11:30.7996831+01:00 0HM6G3MQVSHCS:0000001B [INF] Request finished in 15.2645ms 200 application/json; charset=utf-8 (791a596a)
+2021-02-13T14:11:31.3404875+01:00 0HM6G3MQVSHCS:0000001C [INF] Request starting HTTP/1.1 OPTIONS http://localhost:7051/publication?searchText=   (ca22a1cb)
+2021-02-13T14:11:31.3405704+01:00 0HM6G3MQVSHCS:0000001C [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:11:31.3406409+01:00 0HM6G3MQVSHCS:0000001C [INF] Request finished in 0.1599ms 204  (791a596a)
+2021-02-13T14:11:31.3407200+01:00 0HM6G3MQVSHCT:00000004 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:7051/author   (ca22a1cb)
+2021-02-13T14:11:31.3407692+01:00 0HM6G3MQVSHCT:00000004 [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:11:31.3408193+01:00 0HM6G3MQVSHCT:00000004 [INF] Request finished in 0.1216ms 204  (791a596a)
+2021-02-13T14:11:31.3422737+01:00 0HM6G3MQVSHCT:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:7051/publication?searchText= application/json  (ca22a1cb)
+2021-02-13T14:11:31.3423443+01:00 0HM6G3MQVSHCT:00000005 [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:11:31.3423508+01:00 0HM6G3MQVSHCS:0000001D [INF] Request starting HTTP/1.1 GET http://localhost:7051/author application/json  (ca22a1cb)
+2021-02-13T14:11:31.3423798+01:00 0HM6G3MQVSHCT:00000005 [INF] Executing endpoint '"PubCiterAPI.Controllers.PublicationController.GetPublications (PubCiterAPI)"' (500cc934)
+2021-02-13T14:11:31.3424011+01:00 0HM6G3MQVSHCS:0000001D [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:11:31.3424262+01:00 0HM6G3MQVSHCS:0000001D [INF] Executing endpoint '"PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)"' (500cc934)
+2021-02-13T14:11:31.3424585+01:00 0HM6G3MQVSHCT:00000005 [INF] Route matched with "{action = \"GetPublications\", controller = \"Publication\"}". Executing controller action with signature "System.Collections.Generic.IEnumerable`1[PubCiterAPI.Model.Publication] GetPublications(System.String)" on controller "PubCiterAPI.Controllers.PublicationController" ("PubCiterAPI"). (122b2fdf)
+2021-02-13T14:11:31.3424926+01:00 0HM6G3MQVSHCS:0000001D [INF] Route matched with "{action = \"ListAuthors\", controller = \"Author\"}". Executing controller action with signature "System.Collections.Generic.IEnumerable`1[PubCiterAPI.Model.Author] ListAuthors(System.String, System.Nullable`1[System.Int64])" on controller "PubCiterAPI.Controllers.AuthorController" ("PubCiterAPI"). (122b2fdf)
+2021-02-13T14:11:31.3748861+01:00 0HM6G3MQVSHCT:00000005 [INF] Executing action method "PubCiterAPI.Controllers.PublicationController.GetPublications (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-02-13T14:11:31.3748858+01:00 0HM6G3MQVSHCS:0000001D [INF] Executing action method "PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-02-13T14:11:31.3754243+01:00 0HM6G3MQVSHCS:0000001D [INF] Entity Framework Core "3.1.8" initialized '"ApplicationDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL"' with options: "None" (9958f5bb)
+2021-02-13T14:11:31.3754774+01:00 0HM6G3MQVSHCT:00000005 [INF] Entity Framework Core "3.1.8" initialized '"ApplicationDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL"' with options: "None" (9958f5bb)
+2021-02-13T14:11:31.3790124+01:00 0HM6G3MQVSHCS:0000001D [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT a.author_id, a.affiliation, a.display_name, a.name, a.scholar_id, a.setting_id, a.total_cites, a.url_picture, a0.setting_id, a0.graph_font_size, a0.library_table_view, a0.open_citations, a0.scholar, a0.semantics
+FROM author AS a
+INNER JOIN author_setting AS a0 ON a.setting_id = a0.setting_id" (0723d8ff)
+2021-02-13T14:11:31.3793850+01:00 0HM6G3MQVSHCT:00000005 [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT a.author_id, a.affiliation, a.display_name, a.name, a.scholar_id, a.setting_id, a.total_cites, a.url_picture
+FROM author AS a" (0723d8ff)
+2021-02-13T14:11:31.3797081+01:00 0HM6G3MQVSHCS:0000001D [INF] Executed action method "PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 4.6931ms. (50a9e262)
+2021-02-13T14:11:31.3798224+01:00 0HM6G3MQVSHCS:0000001D [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[PubCiterAPI.Model.Author, PubCiterAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2021-02-13T14:11:31.3800418+01:00 0HM6G3MQVSHCS:0000001D [INF] Executed action "PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)" in 37.5041ms (afa2e885)
+2021-02-13T14:11:31.3800775+01:00 0HM6G3MQVSHCS:0000001D [INF] Executed endpoint '"PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)"' (99874f2b)
+2021-02-13T14:11:31.3801245+01:00 0HM6G3MQVSHCS:0000001D [INF] Request finished in 37.7747ms 200 application/json; charset=utf-8 (791a596a)
+2021-02-13T14:11:31.3844721+01:00 0HM6G3MQVSHCT:00000005 [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT p.pub_id, p.abstract, p.author_id, p.author, p.cites_per_year, p.doi, p.eprint_url, p.journal, p.volume, p.pages, p.pub_year, p.publisher, p.title, t.pub_id, t.citation_id, t.citation_id0, t.abstract, t.author, t.doi, t.journal, t.volume, t.pub_url, t.pub_year, t.title
+FROM publication AS p
+LEFT JOIN (
+    SELECT p0.pub_id, p0.citation_id, c.citation_id AS citation_id0, c.abstract, c.author, c.doi, c.journal, c.volume, c.pub_url, c.pub_year, c.title
+    FROM publication_citation AS p0
+    INNER JOIN citation AS c ON p0.citation_id = c.citation_id
+) AS t ON p.pub_id = t.pub_id
+ORDER BY p.pub_id, t.pub_id, t.citation_id, t.citation_id0" (0723d8ff)
+2021-02-13T14:11:31.3963795+01:00 0HM6G3MQVSHCT:00000005 [INF] Executed action method "PubCiterAPI.Controllers.PublicationController.GetPublications (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 21.3927ms. (50a9e262)
+2021-02-13T14:11:31.3964536+01:00 0HM6G3MQVSHCT:00000005 [INF] Executing ObjectResult, writing value of type '"System.Linq.Enumerable+WhereListIterator`1[[PubCiterAPI.Model.Publication, PubCiterAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2021-02-13T14:11:31.4257686+01:00 0HM6G3MQVSHCT:00000005 [INF] Executed action "PubCiterAPI.Controllers.PublicationController.GetPublications (PubCiterAPI)" in 83.2458ms (afa2e885)
+2021-02-13T14:11:31.4258953+01:00 0HM6G3MQVSHCT:00000005 [INF] Executed endpoint '"PubCiterAPI.Controllers.PublicationController.GetPublications (PubCiterAPI)"' (99874f2b)
+2021-02-13T14:11:31.4260528+01:00 0HM6G3MQVSHCT:00000005 [INF] Request finished in 83.7763ms 200 application/json; charset=utf-8 (791a596a)
+2021-02-13T14:11:40.2161166+01:00 0HM6G3MQVSHCT:00000006 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:7051/author   (ca22a1cb)
+2021-02-13T14:11:40.2161924+01:00 0HM6G3MQVSHCT:00000006 [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:11:40.2162327+01:00 0HM6G3MQVSHCT:00000006 [INF] Request finished in 0.1731ms 204  (791a596a)
+2021-02-13T14:11:40.2174776+01:00 0HM6G3MQVSHCT:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:7051/author application/json  (ca22a1cb)
+2021-02-13T14:11:40.2175458+01:00 0HM6G3MQVSHCT:00000007 [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:11:40.2175710+01:00 0HM6G3MQVSHCT:00000007 [INF] Executing endpoint '"PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)"' (500cc934)
+2021-02-13T14:11:40.2176577+01:00 0HM6G3MQVSHCT:00000007 [INF] Route matched with "{action = \"ListAuthors\", controller = \"Author\"}". Executing controller action with signature "System.Collections.Generic.IEnumerable`1[PubCiterAPI.Model.Author] ListAuthors(System.String, System.Nullable`1[System.Int64])" on controller "PubCiterAPI.Controllers.AuthorController" ("PubCiterAPI"). (122b2fdf)
+2021-02-13T14:11:40.2332337+01:00 0HM6G3MQVSHCT:00000007 [INF] Executing action method "PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-02-13T14:11:40.2334616+01:00 0HM6G3MQVSHCT:00000007 [INF] Entity Framework Core "3.1.8" initialized '"ApplicationDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL"' with options: "None" (9958f5bb)
+2021-02-13T14:11:40.2351119+01:00 0HM6G3MQVSHCT:00000007 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT a.author_id, a.affiliation, a.display_name, a.name, a.scholar_id, a.setting_id, a.total_cites, a.url_picture, a0.setting_id, a0.graph_font_size, a0.library_table_view, a0.open_citations, a0.scholar, a0.semantics
+FROM author AS a
+INNER JOIN author_setting AS a0 ON a.setting_id = a0.setting_id" (0723d8ff)
+2021-02-13T14:11:40.2353102+01:00 0HM6G3MQVSHCT:00000007 [INF] Executed action method "PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 2.0347ms. (50a9e262)
+2021-02-13T14:11:40.2353717+01:00 0HM6G3MQVSHCT:00000007 [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[PubCiterAPI.Model.Author, PubCiterAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2021-02-13T14:11:40.2354719+01:00 0HM6G3MQVSHCT:00000007 [INF] Executed action "PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)" in 17.7758ms (afa2e885)
+2021-02-13T14:11:40.2355022+01:00 0HM6G3MQVSHCT:00000007 [INF] Executed endpoint '"PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)"' (99874f2b)
+2021-02-13T14:11:40.2355661+01:00 0HM6G3MQVSHCT:00000007 [INF] Request finished in 18.1114ms 200 application/json; charset=utf-8 (791a596a)
+2021-02-13T14:11:40.2412707+01:00 0HM6G3MQVSHCT:00000008 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:7051/publication/5/citation   (ca22a1cb)
+2021-02-13T14:11:40.2414231+01:00 0HM6G3MQVSHCT:00000008 [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:11:40.2415047+01:00 0HM6G3MQVSHCT:00000008 [INF] Request finished in 0.2508ms 204  (791a596a)
+2021-02-13T14:11:40.2427142+01:00 0HM6G3MQVSHCT:00000009 [INF] Request starting HTTP/1.1 POST http://localhost:7051/publication/5/citation application/json 215 (ca22a1cb)
+2021-02-13T14:11:40.2428431+01:00 0HM6G3MQVSHCT:00000009 [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:11:40.2429169+01:00 0HM6G3MQVSHCT:00000009 [INF] Executing endpoint '"PubCiterAPI.Controllers.PublicationController.InsertCitation (PubCiterAPI)"' (500cc934)
+2021-02-13T14:11:40.2459475+01:00 0HM6G3MQVSHCT:00000009 [INF] Route matched with "{action = \"InsertCitation\", controller = \"Publication\"}". Executing controller action with signature "Void InsertCitation(PubCiterAPI.Model.Citation, Int64)" on controller "PubCiterAPI.Controllers.PublicationController" ("PubCiterAPI"). (122b2fdf)
+2021-02-13T14:11:40.3137153+01:00 0HM6G3MQVSHCT:00000009 [INF] Executing action method "PubCiterAPI.Controllers.PublicationController.InsertCitation (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-02-13T14:11:40.3146205+01:00 0HM6G3MQVSHCT:00000009 [INF] Entity Framework Core "3.1.8" initialized '"ApplicationDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL"' with options: "None" (9958f5bb)
+2021-02-13T14:11:40.3256749+01:00 0HM6G3MQVSHCT:00000009 [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT p.pub_id, p.abstract, p.author_id, p.author, p.cites_per_year, p.doi, p.eprint_url, p.journal, p.volume, p.pages, p.pub_year, p.publisher, p.title, p0.pub_id, p0.citation_id
+FROM publication AS p
+LEFT JOIN publication_citation AS p0 ON p.pub_id = p0.pub_id
+ORDER BY p.pub_id, p0.pub_id, p0.citation_id" (0723d8ff)
+2021-02-13T14:11:40.3643275+01:00 0HM6G3MQVSHCT:00000009 [INF] Executed DbCommand ("2"ms) [Parameters=["@p0='?', @p1='?', @p2='?', @p3='?', @p4='?', @p5='?', @p6='?', @p7='?'"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7)
+RETURNING citation_id;" (0723d8ff)
+2021-02-13T14:11:40.3762489+01:00 0HM6G3MQVSHCT:00000009 [INF] Executed DbCommand ("2"ms) [Parameters=["@p8='?' (DbType = Int64), @p9='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO publication_citation (pub_id, citation_id)
+VALUES (@p8, @p9);" (0723d8ff)
+2021-02-13T14:11:40.3818101+01:00 0HM6G3MQVSHCT:00000009 [INF] Executed DbCommand ("2"ms) [Parameters=["@__Author_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT a.author_id, a.affiliation, a.display_name, a.name, a.scholar_id, a.setting_id, a.total_cites, a.url_picture
+FROM author AS a
+WHERE a.name = @__Author_0
+LIMIT 1" (0723d8ff)
+2021-02-13T14:11:40.3839864+01:00 0HM6G3MQVSHCT:00000009 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT SUM((
+    SELECT COUNT(*)::INT
+    FROM publication_citation AS p
+    WHERE p0.pub_id = p.pub_id))::INT
+FROM publication AS p0" (0723d8ff)
+2021-02-13T14:11:40.3881933+01:00 0HM6G3MQVSHCT:00000009 [INF] Executed DbCommand ("1"ms) [Parameters=["@p1='?' (DbType = Int64), @p0='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""UPDATE author SET total_cites = @p0
+WHERE author_id = @p1;" (0723d8ff)
+2021-02-13T14:11:40.3904059+01:00 0HM6G3MQVSHCT:00000009 [INF] Executed action method "PubCiterAPI.Controllers.PublicationController.InsertCitation (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.EmptyResult" in 76.6331ms. (50a9e262)
+2021-02-13T14:11:40.3904625+01:00 0HM6G3MQVSHCT:00000009 [INF] Executed action "PubCiterAPI.Controllers.PublicationController.InsertCitation (PubCiterAPI)" in 144.4728ms (afa2e885)
+2021-02-13T14:11:40.3904863+01:00 0HM6G3MQVSHCT:00000009 [INF] Executed endpoint '"PubCiterAPI.Controllers.PublicationController.InsertCitation (PubCiterAPI)"' (99874f2b)
+2021-02-13T14:11:40.3905833+01:00 0HM6G3MQVSHCT:00000009 [INF] Request finished in 147.9275ms 200  (791a596a)
+2021-02-13T14:11:43.8867849+01:00 0HM6G3MQVSHCT:0000000A [INF] Request starting HTTP/1.1 OPTIONS http://localhost:7051/publication?searchText=   (ca22a1cb)
+2021-02-13T14:11:43.8868949+01:00 0HM6G3MQVSHCT:0000000A [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:11:43.8869479+01:00 0HM6G3MQVSHCT:0000000A [INF] Request finished in 0.1932ms 204  (791a596a)
+2021-02-13T14:11:43.8870951+01:00 0HM6G3MQVSHCS:0000001E [INF] Request starting HTTP/1.1 GET http://localhost:7051/author application/json  (ca22a1cb)
+2021-02-13T14:11:43.8871548+01:00 0HM6G3MQVSHCS:0000001E [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:11:43.8871931+01:00 0HM6G3MQVSHCS:0000001E [INF] Executing endpoint '"PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)"' (500cc934)
+2021-02-13T14:11:43.8872667+01:00 0HM6G3MQVSHCS:0000001E [INF] Route matched with "{action = \"ListAuthors\", controller = \"Author\"}". Executing controller action with signature "System.Collections.Generic.IEnumerable`1[PubCiterAPI.Model.Author] ListAuthors(System.String, System.Nullable`1[System.Int64])" on controller "PubCiterAPI.Controllers.AuthorController" ("PubCiterAPI"). (122b2fdf)
+2021-02-13T14:11:43.8891810+01:00 0HM6G3MQVSHCT:0000000B [INF] Request starting HTTP/1.1 GET http://localhost:7051/publication?searchText= application/json  (ca22a1cb)
+2021-02-13T14:11:43.8893163+01:00 0HM6G3MQVSHCT:0000000B [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:11:43.8893834+01:00 0HM6G3MQVSHCT:0000000B [INF] Executing endpoint '"PubCiterAPI.Controllers.PublicationController.GetPublications (PubCiterAPI)"' (500cc934)
+2021-02-13T14:11:43.9083676+01:00 0HM6G3MQVSHCT:0000000B [INF] Route matched with "{action = \"GetPublications\", controller = \"Publication\"}". Executing controller action with signature "System.Collections.Generic.IEnumerable`1[PubCiterAPI.Model.Publication] GetPublications(System.String)" on controller "PubCiterAPI.Controllers.PublicationController" ("PubCiterAPI"). (122b2fdf)
+2021-02-13T14:11:43.9084053+01:00 0HM6G3MQVSHCS:0000001E [INF] Executing action method "PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-02-13T14:11:43.9094147+01:00 0HM6G3MQVSHCS:0000001E [INF] Entity Framework Core "3.1.8" initialized '"ApplicationDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL"' with options: "None" (9958f5bb)
+2021-02-13T14:11:43.9330370+01:00 0HM6G3MQVSHCT:0000000B [INF] Executing action method "PubCiterAPI.Controllers.PublicationController.GetPublications (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-02-13T14:11:43.9330410+01:00 0HM6G3MQVSHCS:0000001E [INF] Executed DbCommand ("23"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT a.author_id, a.affiliation, a.display_name, a.name, a.scholar_id, a.setting_id, a.total_cites, a.url_picture, a0.setting_id, a0.graph_font_size, a0.library_table_view, a0.open_citations, a0.scholar, a0.semantics
+FROM author AS a
+INNER JOIN author_setting AS a0 ON a.setting_id = a0.setting_id" (0723d8ff)
+2021-02-13T14:11:43.9332293+01:00 0HM6G3MQVSHCS:0000001E [INF] Executed action method "PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 24.7443ms. (50a9e262)
+2021-02-13T14:11:43.9332538+01:00 0HM6G3MQVSHCT:0000000B [INF] Entity Framework Core "3.1.8" initialized '"ApplicationDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL"' with options: "None" (9958f5bb)
+2021-02-13T14:11:43.9332866+01:00 0HM6G3MQVSHCS:0000001E [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[PubCiterAPI.Model.Author, PubCiterAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2021-02-13T14:11:43.9333758+01:00 0HM6G3MQVSHCS:0000001E [INF] Executed action "PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)" in 46.076ms (afa2e885)
+2021-02-13T14:11:43.9334006+01:00 0HM6G3MQVSHCS:0000001E [INF] Executed endpoint '"PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)"' (99874f2b)
+2021-02-13T14:11:43.9334350+01:00 0HM6G3MQVSHCS:0000001E [INF] Request finished in 46.3711ms 200 application/json; charset=utf-8 (791a596a)
+2021-02-13T14:11:43.9349578+01:00 0HM6G3MQVSHCT:0000000B [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT a.author_id, a.affiliation, a.display_name, a.name, a.scholar_id, a.setting_id, a.total_cites, a.url_picture
+FROM author AS a" (0723d8ff)
+2021-02-13T14:11:43.9396137+01:00 0HM6G3MQVSHCT:0000000B [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT p.pub_id, p.abstract, p.author_id, p.author, p.cites_per_year, p.doi, p.eprint_url, p.journal, p.volume, p.pages, p.pub_year, p.publisher, p.title, t.pub_id, t.citation_id, t.citation_id0, t.abstract, t.author, t.doi, t.journal, t.volume, t.pub_url, t.pub_year, t.title
+FROM publication AS p
+LEFT JOIN (
+    SELECT p0.pub_id, p0.citation_id, c.citation_id AS citation_id0, c.abstract, c.author, c.doi, c.journal, c.volume, c.pub_url, c.pub_year, c.title
+    FROM publication_citation AS p0
+    INNER JOIN citation AS c ON p0.citation_id = c.citation_id
+) AS t ON p.pub_id = t.pub_id
+ORDER BY p.pub_id, t.pub_id, t.citation_id, t.citation_id0" (0723d8ff)
+2021-02-13T14:11:43.9469720+01:00 0HM6G3MQVSHCT:0000000B [INF] Executed action method "PubCiterAPI.Controllers.PublicationController.GetPublications (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 13.8771ms. (50a9e262)
+2021-02-13T14:11:43.9470444+01:00 0HM6G3MQVSHCT:0000000B [INF] Executing ObjectResult, writing value of type '"System.Linq.Enumerable+WhereListIterator`1[[PubCiterAPI.Model.Publication, PubCiterAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2021-02-13T14:11:43.9739307+01:00 0HM6G3MQVSHCT:0000000B [INF] Executed action "PubCiterAPI.Controllers.PublicationController.GetPublications (PubCiterAPI)" in 65.4781ms (afa2e885)
+2021-02-13T14:11:43.9739915+01:00 0HM6G3MQVSHCT:0000000B [INF] Executed endpoint '"PubCiterAPI.Controllers.PublicationController.GetPublications (PubCiterAPI)"' (99874f2b)
+2021-02-13T14:11:43.9740723+01:00 0HM6G3MQVSHCT:0000000B [INF] Request finished in 84.9604ms 200 application/json; charset=utf-8 (791a596a)
+2021-02-13T14:11:59.7566794+01:00 0HM6G3MQVSHCT:0000000C [INF] Request starting HTTP/1.1 OPTIONS http://localhost:7051/author   (ca22a1cb)
+2021-02-13T14:11:59.7567702+01:00 0HM6G3MQVSHCT:0000000C [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:11:59.7568182+01:00 0HM6G3MQVSHCT:0000000C [INF] Request finished in 0.1749ms 204  (791a596a)
+2021-02-13T14:11:59.7682204+01:00 0HM6G3MQVSHCT:0000000D [INF] Request starting HTTP/1.1 GET http://localhost:7051/author application/json  (ca22a1cb)
+2021-02-13T14:11:59.7682898+01:00 0HM6G3MQVSHCT:0000000D [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:11:59.7683120+01:00 0HM6G3MQVSHCT:0000000D [INF] Executing endpoint '"PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)"' (500cc934)
+2021-02-13T14:11:59.7683825+01:00 0HM6G3MQVSHCT:0000000D [INF] Route matched with "{action = \"ListAuthors\", controller = \"Author\"}". Executing controller action with signature "System.Collections.Generic.IEnumerable`1[PubCiterAPI.Model.Author] ListAuthors(System.String, System.Nullable`1[System.Int64])" on controller "PubCiterAPI.Controllers.AuthorController" ("PubCiterAPI"). (122b2fdf)
+2021-02-13T14:11:59.7840642+01:00 0HM6G3MQVSHCT:0000000D [INF] Executing action method "PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-02-13T14:11:59.7842828+01:00 0HM6G3MQVSHCT:0000000D [INF] Entity Framework Core "3.1.8" initialized '"ApplicationDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL"' with options: "None" (9958f5bb)
+2021-02-13T14:11:59.7861621+01:00 0HM6G3MQVSHCT:0000000D [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT a.author_id, a.affiliation, a.display_name, a.name, a.scholar_id, a.setting_id, a.total_cites, a.url_picture, a0.setting_id, a0.graph_font_size, a0.library_table_view, a0.open_citations, a0.scholar, a0.semantics
+FROM author AS a
+INNER JOIN author_setting AS a0 ON a.setting_id = a0.setting_id" (0723d8ff)
+2021-02-13T14:11:59.7864458+01:00 0HM6G3MQVSHCT:0000000D [INF] Executed action method "PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 2.3325ms. (50a9e262)
+2021-02-13T14:11:59.7865032+01:00 0HM6G3MQVSHCT:0000000D [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[PubCiterAPI.Model.Author, PubCiterAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2021-02-13T14:11:59.7867009+01:00 0HM6G3MQVSHCT:0000000D [INF] Executed action "PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)" in 18.2804ms (afa2e885)
+2021-02-13T14:11:59.7867230+01:00 0HM6G3MQVSHCT:0000000D [INF] Executed endpoint '"PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)"' (99874f2b)
+2021-02-13T14:11:59.7867786+01:00 0HM6G3MQVSHCT:0000000D [INF] Request finished in 18.5896ms 200 application/json; charset=utf-8 (791a596a)
+2021-02-13T14:11:59.7924814+01:00 0HM6G3MQVSHCT:0000000E [INF] Request starting HTTP/1.1 OPTIONS http://localhost:7051/publication/4/citation   (ca22a1cb)
+2021-02-13T14:11:59.7925672+01:00 0HM6G3MQVSHCT:0000000E [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:11:59.7926432+01:00 0HM6G3MQVSHCT:0000000E [INF] Request finished in 0.1692ms 204  (791a596a)
+2021-02-13T14:11:59.7935969+01:00 0HM6G3MQVSHCT:0000000F [INF] Request starting HTTP/1.1 POST http://localhost:7051/publication/4/citation application/json 245 (ca22a1cb)
+2021-02-13T14:11:59.7936497+01:00 0HM6G3MQVSHCT:0000000F [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:11:59.7936772+01:00 0HM6G3MQVSHCT:0000000F [INF] Executing endpoint '"PubCiterAPI.Controllers.PublicationController.InsertCitation (PubCiterAPI)"' (500cc934)
+2021-02-13T14:11:59.7937297+01:00 0HM6G3MQVSHCT:0000000F [INF] Route matched with "{action = \"InsertCitation\", controller = \"Publication\"}". Executing controller action with signature "Void InsertCitation(PubCiterAPI.Model.Citation, Int64)" on controller "PubCiterAPI.Controllers.PublicationController" ("PubCiterAPI"). (122b2fdf)
+2021-02-13T14:11:59.8093575+01:00 0HM6G3MQVSHCT:0000000F [INF] Executing action method "PubCiterAPI.Controllers.PublicationController.InsertCitation (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-02-13T14:11:59.8097029+01:00 0HM6G3MQVSHCT:0000000F [INF] Entity Framework Core "3.1.8" initialized '"ApplicationDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL"' with options: "None" (9958f5bb)
+2021-02-13T14:11:59.8127741+01:00 0HM6G3MQVSHCT:0000000F [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT p.pub_id, p.abstract, p.author_id, p.author, p.cites_per_year, p.doi, p.eprint_url, p.journal, p.volume, p.pages, p.pub_year, p.publisher, p.title, p0.pub_id, p0.citation_id
+FROM publication AS p
+LEFT JOIN publication_citation AS p0 ON p.pub_id = p0.pub_id
+ORDER BY p.pub_id, p0.pub_id, p0.citation_id" (0723d8ff)
+2021-02-13T14:11:59.8455101+01:00 0HM6G3MQVSHCT:0000000F [INF] Executed DbCommand ("2"ms) [Parameters=["@p0='?', @p1='?', @p2='?', @p3='?', @p4='?', @p5='?', @p6='?', @p7='?'"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO citation (abstract, author, doi, journal, volume, pub_url, pub_year, title)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7)
+RETURNING citation_id;" (0723d8ff)
+2021-02-13T14:11:59.8484070+01:00 0HM6G3MQVSHCT:0000000F [INF] Executed DbCommand ("2"ms) [Parameters=["@p8='?' (DbType = Int64), @p9='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO publication_citation (pub_id, citation_id)
+VALUES (@p8, @p9);" (0723d8ff)
+2021-02-13T14:11:59.8529250+01:00 0HM6G3MQVSHCT:0000000F [INF] Executed DbCommand ("1"ms) [Parameters=["@__Author_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT a.author_id, a.affiliation, a.display_name, a.name, a.scholar_id, a.setting_id, a.total_cites, a.url_picture
+FROM author AS a
+WHERE a.name = @__Author_0
+LIMIT 1" (0723d8ff)
+2021-02-13T14:11:59.8565049+01:00 0HM6G3MQVSHCT:0000000F [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT SUM((
+    SELECT COUNT(*)::INT
+    FROM publication_citation AS p
+    WHERE p0.pub_id = p.pub_id))::INT
+FROM publication AS p0" (0723d8ff)
+2021-02-13T14:11:59.8599432+01:00 0HM6G3MQVSHCT:0000000F [INF] Executed DbCommand ("1"ms) [Parameters=["@p1='?' (DbType = Int64), @p0='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""UPDATE author SET total_cites = @p0
+WHERE author_id = @p1;" (0723d8ff)
+2021-02-13T14:11:59.8621353+01:00 0HM6G3MQVSHCT:0000000F [INF] Executed action method "PubCiterAPI.Controllers.PublicationController.InsertCitation (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.EmptyResult" in 52.6695ms. (50a9e262)
+2021-02-13T14:11:59.8622063+01:00 0HM6G3MQVSHCT:0000000F [INF] Executed action "PubCiterAPI.Controllers.PublicationController.InsertCitation (PubCiterAPI)" in 68.4533ms (afa2e885)
+2021-02-13T14:11:59.8622263+01:00 0HM6G3MQVSHCT:0000000F [INF] Executed endpoint '"PubCiterAPI.Controllers.PublicationController.InsertCitation (PubCiterAPI)"' (99874f2b)
+2021-02-13T14:11:59.8622914+01:00 0HM6G3MQVSHCT:0000000F [INF] Request finished in 68.7187ms 200  (791a596a)
+2021-02-13T14:12:03.5337926+01:00 0HM6G3MQVSHCT:00000010 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:7051/publication?searchText=   (ca22a1cb)
+2021-02-13T14:12:03.5338893+01:00 0HM6G3MQVSHCT:00000010 [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:12:03.5339580+01:00 0HM6G3MQVSHCT:00000010 [INF] Request finished in 0.2177ms 204  (791a596a)
+2021-02-13T14:12:03.5353060+01:00 0HM6G3MQVSHCT:00000011 [INF] Request starting HTTP/1.1 GET http://localhost:7051/author application/json  (ca22a1cb)
+2021-02-13T14:12:03.5354820+01:00 0HM6G3MQVSHCT:00000011 [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:12:03.5355613+01:00 0HM6G3MQVSHCT:00000011 [INF] Executing endpoint '"PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)"' (500cc934)
+2021-02-13T14:12:03.5356614+01:00 0HM6G3MQVSHCT:00000011 [INF] Route matched with "{action = \"ListAuthors\", controller = \"Author\"}". Executing controller action with signature "System.Collections.Generic.IEnumerable`1[PubCiterAPI.Model.Author] ListAuthors(System.String, System.Nullable`1[System.Int64])" on controller "PubCiterAPI.Controllers.AuthorController" ("PubCiterAPI"). (122b2fdf)
+2021-02-13T14:12:03.5358387+01:00 0HM6G3MQVSHCS:0000001F [INF] Request starting HTTP/1.1 GET http://localhost:7051/publication?searchText= application/json  (ca22a1cb)
+2021-02-13T14:12:03.5358949+01:00 0HM6G3MQVSHCS:0000001F [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:12:03.5359336+01:00 0HM6G3MQVSHCS:0000001F [INF] Executing endpoint '"PubCiterAPI.Controllers.PublicationController.GetPublications (PubCiterAPI)"' (500cc934)
+2021-02-13T14:12:03.5359838+01:00 0HM6G3MQVSHCS:0000001F [INF] Route matched with "{action = \"GetPublications\", controller = \"Publication\"}". Executing controller action with signature "System.Collections.Generic.IEnumerable`1[PubCiterAPI.Model.Publication] GetPublications(System.String)" on controller "PubCiterAPI.Controllers.PublicationController" ("PubCiterAPI"). (122b2fdf)
+2021-02-13T14:12:03.5762080+01:00 0HM6G3MQVSHCT:00000011 [INF] Executing action method "PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-02-13T14:12:03.5762081+01:00 0HM6G3MQVSHCS:0000001F [INF] Executing action method "PubCiterAPI.Controllers.PublicationController.GetPublications (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-02-13T14:12:03.5764631+01:00 0HM6G3MQVSHCS:0000001F [INF] Entity Framework Core "3.1.8" initialized '"ApplicationDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL"' with options: "None" (9958f5bb)
+2021-02-13T14:12:03.5764610+01:00 0HM6G3MQVSHCT:00000011 [INF] Entity Framework Core "3.1.8" initialized '"ApplicationDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL"' with options: "None" (9958f5bb)
+2021-02-13T14:12:03.5785849+01:00 0HM6G3MQVSHCT:00000011 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT a.author_id, a.affiliation, a.display_name, a.name, a.scholar_id, a.setting_id, a.total_cites, a.url_picture, a0.setting_id, a0.graph_font_size, a0.library_table_view, a0.open_citations, a0.scholar, a0.semantics
+FROM author AS a
+INNER JOIN author_setting AS a0 ON a.setting_id = a0.setting_id" (0723d8ff)
+2021-02-13T14:12:03.5785850+01:00 0HM6G3MQVSHCS:0000001F [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT a.author_id, a.affiliation, a.display_name, a.name, a.scholar_id, a.setting_id, a.total_cites, a.url_picture
+FROM author AS a" (0723d8ff)
+2021-02-13T14:12:03.5790172+01:00 0HM6G3MQVSHCT:00000011 [INF] Executed action method "PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 2.7461ms. (50a9e262)
+2021-02-13T14:12:03.5790887+01:00 0HM6G3MQVSHCT:00000011 [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[PubCiterAPI.Model.Author, PubCiterAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2021-02-13T14:12:03.5792975+01:00 0HM6G3MQVSHCT:00000011 [INF] Executed action "PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)" in 43.5929ms (afa2e885)
+2021-02-13T14:12:03.5793374+01:00 0HM6G3MQVSHCT:00000011 [INF] Executed endpoint '"PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)"' (99874f2b)
+2021-02-13T14:12:03.5794186+01:00 0HM6G3MQVSHCT:00000011 [INF] Request finished in 44.1757ms 200 application/json; charset=utf-8 (791a596a)
+2021-02-13T14:12:03.5842534+01:00 0HM6G3MQVSHCS:0000001F [INF] Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT p.pub_id, p.abstract, p.author_id, p.author, p.cites_per_year, p.doi, p.eprint_url, p.journal, p.volume, p.pages, p.pub_year, p.publisher, p.title, t.pub_id, t.citation_id, t.citation_id0, t.abstract, t.author, t.doi, t.journal, t.volume, t.pub_url, t.pub_year, t.title
+FROM publication AS p
+LEFT JOIN (
+    SELECT p0.pub_id, p0.citation_id, c.citation_id AS citation_id0, c.abstract, c.author, c.doi, c.journal, c.volume, c.pub_url, c.pub_year, c.title
+    FROM publication_citation AS p0
+    INNER JOIN citation AS c ON p0.citation_id = c.citation_id
+) AS t ON p.pub_id = t.pub_id
+ORDER BY p.pub_id, t.pub_id, t.citation_id, t.citation_id0" (0723d8ff)
+2021-02-13T14:12:03.5944900+01:00 0HM6G3MQVSHCS:0000001F [INF] Executed action method "PubCiterAPI.Controllers.PublicationController.GetPublications (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 18.2153ms. (50a9e262)
+2021-02-13T14:12:03.5945754+01:00 0HM6G3MQVSHCS:0000001F [INF] Executing ObjectResult, writing value of type '"System.Linq.Enumerable+WhereListIterator`1[[PubCiterAPI.Model.Publication, PubCiterAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2021-02-13T14:12:03.6150094+01:00 0HM6G3MQVSHCS:0000001F [INF] Executed action "PubCiterAPI.Controllers.PublicationController.GetPublications (PubCiterAPI)" in 78.9816ms (afa2e885)
+2021-02-13T14:12:03.6150795+01:00 0HM6G3MQVSHCS:0000001F [INF] Executed endpoint '"PubCiterAPI.Controllers.PublicationController.GetPublications (PubCiterAPI)"' (99874f2b)
+2021-02-13T14:12:03.6151757+01:00 0HM6G3MQVSHCS:0000001F [INF] Request finished in 79.3722ms 200 application/json; charset=utf-8 (791a596a)
+2021-02-13T14:12:32.0240033+01:00 0HM6G3MQVSHCS:00000020 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:7051/author   (ca22a1cb)
+2021-02-13T14:12:32.0240682+01:00 0HM6G3MQVSHCS:00000020 [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:12:32.0241508+01:00 0HM6G3MQVSHCS:00000020 [INF] Request finished in 0.1655ms 204  (791a596a)
+2021-02-13T14:12:32.0350208+01:00 0HM6G3MQVSHCS:00000021 [INF] Request starting HTTP/1.1 GET http://localhost:7051/author application/json  (ca22a1cb)
+2021-02-13T14:12:32.0350987+01:00 0HM6G3MQVSHCS:00000021 [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:12:32.0351250+01:00 0HM6G3MQVSHCS:00000021 [INF] Executing endpoint '"PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)"' (500cc934)
+2021-02-13T14:12:32.0351799+01:00 0HM6G3MQVSHCS:00000021 [INF] Route matched with "{action = \"ListAuthors\", controller = \"Author\"}". Executing controller action with signature "System.Collections.Generic.IEnumerable`1[PubCiterAPI.Model.Author] ListAuthors(System.String, System.Nullable`1[System.Int64])" on controller "PubCiterAPI.Controllers.AuthorController" ("PubCiterAPI"). (122b2fdf)
+2021-02-13T14:12:32.0501351+01:00 0HM6G3MQVSHCS:00000021 [INF] Executing action method "PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-02-13T14:12:32.0503686+01:00 0HM6G3MQVSHCS:00000021 [INF] Entity Framework Core "3.1.8" initialized '"ApplicationDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL"' with options: "None" (9958f5bb)
+2021-02-13T14:12:32.0521011+01:00 0HM6G3MQVSHCS:00000021 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT a.author_id, a.affiliation, a.display_name, a.name, a.scholar_id, a.setting_id, a.total_cites, a.url_picture, a0.setting_id, a0.graph_font_size, a0.library_table_view, a0.open_citations, a0.scholar, a0.semantics
+FROM author AS a
+INNER JOIN author_setting AS a0 ON a.setting_id = a0.setting_id" (0723d8ff)
+2021-02-13T14:12:32.0523920+01:00 0HM6G3MQVSHCS:00000021 [INF] Executed action method "PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 2.2114ms. (50a9e262)
+2021-02-13T14:12:32.0525578+01:00 0HM6G3MQVSHCS:00000021 [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[PubCiterAPI.Model.Author, PubCiterAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2021-02-13T14:12:32.0526557+01:00 0HM6G3MQVSHCS:00000021 [INF] Executed action "PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)" in 17.4543ms (afa2e885)
+2021-02-13T14:12:32.0526742+01:00 0HM6G3MQVSHCS:00000021 [INF] Executed endpoint '"PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)"' (99874f2b)
+2021-02-13T14:12:32.0527286+01:00 0HM6G3MQVSHCS:00000021 [INF] Request finished in 17.7476ms 200 application/json; charset=utf-8 (791a596a)
+2021-02-13T14:12:32.0592192+01:00 0HM6G3MQVSHCS:00000022 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:7051/publication   (ca22a1cb)
+2021-02-13T14:12:32.0592800+01:00 0HM6G3MQVSHCS:00000022 [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:12:32.0593338+01:00 0HM6G3MQVSHCS:00000022 [INF] Request finished in 0.1208ms 204  (791a596a)
+2021-02-13T14:12:32.0602363+01:00 0HM6G3MQVSHCS:00000023 [INF] Request starting HTTP/1.1 POST http://localhost:7051/publication application/json 245 (ca22a1cb)
+2021-02-13T14:12:32.0602919+01:00 0HM6G3MQVSHCS:00000023 [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:12:32.0603154+01:00 0HM6G3MQVSHCS:00000023 [INF] Executing endpoint '"PubCiterAPI.Controllers.PublicationController.InsertPublication (PubCiterAPI)"' (500cc934)
+2021-02-13T14:12:32.0621269+01:00 0HM6G3MQVSHCS:00000023 [INF] Route matched with "{action = \"InsertPublication\", controller = \"Publication\"}". Executing controller action with signature "Void InsertPublication(PubCiterAPI.Model.Publication)" on controller "PubCiterAPI.Controllers.PublicationController" ("PubCiterAPI"). (122b2fdf)
+2021-02-13T14:12:32.0889227+01:00 0HM6G3MQVSHCS:00000023 [INF] Executing action method "PubCiterAPI.Controllers.PublicationController.InsertPublication (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-02-13T14:12:32.0897868+01:00 0HM6G3MQVSHCS:00000023 [INF] Entity Framework Core "3.1.8" initialized '"ApplicationDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL"' with options: "None" (9958f5bb)
+2021-02-13T14:12:32.0943913+01:00 0HM6G3MQVSHCS:00000023 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT p.pub_id, p.abstract, p.author_id, p.author, p.cites_per_year, p.doi, p.eprint_url, p.journal, p.volume, p.pages, p.pub_year, p.publisher, p.title
+FROM publication AS p" (0723d8ff)
+2021-02-13T14:12:32.0948848+01:00 0HM6G3MQVSHCS:00000023 [INF] Executed action method "PubCiterAPI.Controllers.PublicationController.InsertPublication (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.EmptyResult" in 5.9153ms. (50a9e262)
+2021-02-13T14:12:32.0949313+01:00 0HM6G3MQVSHCS:00000023 [INF] Executed action "PubCiterAPI.Controllers.PublicationController.InsertPublication (PubCiterAPI)" in 32.7723ms (afa2e885)
+2021-02-13T14:12:32.0949496+01:00 0HM6G3MQVSHCS:00000023 [INF] Executed endpoint '"PubCiterAPI.Controllers.PublicationController.InsertPublication (PubCiterAPI)"' (99874f2b)
+2021-02-13T14:12:32.0950048+01:00 0HM6G3MQVSHCS:00000023 [INF] Request finished in 34.7767ms 200  (791a596a)
+2021-02-13T14:12:36.3477323+01:00 0HM6G3MQVSHCS:00000024 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:7051/publication?searchText=   (ca22a1cb)
+2021-02-13T14:12:36.3478205+01:00 0HM6G3MQVSHCS:00000024 [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:12:36.3478859+01:00 0HM6G3MQVSHCS:00000024 [INF] Request finished in 0.1805ms 204  (791a596a)
+2021-02-13T14:12:36.3491877+01:00 0HM6G3MQVSHCS:00000025 [INF] Request starting HTTP/1.1 GET http://localhost:7051/author application/json  (ca22a1cb)
+2021-02-13T14:12:36.3492764+01:00 0HM6G3MQVSHCS:00000025 [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:12:36.3493376+01:00 0HM6G3MQVSHCS:00000025 [INF] Executing endpoint '"PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)"' (500cc934)
+2021-02-13T14:12:36.3494761+01:00 0HM6G3MQVSHCS:00000025 [INF] Route matched with "{action = \"ListAuthors\", controller = \"Author\"}". Executing controller action with signature "System.Collections.Generic.IEnumerable`1[PubCiterAPI.Model.Author] ListAuthors(System.String, System.Nullable`1[System.Int64])" on controller "PubCiterAPI.Controllers.AuthorController" ("PubCiterAPI"). (122b2fdf)
+2021-02-13T14:12:36.3500296+01:00 0HM6G3MQVSHCT:00000012 [INF] Request starting HTTP/1.1 GET http://localhost:7051/publication?searchText= application/json  (ca22a1cb)
+2021-02-13T14:12:36.3518300+01:00 0HM6G3MQVSHCT:00000012 [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:12:36.3519065+01:00 0HM6G3MQVSHCT:00000012 [INF] Executing endpoint '"PubCiterAPI.Controllers.PublicationController.GetPublications (PubCiterAPI)"' (500cc934)
+2021-02-13T14:12:36.3520084+01:00 0HM6G3MQVSHCT:00000012 [INF] Route matched with "{action = \"GetPublications\", controller = \"Publication\"}". Executing controller action with signature "System.Collections.Generic.IEnumerable`1[PubCiterAPI.Model.Publication] GetPublications(System.String)" on controller "PubCiterAPI.Controllers.PublicationController" ("PubCiterAPI"). (122b2fdf)
+2021-02-13T14:12:36.3745122+01:00 0HM6G3MQVSHCS:00000025 [INF] Executing action method "PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-02-13T14:12:36.3782022+01:00 0HM6G3MQVSHCS:00000025 [INF] Entity Framework Core "3.1.8" initialized '"ApplicationDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL"' with options: "None" (9958f5bb)
+2021-02-13T14:12:36.3949655+01:00 0HM6G3MQVSHCT:00000012 [INF] Executing action method "PubCiterAPI.Controllers.PublicationController.GetPublications (PubCiterAPI)" - Validation state: Valid (dad538d7)
+2021-02-13T14:12:36.3952502+01:00 0HM6G3MQVSHCT:00000012 [INF] Entity Framework Core "3.1.8" initialized '"ApplicationDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL"' with options: "None" (9958f5bb)
+2021-02-13T14:12:36.3974341+01:00 0HM6G3MQVSHCT:00000012 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT a.author_id, a.affiliation, a.display_name, a.name, a.scholar_id, a.setting_id, a.total_cites, a.url_picture
+FROM author AS a" (0723d8ff)
+2021-02-13T14:12:36.3976739+01:00 0HM6G3MQVSHCS:00000025 [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT a.author_id, a.affiliation, a.display_name, a.name, a.scholar_id, a.setting_id, a.total_cites, a.url_picture, a0.setting_id, a0.graph_font_size, a0.library_table_view, a0.open_citations, a0.scholar, a0.semantics
+FROM author AS a
+INNER JOIN author_setting AS a0 ON a.setting_id = a0.setting_id" (0723d8ff)
+2021-02-13T14:12:36.3977656+01:00 0HM6G3MQVSHCS:00000025 [INF] Executed action method "PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 23.1636ms. (50a9e262)
+2021-02-13T14:12:36.3978050+01:00 0HM6G3MQVSHCS:00000025 [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[PubCiterAPI.Model.Author, PubCiterAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2021-02-13T14:12:36.3978861+01:00 0HM6G3MQVSHCS:00000025 [INF] Executed action "PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)" in 48.3768ms (afa2e885)
+2021-02-13T14:12:36.3979039+01:00 0HM6G3MQVSHCS:00000025 [INF] Executed endpoint '"PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)"' (99874f2b)
+2021-02-13T14:12:36.3979345+01:00 0HM6G3MQVSHCS:00000025 [INF] Request finished in 48.7824ms 200 application/json; charset=utf-8 (791a596a)
+2021-02-13T14:12:36.4016413+01:00 0HM6G3MQVSHCT:00000012 [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT p.pub_id, p.abstract, p.author_id, p.author, p.cites_per_year, p.doi, p.eprint_url, p.journal, p.volume, p.pages, p.pub_year, p.publisher, p.title, t.pub_id, t.citation_id, t.citation_id0, t.abstract, t.author, t.doi, t.journal, t.volume, t.pub_url, t.pub_year, t.title
+FROM publication AS p
+LEFT JOIN (
+    SELECT p0.pub_id, p0.citation_id, c.citation_id AS citation_id0, c.abstract, c.author, c.doi, c.journal, c.volume, c.pub_url, c.pub_year, c.title
+    FROM publication_citation AS p0
+    INNER JOIN citation AS c ON p0.citation_id = c.citation_id
+) AS t ON p.pub_id = t.pub_id
+ORDER BY p.pub_id, t.pub_id, t.citation_id, t.citation_id0" (0723d8ff)
+2021-02-13T14:12:36.4102524+01:00 0HM6G3MQVSHCT:00000012 [INF] Executed action method "PubCiterAPI.Controllers.PublicationController.GetPublications (PubCiterAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 15.2271ms. (50a9e262)
+2021-02-13T14:12:36.4103125+01:00 0HM6G3MQVSHCT:00000012 [INF] Executing ObjectResult, writing value of type '"System.Linq.Enumerable+WhereListIterator`1[[PubCiterAPI.Model.Publication, PubCiterAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2021-02-13T14:12:36.4348007+01:00 0HM6G3MQVSHCT:00000012 [INF] Executed action "PubCiterAPI.Controllers.PublicationController.GetPublications (PubCiterAPI)" in 82.6666ms (afa2e885)
+2021-02-13T14:12:36.4348962+01:00 0HM6G3MQVSHCT:00000012 [INF] Executed endpoint '"PubCiterAPI.Controllers.PublicationController.GetPublications (PubCiterAPI)"' (99874f2b)
+2021-02-13T14:12:36.4350094+01:00 0HM6G3MQVSHCT:00000012 [INF] Request finished in 84.9978ms 200 application/json; charset=utf-8 (791a596a)
+2021-02-13T14:14:30.2713053+01:00  [INF] Application is shutting down... (90f52c38)
