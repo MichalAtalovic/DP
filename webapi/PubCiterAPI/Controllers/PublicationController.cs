@@ -65,15 +65,10 @@ namespace PubCiterAPI.Controllers
             try
             {
                 // find author
-                var author = this.authorRepository.GetAuthorByName(context, AppSettings.Author);
+                var author = this.authorRepository.GetAuthorByName(context, AppSettings.Author) ?? this.authorRepository.InitAuthor(context, AppSettings.Author);
 
                 // if author does not exist, create initial record
-                if (author == null)
-                {
-                    author = this.authorRepository.InitAuthor(context, AppSettings.Author);
-                }
-
-                if (author != null && author.Settings != null)
+                if (author?.Settings != null)
                 {
                     // synchronize from Google Scholar
                     if (author.Settings.Scholar)
@@ -205,6 +200,13 @@ namespace PubCiterAPI.Controllers
         {
             try
             {
+                if (publication.AuthorId == 0)
+                {
+                    // find author
+                    var author = this.authorRepository.GetAuthorByName(context, AppSettings.Author) ?? this.authorRepository.InitAuthor(context, AppSettings.Author);
+                    publication.AuthorId = author.AuthorId;
+                }
+                
                 this.publicationRepository.InsertPublication(context, publication);
             }
             catch (Exception ex)

@@ -12,3 +12,44 @@
 2021-02-13T14:15:50.2253384+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
 2021-02-13T14:15:50.2254251+01:00  [INF] Hosting environment: "Production" (c3307c92)
 2021-02-13T14:15:50.2254562+01:00  [INF] Content root path: "C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\bin\Debug\netcoreapp3.1" (b5d60022)
+2021-02-13T14:17:13.8973506+01:00 0HM6G46MQ4T22:00000001 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:7051/author   (ca22a1cb)
+2021-02-13T14:17:13.8973506+01:00 0HM6G46MQ4T21:00000001 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:7051/publication?searchText=   (ca22a1cb)
+2021-02-13T14:17:13.9516173+01:00 0HM6G46MQ4T21:00000001 [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:17:13.9516122+01:00 0HM6G46MQ4T22:00000001 [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:17:13.9570099+01:00 0HM6G46MQ4T21:00000001 [INF] Request finished in 62.6108ms 204  (791a596a)
+2021-02-13T14:17:13.9570099+01:00 0HM6G46MQ4T22:00000001 [INF] Request finished in 62.5529ms 204  (791a596a)
+2021-02-13T14:17:13.9649365+01:00 0HM6G46MQ4T21:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:7051/author application/json  (ca22a1cb)
+2021-02-13T14:17:13.9649364+01:00 0HM6G46MQ4T22:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:7051/publication?searchText= application/json  (ca22a1cb)
+2021-02-13T14:17:13.9704270+01:00 0HM6G46MQ4T21:00000002 [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:17:13.9704362+01:00 0HM6G46MQ4T22:00000002 [INF] CORS policy execution successful. (5409d6ef)
+2021-02-13T14:17:13.9755546+01:00 0HM6G46MQ4T21:00000002 [INF] Executing endpoint '"PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)"' (500cc934)
+2021-02-13T14:17:13.9755907+01:00 0HM6G46MQ4T22:00000002 [INF] Executing endpoint '"PubCiterAPI.Controllers.PublicationController.GetPublications (PubCiterAPI)"' (500cc934)
+2021-02-13T14:17:14.0004285+01:00 0HM6G46MQ4T21:00000002 [INF] Route matched with "{action = \"ListAuthors\", controller = \"Author\"}". Executing controller action with signature "System.Collections.Generic.IEnumerable`1[PubCiterAPI.Model.Author] ListAuthors(System.String, System.Nullable`1[System.Int64])" on controller "PubCiterAPI.Controllers.AuthorController" ("PubCiterAPI"). (122b2fdf)
+2021-02-13T14:17:14.0004285+01:00 0HM6G46MQ4T22:00000002 [INF] Route matched with "{action = \"GetPublications\", controller = \"Publication\"}". Executing controller action with signature "System.Collections.Generic.IEnumerable`1[PubCiterAPI.Model.Publication] GetPublications(System.String)" on controller "PubCiterAPI.Controllers.PublicationController" ("PubCiterAPI"). (122b2fdf)
+2021-02-13T14:17:14.6053360+01:00 0HM6G46MQ4T22:00000002 [INF] Entity Framework Core "3.1.8" initialized '"ApplicationDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL"' with options: "None" (9958f5bb)
+2021-02-13T14:17:14.6053382+01:00 0HM6G46MQ4T21:00000002 [INF] Entity Framework Core "3.1.8" initialized '"ApplicationDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL"' with options: "None" (9958f5bb)
+2021-02-13T14:17:15.1516302+01:00 0HM6G46MQ4T21:00000002 [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT a.author_id, a.affiliation, a.display_name, a.name, a.scholar_id, a.setting_id, a.total_cites, a.url_picture, a0.setting_id, a0.graph_font_size, a0.library_table_view, a0.open_citations, a0.scholar, a0.semantics
+FROM author AS a
+INNER JOIN author_setting AS a0 ON a.setting_id = a0.setting_id" (0723d8ff)
+2021-02-13T14:17:15.1516316+01:00 0HM6G46MQ4T22:00000002 [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT a.author_id, a.affiliation, a.display_name, a.name, a.scholar_id, a.setting_id, a.total_cites, a.url_picture
+FROM author AS a" (0723d8ff)
+2021-02-13T14:17:15.2240183+01:00 0HM6G46MQ4T21:00000002 [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[PubCiterAPI.Model.Author, PubCiterAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2021-02-13T14:17:15.2599131+01:00 0HM6G46MQ4T22:00000002 [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT p.pub_id, p.abstract, p.author_id, p.author, p.cites_per_year, p.doi, p.eprint_url, p.journal, p.volume, p.pages, p.pub_year, p.publisher, p.title, t.pub_id, t.citation_id, t.citation_id0, t.abstract, t.author, t.doi, t.journal, t.volume, t.pub_url, t.pub_year, t.title
+FROM publication AS p
+LEFT JOIN (
+    SELECT p0.pub_id, p0.citation_id, c.citation_id AS citation_id0, c.abstract, c.author, c.doi, c.journal, c.volume, c.pub_url, c.pub_year, c.title
+    FROM publication_citation AS p0
+    INNER JOIN citation AS c ON p0.citation_id = c.citation_id
+) AS t ON p.pub_id = t.pub_id
+ORDER BY p.pub_id, t.pub_id, t.citation_id, t.citation_id0" (0723d8ff)
+2021-02-13T14:17:15.3133952+01:00 0HM6G46MQ4T22:00000002 [INF] Executing ObjectResult, writing value of type '"System.Linq.Enumerable+WhereListIterator`1[[PubCiterAPI.Model.Publication, PubCiterAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2021-02-13T14:17:15.3457907+01:00 0HM6G46MQ4T21:00000002 [INF] Executed action "PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)" in 1337.9624ms (afa2e885)
+2021-02-13T14:17:15.3459384+01:00 0HM6G46MQ4T21:00000002 [INF] Executed endpoint '"PubCiterAPI.Controllers.AuthorController.ListAuthors (PubCiterAPI)"' (99874f2b)
+2021-02-13T14:17:15.3496675+01:00 0HM6G46MQ4T21:00000002 [INF] Request finished in 1384.6926ms 200 application/json; charset=utf-8 (791a596a)
+2021-02-13T14:17:15.3766157+01:00 0HM6G46MQ4T22:00000002 [INF] Executed action "PubCiterAPI.Controllers.PublicationController.GetPublications (PubCiterAPI)" in 1375.7522ms (afa2e885)
+2021-02-13T14:17:15.3772128+01:00 0HM6G46MQ4T22:00000002 [INF] Executed endpoint '"PubCiterAPI.Controllers.PublicationController.GetPublications (PubCiterAPI)"' (99874f2b)
+2021-02-13T14:17:15.3779939+01:00 0HM6G46MQ4T22:00000002 [INF] Request finished in 1413.0422ms 200 application/json; charset=utf-8 (791a596a)
+2021-02-13T14:17:27.4746534+01:00  [INF] Application is shutting down... (90f52c38)

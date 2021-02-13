@@ -11,7 +11,7 @@ export class BibliographyParser {
     const publications: Publication[] = [];
 
     const authors = await this.authorService.getAuthors();
-    let authorId = (authors as any[])[0].authorId;
+    let authorId = (authors as any[])[0]?.authorId;
 
     if (jsonArray) {
       jsonArray.forEach(x => {
@@ -33,7 +33,7 @@ export class BibliographyParser {
           pages: x.page,
           journal: x['container-title'] ?? '',
           journalVolume: x.volume ?? '',
-          authorId: Number(authorId as any)
+          authorId: isNaN(Number(authorId as any)) ? 0 : Number(authorId as any)
         } as Publication);
       });
     }

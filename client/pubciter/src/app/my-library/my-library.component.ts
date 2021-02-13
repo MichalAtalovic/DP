@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { Subscription } from 'rxjs';
 import { AuthorService } from '../services/author.service';
+import { DataService } from '../services/data.service';
 import { PublicationService } from '../services/publication.service';
 
 @Component({
@@ -18,11 +20,23 @@ export class MyLibraryComponent implements OnInit {
   public publications: any;
   public panelData = { header: 'My library', iconPath: 'assets/library_fade.png' }
   public viewType = 'cards';
+  public subscription: Subscription;
 
   constructor(
     public publicationService: PublicationService,
-    public authorService: AuthorService
-  ) { }
+    public authorService: AuthorService,
+    public dataService: DataService
+  ) {
+    this.subscription = this.dataService.getData().subscribe(args => {
+      if (args.action === 'INSERTED PUBLICATION') {
+        if (!this.publications) {
+          this.publications = [];
+        }
+
+        this.publications.push(args.data);
+      }
+    });
+  }
 
   ngOnInit(): void {
   }

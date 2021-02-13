@@ -52,7 +52,9 @@ export class SideBarComponent implements OnInit {
               result.forEach(x => {
                 console.log('INSERTING');
                 console.log(x);
-                this.publicationService.insertPublication(x);
+                this.publicationService.insertPublication(x).then(() => {
+                  this.dataService.sendData({ action: 'INSERTED PUBLICATION', data: x });
+                });
               })
             });
 
@@ -63,7 +65,9 @@ export class SideBarComponent implements OnInit {
               result.forEach(x => {
                 console.log('INSERTING');
                 console.log(x);
-                this.publicationService.insertPublication(x);
+                this.publicationService.insertPublication(x).then(() => {
+                  this.dataService.sendData({ action: 'INSERTED PUBLICATION', data: x });
+                });
               })
             });
 
