@@ -34,6 +34,8 @@ import { HardResetDialogComponent } from './dialogs/hard-reset-dialog/hard-reset
 import { ChartsModule } from 'ng2-charts';
 import { AngularResizedEventModule } from 'angular-resize-event';
 import { MyLibraryActionPanelComponent } from './my-library/my-library-action-panel/my-library-action-panel.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { RemoveCitationDialogComponent } from './dialogs/remove-citation-dialog/remove-citation-dialog.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,8 @@ import { MyLibraryActionPanelComponent } from './my-library/my-library-action-pa
     QuarantineActionPanelComponent,
     SyncDialogComponent,
     HardResetDialogComponent,
-    MyLibraryActionPanelComponent
+    MyLibraryActionPanelComponent,
+    RemoveCitationDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -69,7 +72,8 @@ import { MyLibraryActionPanelComponent } from './my-library/my-library-action-pa
     MatInputModule,
     MatCheckboxModule,
     ChartsModule,
-    AngularResizedEventModule
+    AngularResizedEventModule,
+    MatMenuModule
   ],
   providers: [
     DateFormatPipe,

@@ -252,5 +252,25 @@ namespace PubCiterAPI.Controllers
                 this.logger.LogError(ex.ToString());
             }
         }
+
+        /// <summary>
+        /// Removes citation by ID
+        /// </summary>
+        [HttpDelete]
+        [Route(@"{publicationId}/{citationId}")]
+        [SwaggerOperation(Summary = "Removes citation by ID")]
+        public void RemoveCitation(long publicationId, long citationId)
+        {
+            try
+            {
+                this.publicationRepository.RemoveCitation(context, publicationId, citationId);
+                this.authorRepository.RecountCitations(context);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                this.logger.LogError(ex.ToString());
+            }
+        }
     }
 }

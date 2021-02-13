@@ -583,5 +583,21 @@
 
             context.SaveChanges();
         }
+
+        /// <summary>
+        /// Removes citation by ID
+        /// </summary>
+        /// <param name="context">Application DB context</param>
+        /// <param name="publicationId">Publication ID</param>
+        /// <param name="citationId">Citation ID</param>
+        public void RemoveCitation(ApplicationDbContext context, long publicationId, long citationId)
+        {
+            var publication = context.Publications.Include(x => x.PublicationCitationList).ThenInclude(x => x.Citation).ToList()
+                .FirstOrDefault(x => x.PublicationId == publicationId);
+
+            publication?.PublicationCitationList.Remove(publication.PublicationCitationList.FirstOrDefault(x => x.Citation.CitationId == citationId));
+
+            context.SaveChanges();
+        }
     }
 }

@@ -64,8 +64,16 @@
         /// Insert citation to publication
         /// </summary>
         /// <param name="context">Application DB context</param>
-        /// <param name="citation">Citation oject</param>
+        /// <param name="citation">Citation object</param>
         /// <param name="publicationId">Publication ID</param>
         void InsertCitation(ApplicationDbContext context, Citation citation, long publicationId);
+
+        /// <summary>
+        /// Removes citation by ID
+        /// </summary>
+        /// <param name="context">Application DB context</param>
+        /// <param name="publicationId">Publication ID</param>
+        /// <param name="citationId">Citation ID</param>
+        void RemoveCitation(ApplicationDbContext context, long publicationId, long citationId);
     }
 }

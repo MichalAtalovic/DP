@@ -30,4 +30,8 @@ export class BaseRestService {
   protected put(url: string, data: any) {
     return this.httpClient.put(`${this.baseUrl}/${url}`, JSON.stringify(data), { headers: this.headers }).toPromise();
   }
+
+  protected delete(url: string) {
+    return this.httpClient.delete(`${this.baseUrl}/${url}`, { headers: this.headers }).toPromise();
+  }
 }

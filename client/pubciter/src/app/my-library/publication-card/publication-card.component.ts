@@ -8,6 +8,8 @@ import { BibliographyParser } from 'src/utils/bibliography-parser';
 import * as astrocite from 'astrocite';
 import { AuthorService } from 'src/app/services/author.service';
 import { PublicationService } from 'src/app/services/publication.service';
+import { MatMenuTrigger } from '@angular/material/menu';
+import { RemoveCitationDialogComponent } from 'src/app/dialogs/remove-citation-dialog/remove-citation-dialog.component';
 
 @Component({
   selector: 'app-publication-card',
@@ -22,12 +24,14 @@ export class PublicationCardComponent implements OnInit {
   @Output() public publicationMoved: EventEmitter<any> = new EventEmitter<any>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatMenuTrigger) matMenu!: MatMenuTrigger;
 
-  public displayedColumns: string[] = ['position', 'title', 'author', 'journal', 'publicationYear'];
+  public displayedColumns: string[] = ['position', 'title', 'author', 'journal', 'publicationYear', 'opts'];
   public dataSource: MatTableDataSource<any> = new MatTableDataSource();
   public paginatedData: MatTableDataSource<any> = new MatTableDataSource();
   public showCitationsState = false;
   public publicationId: any;
+  public menuTopLeftPosition =  {x: '0', y: '0'}
 
   constructor(
     public dialog: MatDialog,
@@ -130,6 +134,26 @@ export class PublicationCardComponent implements OnInit {
     }
 
     fileReader.readAsText(data.target.files[0]);
+  }
+
+  removeCitation(citation: any) {
+    const dialogRef = this.dialog.open(RemoveCitationDialogComponent, {
+      data: { citation }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      switch (result?.operation) {
+        case 'remove':
+          this.publicationService.removeCitation(this.publication.publicationId, result?.data?.citationId).then(() => {
+            this.publication.publicationCitationList = this.publication.publicationCitationList.filter((x: any) => x.citation.citationId !== result?.data?.citationId);
+          this.ngAfterViewInit();
+          });
+
+          break;
+        default:
+          break;
+      }
+    });
   }
 
 }

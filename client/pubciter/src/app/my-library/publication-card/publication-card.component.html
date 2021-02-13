@@ -87,7 +87,8 @@
                     style="float: left; height: 27px; width: 37px; padding: 6px 15px 6px 6px; border-right: 1px solid #ec407a;"
                     class="icon" src="assets/quotes.png">
                   <div style="width: 1px; "></div>
-                  <div style="padding-top: 4px; text-align: center; vertical-align: middle;">{{ this.showCitationsState ? 'Hide citations' : 'Show citations' }}</div>
+                  <div style="padding-top: 4px; text-align: center; vertical-align: middle;">{{ this.showCitationsState
+                    ? 'Hide citations' : 'Show citations' }}</div>
                 </button>
                 <button class="action-button"
                   style="width: 250px; margin: 10px 30px 0px 30px; border-radius: 3px; border: 1px solid  #004ecb; background-color: white;">
@@ -149,15 +150,16 @@
         <div
           style="width: 100%; display: flex; flex-direction: row; justify-content: space-between; padding-top: 5px; padding-bottom: 5px; background-color: #ec407a; text-align: left; border-top-left-radius: 5px; border-top-right-radius: 5px; color: white; font-weight: bold; font-size: 20px; padding-left: 25px;">
           <div style="text-align: center; margin: 3px;">CITATIONS</div>
-          <button name="{{ this.publication.publicationId.toString() }}" id="{{ this.publication.publicationId.toString() }}" (click)="this.onClickImport($event)"
+          <button name="{{ this.publication.publicationId.toString() }}"
+            id="{{ this.publication.publicationId.toString() }}" (click)="this.onClickImport($event)"
             style="border: 1px solid white; margin: 0px; margin-right: 10px; font-size: 13px; background: transparent; border-radius: 3px; color: white; text-align: center;">
             <img style="float: left; height: 15px; width: 15px; margin: 3px;" class="icon"
               src="assets/import_white.png">
             <div style="float: left; margin-left: 5px;">
               Import citation
             </div>
-            <input id="{{ 'fileInput_' + this.publication.publicationId.toString() }}" type="file" class="file" style="display:none"
-              (change)="this.handleImportedFile($event)">
+            <input id="{{ 'fileInput_' + this.publication.publicationId.toString() }}" type="file" class="file"
+              style="display:none" (change)="this.handleImportedFile($event)">
           </button>
         </div>
         <div style="padding-bottom: 30px;">
@@ -182,16 +184,36 @@
                 element?.citation?.author }} </td>
             </ng-container>
 
-            <ng-container matColumnDef="journal" style="width: 30%;">
+            <ng-container matColumnDef="journal" style="width: 25%;">
               <th mat-header-cell *matHeaderCellDef style="padding-left: 10px; padding-right: 10px;"> Journal </th>
               <td mat-cell *matCellDef="let element" style="padding-left: 10px; padding-right: 10px;"> {{
-                element?.citation?.journal }} {{ element?.citation?.journalVolume ? ('(No. ' + element?.citation?.journalVolume + ')') : '' }} </td>
+                element?.citation?.journal }} {{ element?.citation?.journalVolume ? ('(No. ' +
+                element?.citation?.journalVolume + ')') : '' }} </td>
             </ng-container>
 
             <ng-container matColumnDef="publicationYear" style="width: 10%;">
               <th mat-header-cell *matHeaderCellDef style="padding-left: 10px; padding-right: 10px;"> Year </th>
               <td mat-cell *matCellDef="let element" style="padding-left: 10px; padding-right: 10px;"> {{
                 element?.citation?.publicationYear }} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="opts" style="width: 5%;">
+              <th mat-header-cell *matHeaderCellDef style="padding-left: 10px; padding-right: 10px;"></th>
+              <td mat-cell *matCellDef="let element" style="padding-left: 10px; padding-right: 10px;">
+                <button mat-mini-fab color="primary" style="width: 30px; height: 30px;" [matMenuTriggerFor]="menu">
+                  <div style="margin: 0px; vertical-align: text-top;">
+                    ...
+                  </div>
+                </button>
+                <mat-menu #menu="matMenu">
+                  <button mat-menu-item (click)="this.removeCitation(element?.citation)">
+                    <span>
+                      <img class="icon" src="assets/remove.png">
+                      Remove citation
+                    </span>
+                  </button>
+                </mat-menu>
+              </td>
             </ng-container>
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

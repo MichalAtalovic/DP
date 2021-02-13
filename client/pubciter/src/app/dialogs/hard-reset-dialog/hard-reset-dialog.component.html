@@ -1,11 +1,11 @@
-<div class="row" style="background-color: crimson; border-radius: 3px;">
-  <img style="height: 40px; width: 40px; margin: 5px;" class="icon" src="assets/sync_white.png">
-  <div style="padding: 15px; font-size: 40px; color: white">Hard reset</div>
+<div style="background-color: crimson; border-radius: 3px;">
+  <img style="float: left; height: 30px; width: 30px; margin: 10px;" class="icon" src="assets/sync_white.png">
+  <div style="padding: 15px; font-size: 25px; color: white; font-weight: bold;">Hard reset</div>
 </div>
 <mat-dialog-content class="mat-typography" style="padding-top: 10px; padding-bottom: 10px;">
-  <p>Do you want to hard reset the application? All data will be erased permanently.</p>
+  <p>All data will be erased permanently.<br>Do you want to hard reset the application?</p>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-button [mat-dialog-close]="true" cdkFocusInitial>No</button>
-  <button mat-button (click)="this.onYesClick()">Yes</button>
+  <button mat-button color="warn" (click)="this.onYesClick()" style="border: 1px solid crimson; border-radius: 3px;">Yes</button>
 </mat-dialog-actions>

@@ -55,9 +55,9 @@
             <mat-radio-button style="margin-right: 10px;" [value]="false" checked>Card view</mat-radio-button>
             <mat-radio-button [value]="true">Table view</mat-radio-button>
           </mat-radio-group>
-          <div style="color: dodgerblue; font-size: 18px; margin-bottom: 5px;">Default graph font size</div>
+          <div style="color: dodgerblue; font-size: 18px; margin-bottom: 5px; margin-top: 20px;">Default graph font size</div>
           <div>
-            <input #graphFontSize name="graphFontSize" mdInput type="number" id="graphFontSize" [(ngModel)]="this.author.settings.graphFontSize" required/>
+            <input class="numeric-box" #graphFontSize name="graphFontSize" mdInput type="number" id="graphFontSize" [(ngModel)]="this.author.settings.graphFontSize" required/>
           </div>
         </div>
       </div>
