@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Form } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { HardResetDialogComponent } from '../dialogs/hard-reset-dialog/hard-reset-dialog.component';
 import { AuthorService } from '../services/author.service';

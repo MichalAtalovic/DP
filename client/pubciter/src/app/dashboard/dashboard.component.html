@@ -1,7 +1,8 @@
 <div class="container-fluid" style="padding: 0px;  margin-bottom: 30px; padding-bottom: 30px;">
   <div class="row">
     <div class="column" style="width: 100% !important">
-      <div class="card mb-3 shadow block-status flex-fill" style="margin-left: 40px; margin-top: 30px; max-width: 500px;">
+      <div class="card mb-3 shadow block-status flex-fill"
+        style="margin-left: 40px; margin-top: 30px; max-width: 500px;">
         <div class="card-header row"
           style="margin: 0px; padding: 7px 20px 7px 20px; background-color: darkslateblue; border-width: 0px; justify-content: space-between !important;">
           <div style="vertical-align: middle; align-items: center; color: white; font-size: 16px;">Author overview</div>
@@ -26,24 +27,34 @@
       </div>
     </div>
     <div class="d-flex flex-column" style="width: 100% !important;">
-      <div class="card mb-3 shadow flex" style="margin-left: 40px; margin-top: 30px; margin-bottom: 30px; margin-right: 80px;">
+      <div class="card mb-3 shadow flex"
+        style="margin-left: 40px; margin-top: 30px; margin-bottom: 30px; margin-right: 80px;">
         <div class="card-header row"
           style="margin: 0px !important; padding-left: 10px !important; padding-right: 10px !important; padding-bottom: 5px; padding-top: 7px; background-color: darkorange; border-width: 0px; justify-content: space-between; max-height: 35px;">
           <div style="color: white; font-size: 16px; margin: 0px;">Citing year incidention</div>
-          <mat-radio-group #chartTypeRadio color="primary" name="chartTypeRadio" aria-label="Select an option" [(ngModel)]="this.lineChartType" (change)="this.changeChartType($event)" style="color: white !important; margin: 0px; max-height: 30px;">
+          <mat-radio-group #chartTypeRadio color="primary" name="chartTypeRadio" aria-label="Select an option"
+            [(ngModel)]="this.lineChartType" (change)="this.changeChartType($event)"
+            style="color: white !important; margin: 0px; max-height: 30px;">
             <mat-radio-button style="margin-right: 10px;" [value]="'line'" checked>Line chart</mat-radio-button>
             <mat-radio-button [value]="'bar'">Bar chart</mat-radio-button>
           </mat-radio-group>
         </div>
         <div class="card-body">
-          <div class="d-flex flex-row">
-            <canvas baseChart style="max-height: 700px; max-width: 100% !important;"
-                            [datasets]="lineChartData"
-                            [labels]="lineChartLabels"
-                            [options]="lineChartOptions"
-                            [colors]="lineChartColors"
-                            [legend]="lineChartLegend"
-                            [chartType]="lineChartType"></canvas>
+          <div class="d-flex flex-column">
+            <div class="d-flex flex-row">
+              <div style="font-style: italic; margin-right: 5px; margin-top: 3px;">
+                Font size:
+              </div>
+              <div>
+                <input class="numeric-box" #graphFontSize name="graphFontSize" mdInput type="number" id="graphFontSize"
+                  [(ngModel)]="this.graphFontSizeValue" (ngModelChange)="fontSizeChanged($event)" required/>
+              </div>
+            </div>
+            <div class="d-flex flex-row">
+              <canvas baseChart style="height: 500px; max-width: 100% !important;" [datasets]="lineChartData"
+                [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors"
+                [legend]="lineChartLegend" [chartType]="lineChartType"></canvas>
+            </div>
           </div>
         </div>
       </div>

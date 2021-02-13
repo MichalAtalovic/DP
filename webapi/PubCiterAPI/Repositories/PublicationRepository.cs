@@ -2,8 +2,8 @@
 {
     using Microsoft.EntityFrameworkCore;
     using Newtonsoft.Json.Linq;
-    using PubCiterAPI.Model;
-    using PubCiterAPI.Repositories.Interfaces;
+    using Model;
+    using Interfaces;
     using System;
     using System.Collections.Generic;
     using System.IO;
@@ -17,125 +17,129 @@
     public class PublicationRepository : IPublicationRepository
     {
         /// <summary>
-        /// Gets publications of author by their name
+        /// Gets publications of author (fulltext search option)
         /// </summary>
-        /// <param name="name">Author's name</param>
-        /// <returns>Collection of publications</returns>
+        /// <param name="context"></param>
+        /// <param name="searchedText"></param>
+        /// <returns></returns>
         public IEnumerable<Publication> GetPublications(ApplicationDbContext context, string searchedText)
         {
             var author = context.Authors.ToList().FirstOrDefault(x => x.Name == AppSettings.Author);
-            if (author != null)
+            if (author == null)
             {
-                var list = context.Publications
-                                .Include(x => x.PublicationCitationList)
-                                .ThenInclude(x => x.Citation).ToList().Where(x => x.AuthorId == author.AuthorId);
+                return null;
+            }
 
-                if (string.IsNullOrEmpty(searchedText))
+
+            var list = context.Publications
+                .Include(x => x.PublicationCitationList)
+                .ThenInclude(x => x.Citation).ToList().Where(x => x.AuthorId == author.AuthorId);
+
+            if (string.IsNullOrEmpty(searchedText))
+            {
+                return list;
+            }
+            else
+            {
+                var filteredList = new List<Publication>();
+                foreach (var publication in list)
                 {
-                    return list;
-                }
-                else
-                {
-                    var filteredList = new List<Publication>();
-                    foreach (var publication in list)
+                    if (publication?.Journal != null)
                     {
-                        if (publication?.Journal != null)
+                        if (publication.Journal.Trim().ToLower().Contains(searchedText.Trim().ToLower()))
                         {
-                            if (publication.Journal.Trim().ToLower().Contains(searchedText.Trim().ToLower()))
-                            {
-                                filteredList.Add(publication);
-                                continue;
-                            }
-                        }
-
-                        if (publication?.PublicationYear != null)
-                        {
-                            if (publication.PublicationYear.Trim().ToLower().Contains(searchedText.Trim().ToLower()))
-                            {
-                                filteredList.Add(publication);
-                                continue;
-                            }
-                        }
-
-                        if (publication?.Publisher != null)
-                        {
-                            if (publication.Publisher.Trim().ToLower().Contains(searchedText.Trim().ToLower()))
-                            {
-                                filteredList.Add(publication);
-                                continue;
-                            }
-                        }
-
-                        if (publication?.Title != null)
-                        {
-                            if (publication.Title.Trim().ToLower().Contains(searchedText.Trim().ToLower()))
-                            {
-                                filteredList.Add(publication);
-                                continue;
-                            }
-                        }
-
-                        if (publication?.Abstract != null)
-                        {
-                            if (publication.Abstract.Trim().ToLower().Contains(searchedText.Trim().ToLower()))
-                            {
-                                filteredList.Add(publication);
-                                continue;
-                            }
-                        }
-
-                        if (publication?.Authors != null)
-                        {
-                            if (publication.Authors.Trim().ToLower().Contains(searchedText.Trim().ToLower()))
-                            {
-                                filteredList.Add(publication);
-                                continue;
-                            }
-                        }
-
-                        foreach (var publicationCitation in publication.PublicationCitationList)
-                        {
-                            if (publicationCitation?.Citation != null)
-                            {
-                                if (!string.IsNullOrEmpty(publicationCitation.Citation.Abstract))
-                                {
-                                    if (publicationCitation.Citation.Abstract.Trim().ToLower().Contains(searchedText.Trim().ToLower()))
-                                    {
-                                        filteredList.Add(publication);
-                                        break;
-                                    }
-                                }
-
-                                if (!string.IsNullOrEmpty(publicationCitation.Citation.Author))
-                                {
-                                    if (publicationCitation.Citation.Author.Trim().ToLower().Contains(searchedText.Trim().ToLower()))
-                                    {
-                                        filteredList.Add(publication);
-                                        break;
-                                    }
-                                }
-
-                                if (!string.IsNullOrEmpty(publicationCitation.Citation.Title))
-                                {
-                                    if (publicationCitation.Citation.Title.Trim().ToLower().Contains(searchedText.Trim().ToLower()))
-                                    {
-                                        filteredList.Add(publication);
-                                        break;
-                                    }
-                                }
-                            }
+                            filteredList.Add(publication);
+                            continue;
                         }
                     }
 
-                    return filteredList;
-                }
-            }
+                    if (publication?.PublicationYear != null)
+                    {
+                        if (publication.PublicationYear.Trim().ToLower().Contains(searchedText.Trim().ToLower()))
+                        {
+                            filteredList.Add(publication);
+                            continue;
+                        }
+                    }
 
-            return null;
+                    if (publication?.Publisher != null)
+                    {
+                        if (publication.Publisher.Trim().ToLower().Contains(searchedText.Trim().ToLower()))
+                        {
+                            filteredList.Add(publication);
+                            continue;
+                        }
+                    }
+
+                    if (publication?.Title != null)
+                    {
+                        if (publication.Title.Trim().ToLower().Contains(searchedText.Trim().ToLower()))
+                        {
+                            filteredList.Add(publication);
+                            continue;
+                        }
+                    }
+
+                    if (publication?.Abstract != null)
+                    {
+                        if (publication.Abstract.Trim().ToLower().Contains(searchedText.Trim().ToLower()))
+                        {
+                            filteredList.Add(publication);
+                            continue;
+                        }
+                    }
+
+                    if (publication?.Authors != null)
+                    {
+                        if (publication.Authors.Trim().ToLower().Contains(searchedText.Trim().ToLower()))
+                        {
+                            filteredList.Add(publication);
+                            continue;
+                        }
+                    }
+
+                    foreach (var publicationCitation in publication.PublicationCitationList)
+                    {
+                        if (publicationCitation?.Citation == null)
+                        {
+                            continue;
+                        }
+
+                        if (!string.IsNullOrEmpty(publicationCitation.Citation.Abstract))
+                        {
+                            if (publicationCitation.Citation.Abstract.Trim().ToLower().Contains(searchedText.Trim().ToLower()))
+                            {
+                                filteredList.Add(publication);
+                                break;
+                            }
+                        }
+
+                        if (!string.IsNullOrEmpty(publicationCitation.Citation.Author))
+                        {
+                            if (publicationCitation.Citation.Author.Trim().ToLower().Contains(searchedText.Trim().ToLower()))
+                            {
+                                filteredList.Add(publication);
+                                break;
+                            }
+                        }
+
+                        if (!string.IsNullOrEmpty(publicationCitation.Citation.Title))
+                        {
+                            if (publicationCitation.Citation.Title.Trim().ToLower().Contains(searchedText.Trim().ToLower()))
+                            {
+                                filteredList.Add(publication);
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                return filteredList;
+            }
         }
 
         /// <summary>
-        /// Fetches and synchronizes data from opencitations.net
+        /// Fetches and synchronizes data from www.OpenCitations.net
         /// </summary>
         /// <param name="context"></param>
         public void SyncFromOpenCitations(ApplicationDbContext context)
@@ -156,65 +160,72 @@
                 {
                     client.BaseAddress = new Uri(@"https://opencitations.net");
                     var result = client.GetAsync($@"/index/api/v1/citations/{publication.Doi}").Result;
-                    if (result.IsSuccessStatusCode)
+                    if (!result.IsSuccessStatusCode)
                     {
-                        foreach (var citationJson in JArray.Parse(result.Content.ReadAsStringAsync().Result))
+                        continue;
+                    }
+
+                    foreach (var citationJson in JArray.Parse(result.Content.ReadAsStringAsync().Result))
+                    {
+                        var citingDoi = (citationJson[@"citing"]?.Value<string>() ?? string.Empty)?.Split(' ').LastOrDefault();
+                        if (string.IsNullOrEmpty(citingDoi))
                         {
-                            var citingDoi = (citationJson[@"citing"]?.Value<string>() ?? string.Empty)?.Split(' ').LastOrDefault();
-                            if (!string.IsNullOrEmpty(citingDoi))
+                            continue;
+                        }
+
+                        result = client.GetAsync($@"/index/api/v1/metadata/{citingDoi}").Result;
+
+                        if (!result.IsSuccessStatusCode)
+                        {
+                            continue;
+                        }
+
+                        foreach (var citing in JArray.Parse(result.Content.ReadAsStringAsync().Result))
+                        {
+                            var citationPublication = publication.PublicationCitationList
+                                .FirstOrDefault(x => string.Equals(x.Citation.Title.ToLower().Trim(), (citing[@"title"]?.Value<string>() ?? string.Empty).ToLower().Trim()));
+                            if (citationPublication != null) // UPDATE CITATION
                             {
-                                result = client.GetAsync($@"/index/api/v1/metadata/{citingDoi}").Result;
-                                if (result.IsSuccessStatusCode)
+                                if (string.IsNullOrEmpty(citationPublication.Citation.PublicationUrl))
                                 {
-                                    foreach (var citing in JArray.Parse(result.Content.ReadAsStringAsync().Result))
-                                    {
-                                        var citationPublication = publication.PublicationCitationList
-                                            .FirstOrDefault(x => string.Equals(x.Citation.Title.ToLower().Trim(), (citing[@"title"]?.Value<string>() ?? string.Empty).ToLower().Trim()));
-                                        if (citationPublication != null) // UPDATE CITATION
-                                        {
-                                            if (string.IsNullOrEmpty(citationPublication.Citation.PublicationUrl))
-                                            {
-                                                citationPublication.Citation.PublicationUrl = citing[@"oa_link"]?.Value<string>() ?? string.Empty;
-                                            }
-
-                                            if (string.IsNullOrEmpty(citationPublication.Citation.Author))
-                                            {
-                                                citationPublication.Citation.Author = citing[@"author"]?.Value<string>() ?? string.Empty;
-                                            }
-
-                                            if (string.IsNullOrEmpty(citationPublication.Citation.Journal))
-                                            {
-                                                citationPublication.Citation.Journal = citing[@"source_title"]?.Value<string>() ?? string.Empty;
-                                            }
-
-                                            if (string.IsNullOrEmpty(citationPublication.Citation.PublicationYear))
-                                            {
-                                                citationPublication.Citation.PublicationYear = citing[@"year"]?.Value<string>() ?? string.Empty;
-                                            }
-
-                                            if (string.IsNullOrEmpty(citationPublication.Citation.Doi))
-                                            {
-                                                citationPublication.Citation.Doi = citing[@"doi"]?.Value<string>() ?? string.Empty;
-                                            }
-                                        }
-                                        else // INSERT CITATION
-                                        {
-                                            publication.PublicationCitationList.Add(
-                                            new PublicationCitation
-                                            {
-                                                Citation = new Citation
-                                                {
-                                                    Title = citing[@"title"]?.Value<string>() ?? string.Empty,
-                                                    PublicationUrl = citing[@"oa_link"]?.Value<string>() ?? string.Empty,
-                                                    Journal = citing[@"source_title"]?.Value<string>() ?? string.Empty,
-                                                    PublicationYear = citing[@"year"]?.Value<string>() ?? string.Empty,
-                                                    Doi = citing[@"doi"]?.Value<string>() ?? string.Empty,
-                                                    Author = citing[@"author"]?.Value<string>() ?? string.Empty
-                                                }
-                                            });
-                                        }
-                                    }
+                                    citationPublication.Citation.PublicationUrl = citing[@"oa_link"]?.Value<string>() ?? string.Empty;
                                 }
+
+                                if (string.IsNullOrEmpty(citationPublication.Citation.Author))
+                                {
+                                    citationPublication.Citation.Author = citing[@"author"]?.Value<string>() ?? string.Empty;
+                                }
+
+                                if (string.IsNullOrEmpty(citationPublication.Citation.Journal))
+                                {
+                                    citationPublication.Citation.Journal = citing[@"source_title"]?.Value<string>() ?? string.Empty;
+                                }
+
+                                if (string.IsNullOrEmpty(citationPublication.Citation.PublicationYear))
+                                {
+                                    citationPublication.Citation.PublicationYear = citing[@"year"]?.Value<string>() ?? string.Empty;
+                                }
+
+                                if (string.IsNullOrEmpty(citationPublication.Citation.Doi))
+                                {
+                                    citationPublication.Citation.Doi = citing[@"doi"]?.Value<string>() ?? string.Empty;
+                                }
+                            }
+                            else // INSERT CITATION
+                            {
+                                publication.PublicationCitationList.Add(
+                                    new PublicationCitation
+                                    {
+                                        Citation = new Citation
+                                        {
+                                            Title = citing[@"title"]?.Value<string>() ?? string.Empty,
+                                            PublicationUrl = citing[@"oa_link"]?.Value<string>() ?? string.Empty,
+                                            Journal = citing[@"source_title"]?.Value<string>() ?? string.Empty,
+                                            PublicationYear = citing[@"year"]?.Value<string>() ?? string.Empty,
+                                            Doi = citing[@"doi"]?.Value<string>() ?? string.Empty,
+                                            Author = citing[@"author"]?.Value<string>() ?? string.Empty
+                                        }
+                                    });
                             }
                         }
                     }
@@ -231,16 +242,18 @@
         /// <param name="name">Author's name</param>
         public void SyncFromScholar(ApplicationDbContext context, string name)
         {
-            System.Diagnostics.Process process = new System.Diagnostics.Process();
-            process.StartInfo = new System.Diagnostics.ProcessStartInfo()
+            var process = new System.Diagnostics.Process
             {
-                UseShellExecute = false,
-                CreateNoWindow = false,
-                WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden,
-                FileName = @"cmd.exe",
-                Arguments = $"/C python { AppSettings.ScholarScriptPath } --author \"{name}\"",
-                RedirectStandardError = true,
-                RedirectStandardOutput = true
+                StartInfo = new System.Diagnostics.ProcessStartInfo()
+                {
+                    UseShellExecute = false,
+                    CreateNoWindow = false,
+                    WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden,
+                    FileName = @"cmd.exe",
+                    Arguments = $"/C python {AppSettings.ScholarScriptPath} --author \"{name}\"",
+                    RedirectStandardError = true,
+                    RedirectStandardOutput = true
+                }
             };
 
             process.Start();
@@ -251,58 +264,76 @@
             var author = context.Authors.ToList().FirstOrDefault(x => x.Name == AppSettings.Author);
             var authorJson = json[@"author"];
 
-            author.ScholarId = authorJson[@"scholar_id"]?.Value<string>();
-            author.UrlPicture = authorJson[@"url_picture"]?.Value<string>();
-            author.Affiliation = authorJson[@"affiliation"]?.Value<string>();
-            author.TotalCites = authorJson[@"total_cites"].Value<long>();
-
-            context.SaveChanges();
-
-            var publications = context.Publications.Include(x => x.PublicationCitationList).ThenInclude(x => x.Citation).Include(x => x.Author).ToList();
-
-            foreach (var pub in json[@"publications"])
+            if (author != null)
             {
-                var bib = pub[@"bib"] ?? string.Empty;
-                var publication = publications.FirstOrDefault(x => string.Equals(x.Title.ToLower().Trim(), (bib[@"title"]?.ToString() ?? string.Empty).ToLower().Trim()));
-                if (publication != null) // UPDATE PUBLICATION
+                if (authorJson != null)
                 {
-                    publication.PublicationYear = bib[@"pub_year"]?.Value<string>();
-                    publication.Authors = string.Join(Environment.NewLine, bib[@"author"]?.Value<string>() ?? string.Empty) ?? string.Empty;
-                    publication.Journal = bib[@"journal"]?.Value<string>();
-                    publication.JournalVolume = bib[@"volume"]?.Value<string>();
-                    publication.Pages = bib[@"pages"]?.Value<string>();
-                    publication.Publisher = bib[@"publisher"]?.Value<string>();
-                    publication.Abstract = bib[@"abstract"]?.Value<string>();
-                    publication.EprintUrl = pub[@"eprint_url"]?.Value<string>() ?? (pub[@"pub_url"]?.Value<string>() ?? string.Empty);
-                    publication.CitesPerYear = pub[@"cites_per_year"]?.ToString() ?? string.Empty;
+                    author.ScholarId = authorJson[@"scholar_id"]?.Value<string>();
+                    author.UrlPicture = authorJson[@"url_picture"]?.Value<string>();
+                    author.Affiliation = authorJson[@"affiliation"]?.Value<string>();
+                    author.TotalCites = authorJson[@"total_cites"].Value<long>();
+                }
 
-                    var citations = pub[@"citations"]?.ToString() ?? string.Empty;
-                    if (!string.IsNullOrEmpty(citations))
+                context.SaveChanges();
+
+                var publications = context.Publications.Include(x => x.PublicationCitationList)
+                    .ThenInclude(x => x.Citation).Include(x => x.Author).ToList();
+
+                foreach (var pub in json[@"publications"])
+                {
+                    var bib = pub[@"bib"] ?? string.Empty;
+                    var publication = publications.FirstOrDefault(x => string.Equals(x.Title.ToLower().Trim(),
+                        (bib[@"title"]?.ToString() ?? string.Empty).ToLower().Trim()));
+                    if (publication != null) // UPDATE PUBLICATION
                     {
+                        publication.PublicationYear = bib[@"pub_year"]?.Value<string>();
+                        publication.Authors =
+                            string.Join(Environment.NewLine, bib[@"author"]?.Value<string>() ?? string.Empty) ??
+                            string.Empty;
+                        publication.Journal = bib[@"journal"]?.Value<string>();
+                        publication.JournalVolume = bib[@"volume"]?.Value<string>();
+                        publication.Pages = bib[@"pages"]?.Value<string>();
+                        publication.Publisher = bib[@"publisher"]?.Value<string>();
+                        publication.Abstract = bib[@"abstract"]?.Value<string>();
+                        publication.EprintUrl = pub[@"eprint_url"]?.Value<string>() ??
+                                                (pub[@"pub_url"]?.Value<string>() ?? string.Empty);
+                        publication.CitesPerYear = pub[@"cites_per_year"]?.ToString() ?? string.Empty;
+
+                        var citations = pub[@"citations"]?.ToString() ?? string.Empty;
+                        if (string.IsNullOrEmpty(citations))
+                        {
+                            continue;
+                        }
+
                         foreach (var citationJson in JArray.Parse(citations))
                         {
-                            var citationPublication = publication.PublicationCitationList.FirstOrDefault(x => string.Equals(x.Citation.Title.ToLower().Trim(), (citationJson.Value<string>(@"title") ?? string.Empty).ToLower().Trim()));
+                            var citationPublication = publication.PublicationCitationList.FirstOrDefault(x =>
+                                string.Equals(x.Citation.Title.ToLower().Trim(),
+                                    (citationJson.Value<string>(@"title") ?? string.Empty).ToLower().Trim()));
                             if (citationPublication != null) // UPDATE CITATION
                             {
-                                citationPublication.Citation.Author = string.Join(Environment.NewLine, citationJson[@"author"] ?? string.Empty);
-                                citationPublication.Citation.PublicationYear = citationJson[@"pub_year"]?.Value<string>() ?? string.Empty;
-                                citationPublication.Citation.Journal = citationJson[@"venue"]?.Value<string>() ?? string.Empty;
-                                citationPublication.Citation.Abstract = citationJson[@"abstract"]?.Value<string>() ?? string.Empty;
+                                citationPublication.Citation.Author = string.Join(Environment.NewLine,
+                                    citationJson[@"author"] ?? string.Empty);
+                                citationPublication.Citation.PublicationYear =
+                                    citationJson[@"pub_year"]?.Value<string>() ?? string.Empty;
+                                citationPublication.Citation.Journal =
+                                    citationJson[@"venue"]?.Value<string>() ?? string.Empty;
+                                citationPublication.Citation.Abstract =
+                                    citationJson[@"abstract"]?.Value<string>() ?? string.Empty;
                             }
                             else // INSERT CITATION
                             {
-                                if (publication.PublicationCitationList == null)
-                                {
-                                    publication.PublicationCitationList = new List<PublicationCitation>();
-                                }
+                                publication.PublicationCitationList ??= new List<PublicationCitation>();
 
                                 publication.PublicationCitationList.Add(new PublicationCitation
                                 {
                                     Citation = new Citation
                                     {
                                         Title = citationJson[@"title"]?.Value<string>() ?? string.Empty,
-                                        Author = string.Join(Environment.NewLine, citationJson[@"author"] ?? string.Empty),
-                                        PublicationYear = citationJson[@"pub_year"]?.Value<string>() ?? string.Empty,
+                                        Author = string.Join(Environment.NewLine,
+                                            citationJson[@"author"] ?? string.Empty),
+                                        PublicationYear =
+                                            citationJson[@"pub_year"]?.Value<string>() ?? string.Empty,
                                         Journal = citationJson[@"venue"]?.Value<string>() ?? string.Empty,
                                         Abstract = citationJson[@"abstract"]?.Value<string>() ?? string.Empty
                                     }
@@ -310,47 +341,51 @@
                             }
                         }
                     }
-                }
-                else // INSERT PULICATION
-                {
-                    var quarantinedPublications = context.QuarantinedPublications.ToList().FirstOrDefault(x => string.Equals(x.Title.Trim().ToLower(), (bib[@"title"]?.ToString() ?? string.Empty).Trim().ToLower()));
-                    if (quarantinedPublications != null)
+                    else // INSERT PULICATION
                     {
-                        // if in quarantine, skip
-                        continue;
-                    }
-
-                    publication = new Publication
-                    {
-                        AuthorId = author.AuthorId,
-                        Title = bib[@"title"]?.ToString() ?? string.Empty,
-                        PublicationYear = bib[@"pub_year"]?.ToString() ?? string.Empty,
-                        Authors = string.Join(Environment.NewLine, bib[@"author"]?.Value<string>() ?? string.Empty) ?? string.Empty,
-                        Journal = bib[@"journal"]?.ToString() ?? string.Empty,
-                        JournalVolume = bib[@"volume"]?.ToString() ?? string.Empty,
-                        Pages = bib[@"pages"]?.ToString() ?? string.Empty,
-                        Publisher = bib[@"publisher"]?.ToString() ?? string.Empty,
-                        Abstract = bib[@"abstract"]?.ToString() ?? string.Empty,
-                        PublicationCitationList = new List<PublicationCitation>()
-                    };
-
-                    var citationsJson = pub[@"citations"] ?? string.Empty;
-                    foreach (var citationJson in citationsJson)
-                    {
-                        publication.PublicationCitationList.Add(new PublicationCitation
+                        var quarantinedPublications = context.QuarantinedPublications.ToList().FirstOrDefault(x =>
+                            string.Equals(x.Title.Trim().ToLower(),
+                                (bib[@"title"]?.ToString() ?? string.Empty).Trim().ToLower()));
+                        if (quarantinedPublications != null)
                         {
-                            Citation = new Citation
-                            {
-                                Title = citationJson["title"]?.ToString() ?? string.Empty,
-                                Author = citationJson["author"]?.ToString() ?? string.Empty,
-                                PublicationYear = citationJson["pub_year"]?.ToString() ?? string.Empty,
-                                Journal = citationJson["venue"]?.ToString() ?? string.Empty,
-                                Abstract = citationJson["abstract"]?.ToString() ?? string.Empty
-                            }
-                        });
-                    }
+                            // if in quarantine, skip
+                            continue;
+                        }
 
-                    context.Publications.Add(publication);
+                        publication = new Publication
+                        {
+                            AuthorId = author.AuthorId,
+                            Title = bib[@"title"]?.ToString() ?? string.Empty,
+                            PublicationYear = bib[@"pub_year"]?.ToString() ?? string.Empty,
+                            Authors =
+                                string.Join(Environment.NewLine, bib[@"author"]?.Value<string>() ?? string.Empty) ??
+                                string.Empty,
+                            Journal = bib[@"journal"]?.ToString() ?? string.Empty,
+                            JournalVolume = bib[@"volume"]?.ToString() ?? string.Empty,
+                            Pages = bib[@"pages"]?.ToString() ?? string.Empty,
+                            Publisher = bib[@"publisher"]?.ToString() ?? string.Empty,
+                            Abstract = bib[@"abstract"]?.ToString() ?? string.Empty,
+                            PublicationCitationList = new List<PublicationCitation>()
+                        };
+
+                        var citationsJson = pub[@"citations"] ?? string.Empty;
+                        foreach (var citationJson in citationsJson)
+                        {
+                            publication.PublicationCitationList.Add(new PublicationCitation
+                            {
+                                Citation = new Citation
+                                {
+                                    Title = citationJson["title"]?.ToString() ?? string.Empty,
+                                    Author = citationJson["author"]?.ToString() ?? string.Empty,
+                                    PublicationYear = citationJson["pub_year"]?.ToString() ?? string.Empty,
+                                    Journal = citationJson["venue"]?.ToString() ?? string.Empty,
+                                    Abstract = citationJson["abstract"]?.ToString() ?? string.Empty
+                                }
+                            });
+                        }
+
+                        context.Publications.Add(publication);
+                    }
                 }
             }
 
@@ -360,7 +395,7 @@
         /// <summary>
         /// Fetches and synchronizes data from Semantics Scholar
         /// </summary>
-        /// <param name="context">Aplication DB context</param>
+        /// <param name="context">Application DB context</param>
         public void SyncFromSemantics(ApplicationDbContext context)
         {
             // iterate all publications
@@ -376,16 +411,18 @@
                 }
 
                 // run script
-                System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo()
+                var process = new System.Diagnostics.Process
                 {
-                    UseShellExecute = false,
-                    CreateNoWindow = false,
-                    WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden,
-                    FileName = "cmd.exe",
-                    Arguments = $@"/C python {AppSettings.SemanticsScriptPath} --doi {publication.Doi}",
-                    RedirectStandardError = true,
-                    RedirectStandardOutput = true
+                    StartInfo = new System.Diagnostics.ProcessStartInfo()
+                    {
+                        UseShellExecute = false,
+                        CreateNoWindow = false,
+                        WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden,
+                        FileName = "cmd.exe",
+                        Arguments = $@"/C python {AppSettings.SemanticsScriptPath} --doi {publication.Doi}",
+                        RedirectStandardError = true,
+                        RedirectStandardOutput = true
+                    }
                 };
 
                 process.Start();
@@ -432,10 +469,7 @@
                     }
                     else // INSERT CITATION
                     {
-                        if (publication.PublicationCitationList == null)
-                        {
-                            publication.PublicationCitationList = new List<PublicationCitation>();
-                        }
+                        publication.PublicationCitationList ??= new List<PublicationCitation>();
 
                         publication.PublicationCitationList.Add(new PublicationCitation
                         {
@@ -465,11 +499,13 @@
         public void UpdatePublicationDoi(ApplicationDbContext context, long publicationId, string doi)
         {
             var publication = context.Publications.ToList().FirstOrDefault(x => x.PublicationId == publicationId);
-            if (publication != null)
+            if (publication == null)
             {
-                publication.Doi = doi;
-                context.SaveChanges();
+                return;
             }
+
+            publication.Doi = doi;
+            context.SaveChanges();
         }
 
         /// <summary>
@@ -508,18 +544,20 @@
         public void InsertPublication(ApplicationDbContext context, Publication publication)
         {
             var pub = context.Publications.ToList().FirstOrDefault(x => x.Title == publication.Title);
-            if (pub == null)
+            if (pub != null)
             {
-                var quarantinedPublications = context.QuarantinedPublications.ToList().FirstOrDefault(x => string.Equals(x.Title.Trim().ToLower(), (publication?.Title ?? string.Empty).Trim().ToLower()));
-                if (quarantinedPublications != null)
-                {
-                    // if in quarantine, skip
-                    return;
-                }
-
-                context.Publications.Add(publication);
-                context.SaveChanges();
+                return;
             }
+
+            var quarantinedPublications = context.QuarantinedPublications.ToList().FirstOrDefault(x => string.Equals(x.Title.Trim().ToLower(), (publication?.Title ?? string.Empty).Trim().ToLower()));
+            if (quarantinedPublications != null)
+            {
+                // if in quarantine, skip
+                return;
+            }
+
+            context.Publications.Add(publication);
+            context.SaveChanges();
         }
 
         /// <summary>
@@ -531,17 +569,19 @@
         public void InsertCitation(ApplicationDbContext context, Citation citation, long publicationId)
         {
             var publication = context.Publications.Include(x => x.PublicationCitationList).ToList().FirstOrDefault(x => x.PublicationId == publicationId);
-            if (publication != null)
+            if (publication == null)
             {
-                publication.PublicationCitationList.Add(
-                    new PublicationCitation
-                    {
-                        Citation = citation
-                    }
-                );
-
-                context.SaveChanges();
+                return;
             }
+
+            publication.PublicationCitationList.Add(
+                new PublicationCitation
+                {
+                    Citation = citation
+                }
+            );
+
+            context.SaveChanges();
         }
     }
 }

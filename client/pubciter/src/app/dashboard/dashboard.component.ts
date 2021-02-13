@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AuthorService } from '../services/author.service';
 import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 import { Color, BaseChartDirective, Label } from 'ng2-charts';
@@ -11,27 +11,35 @@ import { PublicationService } from '../services/publication.service';
 })
 export class DashboardComponent implements OnInit {
 
+  @ViewChild(BaseChartDirective) public chartComponent: any;
+
   public panelData = { header: 'Dashboard', iconPath: 'assets/dashboard_fade.png' }
   public author: any;
+  public graphFontSizeValue: any;
 
   public lineChartData: ChartDataSets[] = [];
   public lineChartLabels: Label[] = [];
   public lineChartOptions: (ChartOptions & { annotation: any }) = {
     responsive: true,
-    maintainAspectRatio: true,
+    maintainAspectRatio: false,
     scales: {
-      xAxes: [{}],
+      xAxes: [{
+        ticks: {
+          maxRotation: 90
+        }
+      }],
       yAxes: [
         {
           id: 'y-axis-0',
           position: 'left',
+          ticks: { }
         }
       ]
     },
     annotation: null
   };
   public lineChartColors: Color[] = [
-    { // red
+    {
       backgroundColor: 'rgba(0,0,255,0.5)',
       borderColor: 'blue',
       pointBackgroundColor: 'rgba(148,159,177,1)',
@@ -60,7 +68,8 @@ export class DashboardComponent implements OnInit {
     ]).then(values => {
       if (values[0] && (values[0] as any[]).length > 0) {
         this.author = (values[0] as any[])[0];
-        console.log(this.author);
+        this.graphFontSizeValue = this.author.settings.graphFontSize;
+        this.fontSizeChanged(this.graphFontSizeValue);
       }
 
       if (values[1] && (values[1] as any[]).length > 0) {
@@ -107,6 +116,15 @@ export class DashboardComponent implements OnInit {
 
   changeChartType(args: any) {
     this.lineChartType = args.value;
+  }
+
+  fontSizeChanged(value: any) {
+    (this.lineChartOptions as any).scales.xAxes[0].ticks.fontSize = value;
+    (this.lineChartOptions as any).scales.yAxes[0].ticks.fontSize = value;
+
+    setTimeout(() => {
+      this.chartComponent.refresh();
+    }, 10);
   }
 
 }

@@ -194,3 +194,4 @@ C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\obj\Debug\netcor
 C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\obj\Debug\netcoreapp3.1\PubCiterAPI.pdb
 C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\obj\Debug\netcoreapp3.1\PubCiterAPI.genruntimeconfig.cache
 C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\obj\Debug\netcoreapp3.1\PubCiterAPI.csprojAssemblyReference.cache
+C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\bin\Debug\netcoreapp3.1\scripts\post_alter_tables.sql

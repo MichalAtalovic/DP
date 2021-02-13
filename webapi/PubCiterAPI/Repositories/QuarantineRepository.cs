@@ -3,8 +3,8 @@
     using System.Collections.Generic;
     using System.Linq;
     using Microsoft.EntityFrameworkCore;
-    using PubCiterAPI.Model;
-    using PubCiterAPI.Repositories.Interfaces;
+    using Model;
+    using Interfaces;
 
     /// <summary>
     /// Quarantine Repository
@@ -12,7 +12,7 @@
     public class QuarantineRepository : IQuarantineRepository
     {
         /// <summary>
-        /// Gets the list of quarantined publiations
+        /// Gets the list of quarantined publications
         /// </summary>
         /// <param name="context">Application DB context instance</param>
         /// <param name="appendCitations">Whether to append citations to response</param>
@@ -84,7 +84,7 @@
         /// Removes publication from quarantine by quarantined publication ID
         /// </summary>
         /// <param name="context">Application DB context instance</param>
-        /// <param name="publicationId">Unique quarantined publication's system identifier</param>
+        /// <param name="quarantinedPublicationId">Unique quarantined publication's system identifier</param>
         public void RemoveFromQuarantine(ApplicationDbContext context, long quarantinedPublicationId)
         {
             var quarantinedPublication = context.QuarantinedPublications.Include(x => x.QuarantinedPublicationCitationList).ThenInclude(x => x.Citation).ToList().FirstOrDefault(x => x.QuarantinedPublicationId == quarantinedPublicationId);

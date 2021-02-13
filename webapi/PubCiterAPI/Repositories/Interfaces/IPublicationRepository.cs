@@ -1,6 +1,6 @@
 ﻿namespace PubCiterAPI.Repositories.Interfaces
 {
-    using PubCiterAPI.Model;
+    using Model;
     using System.Collections.Generic;
 
     /// <summary>
@@ -33,7 +33,7 @@
 
         /// <summary>
         /// Synchronizes database of publications and their citations
-        /// from opencitations.net
+        /// from www.OpenCitations.net
         /// </summary>
         /// <param name="context">Application DB context</param>
         public void SyncFromOpenCitations(ApplicationDbContext context);

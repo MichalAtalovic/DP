@@ -39,5 +39,11 @@
         /// </summary>
         [Column(@"library_table_view")]
         public bool LibraryTableView { get; set; }
+
+        /// <summary>
+        /// Default graph's font size
+        /// </summary>
+        [Column(@"graph_font_size")]
+        public int GraphFontSize { get; set; }
     }
 }

@@ -99,6 +99,7 @@
                 author.Settings.Semantics = updatedAuthor.Settings.Semantics;
                 author.Settings.OpenCitations = updatedAuthor.Settings.OpenCitations;
                 author.Settings.LibraryTableView = updatedAuthor.Settings.LibraryTableView;
+                author.Settings.GraphFontSize = updatedAuthor.Settings.GraphFontSize;
 
                 context.SaveChanges();
             }

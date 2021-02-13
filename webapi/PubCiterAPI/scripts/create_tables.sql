@@ -12,6 +12,7 @@ CREATE TABLE author_setting (
    open_citations 		BOOLEAN default false,
    semantics 			BOOLEAN default false,
    library_table_view 	BOOLEAN default false,
+   graph_font_size      numeric(2) default 14,
    CONSTRAINT PKEY_SETTING PRIMARY KEY (setting_id)
 );
 

@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using PubCiterAPI.Model;
-using PubCiterAPI.Model.SyncState;
 using PubCiterAPI.Repositories;
 using PubCiterAPI.Repositories.Interfaces;
 using Swashbuckle.AspNetCore.Annotations;
@@ -18,28 +17,28 @@ namespace PubCiterAPI.Controllers
         /// <summary>
         /// The logger.
         /// </summary>
-        private readonly ILogger<QuarantineController> logger;
+        private readonly ILogger<QuarantineController> _logger;
 
         /// <summary>
         /// Author Repository instance
         /// </summary>
-        private readonly IQuarantineRepository quarantineRepository;
+        private readonly IQuarantineRepository _quarantineRepository;
 
         /// <summary>
         /// Author Repository instance
         /// </summary>
-        private readonly IAuthorRepository authorRepository;
+        private readonly IAuthorRepository _authorRepository;
 
         /// <summary>
         /// Current DB Context
         /// </summary>
-        private readonly ApplicationDbContext context;
+        private readonly ApplicationDbContext _context;
 
         /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="authorRepository">Author repository instance</param>
-        /// <param name="publicationRepository">Publication repository instance</param>
+        /// <param name="quarantineRepository">Quarantine repository instance</param>
         /// <param name="context">Application DB context</param>
         /// <param name="logger">Logger instance</param>
         public QuarantineController(
@@ -48,10 +47,10 @@ namespace PubCiterAPI.Controllers
             ApplicationDbContext context,
             ILogger<QuarantineController> logger)
         {
-            this.context = context;
-            this.quarantineRepository = quarantineRepository;
-            this.authorRepository = authorRepository;
-            this.logger = logger;
+            this._context = context;
+            this._quarantineRepository = quarantineRepository;
+            this._authorRepository = authorRepository;
+            this._logger = logger;
         }
 
         /// <summary>
@@ -64,13 +63,13 @@ namespace PubCiterAPI.Controllers
         {
             try
             {
-                this.quarantineRepository.MoveToQuarantine(context, publicationId);
-                this.authorRepository.RecountCitations(context);
+                this._quarantineRepository.MoveToQuarantine(_context, publicationId);
+                this._authorRepository.RecountCitations(_context);
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
-                this.logger.LogError(ex.ToString());
+                this._logger.LogError(ex.ToString());
             }
         }
 
@@ -84,13 +83,13 @@ namespace PubCiterAPI.Controllers
         {
             try
             {
-                this.quarantineRepository.RemoveFromQuarantine(context, quarantinedPublicationId);
-                this.authorRepository.RecountCitations(context);
+                this._quarantineRepository.RemoveFromQuarantine(_context, quarantinedPublicationId);
+                this._authorRepository.RecountCitations(_context);
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
-                this.logger.LogError(ex.ToString());
+                this._logger.LogError(ex.ToString());
             }
         }
 
@@ -104,13 +103,13 @@ namespace PubCiterAPI.Controllers
         {
             try
             {
-                this.quarantineRepository.ClearQuarantine(context);
-                this.authorRepository.RecountCitations(context);
+                this._quarantineRepository.ClearQuarantine(_context);
+                this._authorRepository.RecountCitations(_context);
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
-                this.logger.LogError(ex.ToString());
+                this._logger.LogError(ex.ToString());
             }
         }
 
@@ -120,16 +119,16 @@ namespace PubCiterAPI.Controllers
         [HttpGet]
         [Route(@"")]
         [SwaggerOperation(Summary = "Gets the list of publication in quarantine")]
-        public IEnumerable<QuarantinedPublication> GetQuarantineList([SwaggerParameter(Description = @"If set, citations will be appended to response")]bool citations)
+        public IEnumerable<QuarantinedPublication> GetQuarantineList([SwaggerParameter(Description = @"If set, citations will be appended to response")] bool citations)
         {
             try
             {
-                return this.quarantineRepository.GetQuarantineList(context, citations);
+                return this._quarantineRepository.GetQuarantineList(_context, citations);
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
-                this.logger.LogError(ex.ToString());
+                this._logger.LogError(ex.ToString());
             }
 
             return null;
