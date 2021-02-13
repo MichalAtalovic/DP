@@ -195,3 +195,10 @@ C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\obj\Debug\netcor
 C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\obj\Debug\netcoreapp3.1\PubCiterAPI.genruntimeconfig.cache
 C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\obj\Debug\netcoreapp3.1\PubCiterAPI.csprojAssemblyReference.cache
 C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\bin\Debug\netcoreapp3.1\scripts\post_alter_tables.sql
+C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\bin\Debug\netcoreapp3.1\Scraper\scholarlylib\scholarly\__pycache__\author_parser.cpython-39.pyc
+C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\bin\Debug\netcoreapp3.1\Scraper\scholarlylib\scholarly\__pycache__\data_types.cpython-39.pyc
+C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\bin\Debug\netcoreapp3.1\Scraper\scholarlylib\scholarly\__pycache__\publication_parser.cpython-39.pyc
+C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\bin\Debug\netcoreapp3.1\Scraper\scholarlylib\scholarly\__pycache__\_navigator.cpython-39.pyc
+C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\bin\Debug\netcoreapp3.1\Scraper\scholarlylib\scholarly\__pycache__\_proxy_generator.cpython-39.pyc
+C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\bin\Debug\netcoreapp3.1\Scraper\scholarlylib\scholarly\__pycache__\_scholarly.cpython-39.pyc
+C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\bin\Debug\netcoreapp3.1\Scraper\scholarlylib\scholarly\__pycache__\__init__.cpython-39.pyc

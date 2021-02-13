@@ -54,7 +54,8 @@
                 DisplayName = author,
                 Settings = new AuthorSettings
                 {
-                    Scholar = true
+                    Scholar = true,
+                    GraphFontSize = 14
                 }
             };
 
