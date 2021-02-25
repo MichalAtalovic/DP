@@ -5,6 +5,7 @@ import { MyLibraryComponent } from './my-library/my-library.component';
 import { QuarantineComponent } from './quarantine/quarantine.component';
 import { SettingsComponent } from './settings/settings.component';
 import { SyncComponent } from './sync/sync.component';
+import { UtilsComponent } from './utils/utils.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
@@ -13,12 +14,14 @@ const routes: Routes = [
   { path: 'quarantine', component: QuarantineComponent },
   { path: 'settings', component: SettingsComponent },
   { path: 'sync', component: SyncComponent },
+  { path: 'utils', component: UtilsComponent },
 
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'quarantine', redirectTo: '/quarantine', pathMatch: 'full' },
   { path: 'settings', redirectTo: '/settings', pathMatch: 'full' },
   { path: 'sync', redirectTo: '/sync', pathMatch: 'full' },
+  { path: 'utils', redirectTo: '/utils', pathMatch: 'full' },
 ];
 
 @NgModule({

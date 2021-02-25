@@ -37,6 +37,7 @@ import { MyLibraryActionPanelComponent } from './my-library/my-library-action-pa
 import { MatMenuModule } from '@angular/material/menu';
 import { RemoveCitationDialogComponent } from './dialogs/remove-citation-dialog/remove-citation-dialog.component';
 import { ExportDialogComponent } from './dialogs/export-dialog/export-dialog.component';
+import { UtilsComponent } from './utils/utils.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { ExportDialogComponent } from './dialogs/export-dialog/export-dialog.com
     HardResetDialogComponent,
     MyLibraryActionPanelComponent,
     RemoveCitationDialogComponent,
-    ExportDialogComponent
+    ExportDialogComponent,
+    UtilsComponent
   ],
   imports: [
     BrowserModule,
