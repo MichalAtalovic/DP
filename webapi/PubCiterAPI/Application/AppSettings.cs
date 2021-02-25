@@ -26,5 +26,21 @@
         /// Folder containing API outputs
         /// </summary>
         public static string OutputFolder { get; set; }
+
+        /// <summary>
+        /// Path to PybTexFormat script
+        /// </summary>
+        public static string PybTexFormatScriptPath { get; set; }
+
+        /// <summary>
+        /// Path to PybTexConvert script
+        /// </summary>
+        public static string PybTexConvertScriptPath { get; set; }
+
+        /// <summary>
+        /// Path to Ris2Bib script
+        /// </summary>
+        public static string Ris2BibScriptPath { get; set; }
+        
     }
 }

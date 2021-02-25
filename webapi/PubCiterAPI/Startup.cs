@@ -60,7 +60,10 @@ namespace PubCiterAPI
             AppSettings.SemanticsScriptPath = this.Configuration.GetSection(@"Scraper").GetChildren().FirstOrDefault(x => x.Key == @"SemanticsScriptPath")?.Value;
             AppSettings.ScholarScriptPath = this.Configuration.GetSection(@"Scraper").GetChildren().FirstOrDefault(x => x.Key == @"ScholarScriptPath")?.Value;
             AppSettings.OutputFolder = this.Configuration.GetSection(@"Scraper").GetChildren().FirstOrDefault(x => x.Key == @"OutputFolder")?.Value;
-
+            AppSettings.PybTexConvertScriptPath = this.Configuration.GetSection(@"Utils").GetChildren().FirstOrDefault(x => x.Key == @"PybTexConvertScriptPath")?.Value;
+            AppSettings.PybTexFormatScriptPath = this.Configuration.GetSection(@"Utils").GetChildren().FirstOrDefault(x => x.Key == @"PybTexFormatScriptPath")?.Value;
+            AppSettings.Ris2BibScriptPath = this.Configuration.GetSection(@"Utils").GetChildren().FirstOrDefault(x => x.Key == @"Ris2BibScriptPath")?.Value;
+            
             // Reset states of synchronization
             CurrentSyncState.GoogleScholar = SyncStateEnum.Idle;
             CurrentSyncState.GoogleScholar = SyncStateEnum.Idle;
@@ -106,6 +109,7 @@ namespace PubCiterAPI
             services.AddScoped<PublicationRepository>();
             services.AddScoped<SettingsRepository>();
             services.AddScoped<QuarantineRepository>();
+            services.AddScoped<UtilsRepository>();
         }
     }
 }

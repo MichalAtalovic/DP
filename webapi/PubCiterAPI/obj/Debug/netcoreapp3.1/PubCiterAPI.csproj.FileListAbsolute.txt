@@ -202,3 +202,6 @@ C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\bin\Debug\netcor
 C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\bin\Debug\netcoreapp3.1\Scraper\scholarlylib\scholarly\__pycache__\_proxy_generator.cpython-39.pyc
 C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\bin\Debug\netcoreapp3.1\Scraper\scholarlylib\scholarly\__pycache__\_scholarly.cpython-39.pyc
 C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\bin\Debug\netcoreapp3.1\Scraper\scholarlylib\scholarly\__pycache__\__init__.cpython-39.pyc
+C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\bin\Debug\netcoreapp3.1\Utils\pybtex_convert.py
+C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\bin\Debug\netcoreapp3.1\Utils\pybtex_format.py
+C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\bin\Debug\netcoreapp3.1\Utils\ris2bib.py

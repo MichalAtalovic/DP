@@ -103,7 +103,7 @@ export class DashboardComponent implements OnInit {
           }
         }
 
-        const data = [];
+        const data = [] as any;
         for (let i = minYear; i <= currentYear; i++) {
           this.lineChartLabels.push(i.toString());
           data.push(yearData[i.toString()]);

@@ -4,4 +4,8 @@
     <div style="color: white; font-size: 18px;">Import publication</div>
     <input id="fileInput" type="file" class="file" style="display:none" (change)="this.handleImportedFile($event)">
   </button>
+  <button class="action-item" (click)="this.onClickExport()">
+    <img src="assets/export.png" style="display: block; height: 22px; float: left;" />
+    <div style="color: white; font-size: 18px;">Export data</div>
+  </button>
 </div>

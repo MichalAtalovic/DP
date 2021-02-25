@@ -16,5 +16,10 @@
     "OperaProfileDir": "C:/Users/michal.atalovic/AppData/Local/Opera Software/Opera Stable",
     "OutputFolder": "Scraper/output"
   },
+  "Utils": {
+    "PybTexFormatScriptPath": "Utils/pybtex_format.py",
+    "PybTexConvertScriptPath": "Utils/pybtex_convert.py",
+    "Ris2BibScriptPath": "Utils/ris2bib.py"
+  },
   "AllowedHosts": "*"
 }

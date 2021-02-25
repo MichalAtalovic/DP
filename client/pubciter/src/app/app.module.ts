@@ -36,6 +36,7 @@ import { AngularResizedEventModule } from 'angular-resize-event';
 import { MyLibraryActionPanelComponent } from './my-library/my-library-action-panel/my-library-action-panel.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { RemoveCitationDialogComponent } from './dialogs/remove-citation-dialog/remove-citation-dialog.component';
+import { ExportDialogComponent } from './dialogs/export-dialog/export-dialog.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { RemoveCitationDialogComponent } from './dialogs/remove-citation-dialog/
     SyncDialogComponent,
     HardResetDialogComponent,
     MyLibraryActionPanelComponent,
-    RemoveCitationDialogComponent
+    RemoveCitationDialogComponent,
+    ExportDialogComponent
   ],
   imports: [
     BrowserModule,
