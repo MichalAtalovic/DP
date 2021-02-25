@@ -1,0 +1,14 @@
+entries:
+    gratzer12007:
+        type: article
+        title: More Math Into LaTeX1
+        journal: More Math Into LaTeX1
+        year: '2007'
+        publisher: Birkhauser
+        author:
+        -   first: George
+            middle: A.
+            last: Gratzer1
+        -   first: George
+            middle: A.
+            last: Gratzer1

@@ -10,36 +10,36 @@ def parse_ris(data):
     entries['author'].append('')
     for TempLine in lines:
         if re.match('TY', TempLine):
-            entries['Type'] = TempLine[6:-1]
+            entries['Type'] = TempLine[6:]
         elif re.match('PB', TempLine):
-            entries['publisher'] = TempLine[6:-1]
+            entries['publisher'] = TempLine[6:]
         elif re.match('ID', TempLine):
-            entries['doi'] = TempLine[6:-1]
+            entries['doi'] = TempLine[6:]
         elif re.match('TI', TempLine) or re.match('T1', TempLine) or re.match('T2', TempLine):
-            entries['title'] = TempLine[6:-1]
-            entries['journal'] = TempLine[6:-1]
+            entries['title'] = TempLine[6:]
+            entries['journal'] = TempLine[6:]
         elif re.match('PY', TempLine):
             entries['year'] = TempLine[6:10]
         elif re.match('UR', TempLine):
-            entries['url'] = TempLine[6:-1]
+            entries['url'] = TempLine[6:]
         elif re.match('Y1', TempLine):
             entries['year'] = TempLine[6:10]
         elif re.match('JO', TempLine) or re.match('J1', TempLine) or re.match('JF', TempLine) or re.match('JA', TempLine):
-            entries['journal'] = TempLine[6:-1]
+            entries['journal'] = TempLine[6:]
         elif re.match('A1', TempLine):
-            entries['author'][0].append(TempLine[6:-1])
+            entries['author'][0].append(TempLine[6:])
         elif re.match("AU", TempLine):
-            entries['author'].append(TempLine[6:-1])
+            entries['author'].append(TempLine[6:])
         elif re.match('VL', TempLine):
-            entries['volume'] = TempLine[6:-1]
+            entries['volume'] = TempLine[6:]
         elif re.match('IS', TempLine):
-            entries['issue'] = TempLine[6:-1]
+            entries['issue'] = TempLine[6:]
         elif re.match('SP', TempLine):
-            entries['startpage'] = TempLine[6:-1]
+            entries['startpage'] = TempLine[6:]
         elif re.match('EP', TempLine):
-            entries['endpage'] = TempLine[6:-1]
+            entries['endpage'] = TempLine[6:]
         elif re.match('AB', TempLine):
-            entries['abstract'] = TempLine[6:-1]
+            entries['abstract'] = TempLine[6:]
 
     if entries['author'][0] == '':
         entries['author'].pop(0)
@@ -81,7 +81,7 @@ def ris2bib(entries):
     if ('url' in entries):
         bib.write('\n\turl = \"' + entries['url']+'\",')
     if ('abstract' in entries):
-        bib.write('\n\tabstract = \"' + str(entries['abstract'].encode("ascii", "ignore")) + '\",')
+        bib.write('\n\tabstract = \"' + str(entries['abstract'].encode("ascii", "ignore")).lstrip('b\'').rstrip('\'') + '\",')
     bib.write('\n}')
     bib.close()
 

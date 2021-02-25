@@ -38,6 +38,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { RemoveCitationDialogComponent } from './dialogs/remove-citation-dialog/remove-citation-dialog.component';
 import { ExportDialogComponent } from './dialogs/export-dialog/export-dialog.component';
 import { UtilsComponent } from './utils/utils.component';
+import { NgxFileDropModule } from 'ngx-file-drop';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -77,7 +79,9 @@ import { UtilsComponent } from './utils/utils.component';
     MatCheckboxModule,
     ChartsModule,
     AngularResizedEventModule,
-    MatMenuModule
+    MatMenuModule,
+    NgxFileDropModule,
+    MatTabsModule
   ],
   providers: [
     DateFormatPipe,

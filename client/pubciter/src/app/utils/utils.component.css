@@ -1,0 +1,50 @@
+.text-overlay {
+  position: absolute;
+  top: 52.7%;
+  left: 50%;
+  transform: translate(-60%, -50%);
+  color: white;
+  font-size: 20px;
+  font-style: italic;
+  cursor: pointer;
+}
+
+.watermarked {
+  position: relative;
+}
+
+.watermark-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.mat-tab-50 ::ng-deep .mat-tab-label-active {
+  min-width: 25px !important;
+  width: 100px !important;
+  color: rgb(238, 0, 111) !important;
+  font-size: 20px;
+}
+
+.mat-tab-50 ::ng-deep .mat-tab-label {
+  min-width: 25px !important;
+  width: 224px !important;
+  font-size: 15px;
+}
+
+.mat-tab-100 ::ng-deep .mat-tab-label-active {
+  min-width: 25px !important;
+  width: 448px !important;
+  color: rgb(238, 0, 111) !important;
+  font-size: 20px;
+}
+
+.mat-tab-100 ::ng-deep .mat-tab-label {
+  min-width: 25px !important;
+  width: 448px !important;
+  font-size: 15px;
+}

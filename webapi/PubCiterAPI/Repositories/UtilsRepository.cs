@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Web;
 using PubCiterAPI.Model.Utils;
 
 namespace PubCiterAPI.Repositories
@@ -17,12 +18,6 @@ namespace PubCiterAPI.Repositories
         /// <returns>Converted data as string</returns>
         public string Convert(string data, ConversionTypeEnum convertFrom, ConversionTypeEnum convertTo)
         {
-            // do not convert if goal format is the same as current format
-            if (convertFrom == convertTo)
-            {
-                return data;
-            }
-
             switch (convertFrom)
             {
                 case ConversionTypeEnum.Bib:
@@ -67,6 +62,13 @@ namespace PubCiterAPI.Repositories
         /// <returns>Converted bibliographical entry as string</returns>
         private string PybTexConvert(string data, ConversionTypeEnum convertFrom, ConversionTypeEnum convertTo)
         {
+            data = data.TrimStart('\"').TrimEnd('\"').Replace("\\r\\n", Environment.NewLine);
+
+            if (data.Contains("\\\""))
+            {
+                data = data.Replace("\\\"", "\"");
+            }
+
             var process = new System.Diagnostics.Process
             {
                 StartInfo = new System.Diagnostics.ProcessStartInfo()
@@ -75,7 +77,7 @@ namespace PubCiterAPI.Repositories
                     CreateNoWindow = false,
                     WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden,
                     FileName = @"cmd.exe",
-                    Arguments = $"/C python {AppSettings.PybTexConvertScriptPath} --input-format \"{convertFrom.ToString().ToLower()}\" --output-format \"{convertTo.ToString().ToLower()}\" --data \"{data.Replace("\"", "\\\"").Replace(Environment.NewLine, string.Empty)}\"",
+                    Arguments = $"/C python {AppSettings.PybTexConvertScriptPath} --input-format \"{convertFrom.ToString().ToLower()}\" --output-format \"{convertTo.ToString().ToLower()}\" --data \"{data.TrimStart('\"').TrimEnd('\"').Replace("\"", "\\\"").Replace(Environment.NewLine, string.Empty)}\"",
                     RedirectStandardError = true,
                     RedirectStandardOutput = true
                 }
@@ -97,6 +99,13 @@ namespace PubCiterAPI.Repositories
         /// <returns></returns>
         private string PybTexFormat(string data, FormatEnum formatAs)
         {
+            data = data.TrimStart('\"').TrimEnd('\"').Replace("\\r\\n", Environment.NewLine);
+
+            if (data.Contains("\\\""))
+            {
+                data = data.Replace("\\\"", "\"");
+            }
+
             var process = new System.Diagnostics.Process
             {
                 StartInfo = new System.Diagnostics.ProcessStartInfo()
@@ -126,6 +135,13 @@ namespace PubCiterAPI.Repositories
         /// <returns></returns>
         private string Ris2Bib(string data)
         {
+            data = data.TrimStart('\"').TrimEnd('\"').Replace("\\r\\n", Environment.NewLine);
+
+            if (data.Contains("\\\""))
+            {
+                data = data.Replace("\\\"", "\"");
+            }
+
             var process = new System.Diagnostics.Process
             {
                 StartInfo = new System.Diagnostics.ProcessStartInfo()
@@ -155,11 +171,18 @@ namespace PubCiterAPI.Repositories
         /// <returns>RIS string</returns>
         private string Bib2Ris(string data)
         {
+            data = data.TrimStart('\"').TrimEnd('\"').Replace("\\r\\n", Environment.NewLine);
+
+            if (data.Contains("\\\""))
+            {
+                data = data.Replace("\\\"", "\"");
+            }
+
             var ris = string.Empty;
 
             // add virtual separator to distinguish records in multiple-record input + replace comma separator with semicolon to distinguish entries
             data = data.Replace(@"@", @"|@").TrimStart('|')
-                .Replace(@"," + Environment.NewLine, @";" + Environment.NewLine);
+                .Replace("," + Environment.NewLine, @";" + Environment.NewLine);
 
             // iterate over records
             foreach (var bib in data.Split('|'))

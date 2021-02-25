@@ -23,8 +23,8 @@ export class BaseRestService {
     return this.httpClient.get(`${this.baseUrl}/${url}`, { headers: this.headers }).toPromise();
   }
 
-  protected post(url: string, data: any) {
-    return this.httpClient.post(`${this.baseUrl}/${url}`, JSON.stringify(data), { headers: this.headers }).toPromise();
+  protected post(url: string, data: any, responseType: any = null) {
+    return this.httpClient.post(`${this.baseUrl}/${url}`, JSON.stringify(data), responseType !== null ? responseType : { headers: this.headers }).toPromise();
   }
 
   protected put(url: string, data: any) {

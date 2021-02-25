@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bibtex:file xmlns:bibtex="http://bibtexml.sf.net/">
+
+    <bibtex:entry id="gratzer12007">
+        <bibtex:article>
+            <bibtex:title>More Math Into LaTeX1</bibtex:title>
+            <bibtex:journal>More Math Into LaTeX1</bibtex:journal>
+            <bibtex:year>2007</bibtex:year>
+            <bibtex:publisher>Birkhauser</bibtex:publisher>
+            <bibtex:author>
+                <bibtex:person>
+                    <bibtex:first>George</bibtex:first>
+                    <bibtex:middle>A.</bibtex:middle>
+                    <bibtex:last>Gratzer1</bibtex:last>
+                </bibtex:person>
+                <bibtex:person>
+                    <bibtex:first>George</bibtex:first>
+                    <bibtex:middle>A.</bibtex:middle>
+                    <bibtex:last>Gratzer1</bibtex:last>
+                </bibtex:person>
+            </bibtex:author>
+        </bibtex:article>
+    </bibtex:entry>
+
+</bibtex:file>
