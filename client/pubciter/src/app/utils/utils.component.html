@@ -35,9 +35,9 @@
               </mat-tab>
               <mat-tab label="TEXT">
                 <div style="margin: 20px; align-items: center;">
-                  <mat-radio-group #conversionInputFormatRadio color="accent"
-                    name="conversionInputFormatRadio" (change)="this.changeInputConversionFormat($event)"
-                    [(ngModel)]="this.inputConversionFormat" style="margin: 0px; max-height: 30px;">
+                  <mat-radio-group #conversionInputFormatRadio color="accent" name="conversionInputFormatRadio"
+                    (change)="this.changeInputConversionFormat($event)" [(ngModel)]="this.inputConversionFormat"
+                    style="margin: 0px; max-height: 30px; margin-left: 65px;">
                     <mat-radio-button style="margin-right: 10px;" [value]="'bib'" checked>BIB</mat-radio-button>
                     <mat-radio-button style="margin-right: 10px;" [value]="'ris'">RIS</mat-radio-button>
                     <mat-radio-button style="margin-right: 10px;" [value]="'yaml'">YAML</mat-radio-button>
@@ -45,7 +45,7 @@
                   </mat-radio-group>
                   <div style="width: 410px; height: 1px; background-color: grey; margin-bottom: 10px;"></div>
                   <mat-form-field style="height: 100%; width: 100%;">
-                    <textarea matInput #textInput placeholder="Type or paste bibliographical record as string..."
+                    <textarea matInput placeholder="Type or paste bibliographical record as string..."
                       [(ngModel)]="this.conversionPreviewText" style="height: 340px; max-height: 340px;"></textarea>
                   </mat-form-field>
                 </div>
@@ -56,8 +56,9 @@
             <img class="icon" src="assets/arrow-right.png"
               style="height: 150px; width: 150px; margin-top: 175px; cursor: pointer;" (click)="this.convert()">
             <div class="text-overlay" (click)="this.convert()">Convert</div>
-            <mat-radio-group #conversionOutputFormatRadio class="d-flex flex-column" color="accent" name="conversionOutputFormatRadio"
-              (change)="this.changeOutputConversionFormat($event)" style="margin: 0px; max-height: 30px;">
+            <mat-radio-group #conversionOutputFormatRadio class="d-flex flex-column" color="accent"
+              name="conversionOutputFormatRadio" (change)="this.changeOutputConversionFormat($event)"
+              style="margin: 0px; max-height: 30px;" [(ngModel)]="this.outputConversionFormat">
               <mat-radio-button style="margin-bottom: 10px;" [value]="'bib'" checked>BIB</mat-radio-button>
               <mat-radio-button style="margin-bottom: 10px;" [value]="'ris'">RIS</mat-radio-button>
               <mat-radio-button style="margin-bottom: 10px;" [value]="'yaml'">YAML</mat-radio-button>
@@ -73,7 +74,8 @@
                     <textarea matInput #textOutput readonly [(ngModel)]="this.conversionOutput"
                       style="height: 340px; max-height: 340px;"></textarea>
                   </mat-form-field>
-                  <button mat-button style="width: 407px; background-color: #1E88E5; color: white;" (click)="this.downloadConversion()">DOWNLOAD</button>
+                  <button mat-button style="width: 407px; background-color: #1E88E5; color: white;"
+                    (click)="this.downloadConversion()">DOWNLOAD</button>
                 </div>
               </mat-tab>
             </mat-tab-group>
@@ -90,7 +92,7 @@
     <div class="card-body row" style="display:flex; justify-content: space-between; align-items:center; margin: 5px;">
       <div class="d-flex flex-column">
         <div class="d-flex flex-row">
-          <div class="d-flex-2 flex-column"
+          <div class="d-flex flex-column"
             style="width: 450px; height: 500px; border: 1px solid darkslateblue; border-radius: 3px;">
             <mat-tab-group #formatTab class="mat-tab-50">
               <mat-tab label="FILE">
@@ -117,31 +119,56 @@
                 </div>
               </mat-tab>
               <mat-tab label="TEXT">
-                <div style="margin: 20px;">
+                <div style="margin: 20px; align-items: center;">
+                  <mat-radio-group #inputFormatRadio color="accent" name="inputFormatRadio"
+                    (change)="this.changeInputFormat($event)" [(ngModel)]="this.inputFormat"
+                    style="margin: 0px; max-height: 30px; margin-left: 65px;">
+                    <mat-radio-button style="margin-right: 10px;" [value]="'bib'" checked>BIB</mat-radio-button>
+                    <mat-radio-button style="margin-right: 10px;" [value]="'ris'">RIS</mat-radio-button>
+                    <mat-radio-button style="margin-right: 10px;" [value]="'yaml'">YAML</mat-radio-button>
+                    <mat-radio-button [value]="'xml'">BibXML</mat-radio-button>
+                  </mat-radio-group>
+                  <div style="width: 410px; height: 1px; background-color: grey; margin-bottom: 10px;"></div>
                   <mat-form-field style="height: 100%; width: 100%;">
-                    <textarea matInput #convertedOutput placeholder="Type or paste bibliographical record as string..."
-                      [(ngModel)]="this.formatPreviewText" style="height: 380px; max-height: 380px;"></textarea>
+                    <textarea matInput placeholder="Type or paste bibliographical record as string..."
+                      [(ngModel)]="this.formatPreviewText" style="height: 340px; max-height: 340px;"></textarea>
                   </mat-form-field>
                 </div>
               </mat-tab>
             </mat-tab-group>
           </div>
-          <div class="d-flex-1 flex-column" style="height: 500px;">
+          <div class="d-flex flex-column" style="height: 500px; align-items: center;">
             <img class="icon" src="assets/arrow-right.png"
               style="height: 150px; width: 150px; margin-top: 175px; cursor: pointer;" (click)="this.format()">
             <div class="text-overlay" (click)="this.format()">Format</div>
+            <mat-radio-group #conversionOutputFormatRadio class="d-flex flex-column" color="accent"
+              name="conversionOutputFormatRadio" (change)="this.changeOutputConversionFormat($event)"
+              style="margin: 0px; max-height: 30px;" [(ngModel)]="this.outputFormat">
+              <mat-radio-button style="margin-bottom: 10px;" [value]="'html'" checked>APA</mat-radio-button>
+              <mat-radio-button style="margin-bottom: 10px;" [value]="'tex'">LaTeX</mat-radio-button>
+              <mat-radio-button style="margin-bottom: 10px;" [value]="'txt'">Plain text</mat-radio-button>
+              <mat-radio-button [value]="'md'">Markdown</mat-radio-button>
+            </mat-radio-group>
           </div>
-          <div class="d-flex-2 flex-column"
-            style="width: 450px; height: 500px; border: 1px solid darkslateblue; border-radius: 3px;">
+          <div class="d-flex flex-column"
+            style="width: 450px; height: 500px; border: 1px solid darkslateblue; border-radius: 3px; align-items: center;">
             <mat-tab-group #formatOutputTab class="mat-tab-50">
               <mat-tab label="RAW">
-                <div style="margin: 20px;">
-                  {{ this.formatOutput }}
+                <div style="margin: 20px; margin-top: 10px;">
+                  <mat-form-field style="height: 100%; width: 100%;">
+                    <textarea matInput readonly [(ngModel)]="this.formattedOutput"
+                      style="height: 340px; max-height: 340px;"></textarea>
+                  </mat-form-field>
+                  <button mat-button style="width: 407px; background-color: #1E88E5; color: white;"
+                    (click)="this.downloadFormatted()">DOWNLOAD</button>
                 </div>
               </mat-tab>
               <mat-tab label="VISUALIZED">
-                <div style="margin: 20px;">
-                  <section class="content" *ngIf="this.formatOutput" [innerHTML]="this.formatPreviewText"></section>
+                <div style="margin: 20px; margin-top: 10px;">
+                  <section class="content" style="height: 360px; max-height: 360px; margin: bottom: 10px;" [innerHTML]="this.formattedOutput"></section>
+                  <div style="width: 410px; height: 1px; background-color: grey; margin-bottom: 20px;"></div>
+                  <button mat-button style="width: 407px; background-color: #1E88E5; color: white;"
+                    (click)="this.downloadFormatted()">DOWNLOAD</button>
                 </div>
               </mat-tab>
             </mat-tab-group>

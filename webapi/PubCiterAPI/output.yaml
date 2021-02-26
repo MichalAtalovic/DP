@@ -1,14 +1,21 @@
 entries:
-    gratzer12007:
+    kumar2005computers:
         type: article
-        title: More Math Into LaTeX1
-        journal: More Math Into LaTeX1
-        year: '2007'
-        publisher: Birkhauser
+        title: 'Computers in manufacturing: towards successful implementation of integrated
+            automation system'
+        journal: Technovation
+        volume: '25'
+        number: '5'
+        pages: 477--488
+        year: '2005'
+        publisher: Elsevier
         author:
-        -   first: George
-            middle: A.
-            last: Gratzer1
-        -   first: George
-            middle: A.
-            last: Gratzer1
+        -   first: K
+            middle: Dhinesh
+            last: Kumar
+        -   first: L
+            last: Karunamoorthy
+        -   first: Hubert
+            last: Roth
+        -   first: TT
+            last: Mirnalinee

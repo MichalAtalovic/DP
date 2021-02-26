@@ -17,9 +17,10 @@ export class UtilsComponent implements OnInit {
   public conversionPreviewText: any = '';
   public formatPreviewText: any = '';
   public conversionOutput: any;
-  public formatOutput: any;
+  public formattedOutput: any;
   public inputConversionFormat: any = 'bib';
   public outputConversionFormat: any = 'bib';
+  public inputFormat: any = 'bib';
   public outputFormat: any = 'html';
 
   constructor(
@@ -64,6 +65,9 @@ export class UtilsComponent implements OnInit {
         return;
       }
 
+      const split = files[0].relativePath.toLowerCase().split('.');
+      this.inputFormat = split[split.length - 1];
+
       const fileEntry = files[0].fileEntry as FileSystemFileEntry;
       fileEntry.file((file: File) => {
         file.text().then((data) => {
@@ -86,6 +90,10 @@ export class UtilsComponent implements OnInit {
     this.outputFormat = e.value;
   }
 
+  public changeInputFormat(e: any) {
+    this.inputFormat = e.value;
+  }
+
   public convert() {
     if (this.conversionPreviewText === '') {
       return;
@@ -100,6 +108,10 @@ export class UtilsComponent implements OnInit {
     if (this.formatPreviewText === '') {
       return;
     }
+
+    this.utilsService.format(this.outputFormat, this.formatPreviewText).then((result: any) => {
+      this.formattedOutput = result as any;
+    });
   }
 
   public downloadConversion() {
@@ -107,24 +119,47 @@ export class UtilsComponent implements OnInit {
     if (!this.conversionOutput || this.conversionOutput === '') {
       return;
     }
-    console.log('downloading');
 
-    var file = new Blob([this.conversionOutput], {type: this.outputConversionFormat});
+    var file = new Blob([this.conversionOutput], { type: this.outputConversionFormat });
     if (window.navigator.msSaveOrOpenBlob) {
       window.navigator.msSaveOrOpenBlob(file, "out." + this.outputConversionFormat);
     }
     else {
-        var a = document.createElement("a"),
-                url = URL.createObjectURL(file);
-        a.href = url;
-        a.download = "out." + this.outputConversionFormat;
-        document.body.appendChild(a);
-        a.click();
-        setTimeout(function() {
-            document.body.removeChild(a);
-            window.URL.revokeObjectURL(url);
-        }, 0);
+      var a = document.createElement("a"),
+        url = URL.createObjectURL(file);
+      a.href = url;
+      a.download = "out." + this.outputConversionFormat;
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(function () {
+        document.body.removeChild(a);
+        window.URL.revokeObjectURL(url);
+      }, 0);
     }
-}
+  }
+
+  public downloadFormatted() {
+
+    if (!this.formattedOutput || this.formattedOutput === '') {
+      return;
+    }
+
+    var file = new Blob([this.formattedOutput], { type: this.outputFormat });
+    if (window.navigator.msSaveOrOpenBlob) {
+      window.navigator.msSaveOrOpenBlob(file, "out." + this.outputFormat);
+    }
+    else {
+      var a = document.createElement("a"),
+        url = URL.createObjectURL(file);
+      a.href = url;
+      a.download = "out." + this.outputFormat;
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(function () {
+        document.body.removeChild(a);
+        window.URL.revokeObjectURL(url);
+      }, 0);
+    }
+  }
 
 }

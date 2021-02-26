@@ -171,6 +171,9 @@ namespace PubCiterAPI.Repositories
         /// <returns>RIS string</returns>
         private string Bib2Ris(string data)
         {
+            // convert curly braces bib notation to double quote notation
+            data = this.Convert(data, ConversionTypeEnum.Bib, ConversionTypeEnum.Bib);
+
             data = data.TrimStart('\"').TrimEnd('\"').Replace("\\r\\n", Environment.NewLine);
 
             if (data.Contains("\\\""))
