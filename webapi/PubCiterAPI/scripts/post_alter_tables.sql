@@ -1,1 +1,0 @@
-alter table author_setting add column if not exists graph_font_size numeric(2) default 14;

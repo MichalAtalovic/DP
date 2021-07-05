@@ -58,7 +58,7 @@
                         Citation = new Citation
                         {
                             Title = publicationCitation.Citation.Title,
-                            Author = publicationCitation.Citation.Author,
+                            Authors = publicationCitation.Citation.Authors,
                             PublicationYear = publicationCitation.Citation.PublicationYear,
                             Journal = publicationCitation.Citation.Journal,
                             JournalVolume = publicationCitation.Citation.JournalVolume,
@@ -113,7 +113,7 @@
                         Citation = new Citation
                         {
                             Title = quarantinedPublicationCitation.Citation.Title,
-                            Author = quarantinedPublicationCitation.Citation.Author,
+                            Authors = quarantinedPublicationCitation.Citation.Authors,
                             PublicationYear = quarantinedPublicationCitation.Citation.PublicationYear,
                             Journal = quarantinedPublicationCitation.Citation.Journal,
                             JournalVolume = quarantinedPublicationCitation.Citation.JournalVolume,

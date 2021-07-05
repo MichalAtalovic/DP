@@ -30,6 +30,18 @@
         public virtual Author Author { get; set; }
 
         /// <summary>
+        /// Publication category ID
+        /// </summary>
+        [ForeignKey(@"PublicationCategory")]
+        [Column(@"publication_category_id")]
+        public long? PublicationCategoryId { get; set; }
+
+        /// <summary>
+        /// Publication category
+        /// </summary>
+        public PublicationCategory PublicationCategory { get; set; }
+
+        /// <summary>
         /// Publication's title
         /// </summary>
         [Column(@"title")]

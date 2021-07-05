@@ -75,5 +75,15 @@
         /// <param name="publicationId">Publication ID</param>
         /// <param name="citationId">Citation ID</param>
         void RemoveCitation(ApplicationDbContext context, long publicationId, long citationId);
+
+        /// <summary>
+        /// Lists citations by specific filter
+        /// </summary>
+        /// <param name="context">Application DB context</param>
+        /// <param name="yearFrom">Year from to filter by</param>
+        /// <param name="yearTo">Year to to filter by</param>
+        /// <param name="publicationCategories">Publication categories to filter by</param>
+        /// <param name="citationCategories">Citation categories to filter by</param>
+        List<KeyValuePair<Publication, Citation>> ReportCitations(ApplicationDbContext context, long? yearFrom, long? yearTo, List<string> publicationCategories, List<long> citationCategories);
     }
 }

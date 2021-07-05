@@ -110,6 +110,7 @@ namespace PubCiterAPI
             services.AddScoped<SettingsRepository>();
             services.AddScoped<QuarantineRepository>();
             services.AddScoped<UtilsRepository>();
+            services.AddScoped<EnumRepository>();
         }
     }
 }

@@ -1,16 +1,16 @@
-﻿namespace PubCiterAPI.Repositories
-{
-    using Microsoft.EntityFrameworkCore;
-    using Newtonsoft.Json.Linq;
-    using Model;
-    using Interfaces;
-    using System;
-    using System.Collections.Generic;
-    using System.IO;
-    using System.Linq;
-    using System.Net.Http;
-    using System.Text;
+﻿using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json.Linq;
+using PubCiterAPI.Model;
+using PubCiterAPI.Repositories.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Net.Http;
+using System.Text;
 
+namespace PubCiterAPI.Repositories
+{
     /// <summary>
     /// Publication Repository
     /// </summary>
@@ -114,9 +114,9 @@
                             }
                         }
 
-                        if (!string.IsNullOrEmpty(publicationCitation.Citation.Author))
+                        if (!string.IsNullOrEmpty(publicationCitation.Citation.Authors))
                         {
-                            if (publicationCitation.Citation.Author.Trim().ToLower().Contains(searchedText.Trim().ToLower()))
+                            if (publicationCitation.Citation.Authors.Trim().ToLower().Contains(searchedText.Trim().ToLower()))
                             {
                                 filteredList.Add(publication);
                                 break;
@@ -191,9 +191,9 @@
                                     citationPublication.Citation.PublicationUrl = citing[@"oa_link"]?.Value<string>() ?? string.Empty;
                                 }
 
-                                if (string.IsNullOrEmpty(citationPublication.Citation.Author))
+                                if (string.IsNullOrEmpty(citationPublication.Citation.Authors))
                                 {
-                                    citationPublication.Citation.Author = citing[@"author"]?.Value<string>() ?? string.Empty;
+                                    citationPublication.Citation.Authors = citing[@"author"]?.Value<string>() ?? string.Empty;
                                 }
 
                                 if (string.IsNullOrEmpty(citationPublication.Citation.Journal))
@@ -223,7 +223,7 @@
                                             Journal = citing[@"source_title"]?.Value<string>() ?? string.Empty,
                                             PublicationYear = citing[@"year"]?.Value<string>() ?? string.Empty,
                                             Doi = citing[@"doi"]?.Value<string>() ?? string.Empty,
-                                            Author = citing[@"author"]?.Value<string>() ?? string.Empty
+                                            Authors = citing[@"author"]?.Value<string>() ?? string.Empty
                                         }
                                     });
                             }
@@ -312,7 +312,7 @@
                                     (citationJson.Value<string>(@"title") ?? string.Empty).ToLower().Trim()));
                             if (citationPublication != null) // UPDATE CITATION
                             {
-                                citationPublication.Citation.Author = string.Join(Environment.NewLine,
+                                citationPublication.Citation.Authors = string.Join(Environment.NewLine,
                                     citationJson[@"author"] ?? string.Empty);
                                 citationPublication.Citation.PublicationYear =
                                     citationJson[@"pub_year"]?.Value<string>() ?? string.Empty;
@@ -330,7 +330,7 @@
                                     Citation = new Citation
                                     {
                                         Title = citationJson[@"title"]?.Value<string>() ?? string.Empty,
-                                        Author = string.Join(Environment.NewLine,
+                                        Authors = string.Join(Environment.NewLine,
                                             citationJson[@"author"] ?? string.Empty),
                                         PublicationYear =
                                             citationJson[@"pub_year"]?.Value<string>() ?? string.Empty,
@@ -376,7 +376,7 @@
                                 Citation = new Citation
                                 {
                                     Title = citationJson["title"]?.ToString() ?? string.Empty,
-                                    Author = citationJson["author"]?.ToString() ?? string.Empty,
+                                    Authors = citationJson["author"]?.ToString() ?? string.Empty,
                                     PublicationYear = citationJson["pub_year"]?.ToString() ?? string.Empty,
                                     Journal = citationJson["venue"]?.ToString() ?? string.Empty,
                                     Abstract = citationJson["abstract"]?.ToString() ?? string.Empty
@@ -462,9 +462,9 @@
                             citationPublication.Citation.Doi = citationJson[@"doi"]?.Value<string>() ?? string.Empty;
                         }
 
-                        if (string.IsNullOrEmpty(citationPublication.Citation.Author))
+                        if (string.IsNullOrEmpty(citationPublication.Citation.Authors))
                         {
-                            citationPublication.Citation.Author = citationJson[@"author"]?.Value<string>() ?? string.Empty;
+                            citationPublication.Citation.Authors = citationJson[@"author"]?.Value<string>() ?? string.Empty;
                         }
                     }
                     else // INSERT CITATION
@@ -476,7 +476,7 @@
                             Citation = new Citation
                             {
                                 Title = citationJson[@"title"]?.Value<string>() ?? string.Empty,
-                                Author = citationJson[@"author"]?.Value<string>() ?? string.Empty,
+                                Authors = citationJson[@"author"]?.Value<string>() ?? string.Empty,
                                 PublicationYear = citationJson[@"pub_year"]?.Value<string>() ?? string.Empty,
                                 Journal = citationJson[@"journal"]?.Value<string>() ?? string.Empty,
                                 PublicationUrl = citationJson[@"pub_url"]?.Value<string>() ?? string.Empty,
@@ -598,6 +598,58 @@
             publication?.PublicationCitationList.Remove(publication.PublicationCitationList.FirstOrDefault(x => x.Citation.CitationId == citationId));
 
             context.SaveChanges();
+        }
+
+        public List<KeyValuePair<Publication, Citation>> ReportCitations(ApplicationDbContext context, long? yearFrom, long? yearTo, List<string> publicationCategories, List<long> citationCategories)
+        {
+            var dict = new List<KeyValuePair<Publication, Citation>>();
+
+            var allPublications = context.Publications
+               .Include(x => x.PublicationCategory)
+               .Include(x => x.PublicationCitationList)
+               .ThenInclude(x => x.Citation)
+               .ThenInclude(x => x.CitationCategory)
+               .ToList();
+
+            foreach(var publication in allPublications)
+            {
+                if (publication.PublicationCategory == null && publicationCategories.Count > 0)
+                {
+                    continue;
+                }
+
+                if (publicationCategories.Count > 0 && !publicationCategories.Contains(publication.PublicationCategory.Code))
+                {
+                    continue;
+                }
+
+                foreach(var citation in publication.PublicationCitationList.Select(x => x.Citation))
+                {
+                    if (!Int64.TryParse(citation.PublicationYear, out var yr))
+                    {
+                        continue;
+                    }
+
+                    if ((yearFrom != null && yr < yearFrom) || ( yearTo != null && yr > yearTo))
+                    {
+                        continue;
+                    }
+
+                    if (citation.CitationCategory == null && citationCategories.Count > 0)
+                    {
+                        continue;
+                    }
+
+                    if (citationCategories.Count > 0 && !citationCategories.Contains(citation.CitationCategory.Code))
+                    {
+                        continue;
+                    }
+
+                    dict.Add(new KeyValuePair<Publication, Citation>(publication, citation));
+                }
+            }
+
+            return dict;
         }
     }
 }

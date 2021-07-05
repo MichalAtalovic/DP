@@ -1,0 +1,20 @@
+entries:
+    small:
+        type: article
+        title: A small paper
+        journal: The journal of small papers
+        year: '1997'
+        volume: '-1'
+        note: to appear
+        author:
+        -   first: I.P.
+            last: Freely
+    big:
+        type: article
+        title: A big paper
+        journal: The journal of big papers
+        year: '7991'
+        volume: MCMXCVII
+        author:
+        -   first: Hugh
+            last: Jass

@@ -19,6 +19,18 @@
         public long CitationId { get; set; }
 
         /// <summary>
+        /// Publication category ID
+        /// </summary>
+        [ForeignKey(@"CitationCategory")]
+        [Column(@"citation_category_id")]
+        public long? CitationCategoryId { get; set; }
+
+        /// <summary>
+        /// Citation category
+        /// </summary>
+        public virtual CitationCategory CitationCategory { get; set; }
+
+        /// <summary>
         /// Citation's title
         /// </summary>
         [Column(@"title")]
@@ -28,7 +40,7 @@
         /// Citation's author
         /// </summary>
         [Column(@"author")]
-        public string Author { get; set; }
+        public string Authors { get; set; }
 
         /// <summary>
         /// Citation's author

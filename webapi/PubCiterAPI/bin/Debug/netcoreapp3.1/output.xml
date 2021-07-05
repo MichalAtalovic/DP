@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bibtex:file xmlns:bibtex="http://bibtexml.sf.net/">
+
+    <bibtex:entry id="small">
+        <bibtex:article>
+            <bibtex:title>A small paper</bibtex:title>
+            <bibtex:journal>The journal of small papers</bibtex:journal>
+            <bibtex:year>1997</bibtex:year>
+            <bibtex:volume>-1</bibtex:volume>
+            <bibtex:note>to appear</bibtex:note>
+            <bibtex:author>
+                <bibtex:person>
+                    <bibtex:first>I.P.</bibtex:first>
+                    <bibtex:last>Freely</bibtex:last>
+                </bibtex:person>
+            </bibtex:author>
+        </bibtex:article>
+    </bibtex:entry>
+
+    <bibtex:entry id="big">
+        <bibtex:article>
+            <bibtex:title>A big paper</bibtex:title>
+            <bibtex:journal>The journal of big papers</bibtex:journal>
+            <bibtex:year>7991</bibtex:year>
+            <bibtex:volume>MCMXCVII</bibtex:volume>
+            <bibtex:author>
+                <bibtex:person>
+                    <bibtex:first>Hugh</bibtex:first>
+                    <bibtex:last>Jass</bibtex:last>
+                </bibtex:person>
+            </bibtex:author>
+        </bibtex:article>
+    </bibtex:entry>
+
+</bibtex:file>

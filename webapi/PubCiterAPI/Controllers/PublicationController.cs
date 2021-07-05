@@ -175,7 +175,7 @@ namespace PubCiterAPI.Controllers
         [HttpGet]
         [Route(@"")]
         [SwaggerOperation(Summary = "Gets list of publications by author's name defined in webconfig")]
-        public IEnumerable<Publication> GetPublications([SwaggerParameter(Description = @"String input for fulltext search query")]string searchText = null)
+        public IEnumerable<Publication> GetPublications([SwaggerParameter(Description = @"String input for fulltext search query")] string searchText = null)
         {
             try
             {
@@ -272,6 +272,40 @@ namespace PubCiterAPI.Controllers
             {
                 Console.WriteLine(ex.ToString());
                 this.logger.LogError(ex.ToString());
+            }
+        }
+
+
+        /// <summary>
+        /// Reports citations according to provided filter
+        /// </summary>
+        [HttpGet]
+        [Route(@"citations")]
+        [SwaggerOperation(Summary = "Reports citations according to provided filter")]
+        public List<KeyValuePair<Publication, Citation>> ReportCitations(
+            [SwaggerParameter(Description = @"Lists citations from specified year")]
+            [FromQuery(Name = "yearFrom")]
+            long? yearFrom,
+            [SwaggerParameter(Description = @"Lists citations to specified year")]
+            [FromQuery(Name = "yearTo")]
+            long? yearTo,
+            [SwaggerParameter(Description = @"Lists citations that meets one of the publication categories in the list")]
+            [FromQuery(Name = "publicationCategories")]
+            List<string> publicationCategories, 
+            [SwaggerParameter(Description = @"Lists citations that meets one of the citation categories in the list")]
+            [FromQuery(Name = "citationCategories")]
+            List<long> citationCategories)
+        {
+            try
+            {
+                return this.publicationRepository.ReportCitations(context, yearFrom, yearTo, publicationCategories, citationCategories);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                this.logger.LogError(ex.ToString());
+
+                return null;
             }
         }
     }

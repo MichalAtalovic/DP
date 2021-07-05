@@ -22,7 +22,7 @@
             builder.Property(prop => prop.Title)
                 .HasMaxLength(255);
 
-            builder.Property(prop => prop.Author)
+            builder.Property(prop => prop.Authors)
                 .HasMaxLength(255);
 
             builder.Property(prop => prop.PublicationYear)
