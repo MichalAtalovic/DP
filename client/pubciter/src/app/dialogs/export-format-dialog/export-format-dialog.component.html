@@ -1,0 +1,82 @@
+<div style="background-color: gold; border-radius: 3px;">
+  <img style="float: left; height: 30px; width: 30px; margin: 10px;" class="icon" src="assets/enum.png">
+  <div style="padding: 15px; font-size: 25px; font-weight: bold;">{{ this.data.title }}</div>
+</div>
+<mat-dialog-content class="mat-typography" style="padding-top: 10px; padding-bottom: 10px;">
+  <div class="d-flex flex-column">
+    <mat-form-field style="width: 700px; margin-top: 10px;" required>
+      <mat-label>Code</mat-label>
+      <input #code name="code" matInput placeholder="Code" [(ngModel)]="this.data.args.data.code">
+    </mat-form-field>
+    <div style="display: flex; flex-direction: row; height: 300px;">
+      <mat-form-field style="height: 300px; width: 80% !important;">
+        <textarea #template style="height: 250px !important;" matInput name="template"
+          [(ngModel)]="this.data.args.data.template" type="text" autocomplete="off" autocapitalize="off"
+          placeholder="Template"></textarea>
+      </mat-form-field>
+      <div *ngIf="this.data.showPreview"
+        style="width: 1px !important; height: 250px; background-color: #aaa; margin: 20px;"></div>
+      <div *ngIf="this.data.showPreview" style="padding-top: 20px;">
+        <span style="color: #777; margin-bottom: 10px;">Preview</span>
+        <div style="word-wrap: break-word; max-width: 500px; margin-left: 20px;"
+          [innerHtml]="this.data.args.data.template"></div>
+      </div>
+      <div style="width: 1px !important; height: 250px; background-color: #aaa; margin: 20px;"></div>
+      <div
+        style="width: 20% !important; margin-top: 20px; display: flex; flex-direction: column; justify-content: space-between !important;">
+        <div>
+          <span style="color: #777; margin-bottom: 20px;">Fields</span>
+          <button
+            style="color: white; margin-bottom: 10px; background-color: darkcyan; width: 100%; border: 0px; border-radius: 15px;"
+            (click)="this.addTag('${title}', this.template)">title</button>
+          <button
+            style="color: white; margin-bottom: 10px; background-color: darkcyan; width: 100%; border: 0px; border-radius: 15px;"
+            (click)="this.addTag('${authors}', this.template)">authors</button>
+          <button
+            style="color: white; margin-bottom: 10px; background-color: darkcyan; width: 100%; border: 0px; border-radius: 15px;"
+            (click)="this.addTag('${publicationYear}', this.template)">year</button>
+          <button
+            style="color: white; margin-bottom: 10px; background-color: darkcyan; width: 100%; border: 0px; border-radius: 15px;"
+            (click)="this.addTag('${journal}', this.template)">journal</button>
+          <button
+            style="color: white; margin-bottom: 10px; background-color: darkcyan; width: 100%; border: 0px; border-radius: 15px;"
+            (click)="this.addTag('${journalVolume}', this.template)">journal volume</button>
+          <button
+            style="color: white; margin-bottom: 10px; background-color: darkcyan; width: 100%; border: 0px; border-radius: 15px;"
+            (click)="this.addTag('${publicationUrl}', this.template)">url</button>
+          <button
+            style="color: white; margin-bottom: 10px; background-color: darkcyan; width: 100%; border: 0px; border-radius: 15px;"
+            (click)="this.addTag('${doi}', this.template)">doi</button>
+        </div>
+      </div>
+      <div style="width: 1px !important; height: 250px; background-color: #aaa; margin: 20px;"></div>
+      <div
+        style="width: 20% !important; margin-top: 20px; display: flex; flex-direction: column; justify-content: space-between !important;">
+        <div>
+          <span style="color: #777; margin-bottom: 20px;">Styles</span>
+          <button
+            style="margin-bottom: 10px; background-color: deeppink; width: 100%; border: 0px; border-radius: 15px; font-weight: bold;"
+            (click)="this.addTag('<b>bold_text</b>', this.template)">bold</button>
+          <button
+            style="margin-bottom: 10px; background-color: dodgerblue; width: 100%; border: 0px; border-radius: 15px; font-style: italic;"
+            (click)="this.addTag('<i>italic_text</i>', this.template)">italics</button>
+          <button
+            style="margin-bottom: 10px; background-color: darkorange; width: 100%; border: 0px; border-radius: 15px; text-decoration: underline;"
+            (click)="this.addTag('<em>emphasised_text</em>', this.template)">underlined</button>
+          <button style="margin-bottom: 10px; background-color: aqua; width: 100%; border: 0px; border-radius: 15px;"
+            (click)="this.addTag('<sub>subscript</sub>', this.template)"><sub>subscript</sub></button>
+          <button style="margin-bottom: 10px; background-color: gold; width: 100%; border: 0px; border-radius: 15px;"
+            (click)="this.addTag('<sup>superscript</sup>', this.template)"><sup>superscript</sup></button>
+        </div>
+        <div>
+          <mat-checkbox #showPreview name="scholar" [(ngModel)]="this.data.showPreview" [color]="'accent'">Show preview
+          </mat-checkbox>
+        </div>
+      </div>
+    </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Cancel</button>
+  <button mat-button (click)="this.save()" style="border: 1px solid gold; border-radius: 3px;">Save</button>
+</mat-dialog-actions>

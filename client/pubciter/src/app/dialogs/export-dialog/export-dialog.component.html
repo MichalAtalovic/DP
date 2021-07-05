@@ -1,1 +1,73 @@
-<p>export-dialog works!</p>
+<div style="background-color: gold; border-radius: 3px;">
+  <img style="float: left; height: 25px; width: 30px; margin: 10px;" class="icon" src="assets/export.png">
+  <div style="padding: 15px; font-size: 25px; font-weight: bold;">{{ this.data.title }}</div>
+</div>
+<mat-dialog-content class="mat-typography" style="padding-top: 10px; padding-bottom: 10px;">
+  <div class="d-flex flex-column" style="max-width: 800px !important; min-width: 400px !important;">
+
+    <div style="display: flex; flex-direction: row; margin-top: 20px;">
+      <mat-form-field appearance="fill" style="background-color: white !important;">
+        <mat-label>Citation year from</mat-label>
+        <mat-select [(value)]="this.data.yearFrom">
+          <mat-option *ngFor="let year of this.years" [value]="year">
+            {{ year }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div style="width: 20px;"></div>
+      <mat-form-field appearance="fill" style="background-color: white !important;">
+        <mat-label>Citation year to</mat-label>
+        <mat-select [(value)]="this.data.yearTo">
+          <mat-option *ngFor="let year of this.years" [value]="year">
+            {{ year }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <mat-form-field appearance="fill" color="accent" style="margin-bottom: 0px; background-color: rgb(245, 245, 245, 0.7)">
+      <mat-label>Publication categories</mat-label>
+      <mat-select (valueChange)="this.publicationCategoryPicked($event)" color="accent">
+        <mat-option *ngFor="let publicationCategory of this.availablePublicationCategories"
+          [value]="publicationCategory">
+          {{ publicationCategory.code }} - {{ publicationCategory.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-chip-list aria-label="Publication categories" style="background-color: rgb(245, 245, 245, 0.7); padding: 10px; border-bottom-left-radius: 3px; border-bottom-right-radius: 3px; margin-top: 0px;">
+      <mat-chip id="{{ publicationCategory.id }}" *ngFor="let publicationCategory of this.pickedPublicationCategories" (removed)="this.publicationCategoryRemoved(publicationCategory)" [removable]="true" style="background-color: rgba(235,0,120, 1); margin: 10px;">
+        <span style="padding: 5px; color: white;">{{ publicationCategory.code }} - {{ publicationCategory.name }}</span>
+        <mat-icon matChipRemove style="color: white; font-weight: bolder;">&#10005;</mat-icon>
+      </mat-chip>
+    </mat-chip-list>
+
+    <mat-form-field appearance="fill" style="margin-top: 20px; background-color: rgb(245, 245, 245, 0.7)">
+      <mat-label>Citation categories</mat-label>
+      <mat-select (valueChange)="this.citationCategoryPicked($event)">
+        <mat-option *ngFor="let citationCategory of this.availableCitationCategories"
+          [value]="citationCategory">
+          {{ citationCategory.code }} - {{ citationCategory.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-chip-list aria-label="Citation categories" style="background-color: rgb(245, 245, 245, 0.7); padding: 10px; border-bottom-left-radius: 3px; border-bottom-right-radius: 3px; margin-top: 0px;">
+      <mat-chip id="{{ citationCategory.id }}" *ngFor="let citationCategory of this.pickedCitationCategories" (removed)="this.citationCategoryRemoved(citationCategory)" [removable]="true" style="background-color: rgb(56, 35, 175); margin: 10px;">
+        <span style="padding: 5px; color: white;">{{ citationCategory.code }} - {{ citationCategory.name }}</span>
+        <mat-icon matChipRemove style="color: white; font-weight: bolder;">&#10005;</mat-icon>
+      </mat-chip>
+    </mat-chip-list>
+
+    <mat-form-field appearance="fill" style="margin-top: 20px; background-color: white !important;">
+      <mat-label>Export format</mat-label>
+      <mat-select [(value)]="this.data.exportFormat">
+        <mat-option *ngFor="let format of this.availableExportFormats" [value]="format.template">
+          {{ format.code }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Cancel</button>
+  <button mat-button (click)="this.export()" style="border: 1px solid darkorange; border-radius: 3px;">Export</button>
+</mat-dialog-actions>
