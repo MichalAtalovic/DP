@@ -30,7 +30,7 @@ export class MyLibraryActionPanelComponent implements OnInit {
   }
 
   onClickExport() {
-
+    this.action.emit({ action: 'EXPORT' });
   }
 
 }

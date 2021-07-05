@@ -8,10 +8,10 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class QuarantineActionPanelComponent implements OnInit {
 
   @Output() action: EventEmitter<any> = new EventEmitter<any>();
+
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   onClickClearList() {
     this.action.emit({ action: 'CLEAR QUARANTINE' });

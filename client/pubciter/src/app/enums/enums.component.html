@@ -1,0 +1,94 @@
+<div *ngIf="this.resolveHeader() !== ''" style="margin: 20px;">
+  <div style="display: flex !important; flex-direction: row; justify-content: space-between;">
+    <div style="margin: 10px; font-size: 25px; font-weight: bold; vertical-align: middle; color: #ea0d77;">{{ this.resolveHeader() }}</div>
+    <button *ngIf="this.currentView === 'exportFormat'" customAddButton mat-fab color="accent" style="width: 40px; height: 40px; justify-content: center;" (click)="this.openExportFormatDialog({ operation: 'add', id: null }, 'New export format')">
+      <span style="margin: auto; font-size: 25px;">+</span>
+    </button>
+  </div>
+  <div style="margin: 5px 0px; width: 100% !important; height: 3px; background-color: #777;"></div>
+  <div style="margin-top: 20px;">
+    <ng-container *ngIf="this.currentView === 'exportFormat'">
+      <table style="width: 100% !important;" mat-table [dataSource]="this.exportFormatData" class="mat-elevation-z8">
+        <ng-container matColumnDef="code" style="width: 20%;">
+          <th mat-header-cell *matHeaderCellDef style="padding-left: 10px; padding-right: 10px;"> Code </th>
+          <td mat-cell *matCellDef="let element" style="padding-left: 10px; padding-right: 10px;"> {{
+            element?.code }} </td>
+        </ng-container>
+        <ng-container matColumnDef="template" style="width: 75%;">
+          <th mat-header-cell *matHeaderCellDef style="padding-left: 10px; padding-right: 10px;"> Template </th>
+          <td mat-cell *matCellDef="let element" style="padding-left: 10px; padding-right: 10px;"> {{
+            element?.template }} </td>
+        </ng-container>
+        <ng-container matColumnDef="opts" style="width: 5%;">
+          <th mat-header-cell *matHeaderCellDef style="padding-left: 10px; padding-right: 10px;"></th>
+          <td mat-cell *matCellDef="let element" style="padding-left: 10px; padding-right: 10px;">
+            <button mat-mini-fab color="primary" style="width: 30px; height: 30px;" [matMenuTriggerFor]="menu">
+              <div style="margin: 0px; vertical-align: text-top;">
+                ...
+              </div>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)="this.openExportFormatDialog({ operation: 'update', data: element }, 'Edit export format')">
+                <span>
+                  <img class="icon" src="assets/edit_blue.png" style="height: 20px; width: 20px; margin-right: 10px;">
+                  Edit
+                </span>
+              </button>
+              <button mat-menu-item (click)="this.removeExportFormat(element?.id)">
+                <span>
+                  <img class="icon" src="assets/remove.png" style="height: 20px; width: 15px; margin-right: 10px;">
+                  Remove
+                </span>
+              </button>
+            </mat-menu>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="this.displayedColumnsExportFormats"></tr>
+        <tr mat-row *matRowDef="let row; columns: this.displayedColumnsExportFormats;"></tr>
+      </table>
+      <mat-paginator style="margin-top: 20px;" [pageSizeOptions]="[25, 50, 100]" showFirstLastButtons>
+      </mat-paginator>
+    </ng-container>
+    <ng-container *ngIf="this.currentView === 'publicationCategory'">
+      <table style="width: 100% !important;" mat-table [dataSource]="this.publicationCategoryData" class="mat-elevation-z8">
+        <ng-container matColumnDef="group" style="width: 20%;">
+          <th mat-header-cell *matHeaderCellDef style="padding-left: 10px; padding-right: 10px;"> Group </th>
+          <td mat-cell *matCellDef="let element" style="padding-left: 10px; padding-right: 10px;"> {{
+            element?.group }} </td>
+        </ng-container>
+        <ng-container matColumnDef="code" style="width: 20%;">
+          <th mat-header-cell *matHeaderCellDef style="padding-left: 10px; padding-right: 10px;"> Code </th>
+          <td mat-cell *matCellDef="let element" style="padding-left: 10px; padding-right: 10px;"> {{
+            element?.code }} </td>
+        </ng-container>
+        <ng-container matColumnDef="name" style="width: 80%;">
+          <th mat-header-cell *matHeaderCellDef style="padding-left: 10px; padding-right: 10px;"> Name </th>
+          <td mat-cell *matCellDef="let element" style="padding-left: 10px; padding-right: 10px;"> {{
+            element?.name }} </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="this.displayedColumnsPublicationCategories"></tr>
+        <tr mat-row *matRowDef="let row; columns: this.displayedColumnsPublicationCategories;"></tr>
+      </table>
+      <mat-paginator style="margin-top: 20px;" [pageSizeOptions]="[25, 50, 100]" showFirstLastButtons>
+      </mat-paginator>
+    </ng-container>
+    <ng-container *ngIf="this.currentView === 'citationCategory'">
+      <table style="width: 100% !important;" mat-table [dataSource]="this.citationCategoryData" class="mat-elevation-z8">
+        <ng-container matColumnDef="code" style="width: 20%;">
+          <th mat-header-cell *matHeaderCellDef style="padding-left: 10px; padding-right: 10px;"> Code </th>
+          <td mat-cell *matCellDef="let element" style="padding-left: 10px; padding-right: 10px;"> {{
+            element?.code }} </td>
+        </ng-container>
+        <ng-container matColumnDef="name" style="width: 80%;">
+          <th mat-header-cell *matHeaderCellDef style="padding-left: 10px; padding-right: 10px;"> Name </th>
+          <td mat-cell *matCellDef="let element" style="padding-left: 10px; padding-right: 10px;"> {{
+            element?.name }} </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="this.displayedColumnsCitationCategories"></tr>
+        <tr mat-row *matRowDef="let row; columns: this.displayedColumnsCitationCategories;"></tr>
+      </table>
+      <mat-paginator style="margin-top: 20px;" [pageSizeOptions]="[25, 50, 100]" showFirstLastButtons>
+      </mat-paginator>
+    </ng-container>
+  </div>
+</div>

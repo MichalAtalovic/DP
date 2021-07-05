@@ -31,3 +31,11 @@
 .ngx-file-drop__content {
   height: 410px !important;
 }
+
+.mat-fab[customAddButton] .mat-button-wrapper {
+  line-height: 10px !important;
+}
+
+.mat-chip.mat-standard-chip .mat-chip-remove {
+  opacity: .7 !important;
+}

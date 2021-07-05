@@ -32,6 +32,9 @@
     <ng-container *ngIf="this.header?.toLowerCase() === 'quarantine'">
       <app-quarantine-action-panel (action)="this.panelActionExecute($event)"></app-quarantine-action-panel>
     </ng-container>
+    <ng-container *ngIf="this.header?.toLowerCase() === 'enums'">
+      <app-enums-action-panel (action)="this.panelActionExecute($event)"></app-enums-action-panel>
+    </ng-container>
     <button
       style="position: fixed; left: 15px; bottom: 45px; height: 60px; width: 60px; border-radius: 30px; background-color: #688490; border: 1px solid white;"
       (click)="this.collapse(true)">

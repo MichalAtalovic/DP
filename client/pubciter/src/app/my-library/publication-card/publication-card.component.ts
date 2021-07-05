@@ -26,7 +26,7 @@ export class PublicationCardComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatMenuTrigger) matMenu!: MatMenuTrigger;
 
-  public displayedColumns: string[] = ['position', 'title', 'author', 'journal', 'publicationYear', 'opts'];
+  public displayedColumns: string[] = ['position', 'title', 'authors', 'journal', 'publicationYear', 'opts'];
   public dataSource: MatTableDataSource<any> = new MatTableDataSource();
   public paginatedData: MatTableDataSource<any> = new MatTableDataSource();
   public showCitationsState = false;
@@ -70,6 +70,7 @@ export class PublicationCardComponent implements OnInit {
         value.citation.position = index + 1;
       })
     }
+
     this.dataSource = new MatTableDataSource(this.publication.publicationCitationList);
   }
 
@@ -100,8 +101,8 @@ export class PublicationCardComponent implements OnInit {
             result.forEach(x => {
               console.log('INSERTING CITATION');
               console.log(x);
-              console.log('FOR PUBLICATION: ' + this.publicationId);
-              this.publicationService.insertCitation(x, this.publicationId);
+              console.log('FOR PUBLICATION: ' + this.publication.publicationId);
+              this.publicationService.insertCitation(x, this.publication.publicationId);
               this.publication.publicationCitationList.push({
                 citation: x
               });

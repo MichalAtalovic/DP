@@ -40,6 +40,11 @@ import { ExportDialogComponent } from './dialogs/export-dialog/export-dialog.com
 import { UtilsComponent } from './utils/utils.component';
 import { NgxFileDropModule } from 'ngx-file-drop';
 import { MatTabsModule } from '@angular/material/tabs';
+import { EnumsComponent } from './enums/enums.component';
+import { EnumsActionPanelComponent } from './enums/enums-action-panel/enums-action-panel.component';
+import { MatIconModule } from '@angular/material/icon';
+import { ExportFormatDialogComponent } from './dialogs/export-format-dialog/export-format-dialog.component';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -59,7 +64,10 @@ import { MatTabsModule } from '@angular/material/tabs';
     MyLibraryActionPanelComponent,
     RemoveCitationDialogComponent,
     ExportDialogComponent,
-    UtilsComponent
+    UtilsComponent,
+    EnumsComponent,
+    EnumsActionPanelComponent,
+    ExportFormatDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -81,7 +89,9 @@ import { MatTabsModule } from '@angular/material/tabs';
     AngularResizedEventModule,
     MatMenuModule,
     NgxFileDropModule,
-    MatTabsModule
+    MatTabsModule,
+    MatIconModule,
+    MatChipsModule
   ],
   providers: [
     DateFormatPipe,

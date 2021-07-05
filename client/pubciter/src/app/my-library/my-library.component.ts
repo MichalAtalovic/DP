@@ -38,8 +38,7 @@ export class MyLibraryComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   ngAfterViewInit() {
     Promise.all([

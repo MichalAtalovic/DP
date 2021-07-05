@@ -168,7 +168,7 @@
               <th mat-header-cell *matHeaderCellDef></th>
               <td mat-cell *matCellDef="let element" style="align-content: center;">
                 <div
-                  style="min-width: 30px; padding: 5px; padding-bottom: 5px; background-color: darkslateblue; border-radius: 5px; text-align: center; vertical-align: middle; color: white; font-weight: bold; font-size: 20px;">
+                  style="min-width: 30px; max-width: 150px;padding: 5px; padding-bottom: 5px; background-color: darkslateblue; border-radius: 5px; text-align: center; vertical-align: middle; color: white; font-weight: bold; font-size: 20px;">
                   {{ element.citation.position }}</div>
               </td>
             </ng-container>
@@ -178,10 +178,10 @@
                 element?.citation?.title }} </td>
             </ng-container>
 
-            <ng-container matColumnDef="author" style="width: 20%;">
+            <ng-container matColumnDef="authors" style="width: 20%;">
               <th mat-header-cell *matHeaderCellDef style="padding-left: 10px; padding-right: 10px;"> Author </th>
               <td mat-cell *matCellDef="let element" style="padding-left: 10px; padding-right: 10px;"> {{
-                element?.citation?.author }} </td>
+                element?.citation?.authors }} </td>
             </ng-container>
 
             <ng-container matColumnDef="journal" style="width: 25%;">

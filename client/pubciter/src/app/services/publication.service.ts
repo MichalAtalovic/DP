@@ -35,4 +35,10 @@ export class PublicationService extends BaseRestService {
   async removeCitation(publicationId: number, citationId: number) {
     return this.delete(`publication/${publicationId}/${citationId}`);
   }
+
+  async getCitations(yearFrom: number, yearTo: number, publicationCategories: string[], citationCategories: number[]) {
+    const url = `publication/citations?yearFrom=${yearFrom ?? ''}&yearTo=${yearTo ?? ''}&${publicationCategories.map(x => `publicationCategories=${x}`).join('&')}&${citationCategories?.map(x => `citationCategories=${x}`)?.join('&')}`.replace('&&', '&');
+    console.log(url);
+    return this.get(url);
+  }
 }
