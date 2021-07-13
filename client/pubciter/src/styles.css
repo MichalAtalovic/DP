@@ -39,3 +39,15 @@
 .mat-chip.mat-standard-chip .mat-chip-remove {
   opacity: .7 !important;
 }
+
+.mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: white !important;
+}
+
+mat-form-field {
+  background-color: white !important;
+}
+
+mat-chip-list {
+  background-color: white !important;
+}

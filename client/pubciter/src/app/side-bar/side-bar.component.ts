@@ -18,12 +18,19 @@ import * as _ from 'lodash';
 })
 export class SideBarComponent implements OnInit {
 
-  @Input() public header: any;
+  @Input() public set header(value: string) {
+    this.headerText = value;
+    if (value?.toLowerCase() === 'enums') {
+      this.collapse(false);
+    }
+  }
   @Input() public iconPath: any;
   @Input() public collapsed = true;
 
   @Output() public widthEmitter = new EventEmitter<any>();
   @Output() public action = new EventEmitter<any>();
+
+  public headerText: string = '';
 
   constructor(
     private dataService: DataService,
@@ -34,8 +41,7 @@ export class SideBarComponent implements OnInit {
     private router: Router
   ) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   collapse(value: boolean) {
     this.collapsed = value;
@@ -135,7 +141,7 @@ export class SideBarComponent implements OnInit {
                 (citations as any)?.forEach((citation: any) => {
                   let template = exportFormat?.replace(/\$|,/g, '@');
                   Object.keys(citation.value)?.forEach(prop => {
-                    template = template.replace(`@{${prop}}`, citation.value[prop] ?? '');
+                    template = template?.replace(`@{${prop}}`, citation.value[prop] ?? '');
                   });
 
                   htmlString += template + '</br>-------------------------------------------</br></br>'

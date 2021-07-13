@@ -29,9 +29,7 @@ export class AppComponent {
     });
   }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() { }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();

@@ -206,6 +206,12 @@
                   </div>
                 </button>
                 <mat-menu #menu="matMenu">
+                  <button mat-menu-item (click)="this.editCitation(element?.citation)">
+                    <span>
+                      <img class="icon" src="assets/edit_blue.png">
+                      Edit citation
+                    </span>
+                  </button>
                   <button mat-menu-item (click)="this.removeCitation(element?.citation)">
                     <span>
                       <img class="icon" src="assets/remove.png">

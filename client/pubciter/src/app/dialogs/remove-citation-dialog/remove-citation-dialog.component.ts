@@ -13,8 +13,7 @@ export class RemoveCitationDialogComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any
   ) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   onYesClick() {
     this.dialogRef.close({ operation: 'remove', data: this.data.citation });

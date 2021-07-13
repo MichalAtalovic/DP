@@ -45,6 +45,7 @@ import { EnumsActionPanelComponent } from './enums/enums-action-panel/enums-acti
 import { MatIconModule } from '@angular/material/icon';
 import { ExportFormatDialogComponent } from './dialogs/export-format-dialog/export-format-dialog.component';
 import { MatChipsModule } from '@angular/material/chips';
+import { EditCitationDialogComponent } from './dialogs/edit-citation-dialog/edit-citation-dialog.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { MatChipsModule } from '@angular/material/chips';
     UtilsComponent,
     EnumsComponent,
     EnumsActionPanelComponent,
-    ExportFormatDialogComponent
+    ExportFormatDialogComponent,
+    EditCitationDialogComponent
   ],
   imports: [
     BrowserModule,

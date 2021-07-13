@@ -23,16 +23,16 @@
     </div>
     <div class="row" style="display: flex; justify-content: center; margin-bottom: 20px;">
       <div style="font-size: 35px; text-align: center !important; font-family: 'Montserrat Subrayada', sans-serif;">
-        {{ this.header }}</div>
+        {{ this.headerText }}</div>
     </div>
     <div class="row" style="display: flex; justify-content: center; height: 2px; margin-left: 5px; margin-right: 5px; border: 2px dashed #688490"></div>
-    <ng-container *ngIf="this.header?.toLowerCase() === 'my library'">
+    <ng-container *ngIf="this.headerText?.toLowerCase() === 'my library'">
       <app-my-library-action-panel (action)="this.panelActionExecute($event)"></app-my-library-action-panel>
     </ng-container>
-    <ng-container *ngIf="this.header?.toLowerCase() === 'quarantine'">
+    <ng-container *ngIf="this.headerText?.toLowerCase() === 'quarantine'">
       <app-quarantine-action-panel (action)="this.panelActionExecute($event)"></app-quarantine-action-panel>
     </ng-container>
-    <ng-container *ngIf="this.header?.toLowerCase() === 'enums'">
+    <ng-container *ngIf="this.headerText?.toLowerCase() === 'enums'">
       <app-enums-action-panel (action)="this.panelActionExecute($event)"></app-enums-action-panel>
     </ng-container>
     <button
