@@ -1,1 +1,2 @@
-webapi\PubCiterAPI\Logs
+/webapi/PubCiterAPI/Logs
+*.log
