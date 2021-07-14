@@ -23,7 +23,7 @@
     </mat-form-field>
     <mat-form-field appearance="fill" style="background-color: white !important;">
       <mat-label>Citation category</mat-label>
-      <mat-select [(value)]="this.data.citation.citationCategory">
+      <mat-select [(value)]="this.data.citation.citationCategoryId">
         <mat-option *ngFor="let citationCategory of this.citationCategories" [value]="citationCategory.id">
           {{ citationCategory.name }}
         </mat-option>

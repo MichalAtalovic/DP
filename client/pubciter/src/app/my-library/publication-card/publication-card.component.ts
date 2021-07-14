@@ -166,10 +166,9 @@ export class PublicationCardComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       switch (result?.operation) {
         case 'update':
-          /*this.publicationService.removeCitation(this.publication.publicationId, result?.data?.citationId).then(() => {
-            this.publication.publicationCitationList = this.publication.publicationCitationList.filter((x: any) => x.citation.citationId !== result?.data?.citationId);
+          this.publicationService.updateCitation(result.data, this.publication.publicationId).then(() => {
             this.ngAfterViewInit();
-          });*/
+          });
 
           break;
         default:

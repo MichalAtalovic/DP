@@ -256,6 +256,26 @@ namespace PubCiterAPI.Controllers
         }
 
         /// <summary>
+        /// Updates citation by ID
+        /// </summary>
+        [HttpPut]
+        [Route(@"{publicationId}/citation")]
+        [SwaggerOperation(Summary = "Updates citation by ID")]
+        public Citation UpdateCitation(Citation citation, long publicationId)
+        {
+            try
+            {
+                return this.publicationRepository.UpdateCitation(context, citation, publicationId);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                this.logger.LogError(ex.ToString());
+                return null;
+            }
+        }
+
+        /// <summary>
         /// Removes citation by ID
         /// </summary>
         [HttpDelete]

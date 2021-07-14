@@ -85,5 +85,7 @@
         /// <param name="publicationCategories">Publication categories to filter by</param>
         /// <param name="citationCategories">Citation categories to filter by</param>
         List<KeyValuePair<Publication, Citation>> ReportCitations(ApplicationDbContext context, long? yearFrom, long? yearTo, List<string> publicationCategories, List<long> citationCategories);
+
+        Citation UpdateCitation(ApplicationDbContext context, Citation citation, long publicationId);
     }
 }

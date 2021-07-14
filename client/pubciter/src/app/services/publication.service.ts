@@ -32,6 +32,10 @@ export class PublicationService extends BaseRestService {
     return this.post(`publication/${publicationId}/citation`, citation);
   }
 
+  async updateCitation(citation: any, publicationId: number) {
+    return this.put(`publication/${publicationId}/citation`, citation);
+  }
+
   async removeCitation(publicationId: number, citationId: number) {
     return this.delete(`publication/${publicationId}/${citationId}`);
   }

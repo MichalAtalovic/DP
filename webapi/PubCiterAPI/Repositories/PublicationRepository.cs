@@ -651,5 +651,30 @@ namespace PubCiterAPI.Repositories
 
             return dict;
         }
+
+        /// <summary>
+        /// Updates citation By ID
+        /// </summary>
+        /// <param name="context">Application DB context</param>
+        /// <param name="citation">Citation object</param>
+        /// <param name="publicationId">Publication ID</param>
+        /// <returns></returns>
+        public Citation UpdateCitation(ApplicationDbContext context, Citation citation, long publicationId)
+        {
+            var origin = context.Citations.FirstOrDefault(x => x.CitationId == citation.CitationId);
+            if (origin != null)
+            {
+                origin.Authors = citation.Authors;
+                origin.CitationCategoryId = citation.CitationCategoryId;
+                origin.Title = citation.Title;
+                origin.Journal = citation.Journal;
+
+                context.SaveChanges();
+
+                return origin;
+            }
+
+            return null;
+        }
     }
 }
