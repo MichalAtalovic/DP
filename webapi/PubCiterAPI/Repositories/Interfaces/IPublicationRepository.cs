@@ -92,7 +92,7 @@
         /// <param name="context">Application DB context</param>
         /// <param name="citation">Citation object to be updated</param>
         /// <param name="publicationId">Publication ID</param>
-        /// <returns></returns>
+        /// <returns>Updated citation</returns>
         Citation UpdateCitation(ApplicationDbContext context, Citation citation, long publicationId);
 
         /// <summary>

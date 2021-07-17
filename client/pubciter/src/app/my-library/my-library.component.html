@@ -30,7 +30,8 @@
           <div *ngFor="let publication of this.publications; let i = index; trackBy: trackByFn">
             <app-publication-card [template]="'library'" [publication]="publication"
               (publicationMoved)="this.onPublicationMoved($event)"
-              (onRemovePublication)="this.onRemovePublication($event)"></app-publication-card>
+              (onRemovePublication)="this.onRemovePublication($event)"
+              (onEditPublication)="this.onEditPublication($event)"></app-publication-card>
           </div>
         </div>
       </div>

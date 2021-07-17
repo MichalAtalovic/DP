@@ -1,37 +1,68 @@
 <div style="background-color: darkslateblue; border-radius: 3px;">
-  <img style="float: left; height: 30px; width: 30px; margin: 10px 5px 10px 10px; padding: 5px;"
-    class="icon" src="assets/quotes.png">
-    <div style="padding: 15px 0px; font-size: 25px; color: white; font-weight: bold;">Edit citation</div>
+  <img style="float: left; height: 30px; width: 30px; margin: 10px 5px 10px 10px; padding: 5px;" class="icon"
+    src="assets/quotes.png">
+  <div style="padding: 15px 0px; font-size: 25px; color: white; font-weight: bold;">Edit citation</div>
 </div>
 <mat-dialog-content class="mat-typography" style="padding: 20px;">
-  <div style="display: flex; flex-direction: column;">
-    <mat-form-field style="width: 1000px;">
-      <mat-label>Title</mat-label>
-      <input #title name="title" matInput placeholder="Title" [(ngModel)]="this.data.citation.title">
-    </mat-form-field>
-    <mat-form-field style="width: 1000px;">
+  <div [formGroup]="this.form" style="display: flex; flex-direction: column;">
+    <div style="display: flex; flex-direction: row;">
+      <mat-form-field style="width: 880px;">
+        <mat-label>Title</mat-label>
+        <input #title name="title" matInput placeholder="Title" formControlName="title"
+          [(ngModel)]="this.data.citation.title" required>
+        <p style="color: red" *ngIf="this.form?.invalid && this.form?.touched && !this.form.value.title">required</p>
+      </mat-form-field>
+      <div style="width: 20px;"></div>
+      <mat-form-field style="width: 100px;">
+        <mat-label>Doi</mat-label>
+        <input #doi name="doi" matInput placeholder="DOI" formControlName="doi" [(ngModel)]="this.data.citation.doi">
+      </mat-form-field>
+    </div>
+    <mat-form-field style="width: 100% !important;">
       <mat-label>Authors</mat-label>
-      <input #authors name="authors" matInput placeholder="Authors" [(ngModel)]="this.data.citation.authors">
+      <input #authors name="authors" matInput placeholder="Authors" formControlName="authors"
+        [(ngModel)]="this.data.citation.authors" required>
+      <p style="color: red" *ngIf="this.form?.invalid && this.form?.touched && !this.form.value.authors">required</p>
     </mat-form-field>
-    <mat-form-field style="width: 1000px;">
-      <mat-label>Journal</mat-label>
-      <input #journal name="journal" matInput placeholder="Journal" [(ngModel)]="this.data.citation.journal">
-    </mat-form-field>
-    <mat-form-field style="width: 1000px;">
-      <mat-label>Year</mat-label>
-      <input #year name="year" matInput placeholder="Year" [(ngModel)]="this.data.citation.publicationYear">
-    </mat-form-field>
+    <div style="display: flex; flex-direction: row;">
+      <mat-form-field style="width: 660px;">
+        <mat-label>Journal</mat-label>
+        <input #journal name="journal" matInput placeholder="Journal" formControlName="journal"
+          [(ngModel)]="this.data.citation.journal">
+      </mat-form-field>
+      <div style="width: 20px;"></div>
+      <mat-form-field style="width: 200px;">
+        <mat-label>Volume</mat-label>
+        <input #journalVolume name="journalVolume" matInput placeholder="Volume" formControlName="journalVolume"
+          [(ngModel)]="this.data.citation.journalVolume">
+      </mat-form-field>
+      <div style="width: 20px;"></div>
+      <mat-form-field style="width: 100px;">
+        <mat-label>Year</mat-label>
+        <input #year name="year" matInput placeholder="Year" formControlName="year"
+          [(ngModel)]="this.data.citation.publicationYear" required>
+        <p style="color: red" *ngIf="this.form?.invalid && this.form?.touched && !this.form.value.year">required</p>
+      </mat-form-field>
+    </div>
     <mat-form-field appearance="fill" style="background-color: white !important;">
       <mat-label>Citation category</mat-label>
-      <mat-select [(value)]="this.data.citation.citationCategoryId">
+      <mat-select matInput formControlName="citationCategory" [(ngModel)]="this.data.citation.citationCategoryId"
+        required>
         <mat-option *ngFor="let citationCategory of this.citationCategories" [value]="citationCategory.id">
-          {{ citationCategory.name }}
+          <span
+            style="font-weight: bold; background-color: rgb(56, 35, 175); color: white; border-radius: 25px; padding: 3px 7px;">{{
+            citationCategory.code }}</span>
+          <span style="font-weight: bold;">{{ ' | ' }}</span>
+          <span>{{ citationCategory.name }}</span>
         </mat-option>
       </mat-select>
+      <p style="color: red" *ngIf="this.form?.invalid && this.form?.touched && !this.form.value.citationCategory">
+        required</p>
     </mat-form-field>
   </div>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Cancel</button>
-  <button mat-button color="primary" (click)="this.onUpdateClick()" style="border: 1px solid darkorange; border-radius: 3px;">Update</button>
+  <button mat-button color="primary" (click)="this.onUpdateClick()"
+    style="border: 1px solid darkorange; border-radius: 3px;">Update</button>
 </mat-dialog-actions>

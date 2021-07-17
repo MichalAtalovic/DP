@@ -33,7 +33,9 @@ namespace PubCiterAPI.Repositories
 
             var list = context.Publications
                 .Include(x => x.PublicationCitationList)
-                .ThenInclude(x => x.Citation).ToList().Where(x => x.AuthorId == author.AuthorId);
+                .ThenInclude(x => x.Citation)
+                .Include(x => x.PublicationCategory)
+                .ToList().Where(x => x.AuthorId == author.AuthorId);
 
             if (string.IsNullOrEmpty(searchedText))
             {
@@ -529,8 +531,11 @@ namespace PubCiterAPI.Repositories
                 pub.JournalVolume = publication.JournalVolume;
                 pub.PublicationCitationList = publication.PublicationCitationList;
                 pub.PublicationYear = publication.PublicationYear;
+                pub.EprintUrl = publication.EprintUrl;
                 pub.Publisher = publication.Publisher;
                 pub.Title = publication.Title;
+                pub.Abstract = publication.Abstract;
+                pub.PublicationCategoryId = publication.PublicationCategoryId;
             }
 
             context.SaveChanges();
@@ -668,6 +673,11 @@ namespace PubCiterAPI.Repositories
                 origin.CitationCategoryId = citation.CitationCategoryId;
                 origin.Title = citation.Title;
                 origin.Journal = citation.Journal;
+                origin.JournalVolume = citation.JournalVolume;
+                origin.Doi = citation.Doi;
+                origin.Abstract = citation.Abstract;
+                origin.PublicationUrl = citation.PublicationUrl;
+                origin.PublicationYear = citation.PublicationYear;
 
                 context.SaveChanges();
 

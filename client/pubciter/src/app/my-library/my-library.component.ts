@@ -8,6 +8,7 @@ import { PublicationService } from '../services/publication.service';
 import { RemovePublicationDialogComponent } from 'src/app/dialogs/remove-publication-dialog/remove-publication-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MatMenuTrigger } from '@angular/material/menu';
+import { EditPublicationDialogComponent } from '../dialogs/edit-publication-dialog/edit-publication-dialog.component';
 
 @Component({
   selector: 'app-my-library',
@@ -120,7 +121,22 @@ export class MyLibraryComponent implements OnInit {
   }
 
   onEditPublication(publication: any) {
+    const dialogRef = this.dialog.open(EditPublicationDialogComponent, {
+      data: { publication }
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      switch (result?.operation) {
+        case 'update':
+          this.publicationService.updatePublication(result.data).then(() => {
+            this.ngAfterViewInit();
+          });
+
+          break;
+        default:
+          break;
+      }
+    });
   }
 
 }

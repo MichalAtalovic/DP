@@ -47,6 +47,7 @@ import { ExportFormatDialogComponent } from './dialogs/export-format-dialog/expo
 import { MatChipsModule } from '@angular/material/chips';
 import { EditCitationDialogComponent } from './dialogs/edit-citation-dialog/edit-citation-dialog.component';
 import { RemovePublicationDialogComponent } from './dialogs/remove-publication-dialog/remove-publication-dialog.component';
+import { EditPublicationDialogComponent } from './dialogs/edit-publication-dialog/edit-publication-dialog.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,8 @@ import { RemovePublicationDialogComponent } from './dialogs/remove-publication-d
     EnumsActionPanelComponent,
     ExportFormatDialogComponent,
     EditCitationDialogComponent,
-    RemovePublicationDialogComponent
+    RemovePublicationDialogComponent,
+    EditPublicationDialogComponent
   ],
   imports: [
     BrowserModule,

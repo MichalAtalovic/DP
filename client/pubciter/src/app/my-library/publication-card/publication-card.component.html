@@ -76,6 +76,13 @@
               </div>
             </div>
           </div>
+          <ng-container *ngIf="this.publication?.publicationCategory">
+            <mat-chip id="publicationCategory" [removable]="false"
+              style="background-color: rgba(235,0,120, 1); margin: 10px; border-radius: 20px; padding: 5px;">
+              <span style="padding: 5px; color: white;">{{ publication?.publicationCategory?.code }} | {{
+                publication?.publicationCategory?.name }}</span>
+            </mat-chip>
+          </ng-container>
         </div>
         <div class="d-flex flex-column">
           <div class="d-flex justify-content-end">
@@ -90,7 +97,7 @@
                   <div style="padding-top: 4px; text-align: center; vertical-align: middle;">{{ this.showCitationsState
                     ? 'Hide citations' : 'Show citations' }}</div>
                 </button>
-                <button class="action-button"
+                <button class="action-button" (click)="this.editPublication(this.publication)"
                   style="width: 250px; margin: 10px 30px 0px 30px; border-radius: 3px; border: 1px solid  #004ecb; background-color: white;">
                   <img
                     style="float: left; height: 30px; width: 37px; padding: 7px 12px 6px 5px; border-right: 1px solid  #004ecb;"

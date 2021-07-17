@@ -1,0 +1,74 @@
+<div style="background-color: darkslateblue; border-radius: 3px;">
+  <img style="float: left; height: 30px; width: 30px; margin: 10px 5px 10px 10px; padding: 5px;"
+    class="icon" src="assets/export_format.png">
+    <div style="padding: 15px 0px; font-size: 25px; color: white; font-weight: bold;">Edit publication</div>
+</div>
+<mat-dialog-content class="mat-typography" style="padding: 20px;">
+  <div [formGroup]="this.form" style="display: flex; flex-direction: column;">
+    <div style="display: flex; flex-direction: row;">
+      <mat-form-field style="width: 880px;">
+        <mat-label>Title</mat-label>
+        <input #title name="title" matInput placeholder="Title" formControlName="title" [(ngModel)]="this.data.publication.title" required>
+        <p style="color: red" *ngIf="this.form?.invalid && this.form?.touched && !this.form.value.title">required</p>
+      </mat-form-field>
+      <div style="width: 20px;"></div>
+      <mat-form-field style="width: 100px;">
+        <mat-label>Doi</mat-label>
+        <input #doi name="doi" matInput placeholder="DOI" formControlName="doi" [(ngModel)]="this.data.publication.doi" required>
+        <p style="color: red" *ngIf="this.form?.invalid && this.form?.touched && !this.form.value.doi">required</p>
+      </mat-form-field>
+    </div>
+    <mat-form-field style="width: 100% !important;">
+      <mat-label>Authors</mat-label>
+      <input #authors name="authors" matInput placeholder="Authors" formControlName="authors" [(ngModel)]="this.data.publication.authors" required>
+      <p style="color: red" *ngIf="this.form?.invalid && this.form?.touched && !this.form.value.authors">required</p>
+    </mat-form-field>
+    <mat-form-field style="width: 100% !important;">
+      <mat-label>Publisher</mat-label>
+      <input #publisher name="publisher" matInput placeholder="Publisher" formControlName="publisher" [(ngModel)]="this.data.publication.publisher">
+    </mat-form-field>
+    <div style="display: flex; flex-direction: row;">
+      <mat-form-field style="width: 660px;">
+        <mat-label>Journal</mat-label>
+        <input #journal name="journal" matInput placeholder="Journal" formControlName="journal" [(ngModel)]="this.data.publication.journal">
+      </mat-form-field>
+      <div style="width: 20px;"></div>
+      <mat-form-field style="width: 200px;">
+        <mat-label>Volume</mat-label>
+        <input #journalVolume name="journalVolume" matInput placeholder="Volume" formControlName="journalVolume" [(ngModel)]="this.data.publication.journalVolume">
+      </mat-form-field>
+      <div style="width: 20px;"></div>
+      <mat-form-field style="width: 100px;">
+        <mat-label>Year</mat-label>
+        <input #year name="year" matInput placeholder="Year" formControlName="year" [(ngModel)]="this.data.publication.publicationYear" required>
+        <p style="color: red" *ngIf="this.form?.invalid && this.form?.touched && !this.form.value.year">required</p>
+      </mat-form-field>
+    </div>
+    <mat-form-field style="width: 100% !important;">
+      <mat-label>Publication URL</mat-label>
+      <input #publicationUrl name="publicationUrl" matInput placeholder="Publication URL" formControlName="publicationUrl" [(ngModel)]="this.data.publication.eprintUrl">
+    </mat-form-field>
+    <mat-form-field appearance="fill" style="background-color: white !important;">
+      <mat-label>Publication category</mat-label>
+      <mat-select matInput formControlName="publicationCategory" [(ngModel)]="this.data.publication.publicationCategoryId" required>
+        <mat-option *ngFor="let publicationCategory of this.publicationCategories" [value]="publicationCategory.id">
+          <span style="font-weight: bold; background-color: #ea0d77; color: white; border-radius: 20px; padding: 3px;">{{ publicationCategory.group }}</span>
+          <span style="font-weight: bold;">{{ ' | ' }}</span>
+          <span>{{ publicationCategory.name }}</span>
+          <span style="font-weight: bold;">{{ ' (' + publicationCategory.code + ')' }}</span>
+        </mat-option>
+      </mat-select>
+      <p style="color: red" *ngIf="this.form?.invalid && this.form?.touched && !this.form.value.publicationCategory">required</p>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Abstract</mat-label>
+      <textarea #abstract matInput formControlName="abstract"
+        [(ngModel)]="this.data.publication.abstract" type="text" autocomplete="off" autocapitalize="off"
+        placeholder="Abstract"></textarea>
+    </mat-form-field>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Cancel</button>
+  <button mat-button color="primary" (click)="this.onUpdateClick()" style="border: 1px solid darkorange; border-radius: 3px;">Update</button>
+</mat-dialog-actions>

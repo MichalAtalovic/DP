@@ -28,6 +28,10 @@ export class PublicationService extends BaseRestService {
     return this.post('publication', publication);
   }
 
+  async updatePublication(publication: any) {
+    return this.put(`publication`, publication);
+  }
+
   async insertCitation(citation: any, publicationId: number) {
     return this.post(`publication/${publicationId}/citation`, citation);
   }

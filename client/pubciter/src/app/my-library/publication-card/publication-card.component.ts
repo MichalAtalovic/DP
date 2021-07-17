@@ -24,6 +24,7 @@ export class PublicationCardComponent implements OnInit {
 
   @Output() public publicationMoved: EventEmitter<any> = new EventEmitter<any>();
   @Output() public onRemovePublication: EventEmitter<any> = new EventEmitter<any>();
+  @Output() public onEditPublication: EventEmitter<any> = new EventEmitter<any>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatMenuTrigger) matMenu!: MatMenuTrigger;
@@ -179,6 +180,10 @@ export class PublicationCardComponent implements OnInit {
 
   removePublication(publication: any) {
     this.onRemovePublication.emit(publication);
+  }
+
+  editPublication(publication: any) {
+    this.onEditPublication.emit(publication);
   }
 
 }
