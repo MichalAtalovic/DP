@@ -26,6 +26,7 @@ export class MyLibraryComponent implements OnInit {
   public panelData = { header: 'My library', iconPath: 'assets/library_fade.png' }
   public viewType = 'cards';
   public subscription: Subscription;
+  public currentSearchedText: string = '';
 
   constructor(
     public publicationService: PublicationService,
@@ -79,6 +80,7 @@ export class MyLibraryComponent implements OnInit {
   }
 
   search(searchedText: string) {
+    this.currentSearchedText = searchedText;
     this.publicationService.getPublications(searchedText).then(response => {
       this.publications = response as any;
 

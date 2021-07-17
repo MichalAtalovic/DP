@@ -28,7 +28,7 @@
       <div class="column" style="width: 98% !important">
         <div class="card-deck" style="display: flex; flex-flow: column; padding: 20px !important;">
           <div *ngFor="let publication of this.publications; let i = index; trackBy: trackByFn">
-            <app-publication-card [template]="'library'" [publication]="publication"
+            <app-publication-card [template]="'library'" [publication]="publication" [searchedText]="this.currentSearchedText"
               (publicationMoved)="this.onPublicationMoved($event)"
               (onRemovePublication)="this.onRemovePublication($event)"
               (onEditPublication)="this.onEditPublication($event)"></app-publication-card>
@@ -53,23 +53,19 @@
           </ng-container>
           <ng-container matColumnDef="title" style="width: 30%;">
             <th mat-header-cell *matHeaderCellDef style="padding-left: 10px; padding-right: 10px;"> Title </th>
-            <td mat-cell *matCellDef="let element" style="padding-left: 10px; padding-right: 10px;"> {{
-              element?.title }} </td>
+            <td mat-cell *matCellDef="let element" style="padding-left: 10px; padding-right: 10px;" [innerHtml]="element?.title | highlight: this.currentSearchedText | safeHtml"></td>
           </ng-container>
           <ng-container matColumnDef="authors" style="width: 20%;">
             <th mat-header-cell *matHeaderCellDef style="padding-left: 10px; padding-right: 10px;"> Author </th>
-            <td mat-cell *matCellDef="let element" style="padding-left: 10px; padding-right: 10px;"> {{
-              element?.authors }} </td>
+            <td mat-cell *matCellDef="let element" style="padding-left: 10px; padding-right: 10px;" [innerHtml]="element?.authors | highlight: this.currentSearchedText | safeHtml"></td>
           </ng-container>
           <ng-container matColumnDef="journal" style="width: 30%;">
             <th mat-header-cell *matHeaderCellDef style="padding-left: 10px; padding-right: 10px;"> Journal </th>
-            <td mat-cell *matCellDef="let element" style="padding-left: 10px; padding-right: 10px;"> {{
-              element?.journal }} {{ element?.journalVolume ? ('(No. ' + element?.journalVolume + ')') : '' }}</td>
+            <td mat-cell *matCellDef="let element" style="padding-left: 10px; padding-right: 10px;" [innerHtml]="(element?.journal + ' ' + (element?.journalVolume ? ('(No. ' + element?.journalVolume + ')') : '' )) | highlight: this.currentSearchedText | safeHtml"></td>
           </ng-container>
           <ng-container matColumnDef="publicationYear" style="width: 10%;">
             <th mat-header-cell *matHeaderCellDef style="padding-left: 10px; padding-right: 10px;"> Year </th>
-            <td mat-cell *matCellDef="let element" style="padding-left: 10px; padding-right: 10px;"> {{
-              element?.publicationYear }} </td>
+            <td mat-cell *matCellDef="let element" style="padding-left: 10px; padding-right: 10px;" [innerHtml]="element?.publicationYear | highlight: this.currentSearchedText | safeHtml"></td>
           </ng-container>
           <ng-container matColumnDef="opts" style="width: 5%;">
             <th mat-header-cell *matHeaderCellDef style="padding-left: 10px; padding-right: 10px;"></th>

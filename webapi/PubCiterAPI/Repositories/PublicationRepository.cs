@@ -55,6 +55,36 @@ namespace PubCiterAPI.Repositories
                         }
                     }
 
+                    if (publication?.JournalVolume != null)
+                    {
+                        if (publication.JournalVolume.Trim().ToLower().Contains(searchedText.Trim().ToLower()))
+                        {
+                            filteredList.Add(publication);
+                            continue;
+                        }
+                    }
+
+                    if (publication?.PublicationCategory != null)
+                    {
+                        if (publication.PublicationCategory.Name.Trim().ToLower().Contains(searchedText.Trim().ToLower()))
+                        {
+                            filteredList.Add(publication);
+                            continue;
+                        }
+
+                        if (publication.PublicationCategory.Code.Trim().ToLower().Contains(searchedText.Trim().ToLower()))
+                        {
+                            filteredList.Add(publication);
+                            continue;
+                        }
+
+                        if (publication.PublicationCategory.Group.Trim().ToLower().Contains(searchedText.Trim().ToLower()))
+                        {
+                            filteredList.Add(publication);
+                            continue;
+                        }
+                    }
+
                     if (publication?.PublicationYear != null)
                     {
                         if (publication.PublicationYear.Trim().ToLower().Contains(searchedText.Trim().ToLower()))
@@ -100,6 +130,24 @@ namespace PubCiterAPI.Repositories
                         }
                     }
 
+                    if (publication?.Doi != null)
+                    {
+                        if (publication.Doi.Trim().ToLower().Contains(searchedText.Trim().ToLower()))
+                        {
+                            filteredList.Add(publication);
+                            continue;
+                        }
+                    }
+
+                    if (publication?.Pages != null)
+                    {
+                        if (publication.Pages.Trim().ToLower().Contains(searchedText.Trim().ToLower()))
+                        {
+                            filteredList.Add(publication);
+                            continue;
+                        }
+                    }
+
                     foreach (var publicationCitation in publication.PublicationCitationList)
                     {
                         if (publicationCitation?.Citation == null)
@@ -128,6 +176,15 @@ namespace PubCiterAPI.Repositories
                         if (!string.IsNullOrEmpty(publicationCitation.Citation.Title))
                         {
                             if (publicationCitation.Citation.Title.Trim().ToLower().Contains(searchedText.Trim().ToLower()))
+                            {
+                                filteredList.Add(publication);
+                                break;
+                            }
+                        }
+
+                        if (!string.IsNullOrEmpty(publicationCitation.Citation.PublicationYear))
+                        {
+                            if (publicationCitation.Citation.PublicationYear.Trim().ToLower().Contains(searchedText.Trim().ToLower()))
                             {
                                 filteredList.Add(publication);
                                 break;

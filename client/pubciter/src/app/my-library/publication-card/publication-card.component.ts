@@ -1,5 +1,5 @@
 import { QuarantineDialogComponent } from '../../dialogs//quarantine-dialog/quarantine-dialog.component';
-import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, SecurityContext, ViewChild, ViewEncapsulation } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
@@ -11,6 +11,24 @@ import { PublicationService } from 'src/app/services/publication.service';
 import { MatMenuTrigger } from '@angular/material/menu';
 import { RemoveCitationDialogComponent } from 'src/app/dialogs/remove-citation-dialog/remove-citation-dialog.component';
 import { EditCitationDialogComponent } from 'src/app/dialogs/edit-citation-dialog/edit-citation-dialog.component';
+import { DomSanitizer } from '@angular/platform-browser'
+import { PipeTransform, Pipe } from "@angular/core";
+
+@Pipe({ name: 'safeHtml'})
+export class SafeHtmlPipe implements PipeTransform  {
+  constructor(private sanitized: DomSanitizer) {}
+  transform(value: any) {
+    return this.sanitized.bypassSecurityTrustHtml(value);
+  }
+}
+
+@Pipe({ name: 'highlight'})
+export class HighlightPipe implements PipeTransform  {
+  constructor() {}
+  transform(value: any, searchedText: string): string {
+    return value?.replace(new RegExp(searchedText, 'g'), '<b><span style="background-color: yellow; color: darkslategrey; border-radius:3px;">' + searchedText + '</span></b>');
+  }
+}
 
 @Component({
   selector: 'app-publication-card',
@@ -21,6 +39,7 @@ export class PublicationCardComponent implements OnInit {
 
   @Input() public publication: any;
   @Input() public template: any;
+  @Input() public searchedText: any;
 
   @Output() public publicationMoved: EventEmitter<any> = new EventEmitter<any>();
   @Output() public onRemovePublication: EventEmitter<any> = new EventEmitter<any>();
@@ -39,7 +58,8 @@ export class PublicationCardComponent implements OnInit {
     public dialog: MatDialog,
     public quarantineService: QuarantineService,
     public authorService: AuthorService,
-    public publicationService: PublicationService
+    public publicationService: PublicationService,
+    private sanitizer: DomSanitizer
   ) { }
 
   openQuarantineDialog(args: any): void {
