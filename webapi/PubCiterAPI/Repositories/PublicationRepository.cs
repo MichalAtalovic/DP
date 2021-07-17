@@ -760,5 +760,16 @@ namespace PubCiterAPI.Repositories
                 context.SaveChanges();
             }
         }
+
+        /// <summary>
+        /// Gets publication by ID
+        /// </summary>
+        /// <param name="context">Application DB context</param>
+        /// <param name="publicationId">Publication ID</param>
+        /// <returns>Publication</returns>
+        public Publication GetPublication(ApplicationDbContext context, long publicationId)
+        {
+            return context.Publications.FirstOrDefault(x => x.PublicationId == publicationId);
+        }
     }
 }

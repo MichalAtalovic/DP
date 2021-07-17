@@ -101,5 +101,13 @@
         /// <param name="context">Application DB context</param>
         /// <param name="publicationId">Publication ID</param>
         void RemovePublication(ApplicationDbContext context, long publicationId);
+
+        /// <summary>
+        /// Gets publication by ID
+        /// </summary>
+        /// <param name="context">Application DB context</param>
+        /// <param name="publicationId">Publication ID</param>
+        /// <returns>Publication</returns>
+        Publication GetPublication(ApplicationDbContext context, long publicationId);
     }
 }

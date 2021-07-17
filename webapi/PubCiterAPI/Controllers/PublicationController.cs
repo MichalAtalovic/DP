@@ -191,6 +191,28 @@ namespace PubCiterAPI.Controllers
         }
 
         /// <summary>
+        /// Gets publication by ID
+        /// </summary>
+        /// <returns>Publication</returns>
+        [HttpGet]
+        [Route(@"{publicationId}")]
+        [SwaggerOperation(Summary = "Gets publication by ID")]
+        public Publication GetPublication([SwaggerParameter(Description = @"Publication's unique identifier")] long publicationId)
+        {
+            try
+            {
+                return this.publicationRepository.GetPublication(context, publicationId);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                this.logger.LogError(ex.ToString());
+
+                return null;
+            }
+        }
+
+        /// <summary>
         /// Adds publication to the library
         /// </summary>
         [HttpPost]

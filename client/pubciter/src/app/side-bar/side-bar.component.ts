@@ -135,21 +135,39 @@ export class SideBarComponent implements OnInit {
 
             let htmlString = '';
 
+            const promises = [];
             for (let key in grouped) {
-              let citations = grouped[key];
-              if (citations && (citations as any)?.length > 0) {
-                (citations as any)?.forEach((citation: any) => {
-                  let template = exportFormat?.replace(/\$|,/g, '@');
-                  Object.keys(citation.value)?.forEach(prop => {
-                    template = template?.replace(`@{${prop}}`, citation.value[prop] ?? '');
-                  });
-
-                  htmlString += template + '</br>-------------------------------------------</br></br>'
-                });
-              }
+              promises.push(this.publicationService.getPublication(key));
             }
 
-            this.buildFile(htmlString);
+            Promise.all(promises).then((values: any) => {
+              values?.forEach((publication: any) => {
+                // append publication
+                let template = exportFormat?.replace(/\$|,/g, '@');
+                Object.keys(publication)?.forEach(prop => {
+                  template = template?.replace(`@{${prop}}`, publication[prop] ?? '');
+                });
+
+                htmlString += template;
+
+                // append citations
+                let citations = grouped[publication.publicationId];
+                if (citations && (citations as any)?.length > 0) {
+                  (citations as any)?.forEach((citation: any) => {
+                    let template = exportFormat?.replace(/\$|,/g, '@');
+                    Object.keys(citation.value)?.forEach(prop => {
+                      template = template?.replace(`@{${prop}}`, citation.value[prop] ?? '');
+                    });
+
+                    htmlString += '<div style="margin-left: 50px;">' + template + '</div>';
+                  });
+
+                  htmlString += '</br>-------------------------------------------</br></br>';
+                }
+              });
+
+              this.buildFile(htmlString);
+            });
           });
 
           break;
