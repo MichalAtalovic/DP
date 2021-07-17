@@ -1,6 +1,7 @@
 import { EnumService } from './../../services/enum.service';
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-export-dialog',
@@ -9,6 +10,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class ExportDialogComponent implements OnInit {
 
+  public form: FormGroup;
   public years: number[] = [];
   public availablePublicationCategories: any;
   public pickedPublicationCategories: any = [];
@@ -20,7 +22,17 @@ export class ExportDialogComponent implements OnInit {
     public dialogRef: MatDialogRef<ExportDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private enumService: EnumService
-  ) { }
+  ) {
+    this.form = new FormGroup({
+      yearFrom: new FormControl(null),
+      yearTo: new FormControl(null),
+      publicationCategory: new FormControl(null),
+      publicationCategories: new FormControl(null),
+      citationCategory: new FormControl(null),
+      citationCategories: new FormControl(null),
+      exportFormat: new FormControl(null)
+    });
+  }
 
   ngOnInit(): void { }
 
@@ -67,16 +79,21 @@ export class ExportDialogComponent implements OnInit {
   }
 
   export() {
-    this.dialogRef.close({
-      operation: 'export',
-      exportFormat: this.data.exportFormat,
-      data: {
-        yearFrom: this.data.yearFrom,
-        yearTo: this.data.yearTo,
-        publicationCategories: this.pickedPublicationCategories.map((x: any) => x.code),
-        citationCategories: this.pickedCitationCategories.map((x: any) => x.code)
-      }
-    });
+    this.form.markAllAsTouched();
+    console.log(this.form);
+    if (this.form.valid) {
+      this.dialogRef.close({
+        operation: 'export',
+        exportFormat: this.data.exportFormat,
+        data: {
+          yearFrom: this.data.yearFrom,
+          yearTo: this.data.yearTo,
+          publicationCategories: this.pickedPublicationCategories.map((x: any) => x.code),
+          citationCategories: this.pickedCitationCategories.map((x: any) => x.code)
+        }
+      });
+    }
+
   }
 
 }
