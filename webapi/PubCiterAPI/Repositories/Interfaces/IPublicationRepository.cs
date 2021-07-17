@@ -86,6 +86,20 @@
         /// <param name="citationCategories">Citation categories to filter by</param>
         List<KeyValuePair<Publication, Citation>> ReportCitations(ApplicationDbContext context, long? yearFrom, long? yearTo, List<string> publicationCategories, List<long> citationCategories);
 
+        /// <summary>
+        /// Updates citation by ID
+        /// </summary>
+        /// <param name="context">Application DB context</param>
+        /// <param name="citation">Citation object to be updated</param>
+        /// <param name="publicationId">Publication ID</param>
+        /// <returns></returns>
         Citation UpdateCitation(ApplicationDbContext context, Citation citation, long publicationId);
+
+        /// <summary>
+        /// Removes publication by ID
+        /// </summary>
+        /// <param name="context">Application DB context</param>
+        /// <param name="publicationId">Publication ID</param>
+        void RemovePublication(ApplicationDbContext context, long publicationId);
     }
 }

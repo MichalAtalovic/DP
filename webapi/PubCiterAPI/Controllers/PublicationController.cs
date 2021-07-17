@@ -328,5 +328,25 @@ namespace PubCiterAPI.Controllers
                 return null;
             }
         }
+
+        /// <summary>
+        /// Removes publication by ID
+        /// </summary>
+        [HttpDelete]
+        [Route(@"{publicationId}")]
+        [SwaggerOperation(Summary = "Removes publication by ID")]
+        public void RemovePublication(long publicationId)
+        {
+            try
+            {
+                this.publicationRepository.RemovePublication(context, publicationId);
+                this.authorRepository.RecountCitations(context);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                this.logger.LogError(ex.ToString());
+            }
+        }
     }
 }

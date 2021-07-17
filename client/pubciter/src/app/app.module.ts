@@ -46,6 +46,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { ExportFormatDialogComponent } from './dialogs/export-format-dialog/export-format-dialog.component';
 import { MatChipsModule } from '@angular/material/chips';
 import { EditCitationDialogComponent } from './dialogs/edit-citation-dialog/edit-citation-dialog.component';
+import { RemovePublicationDialogComponent } from './dialogs/remove-publication-dialog/remove-publication-dialog.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import { EditCitationDialogComponent } from './dialogs/edit-citation-dialog/edit
     EnumsComponent,
     EnumsActionPanelComponent,
     ExportFormatDialogComponent,
-    EditCitationDialogComponent
+    EditCitationDialogComponent,
+    RemovePublicationDialogComponent
   ],
   imports: [
     BrowserModule,

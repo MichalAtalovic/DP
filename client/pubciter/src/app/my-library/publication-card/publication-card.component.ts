@@ -23,6 +23,7 @@ export class PublicationCardComponent implements OnInit {
   @Input() public template: any;
 
   @Output() public publicationMoved: EventEmitter<any> = new EventEmitter<any>();
+  @Output() public onRemovePublication: EventEmitter<any> = new EventEmitter<any>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatMenuTrigger) matMenu!: MatMenuTrigger;
@@ -32,7 +33,6 @@ export class PublicationCardComponent implements OnInit {
   public paginatedData: MatTableDataSource<any> = new MatTableDataSource();
   public showCitationsState = false;
   public publicationId: any;
-  public menuTopLeftPosition = { x: '0', y: '0' }
 
   constructor(
     public dialog: MatDialog,
@@ -175,6 +175,10 @@ export class PublicationCardComponent implements OnInit {
           break;
       }
     });
+  }
+
+  removePublication(publication: any) {
+    this.onRemovePublication.emit(publication);
   }
 
 }

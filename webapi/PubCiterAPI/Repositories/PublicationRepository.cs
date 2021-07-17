@@ -676,5 +676,22 @@ namespace PubCiterAPI.Repositories
 
             return null;
         }
+
+        /// <summary>
+        /// Removes publication by ID
+        /// </summary>
+        /// <param name="context">Application DB context</param>
+        /// <param name="publicationId">Publication ID</param>
+        public void RemovePublication(ApplicationDbContext context, long publicationId)
+        {
+            var publication = context.Publications.Include(x => x.PublicationCitationList).ThenInclude(x => x.Citation).FirstOrDefault(x => x.PublicationId == publicationId);
+            if (publication != null)
+            {
+                publication.PublicationCitationList.Clear();
+                context.Publications.Remove(publication);
+
+                context.SaveChanges();
+            }
+        }
     }
 }

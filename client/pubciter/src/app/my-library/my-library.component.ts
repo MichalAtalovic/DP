@@ -5,6 +5,9 @@ import { Subscription } from 'rxjs';
 import { AuthorService } from '../services/author.service';
 import { DataService } from '../services/data.service';
 import { PublicationService } from '../services/publication.service';
+import { RemovePublicationDialogComponent } from 'src/app/dialogs/remove-publication-dialog/remove-publication-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
+import { MatMenuTrigger } from '@angular/material/menu';
 
 @Component({
   selector: 'app-my-library',
@@ -14,8 +17,9 @@ import { PublicationService } from '../services/publication.service';
 export class MyLibraryComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatMenuTrigger) matMenu!: MatMenuTrigger;
 
-  public displayedColumns: string[] = ['position', 'title', 'authors', 'journal', 'publicationYear'];
+  public displayedColumns: string[] = ['position', 'title', 'authors', 'journal', 'publicationYear', 'opts'];
   public dataSource: MatTableDataSource<any> = new MatTableDataSource();
   public publications: any;
   public panelData = { header: 'My library', iconPath: 'assets/library_fade.png' }
@@ -25,7 +29,8 @@ export class MyLibraryComponent implements OnInit {
   constructor(
     public publicationService: PublicationService,
     public authorService: AuthorService,
-    public dataService: DataService
+    public dataService: DataService,
+    public dialog: MatDialog,
   ) {
     this.subscription = this.dataService.getData().subscribe(args => {
       if (args.action === 'INSERTED PUBLICATION') {
@@ -92,6 +97,30 @@ export class MyLibraryComponent implements OnInit {
 
   trackByFn(index: any) {
     return index;
+  }
+
+  onRemovePublication(publication: any) {
+    const dialogRef = this.dialog.open(RemovePublicationDialogComponent, {
+      data: { publication }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      switch (result?.operation) {
+        case 'remove':
+          this.publicationService.removePublication(publication.publicationId).then(() => {
+            this.publications = this.publications.filter((x: any) => x.publicationId !== publication.publicationId);
+            this.dataSource = new MatTableDataSource(this.publications);
+          });
+
+          break;
+        default:
+          break;
+      }
+    });
+  }
+
+  onEditPublication(publication: any) {
+
   }
 
 }

@@ -45,4 +45,9 @@ export class PublicationService extends BaseRestService {
     console.log(url);
     return this.get(url);
   }
+
+  async removePublication(publicationId: number) {
+    return this.delete(`publication/${publicationId}`);
+  }
+
 }
