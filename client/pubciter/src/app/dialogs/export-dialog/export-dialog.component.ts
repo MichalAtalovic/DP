@@ -30,7 +30,8 @@ export class ExportDialogComponent implements OnInit {
       publicationCategories: new FormControl(null),
       citationCategory: new FormControl(null),
       citationCategories: new FormControl(null),
-      exportFormat: new FormControl(null)
+      exportFormat: new FormControl(null),
+      ext: new FormControl(null)
     });
   }
 
@@ -41,6 +42,8 @@ export class ExportDialogComponent implements OnInit {
     for (let year = currentYear; year >= 1930; year--) {
       this.years.push(year);
     }
+
+    this.data.ext = 'HTML';
 
     Promise.all([
       this.enumService.getPublicationCategories(),
@@ -85,6 +88,7 @@ export class ExportDialogComponent implements OnInit {
       this.dialogRef.close({
         operation: 'export',
         exportFormat: this.data.exportFormat,
+        extension: this.data.ext,
         data: {
           yearFrom: this.data.yearFrom,
           yearTo: this.data.yearTo,

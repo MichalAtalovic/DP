@@ -48,6 +48,8 @@ import { MatChipsModule } from '@angular/material/chips';
 import { EditCitationDialogComponent } from './dialogs/edit-citation-dialog/edit-citation-dialog.component';
 import { RemovePublicationDialogComponent } from './dialogs/remove-publication-dialog/remove-publication-dialog.component';
 import { EditPublicationDialogComponent } from './dialogs/edit-publication-dialog/edit-publication-dialog.component';
+import { PublicationCategoryDialogComponent } from './dialogs/publication-category-dialog/publication-category-dialog.component';
+import { CitationCategoryDialogComponent } from './dialogs/citation-category-dialog/citation-category-dialog.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +77,9 @@ import { EditPublicationDialogComponent } from './dialogs/edit-publication-dialo
     RemovePublicationDialogComponent,
     EditPublicationDialogComponent,
     SafeHtmlPipe,
-    HighlightPipe
+    HighlightPipe,
+    PublicationCategoryDialogComponent,
+    CitationCategoryDialogComponent
   ],
   imports: [
     BrowserModule,

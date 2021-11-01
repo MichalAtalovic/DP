@@ -121,8 +121,8 @@ export class UtilsComponent implements OnInit {
     }
 
     var file = new Blob([this.conversionOutput], { type: this.outputConversionFormat });
-    if (window.navigator.msSaveOrOpenBlob) {
-      window.navigator.msSaveOrOpenBlob(file, "out." + this.outputConversionFormat);
+    if ((window.navigator as any)?.msSaveOrOpenBlob) {
+      (window.navigator as any)?.msSaveOrOpenBlob(file, "out." + this.outputConversionFormat);
     }
     else {
       var a = document.createElement("a"),
@@ -145,8 +145,8 @@ export class UtilsComponent implements OnInit {
     }
 
     var file = new Blob([this.formattedOutput], { type: this.outputFormat });
-    if (window.navigator.msSaveOrOpenBlob) {
-      window.navigator.msSaveOrOpenBlob(file, "out." + this.outputFormat);
+    if ((window.navigator as any)?.msSaveOrOpenBlob) {
+      (window.navigator as any)?.msSaveOrOpenBlob(file, "out." + this.outputFormat);
     }
     else {
       var a = document.createElement("a"),

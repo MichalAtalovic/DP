@@ -127,6 +127,46 @@ namespace PubCiterAPI.Controllers
         }
 
         /// <summary>
+        /// Removes publication category by ID
+        /// </summary>
+        [HttpDelete]
+        [Route(@"publicationCategory/{id}")]
+        [SwaggerOperation(Summary = "Removes publication category by ID")]
+        public void DeletePublicationCategory(long id)
+        {
+            try
+            {
+                this.enumRepository.RemovePublicationCategory(context, id);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                this.logger.LogError(ex.ToString());
+            }
+        }
+
+        /// <summary>
+        /// Inserts or updates incoming publication category
+        /// </summary>
+        [HttpPut]
+        [Route(@"publicationCategory")]
+        [SwaggerOperation(Summary = "Inserts or updates incoming publication category")]
+        public PublicationCategory PutPublicationCategory(PublicationCategory publicationCategory)
+        {
+            try
+            {
+                return this.enumRepository.InsertUpdatePublicationCategory(context, publicationCategory);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                this.logger.LogError(ex.ToString());
+
+                return null;
+            }
+        }
+
+        /// <summary>
         /// Gets list of citation categories
         /// </summary>
         [HttpGet]
@@ -137,6 +177,46 @@ namespace PubCiterAPI.Controllers
             try
             {
                 return this.enumRepository.GetListOfCitationCategories(context);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                this.logger.LogError(ex.ToString());
+
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Removes citation category by ID
+        /// </summary>
+        [HttpDelete]
+        [Route(@"citationCategory/{id}")]
+        [SwaggerOperation(Summary = "Removes citation category by ID")]
+        public void DeleteCitationCategory(long id)
+        {
+            try
+            {
+                this.enumRepository.RemoveCitationCategory(context, id);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                this.logger.LogError(ex.ToString());
+            }
+        }
+
+        /// <summary>
+        /// Inserts or updates incoming citation category
+        /// </summary>
+        [HttpPut]
+        [Route(@"citationCategory")]
+        [SwaggerOperation(Summary = "Inserts or updates incoming citation category")]
+        public CitationCategory PutCitationCategory(CitationCategory citationCategory)
+        {
+            try
+            {
+                return this.enumRepository.InsertUpdateCitationCategory(context, citationCategory);
             }
             catch (Exception ex)
             {

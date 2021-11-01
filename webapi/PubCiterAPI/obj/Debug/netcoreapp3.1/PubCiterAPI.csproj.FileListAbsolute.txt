@@ -189,7 +189,6 @@ C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\obj\Debug\netcor
 C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\obj\Debug\netcoreapp3.1\staticwebassets\PubCiterAPI.StaticWebAssets.xml
 C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\obj\Debug\netcoreapp3.1\scopedcss\bundle\PubCiterAPI.styles.css
 C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\obj\Debug\netcoreapp3.1\PubCiterAPI.RazorTargetAssemblyInfo.cache
-C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\obj\Debug\netcoreapp3.1\PubCiterAPI.csproj.CopyComplete
 C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\obj\Debug\netcoreapp3.1\PubCiterAPI.dll
 C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\obj\Debug\netcoreapp3.1\PubCiterAPI.pdb
 C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\obj\Debug\netcoreapp3.1\PubCiterAPI.genruntimeconfig.cache
@@ -204,3 +203,4 @@ C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\bin\Debug\netcor
 C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\bin\Debug\netcoreapp3.1\Utils\pybtex_format.py
 C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\bin\Debug\netcoreapp3.1\Utils\ris2bib.py
 C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\obj\Debug\netcoreapp3.1\PubCiterAPI.csproj.AssemblyReference.cache
+C:\Users\michal.atalovic\Pracovná plocha\DP\webapi\PubCiterAPI\obj\Debug\netcoreapp3.1\PubCiterAPI.GeneratedMSBuildEditorConfig.editorconfig

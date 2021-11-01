@@ -10,6 +10,11 @@ import { BibliographyParser } from 'src/utils/bibliography-parser';
 import { Router } from '@angular/router';
 import { ExportDialogComponent } from '../dialogs/export-dialog/export-dialog.component';
 import * as _ from 'lodash';
+import pdfMake from 'pdfmake/build/pdfmake';
+import pdfFonts from "pdfmake/build/vfs_fonts";
+import htmlToPdfmake from 'html-to-pdfmake';
+
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 @Component({
   selector: 'app-side-bar',
@@ -124,8 +129,9 @@ export class SideBarComponent implements OnInit {
       data: { title: 'Export data' }
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result: any) => {
       const exportFormat = result?.exportFormat;
+      const extension = result?.extension;
       switch (result?.operation) {
         case 'export':
           this.publicationService.getCitations(result.data.yearFrom, result.data.yearTo, result.data.publicationCategories, result.data.citationCategories).then((result: any) => {
@@ -145,28 +151,41 @@ export class SideBarComponent implements OnInit {
                 // append publication
                 let template = exportFormat?.replace(/\$|,/g, '@');
                 Object.keys(publication)?.forEach(prop => {
-                  template = template?.replace(`@{${prop}}`, publication[prop] ?? '');
+                  if (template.includes(`@{(${prop})}`)) {
+                    template = template?.replace(`@{(${prop})}`, (publication[prop] ? `(${publication[prop]})` : '') + '&nbsp;');
+                  }
+                  else {
+                    template = template?.replace(`@{${prop}}`, (publication[prop] ?? '') + '&nbsp;');
+                  }
                 });
 
-                htmlString += template;
+                htmlString += `<div style="display: flex; flex-direction: row;">${template}</div><table data-pdfmake="{&quot;layout&quot;:&quot;noBorders&quot;}" style="margin-left: 50px;">`;
 
                 // append citations
                 let citations = grouped[publication.publicationId];
                 if (citations && (citations as any)?.length > 0) {
-                  (citations as any)?.forEach((citation: any) => {
+                  (citations as any)?.forEach((citation: any, index: number) => {
                     let template = exportFormat?.replace(/\$|,/g, '@');
                     Object.keys(citation.value)?.forEach(prop => {
-                      template = template?.replace(`@{${prop}}`, citation.value[prop] ?? '');
+                      if (template.includes(`@{(${prop})}`)) {
+                        template = template?.replace(`@{(${prop})}`, (citation.value[prop] ? `(${citation.value[prop]})` : '') + '&nbsp;');
+                      }
+                      else {
+                        template = template?.replace(`@{${prop}}`, (citation.value[prop] ?? '') + '&nbsp;');
+                      }
                     });
 
-                    htmlString += '<div style="margin-left: 50px;">' + template + '</div>';
+                    htmlString += `<tr>
+                                      <td>[${1 + index++}]</td>
+                                      <td><div style="display: flex; flex-direction: row;">${template}</div><td>
+                                  </tr>`;
                   });
 
-                  htmlString += '</br>-------------------------------------------</br></br>';
+                  htmlString += '</table></br>_______________________________________________________________________________________________</br></br>';
                 }
               });
 
-              this.buildFile(htmlString);
+              this.buildFile(htmlString, extension);
             });
           });
 
@@ -177,24 +196,49 @@ export class SideBarComponent implements OnInit {
     });
   }
 
-  public buildFile(content: string) {
+  public buildFile(content: string, extension: string) {
+    switch (extension) {
+      case 'HTML':
+        var file = new Blob([content], { type: 'html' });
+        if ((window.navigator as any)?.msSaveOrOpenBlob) {
+          (window.navigator as any)?.msSaveOrOpenBlob(file, `export_${new Date().getMonth()}_${new Date().getDay()}_${new Date().getFullYear()}_.html`);
+        }
+        else {
+          var a = document.createElement("a"),
+            url = URL.createObjectURL(file);
+          a.href = url;
+          a.download = `export_${new Date().getMonth()}_${new Date().getDay()}_${new Date().getFullYear()}.html`;
+          document.body.appendChild(a);
+          a.click();
+          setTimeout(function () {
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+          }, 0);
+        }
 
-    var file = new Blob([content], { type: 'html' });
-    if (window.navigator.msSaveOrOpenBlob) {
-      window.navigator.msSaveOrOpenBlob(file, `export_${new Date().getMonth()}_${new Date().getDay()}_${new Date().getFullYear()}_.html`);
+        break;
+      case 'PDF':
+        pdfMake.createPdf({ content: htmlToPdfmake(content.replace('\n(', '(').replace('\n)', ')')) }).getBlob((file: Blob) => {
+          if ((window.navigator as any)?.msSaveOrOpenBlob) {
+            (window.navigator as any)?.msSaveOrOpenBlob(file, `export_${new Date().getMonth()}_${new Date().getDay()}_${new Date().getFullYear()}_.pdf`);
+          }
+          else {
+            var a = document.createElement("a"),
+              url = URL.createObjectURL(file);
+            a.href = url;
+            a.download = `export_${new Date().getMonth()}_${new Date().getDay()}_${new Date().getFullYear()}.pdf`;
+            document.body.appendChild(a);
+            a.click();
+            setTimeout(function () {
+              document.body.removeChild(a);
+              window.URL.revokeObjectURL(url);
+            }, 0);
+          }
+        });
+        break;
     }
-    else {
-      var a = document.createElement("a"),
-        url = URL.createObjectURL(file);
-      a.href = url;
-      a.download = `export_${new Date().getMonth()}_${new Date().getDay()}_${new Date().getFullYear()}_.html`;
-      document.body.appendChild(a);
-      a.click();
-      setTimeout(function () {
-        document.body.removeChild(a);
-        window.URL.revokeObjectURL(url);
-      }, 0);
-    }
+
   }
 
 }
+

@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
@@ -6,14 +6,12 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
   templateUrl: './export-format-dialog.component.html',
   styleUrls: ['./export-format-dialog.component.css']
 })
-export class ExportFormatDialogComponent implements OnInit {
+export class ExportFormatDialogComponent {
 
   constructor(
     public dialogRef: MatDialogRef<ExportFormatDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) { }
-
-  ngOnInit(): void { }
 
   addTag(tag: string, element: any) {
     if (!this.data.args.data?.template) {

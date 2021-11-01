@@ -15,8 +15,16 @@ export class EnumService extends BaseRestService {
     return this.get('enum/publicationCategory');
   }
 
+  async insertUpdatePublicationCategory(req: any) {
+    return this.put('enum/publicationCategory', req);
+  }
+
   async getCitationCategories() {
     return this.get('enum/citationCategory');
+  }
+
+  async insertUpdateCitationCategory(req: any) {
+    return this.put('enum/citationCategory', req);
   }
 
   async getExportFormats() {
@@ -29,6 +37,14 @@ export class EnumService extends BaseRestService {
 
   async deleteExportFormat(id: number) {
     return this.delete(`enum/exportFormat/${id}`);
+  }
+
+  async deletePublicationCategory(id: number) {
+    return this.delete(`enum/publicationCategory/${id}`);
+  }
+
+  async deleteCitationCategory(id: number) {
+    return this.delete(`enum/citationCategory/${id}`);
   }
 
 }

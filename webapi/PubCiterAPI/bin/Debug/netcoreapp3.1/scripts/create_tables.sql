@@ -159,3 +159,5 @@ INSERT INTO publication_category (category_group, code, name) values ('B', 'BDM'
 INSERT INTO publication_category (category_group, code, name) values ('B', 'BDN', 'Odborné práce v domácich casopisoch registrovaných v databázach Web of Science alebo SCOPUS');
 INSERT INTO publication_category (category_group, code, name) values ('B', 'CDC', 'Umelecké práce a preklady v zahranicných karentovaných casopisoch');
 INSERT INTO publication_category (category_group, code, name) values ('B', 'CDD', 'Umelecké práce a preklady v domácich karentovaných casopisoch');
+
+INSERT INTO export_format (id, code, template) values (1, 'APA6', '<b>${title}</b> <i>${authors}</i> (<em>${publicationYear}</em>) <i>${journal}</i>');
