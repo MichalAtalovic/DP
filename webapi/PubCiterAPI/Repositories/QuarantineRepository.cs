@@ -20,6 +20,7 @@
         {
             return appendCitations ?
                 context.QuarantinedPublications
+                            .Include(x => x.PublicationCategory)
                             .Include(x => x.QuarantinedPublicationCitationList)
                             .ThenInclude(x => x.Citation).ToList()
                                     : context.QuarantinedPublications.ToList();
@@ -47,6 +48,9 @@
                     Publisher = publication.Publisher,
                     Abstract = publication.Abstract,
                     Doi = publication.Doi,
+                    EprintUrl = publication.EprintUrl,
+                    CitesPerYear = publication.CitesPerYear,
+                    PublicationCategoryId = publication.PublicationCategoryId,
                     QuarantinedPublicationCitationList = new List<QuarantinedPublicationCitation>()
                 };
 
@@ -102,6 +106,9 @@
                     Publisher = quarantinedPublication.Publisher,
                     Abstract = quarantinedPublication.Abstract,
                     Doi = quarantinedPublication.Doi,
+                    EprintUrl = quarantinedPublication.EprintUrl,
+                    CitesPerYear = quarantinedPublication.CitesPerYear,
+                    PublicationCategoryId = quarantinedPublication.PublicationCategoryId,
                     PublicationCitationList = new List<PublicationCitation>()
                 };
 

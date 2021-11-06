@@ -39,7 +39,7 @@
         /// <summary>
         /// Publication category
         /// </summary>
-        public PublicationCategory PublicationCategory { get; set; }
+        public virtual PublicationCategory PublicationCategory { get; set; }
 
         /// <summary>
         /// Publication's title

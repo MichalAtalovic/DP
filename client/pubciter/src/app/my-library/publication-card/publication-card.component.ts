@@ -26,7 +26,10 @@ export class SafeHtmlPipe implements PipeTransform  {
 export class HighlightPipe implements PipeTransform  {
   constructor() {}
   transform(value: any, searchedText: string): string {
-    return value?.replace(new RegExp(searchedText, 'g'), '<b><span style="background-color: yellow; color: darkslategrey; border-radius:3px;">' + searchedText + '</span></b>');
+    if (searchedText) {
+      return value?.replace(new RegExp(searchedText, 'g'), '<b><span style="background-color: yellow; color: darkslategrey; border-radius:3px;">' + searchedText + '</span></b>');
+    }
+    else return value;
   }
 }
 

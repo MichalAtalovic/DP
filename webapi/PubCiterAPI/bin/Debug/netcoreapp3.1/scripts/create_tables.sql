@@ -59,19 +59,23 @@ CREATE TABLE publication (
 );
 
 CREATE TABLE quarantine (
-   pub_id 			SERIAL       	NOT NULL,
-   author_id    	INT				NOT NULL,
-   title     		VARCHAR(255),
-   pub_year 		VARCHAR(255),
-   author      		VARCHAR(255),
-   journal          VARCHAR(255),
-   volume 			VARCHAR(20),
-   pages			VARCHAR(20),
-   publisher 		VARCHAR(255),
-   abstract 		TEXT,
-   doi				VARCHAR(50),
+   pub_id 					SERIAL NOT NULL,
+   author_id    			INT	NOT NULL,
+   publication_category_id  INT,
+   title     				VARCHAR(255),
+   pub_year 				VARCHAR(255),
+   author      				VARCHAR(255),
+   journal          		VARCHAR(255),
+   volume 					VARCHAR(20),
+   pages					VARCHAR(20),
+   publisher 				VARCHAR(255),
+   abstract 				TEXT,
+   doi						VARCHAR(50),
+   cites_per_year   		VARCHAR(255),
+   eprint_url       		VARCHAR(1000),
    CONSTRAINT PKEY_QUARANTINE PRIMARY KEY (pub_id),
-   FOREIGN KEY(author_id) REFERENCES author(author_id)
+   FOREIGN KEY(author_id) REFERENCES author(author_id),
+   FOREIGN KEY(publication_category_id) REFERENCES publication_category(id)
 );
 
 CREATE TABLE citation_category (
@@ -160,4 +164,4 @@ INSERT INTO publication_category (category_group, code, name) values ('B', 'BDN'
 INSERT INTO publication_category (category_group, code, name) values ('B', 'CDC', 'Umelecké práce a preklady v zahranicných karentovaných casopisoch');
 INSERT INTO publication_category (category_group, code, name) values ('B', 'CDD', 'Umelecké práce a preklady v domácich karentovaných casopisoch');
 
-INSERT INTO export_format (id, code, template) values (1, 'APA6', '<b>${title}</b> <i>${authors}</i> (<em>${publicationYear}</em>) <i>${journal}</i>');
+INSERT INTO export_format (id, code, template) values (1, 'APA6', '<b>${title}</b><i>${authors}</i><em>${(publicationYear)}</em><i>${journal}</i>');

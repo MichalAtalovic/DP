@@ -30,6 +30,18 @@
         public virtual Author Author { get; set; }
 
         /// <summary>
+        /// Publication category ID
+        /// </summary>
+        [ForeignKey(@"PublicationCategory")]
+        [Column(@"publication_category_id")]
+        public long? PublicationCategoryId { get; set; }
+
+        /// <summary>
+        /// Publication category
+        /// </summary>
+        public virtual PublicationCategory PublicationCategory { get; set; }
+
+        /// <summary>
         /// Publication's title
         /// </summary>
         [Column(@"title")]
@@ -78,10 +90,22 @@
         public string Abstract { get; set; }
 
         /// <summary>
+        /// Public link to document
+        /// </summary>
+        [Column(@"eprint_url")]
+        public string EprintUrl { get; set; }
+
+        /// <summary>
         /// Paper's digital object identifier (DOI)
         /// </summary>
         [Column(@"doi")]
         public string Doi { get; set; }
+
+        /// <summary>
+        /// Cites per year
+        /// </summary>
+        [Column(@"cites_per_year")]
+        public string CitesPerYear { get; set; }
 
         /// <summary>
         /// Table mapping
