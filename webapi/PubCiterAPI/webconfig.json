@@ -13,7 +13,7 @@
   "Scraper": {
     "SemanticsScriptPath": "Scraper/semantics_sync.py",
     "ScholarScriptPath": "Scraper/scholar_sync.py",
-    "OperaProfileDir": "C:/Users/michal.atalovic/AppData/Local/Opera Software/Opera Stable",
+    "OperaProfileDir": "C:/Users/<<username>>/AppData/Local/Opera Software/Opera Stable",
     "OutputFolder": "Scraper/output"
   },
   "Utils": {
