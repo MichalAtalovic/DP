@@ -8,6 +8,5 @@ psql -c "DROP DATABASE IF EXISTS pubciter" "user=postgres dbname=postgres passwo
 REM recreate database
 psql -c "CREATE DATABASE pubciter WITH ENCODING 'UTF8'" "user=postgres dbname=postgres password=postgres"
 REM create model
-psql -c "\i webapi/PubCiterAPI/scripts/create_tables.sql" "user=postgres dbname=pubciter password=postgres"
-PAUSE
+psql -c "\i ./../webapi/PubCiterAPI/scripts/create_tables.sql" "user=postgres dbname=pubciter password=postgres"
 
